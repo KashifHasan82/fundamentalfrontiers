@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="en">
 <head>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -8,807 +8,664 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KQBRPRDF');</script>
 <!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DX954J7XDQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-DX954J7XDQ');
 </script>
 
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Fundamental Frontiers Consulting</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="manifest" href="site.webmanifest">
-	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Fundamental Frontiers Consulting</title>
+<meta name="description" content="Fundamental Frontiers Consulting helps organizations improve audit impact, operational excellence, supplier performance, and risk management through practical systems and measurable outcomes.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="site.webmanifest">
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-	<!-- CSS here -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="assets/css/slicknav.css">
-	<link rel="stylesheet" href="assets/css/flaticon.css">
-	<link rel="stylesheet" href="assets/css/animate.min.css">
-	<link rel="stylesheet" href="assets/css/magnific-popup.css">
-	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-	<link rel="stylesheet" href="assets/css/themify-icons.css">
-	<link rel="stylesheet" href="assets/css/slick.css">
-	<link rel="stylesheet" href="assets/css/nice-select.css">
-	<link rel="stylesheet" href="assets/css/style.css">
+<!-- CSS here -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="assets/css/slicknav.css">
+<link rel="stylesheet" href="assets/css/flaticon.css">
+<link rel="stylesheet" href="assets/css/animate.min.css">
+<link rel="stylesheet" href="assets/css/magnific-popup.css">
+<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="assets/css/themify-icons.css">
+<link rel="stylesheet" href="assets/css/slick.css">
+<link rel="stylesheet" href="assets/css/nice-select.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+  /* Minimal additions to achieve consulting grade hierarchy */
+  .ff-hero {
+    position: relative;
+    padding: 120px 0 90px 0;
+    background: #0b2233;
+    overflow: hidden;
+  }
+  .ff-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: url("assets/img/hero/hero-consulting.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.18;
+  }
+  .ff-hero .container { position: relative; z-index: 2; }
+  .ff-hero h1 { color: #fff; font-size: 54px; line-height: 1.05; margin-bottom: 18px; }
+  .ff-hero p { color: rgba(255,255,255,0.86); font-size: 18px; line-height: 1.6; max-width: 720px; }
+  .ff-hero .ff-hero-badge { color: rgba(255,255,255,0.75); letter-spacing: 0.06em; text-transform: uppercase; font-size: 12px; }
+  .ff-btn-row { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .ff-btn-primary { background: #f04e3c; border: 1px solid #f04e3c; color: #fff; padding: 12px 22px; display:inline-block; }
+  .ff-btn-secondary { background: transparent; border: 1px solid rgba(255,255,255,0.45); color: #fff; padding: 12px 22px; display:inline-block; }
+  .ff-mini-proof { margin-top: 26px; display:flex; gap: 18px; flex-wrap: wrap; color: rgba(255,255,255,0.80); font-size: 13px; }
+  .ff-mini-proof span { background: rgba(255,255,255,0.08); padding: 8px 10px; border-radius: 6px; }
+
+  .ff-section { padding: 80px 0; }
+  .ff-section-tight { padding: 60px 0; }
+  .ff-section-title span { display:block; color:#f04e3c; font-size: 13px; letter-spacing:0.06em; text-transform: uppercase; margin-bottom: 10px; }
+  .ff-section-title h2 { font-size: 36px; margin-bottom: 14px; }
+  .ff-card { background:#fff; border:1px solid #eee; border-radius: 10px; padding: 22px; height:100%; }
+  .ff-card h3 { font-size: 18px; margin-bottom: 10px; }
+  .ff-muted { color:#6b7280; }
+
+  .ff-steps { display:grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .ff-step { background:#fff; border:1px solid #eee; border-radius: 10px; padding: 16px; }
+  .ff-step .n { width:28px; height:28px; border-radius: 50%; background:#f04e3c; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; margin-bottom: 10px; }
+
+  @media (max-width: 991px){
+    .ff-hero { padding: 90px 0 70px 0; }
+    .ff-hero h1 { font-size: 40px; }
+    .ff-steps { grid-template-columns: 1fr; }
+  }
+
+  .ff-tabs { display:flex; gap: 10px; flex-wrap: wrap; }
+  .ff-tab-btn {
+    border:1px solid #e5e7eb;
+    background:#fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor:pointer;
+    font-size: 14px;
+  }
+  .ff-tab-btn.active { border-color:#f04e3c; color:#f04e3c; }
+  .ff-tab-panel { display:none; }
+  .ff-tab-panel.active { display:block; }
+
+  .ff-insight { border-radius: 10px; border:1px solid #eee; overflow:hidden; background:#fff; height:100%; }
+  .ff-insight .top { padding: 20px; }
+  .ff-insight .tag { font-size: 12px; color:#f04e3c; text-transform: uppercase; letter-spacing:0.06em; }
+  .ff-insight h3 { font-size: 18px; margin: 10px 0 10px 0; }
+  .ff-insight a { color:#0b2233; text-decoration:none; }
+  .ff-insight a:hover { text-decoration: underline; }
+
+  .ff-cta-band {
+    padding: 70px 0;
+    background: #0b2233;
+    color:#fff;
+  }
+  .ff-cta-band h2 { color:#fff; font-size: 34px; margin-bottom: 12px; }
+  .ff-cta-band p { color: rgba(255,255,255,0.85); margin-bottom: 22px; }
+</style>
 </head>
 
 <body class="body-bg">
-	<!-- Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQBRPRDF"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<!--? Preloader Start -->
+
+<!-- Preloader Start -->
 <div id="preloader-active">
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img pere-text">
-                <img src="assets/img/logo/loder.jpg" alt="">
-            </div>
-        </div>
+  <div class="preloader d-flex align-items-center justify-content-center">
+    <div class="preloader-inner position-relative">
+      <div class="preloader-circle"></div>
+      <div class="preloader-img pere-text">
+        <img src="assets/img/logo/loder.jpg" alt="">
+      </div>
     </div>
+  </div>
 </div>
+
 <header>
-    <!-- Header Start -->
-    <div class="header-area">
-        <div class="main-header ">
-            <div class="header-top d-none d-lg-block">
-                <div class="container">
-                    <div class="col-xl-12">
-                        <div class="row d-flex justify-content-between align-items-center">
-                            <div class="header-info-left">
-
-                            </div>
-                            <div class="header-info-right">
-                                <ul class="header-social">    
-                                    <!--<li><a href="#"><i class="fab fa-twitter"></i></a></li>-->
-                                    <li><a href="https://www.linkedin.com/company/fundamental-frontiers" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
+  <div class="header-area">
+    <div class="main-header">
+      <div class="header-top d-none d-lg-block">
+        <div class="container">
+          <div class="col-xl-12">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="header-info-left"></div>
+              <div class="header-info-right">
+                <ul class="header-social">
+                  <li><a href="https://www.linkedin.com/company/fundamental-frontiers" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+              </div>
             </div>
-            <div class="header-bottom  header-sticky">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- Logo -->
-                        <div class="col-xl-2 col-lg-2">
-                            <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="col-xl-10 col-lg-10">
-                            <div class="menu-wrapper  d-flex align-items-center justify-content-end">
-                                <!-- Main-menu -->
-                                <div class="main-menu d-none d-lg-block">
-                                    <nav> 
-                                        <ul id="navigation">                                                                                          
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="services.html">Services</a></li>
-                                            <!--<li><a href="blog.html">Blog</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="blog_details.html">Blog Details</a></li>
-                                                    <li><a href="elements.html">Element</a></li>
-                                                </ul>
-                                            </li>-->
-											<li><a href="book.html">Book</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div> 
-                        <!-- Mobile Menu -->
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="header-bottom header-sticky">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-xl-2 col-lg-2">
+              <div class="logo">
+                <a href="index.html"><img src="assets/img/logo/logo.png" alt="Fundamental Frontiers"></a>
+              </div>
+            </div>
+
+            <div class="col-xl-10 col-lg-10">
+              <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                <div class="main-menu d-none d-lg-block">
+                  <nav>
+                    <ul id="navigation">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="services.html">Services</a></li>
+                      <li><a href="blog.html">Insights</a></li>
+                      <li><a href="book.html">Book</a></li>
+                      <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="mobile_menu d-block d-lg-none"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <!-- Header End -->
+  </div>
 </header>
+
 <main>
-    <!-- slider Area Start-->
-    <div class="slider-area ">
-        <div class="slider-active">
-            <!-- Single Slider -->
-            <div class="single-slider slider-height d-flex align-items-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-8 col-lg-7 col-md-8">
-                            <div class="hero__caption">
-                                <span data-animation="fadeInLeft" data-delay=".1s">Committed to success</span>
-                                <h1 data-animation="fadeInLeft" data-delay=".5s" >We help to grow your business</h1>
-                                <p data-animation="fadeInLeft" data-delay=".9s">Fundamental Frontiers is a premier management consulting firm dedicated to helping organizations achieve sustainable growth, operational excellence, and strategic transformation.</p>
-                                <!-- Hero-btn -->
-                                <div class="hero__btn" data-animation="fadeInLeft" data-delay="1.1s">
-                                    <a href="services.html" class="btn hero-btn">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>          
-            </div>
-            <!-- Single Slider -->
-            <div class="single-slider slider-height d-flex align-items-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-8 col-lg-7 col-md-8">
-                            <div class="hero__caption">
-                                <span data-animation="fadeInLeft" data-delay=".1s">Committed to success</span>
-                                <h1 data-animation="fadeInLeft" data-delay=".5s" >We help to grow your business</h1>
-                                <p data-animation="fadeInLeft" data-delay=".9s">Mollit anim laborum.Dvcuis aute serunt  iruxvfg dhjkolohr indd re voluptate<br> velit esscillumlore eu quife nrulla parihatur.</p>
-                                <!-- Hero-btn -->
-                                <div class="hero__btn" data-animation="fadeInLeft" data-delay="1.1s">
-                                    <a href="services.html" class="btn hero-btn">Our Services</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>          
-            </div>
+
+  <!-- HERO -->
+  <section class="ff-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="ff-hero-badge">Consulting built for measurable outcomes</div>
+          <h1>Turn audits into measurable risk reduction</h1>
+          <p>
+            Fundamental Frontiers helps organizations reduce repeat issues, strengthen controls, and improve audit readiness
+            using practical, scenario based workshops and implementation sprints.
+          </p>
+          <div class="ff-btn-row">
+            <a href="book.html" class="ff-btn-primary">Book a pilot session</a>
+            <a href="assets/Fundamental Frontiers Profile.pdf" class="ff-btn-secondary" target="_blank" rel="noopener">Download sample cards</a>
+          </div>
+
+          <div class="ff-mini-proof">
+            <span>60 to 90 day sprint formats</span>
+            <span>Evidence led control strengthening</span>
+            <span>Workshops plus implementation support</span>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- slider Area End-->
-    <!--? Categories Area Start -->
-    <!--
-    <div class="categories-area section-padding30">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                    <div class="section-tittle mb-70">
-                        <span>Our Top Services</span>
-                        <h2>Our Best Services</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cat text-center mb-50">
-                        <div class="cat-icon">
-                            <span class="flaticon-development"></span>
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Compliance Certification, Auditing, Training</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cat text-center mb-50">
-                        <div class="cat-icon">
-                            <span class="flaticon-result"></span>
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Lean & Six Sigma Training & Implementation</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cat text-center mb-50">
-                        <div class="cat-icon">
-                            <span class="flaticon-team"></span>
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Operational Excellence (OE) and Process Optimization </a></h5>
+  </section>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cat text-center mb-50">
-                        <div class="cat-icon">
-                            <span class="flaticon-development"></span>
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Supplier Development, and Performance Management</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cat text-center mb-50">
-                        <div class="cat-icon">
-                            <span class="flaticon-result"></span>
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Data Integration, Visualization and Reporting</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cat text-center mb-50">
-                        <div class="cat-icon">
-                            <span class="flaticon-team"></span>
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Enterprise and Operational Risk Management </a></h5>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cat text-center mb-50">
-                        <div class="cat-icon">
-                            <span class="flaticon-development"></span>
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">AI in Engineering</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cat text-center mb-50">
-                        <div class="cat-icon">
-                            <span class="flaticon-result"></span>
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Program and Project Management</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cat text-center mb-50">
-                        <div class="cat-icon">
-                            <span class="flaticon-team"></span>
-                        </div>
-                        <div class="cat-cap">
-                            <h5><a href="services.html">Balanced Scorecard</a></h5>
-
-                        </div>
-                    </div>
-                </div>
-            </div>            
+  <!-- OUTCOMES -->
+  <section class="ff-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="ff-section-title">
+            <span>What changes</span>
+            <h2>Outcomes that show up in performance</h2>
+            <p class="ff-muted">Audit activity becomes operational stability when controls prevent recurrence and evidence is easy to produce.</p>
+          </div>
         </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3>Reduce recurrence</h3>
+            <p class="ff-muted">Identify repeat failure modes and add controls that prevent the same issue returning.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3>Strengthen controls</h3>
+            <p class="ff-muted">Move from monitoring and paperwork to controls that actually block loss and exceptions.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3>Improve audit readiness</h3>
+            <p class="ff-muted">Evidence is organized, traceable, and consistent so audits become faster and calmer.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    -->
+  </section>
 
-        <!-- About Area End-->
-    <!-- Services Ara Start -->
-    
-    <div class="services-area section-padding3">
-        <div class="container">
-            <div class="row">
-                <div class="cl-xl-7 col-lg-8 col-md-10">
-                    
-                    <div class="section-tittle mb-70">
-                        <span>Our Portfolios</span>
-                        <h2>Our Services</h2>
-                    </div> 
-                </div>
-            </div>
-
-            <!--            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cat text-center mb-50">
-                        
-                        <div class="col-lg-6 col-md-6 col-sm-10">
-                    <div class="single-services mb-100"
-                        
-                        -->
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-services mb-50">
-                        <div class="services-caption">
-                            <span><h5><a href="services.html">Compliance Certification, Auditing, Training</a></h5></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-services mb-50">
-     
-                        <div class="services-caption">
-                            <span><h5><a href="services.html">Lean & Six Sigma Training & Implementation</a><h5></h5></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-services mb-50">
-                        <div class="services-caption">
-                            <span><h5><a href="services.html">Operational Excellence (OE) and Process Optimization</a><h5></h5></span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <br>
-
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-services mb-50">
-                        <div class="services-caption">
-                            <span><h5><a href="services.html">Supplier Development, and Performance Management</a><h5></h5></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-services mb-50">
-     
-                        <div class="services-caption">
-                            <span><h5><a href="services.html">Data Integration, Visualization and Reporting</a><h5></h5></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-services mb-50">
-                        <div class="services-caption">
-                            <span><h5><a href="services.html">Enterprise and Operational Risk Management</a><h5></h5></span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-services mb-50">
-                        <div class="services-caption">
-                            <span><h5><a href="services.html">AI in Engineering</a><h5></h5></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-services mb-50">
-     
-                        <div class="services-caption">
-                            <span><h5><a href="services.html">Program and Project Management</a><h5></h5></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-services mb-50">
-                        <div class="services-caption">
-                            <span><h5><a href="services.html">Balanced Scorecard</a><h5></h5></span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>   
+  <!-- HOW IT WORKS -->
+  <section class="ff-section-tight section-bg" style="background:#f9fafb;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="ff-section-title">
+            <span>How it works</span>
+            <h2>A simple system from diagnosis to sustainment</h2>
+          </div>
         </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="ff-steps">
+            <div class="ff-step">
+              <div class="n">1</div>
+              <strong>Diagnose</strong>
+              <div class="ff-muted">Pick one loss and map where controls fail.</div>
+            </div>
+            <div class="ff-step">
+              <div class="n">2</div>
+              <strong>Simulate</strong>
+              <div class="ff-muted">Run scenarios and decisions under realistic constraints.</div>
+            </div>
+            <div class="ff-step">
+              <div class="n">3</div>
+              <strong>Implement</strong>
+              <div class="ff-muted">Deploy the few controls that remove recurrence.</div>
+            </div>
+            <div class="ff-step">
+              <div class="n">4</div>
+              <strong>Evidence</strong>
+              <div class="ff-muted">Build a clean audit trail that is easy to maintain.</div>
+            </div>
+            <div class="ff-step">
+              <div class="n">5</div>
+              <strong>Sustain</strong>
+              <div class="ff-muted">Track metrics and keep controls stable over time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <!-- Services Area End -->
-    <!--? About Area Start-->
-    <div class="support-company-area pt-100 pb-100 section-bg fix" data-background="assets/img/gallery/section_bg02.jpg">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="support-location-img">
-                        <img src="assets/img/gallery/about.png" alt="">
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="right-caption">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle section-tittle2 mb-50">
-                            <span>About Us</span>
-                            <h2>Our Experience</h2>
-                        </div>
-                        <div class="support-caption">
-                            <!--<p class="pera-top">Fundamental Frontiers is a premier management consulting firm dedicated to helping organizations achieve sustainable growth, operational excellence, and strategic transformation. With a team of seasoned consultants and industry experts, we partner with businesses across engineering, supply chain, automotive, Power generation, transmission, and distribution, hospitality and other industrial sectors to identify challenges, unlock opportunities, and implement solutions that deliver measurable results.Mollit anim laborum duis adseu dolor iuyn voluptcate velit ess cillum dolore egru lofrre dsu quality mollit anim laborumuis au dolor in voluptate velit cillu.</p>-->
-                            <p class="mb-65">Fundamental Frontiers is a premier management consulting firm dedicated to helping organizations achieve sustainable growth, operational excellence, and strategic transformation. With a team of seasoned consultants and industry experts, we partner with businesses across engineering, supply chain, automotive, Power generation, transmission, and distribution, hospitality and other industrial sectors to identify challenges, unlock opportunities, and implement solutions that deliver measurable results.</p>
-                            <a href="about.html" class="btn post-btn">More About Us</a>
-                        </div>
-                    </div>
-                </div>
+  </section>
 
-            </div>
+  <!-- CARD SYSTEM PREVIEW -->
+  <section class="ff-section">
+    <div class="container">
+      <div class="row align-items-end">
+        <div class="col-lg-8">
+          <div class="ff-section-title">
+            <span>Simulation toolkit</span>
+            <h2>Preview the card based audit impact simulator</h2>
+            <p class="ff-muted">This is shown as a sample to explain the method. The working deck can be tailored to client context.</p>
+          </div>
         </div>
-    </div>
+        <div class="col-lg-4 text-lg-right mt-3 mt-lg-0">
+          <a href="assets/Fundamental Frontiers Profile.pdf" target="_blank" rel="noopener" class="ff-btn-primary">Download a sample</a>
+        </div>
+      </div>
 
-    
-    <!-- Services Ara End -->
-    <!--? Testimonial Start -->
-    <!--
-    <div class="testimonial-area testimonial-padding" data-background="assets/img/gallery/section_bg04.jpg">
-        <div class="container ">
-            <div class="row d-flex justify-content-center">
-                <div class="col-xl-10 col-lg-10 col-md-9">
-                    <div class="h1-testimonial-active">
-                       
-                        <div class="single-testimonial text-center">
-                            
-                            <div class="testimonial-caption ">
-                                <div class="testimonial-top-cap">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="67px" height="49px">
-                                    <path fill-rule="evenodd"  fill="rgb(240, 78, 60)"
-                                    d="M57.053,48.209 L42.790,48.209 L52.299,29.242 L38.036,29.242 L38.036,0.790 L66.562,0.790 L66.562,29.242 L57.053,48.209 ZM4.755,48.209 L14.263,29.242 L0.000,29.242 L0.000,0.790 L28.527,0.790 L28.527,29.242 L19.018,48.209 L4.755,48.209 Z"/>
-                                    </svg>
-                                    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis por incididunt ut labore et dolore mas. </p>
-                                </div>
-                               
-                                <div class="testimonial-founder d-flex align-items-center justify-content-center">
-                                    <div class="founder-img">
-                                        <img src="assets/img/gallery/Homepage_testi.png" alt="">
-                                    </div>
-                                    <div class="founder-text">
-                                        <span>Jessya Inn</span>
-                                        <p>Chif Photographer</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="single-testimonial text-center">
-                           
-                            <div class="testimonial-caption ">
-                                <div class="testimonial-top-cap">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="67px" height="49px">
-                                    <path fill-rule="evenodd"  fill="rgb(240, 78, 60)"
-                                    d="M57.053,48.209 L42.790,48.209 L52.299,29.242 L38.036,29.242 L38.036,0.790 L66.562,0.790 L66.562,29.242 L57.053,48.209 ZM4.755,48.209 L14.263,29.242 L0.000,29.242 L0.000,0.790 L28.527,0.790 L28.527,29.242 L19.018,48.209 L4.755,48.209 Z"/>
-                                    </svg>
-                                    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis por incididunt ut labore et dolore mas. </p>
-                                </div>
-                               
-                                <div class="testimonial-founder d-flex align-items-center justify-content-center">
-                                    <div class="founder-img">
-                                        <img src="assets/img/gallery/Homepage_testi.png" alt="">
-                                    </div>
-                                    <div class="founder-text">
-                                        <span>Jessya Inn</span>
-                                        <p>Chif Photographer</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="row mt-4">
+        <div class="col-lg-5 mb-4">
+          <div class="ff-card">
+            <div class="ff-tabs" role="tablist" aria-label="Simulator cards">
+              <button class="ff-tab-btn active" data-ff-tab="scenario" type="button">Scenario</button>
+              <button class="ff-tab-btn" data-ff-tab="roles" type="button">Roles</button>
+              <button class="ff-tab-btn" data-ff-tab="decisions" type="button">Decisions</button>
+              <button class="ff-tab-btn" data-ff-tab="controls" type="button">Controls</button>
+              <button class="ff-tab-btn" data-ff-tab="evidence" type="button">Evidence</button>
+              <button class="ff-tab-btn" data-ff-tab="outcomes" type="button">Outcomes</button>
             </div>
-        </div>
-    </div>
--->
-    <!-- Testimonial End -->
-    <!-- Coun Down Start -->
-     <!--
-    <div class="count-down-area pb-120">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-lg-3 col-md-6 col-sm-6">
 
-                    <div class="single-counter text-center">
-                        <span class="counter">8705</span>
-                        <p>Projects Completed</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="mt-4">
+              <div class="ff-tab-panel active" id="ff-tab-scenario">
+                <h3>Scenario cards</h3>
+                <p class="ff-muted">Start with one loss event such as repeat defects, late supplier delivery, or audit finding recurrence.</p>
+                <ul class="ff-muted" style="padding-left:18px;">
+                  <li>90 day timeline</li>
+                  <li>Constraints built in</li>
+                  <li>Clear goal state</li>
+                </ul>
+              </div>
 
-                    <div class="single-counter active text-center">
-                        <span class="counter">480</span>
-                        <p> Active Clients</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="ff-tab-panel" id="ff-tab-roles">
+                <h3>Role cards</h3>
+                <p class="ff-muted">Assign accountability across process owner, auditor, operations, and leadership to surface handoff risk.</p>
+                <ul class="ff-muted" style="padding-left:18px;">
+                  <li>Decision rights</li>
+                  <li>Evidence owners</li>
+                  <li>Escalation paths</li>
+                </ul>
+              </div>
 
-                    <div class="single-counter text-center">
-                        <span class="counter">626</span>
-                        <p>Cups of Coffee</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="ff-tab-panel" id="ff-tab-decisions">
+                <h3>Decision cards</h3>
+                <p class="ff-muted">Teams choose between actions such as approve supplier change, delay, add controls, or increase monitoring.</p>
+                <ul class="ff-muted" style="padding-left:18px;">
+                  <li>Tradeoffs visible</li>
+                  <li>Time and cost pressure</li>
+                  <li>Short cycle learning</li>
+                </ul>
+              </div>
 
-                    <div class="single-counter text-center">
-                        <span class="counter">9774</span>
-                        <p>Happy Clients</p>
-                    </div>
-                </div>
+              <div class="ff-tab-panel" id="ff-tab-controls">
+                <h3>Control cards</h3>
+                <p class="ff-muted">Controls are specific actions such as verification steps, segregation of duties, change control, CAPA discipline.</p>
+                <ul class="ff-muted" style="padding-left:18px;">
+                  <li>Prevent recurrence</li>
+                  <li>Reduce exceptions</li>
+                  <li>Clarify ownership</li>
+                </ul>
+              </div>
+
+              <div class="ff-tab-panel" id="ff-tab-evidence">
+                <h3>Evidence cards</h3>
+                <p class="ff-muted">Evidence is designed to be maintainable, audit ready, and tied to the control, not to paperwork volume.</p>
+                <ul class="ff-muted" style="padding-left:18px;">
+                  <li>Audit trail</li>
+                  <li>Interview readiness</li>
+                  <li>Documentation discipline</li>
+                </ul>
+              </div>
+
+              <div class="ff-tab-panel" id="ff-tab-outcomes">
+                <h3>Outcome tracking</h3>
+                <p class="ff-muted">Track risk, recurrence, cost, and evidence readiness over time and use it to verify controls are stable.</p>
+                <ul class="ff-muted" style="padding-left:18px;">
+                  <li>Risk trending</li>
+                  <li>Recurrence trending</li>
+                  <li>Audit readiness</li>
+                </ul>
+              </div>
             </div>
+
+            <div class="mt-4 ff-muted" style="font-size:12px;">
+              Sample only. Content can be customized per industry and risk profile.
+            </div>
+          </div>
         </div>
+
+        <div class="col-lg-7 mb-4">
+          <div class="ff-card" style="padding:0; overflow:hidden;">
+            <img src="assets/img/cards/cards-preview.png" alt="Card based audit impact simulator preview" style="width:100%; display:block;">
+          </div>
+        </div>
+      </div>
+
     </div>
--->
-    <!-- Coun Down End -->
-    <!-- Team Start -->
-    <!--
-    <div class="team-area section-padding30">
-        <div class="container">
-            <div class="row">
-                <div class="cl-xl-7 col-lg-8 col-md-10">
-                    
-                    <div class="section-tittle mb-70">
-                        <span>Our Professional members </span>
-                        <h2>Our Team Mambers</h2>
-                    </div> 
-                </div>
-            </div>
-            <div class="row">
-                
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                    <div class="single-team mb-30">
-                        <div class="team-img">
-                            <img src="assets/img/gallery/team2.png" alt="">
-                        </div>
-                        <div class="team-caption">
-                            <h3><a href="#">Ethan Welch</a></h3>
-                            <span>UX Designer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                    <div class="single-team mb-30">
-                        <div class="team-img">
-                            <img src="assets/img/gallery/team3.png" alt="">
-                        </div>
-                        <div class="team-caption">
-                            <h3><a href="#">Ethan Welch</a></h3>
-                            <span>UX Designer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                    <div class="single-team mb-30">
-                        <div class="team-img">
-                            <img src="assets/img/gallery/team1.png" alt="">
-                        </div>
-                        <div class="team-caption">
-                            <h3><a href="#">Ethan Welch</a></h3>
-                            <span>UX Designer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  </section>
+
+  <!-- SERVICES (6 tiles max) -->
+  <section class="ff-section-tight section-bg" style="background:#ffffff;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="ff-section-title">
+            <span>What we help with</span>
+            <h2>Focused services with practical delivery</h2>
+            <p class="ff-muted">Keep the homepage simple. Detailed lists can live on the Services page.</p>
+          </div>
         </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3><a href="services.html">Audit impact and compliance</a></h3>
+            <p class="ff-muted">Make audits strengthen controls and reduce repeat findings.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3><a href="services.html">Supplier performance recovery</a></h3>
+            <p class="ff-muted">Stabilize delivery and quality with targeted supplier actions.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3><a href="services.html">Operational excellence</a></h3>
+            <p class="ff-muted">Reduce waste, variation, and process friction that causes loss.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3><a href="services.html">Enterprise and operational risk</a></h3>
+            <p class="ff-muted">Improve controls, accountability, and risk visibility.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3><a href="services.html">Data and reporting</a></h3>
+            <p class="ff-muted">Dashboards and reporting that support decisions and audits.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3><a href="services.html">Training and capability building</a></h3>
+            <p class="ff-muted">Workshops and coaching that translate to real operating change.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-12">
+          <a href="services.html" class="ff-btn-primary">View all services</a>
+        </div>
+      </div>
+
     </div>
-    -->
-    <!-- Team End -->
-    <!-- Want To work -->
-    <section class="wantToWork-area w-padding2 section-bg" data-background="assets/img/gallery/section_bg03.jpg">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-xl-7 col-lg-9 col-md-8">
-                    <div class="wantToWork-caption wantToWork-caption2">
-                        <h2>Are you Searching<br> For a First-Class Consultant?</h2>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4">
-                    <a href="contact.html" class="btn btn-black f-right">Contact us now</a>
-                </div>
-            </div>
+  </section>
+
+  <!-- INSIGHTS -->
+  <section class="ff-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="ff-section-title">
+            <span>Insights</span>
+            <h2>Short practical perspectives</h2>
+            <p class="ff-muted">A lightweight grid similar to top firms, tailored for a boutique site.</p>
+          </div>
         </div>
-    </section>
-    <!-- Want To work End -->
-    <!-- Blog Area Start -->
-    <!--
-    <div class="home-blog-area section-padding30">
-        <div class="container">
-            
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-tittle mb-100">
-                        <span>Recent News of us</span>
-                        <h2>Our Recent Blog</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="home-blog-single mb-30">
-                        <div class="blog-img-cap">
-                            <div class="blog-img">
-                                <img src="assets/img/gallery/home_blog1.png" alt="">
-                                <ul>
-                                    <li>By Admin   -   October 27, 2020</li>
-                                </ul>
-                            </div>
-                            <div class="blog-cap">
-                                <h3><a href="blog_details.html">16 Easy Ideas to Use in  Everyday</a></h3>
-                                <p>Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnua Quis ipsum suspendisse ultrices gra.</p>
-                                <a href="blog_details.html" class="more-btn">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6 col-md-6">
-                    <div class="home-blog-single mb-30">
-                        <div class="blog-img-cap">
-                            <div class="blog-img">
-                                <img src="assets/img/gallery/home_blog2.png" alt="">
-                                <ul>
-                                    <li>By Admin   -   October 27, 2020</li>
-                                </ul>
-                            </div>
-                            <div class="blog-cap">
-                                <h3><a href="blog_details.html">16 Easy Ideas to Use in  Everyday</a></h3>
-                                <p>Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnua Quis ipsum suspendisse ultrices gra.</p>
-                                <a href="blog_details.html" class="more-btn">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-4 text-lg-right mt-3 mt-lg-0">
+          <a href="blog.html" class="ff-btn-secondary" style="border-color:#e5e7eb; color:#0b2233;">View all insights</a>
         </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-6 mb-4">
+          <div class="ff-insight">
+            <div class="top">
+              <div class="tag">Featured</div>
+              <h3><a href="blog.html">If an audit never surprises you, it is probably not auditing the real risk</a></h3>
+              <p class="ff-muted">Shift audits from documentation checks to control strength and recurrence prevention.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="ff-insight">
+            <div class="top">
+              <div class="tag">Operations</div>
+              <h3><a href="blog.html">Recurrence is a control problem</a></h3>
+              <p class="ff-muted">When the issue returns, the control was never fixed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="ff-insight">
+            <div class="top">
+              <div class="tag">Supplier</div>
+              <h3><a href="blog.html">Supplier recovery in 60 to 90 days</a></h3>
+              <p class="ff-muted">Focus on the few suppliers driving most delivery and quality loss.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    -->
-    <!-- Blog Area End -->
-    <!-- Brand Area Start -->
-     <!--
-    <div class="brand-area pb-140">
-        <div class="container">
-            <div class="brand-active brand-border pb-40">
-                <div class="single-brand">
-                    <img src="assets/img/gallery/brand1.png" alt="">
-                </div>
-                <div class="single-brand">
-                    <img src="assets/img/gallery/brand2.png" alt="">
-                </div>
-                <div class="single-brand">
-                    <img src="assets/img/gallery/brand3.png" alt="">
-                </div>
-                <div class="single-brand">
-                    <img src="assets/img/gallery/brand4.png" alt="">
-                </div>
-                <div class="single-brand">
-                    <img src="assets/img/gallery/brand2.png" alt="">
-                </div>
-                <div class="single-brand">
-                    <img src="assets/img/gallery/brand5.png" alt="">
-                </div>
-            </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="ff-section-tight section-bg" style="background:#f9fafb;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="ff-section-title">
+            <span>Why Fundamental Frontiers</span>
+            <h2>Built for execution, not only advice</h2>
+          </div>
         </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3>Industry grounded</h3>
+            <p class="ff-muted">Work with teams in engineering, supply chain, automotive, power, and industrial operations.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3>System based delivery</h3>
+            <p class="ff-muted">Repeatable approach using scenarios, controls, evidence, and outcomes tracking.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="ff-card">
+            <h3>Measured results</h3>
+            <p class="ff-muted">Define a baseline, implement controls, and verify performance holds over time.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    -->
-    <!-- Brand Area End -->
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="ff-cta-band">
+    <div class="container">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-lg-8">
+          <h2>Ready to run a pilot workshop</h2>
+          <p>Book a short session to confirm scope, timeline, and the measurable outcomes to target first.</p>
+          <div class="ff-btn-row">
+            <a href="book.html" class="ff-btn-primary">Book now</a>
+            <a href="contact.html" class="ff-btn-secondary">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
-    <footer>
-        <!--? Footer Start-->
-        <div class="footer-area section-bg" data-background="assets/img/gallery/footer_bg.jpg">
-           <div class="container">
-                <div class="footer-top footer-padding">
-                    <div class="row d-flex justify-content-between">
-                        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8">
-                            <div class="single-footer-caption mb-50">
-                                <!-- logo -->
-                                <div class="footer-logo">
-                                    <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
-                                </div>
 
-                                <div class="footer-number">
-                                    <h4><span>+1 404 </span>779 9001</h4>
-                                    <p>contact@fundamentalfrontiers.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!--
-                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Location </h4>
-                                    <ul>
-                                        <li><a href="#">Advanced</a></li>
-                                        <li><a href="#"> Management</a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-                        <!--
-                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-5">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Explore</h4>
-                                    <ul>
-                                        <li><a href="#">Cookies</a></li>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Proparties</a></li>
-                                        <li><a href="#">Licenses</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-                        <!--
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8">
-                            <div class="single-footer-caption mb-50">
-                                <div class="footer-tittle">
-                                    <h4>Location</h4>
-                                    <div class="footer-pera">
-                                        <p class="info1">Subscribe now to get daily updates</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="footer-form">
-                                    <div id="mc_embed_signup">
-                                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part" novalidate="true">
-                                            <input type="email" name="EMAIL" id="newsletter-form-email" placeholder=" Email Address " class="placeholder hide-on-focus" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'">
-                                            <div class="form-icon">
-                                                <button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm">
-                                                    SIGN UP
-                                                </button>
-                                            </div>
-                                            <div class="mt-10 info"></div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="row d-flex justify-content-between align-items-center">
-                        <div class="col-xl-9 col-lg-8">
-                            <div class="footer-copy-right">
-                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4">
-                            <!-- Footer Social -->
-                            <div class="footer-social f-right">
-                                
-                                <a href="https://www.linkedin.com/company/fundamental-frontiers" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-           </div>
+<footer>
+  <div class="footer-area section-bg" data-background="assets/img/gallery/footer_bg.jpg">
+    <div class="container">
+      <div class="footer-top footer-padding">
+        <div class="row d-flex justify-content-between">
+          <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8">
+            <div class="single-footer-caption mb-50">
+              <div class="footer-logo">
+                <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+              </div>
+              <div class="footer-number">
+                <h4><span>+1 404 </span>779 9001</h4>
+                <p>contact@fundamentalfrontiers.com</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- Footer End-->
-    </footer>
-<!-- Scroll Up -->
-<div id="back-top" >
-    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row d-flex justify-content-between align-items-center">
+          <div class="col-xl-9 col-lg-8">
+            <div class="footer-copy-right">
+              <p>
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank" rel="noopener">Colorlib</a>
+              </p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-4">
+            <div class="footer-social f-right">
+              <a href="https://www.linkedin.com/company/fundamental-frontiers" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<div id="back-top">
+  <a title="Go to Top" href="#"><i class="fas fa-level-up-alt"></i></a>
 </div>
 
-    <!-- JS here -->
+<!-- JS here -->
+<script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="./assets/js/popper.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/jquery.slicknav.min.js"></script>
+<script src="./assets/js/owl.carousel.min.js"></script>
+<script src="./assets/js/slick.min.js"></script>
+<script src="./assets/js/wow.min.js"></script>
+<script src="./assets/js/animated.headline.js"></script>
+<script src="./assets/js/jquery.magnific-popup.js"></script>
+<script src="./assets/js/jquery.nice-select.min.js"></script>
+<script src="./assets/js/jquery.sticky.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="./assets/js/jquery.counterup.min.js"></script>
+<script src="./assets/js/contact.js"></script>
+<script src="./assets/js/jquery.form.js"></script>
+<script src="./assets/js/jquery.validate.min.js"></script>
+<script src="./assets/js/mail-script.js"></script>
+<script src="./assets/js/jquery.ajaxchimp.min.js"></script>
+<script src="./assets/js/plugins.js"></script>
+<script src="./assets/js/main.js"></script>
 
-    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-    <!-- Jquery, Popper, Bootstrap -->
-    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <!-- Jquery Mobile Menu -->
-    <script src="./assets/js/jquery.slicknav.min.js"></script>
+<script>
+  // Simple tab switcher for the card preview
+  (function(){
+    var buttons = document.querySelectorAll(".ff-tab-btn");
+    var panels = {
+      scenario: document.getElementById("ff-tab-scenario"),
+      roles: document.getElementById("ff-tab-roles"),
+      decisions: document.getElementById("ff-tab-decisions"),
+      controls: document.getElementById("ff-tab-controls"),
+      evidence: document.getElementById("ff-tab-evidence"),
+      outcomes: document.getElementById("ff-tab-outcomes")
+    };
 
-    <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script src="./assets/js/owl.carousel.min.js"></script>
-    <script src="./assets/js/slick.min.js"></script>
-    <!-- One Page, Animated-HeadLin -->
-    <script src="./assets/js/wow.min.js"></script>
-    <script src="./assets/js/animated.headline.js"></script>
-    <script src="./assets/js/jquery.magnific-popup.js"></script>
+    function setActive(key){
+      buttons.forEach(function(b){
+        b.classList.toggle("active", b.getAttribute("data-ff-tab") === key);
+      });
+      Object.keys(panels).forEach(function(k){
+        panels[k].classList.toggle("active", k === key);
+      });
+    }
 
-    <!-- Nice-select, sticky -->
-    <script src="./assets/js/jquery.nice-select.min.js"></script>
-    <script src="./assets/js/jquery.sticky.js"></script>
+    buttons.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        setActive(btn.getAttribute("data-ff-tab"));
+      });
+    });
+  })();
+</script>
 
-    <!-- counter , waypoint -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-    <script src="./assets/js/jquery.counterup.min.js"></script>
-    
-    <!-- contact js -->
-    <script src="./assets/js/contact.js"></script>
-    <script src="./assets/js/jquery.form.js"></script>
-    <script src="./assets/js/jquery.validate.min.js"></script>
-    <script src="./assets/js/mail-script.js"></script>
-    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-    
-    <!-- Jquery Plugins, main Jquery -->	
-    <script src="./assets/js/plugins.js"></script>
-    <script src="./assets/js/main.js"></script>
-        
-    </body>
+</body>
 </html>
