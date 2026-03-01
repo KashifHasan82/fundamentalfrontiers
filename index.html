@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Fundamental Frontiers Consulting</title>
-<meta name="description" content="Audit and compliance readiness sprint to close gaps, organize evidence, and run a mock audit in 30 days. SOP refresh, CAPA fixes, and other operational capabilities available.">
+<meta name="description" content="Audit and compliance readiness sprint to close gaps, organize evidence, and run a mock audit in 30 days. Full services remain available including compliance, Lean Six Sigma, operational excellence, supplier performance, dashboards, and risk management.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="site.webmanifest">
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -49,7 +49,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --ff-bg:#f7f9fc;
   }
 
-  /* Layout polish without copying any one firm */
+  /* HERO */
   .ff-hero{
     background: radial-gradient(1200px 600px at 70% 20%, rgba(240,78,60,0.10), transparent 60%),
                 radial-gradient(900px 500px at 20% 10%, rgba(255,255,255,0.10), transparent 55%),
@@ -124,42 +124,125 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-size: 13px;
   }
 
-  .ff-feature-grid{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
+  /* HERO: compact full portfolio strip */
+  .ff-hero-portfolio{
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.14);
   }
-  .ff-feature-tile{
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: 12px;
-    padding: 16px;
-  }
-  .ff-feature-tile .k{
+  .ff-hero-portfolio .label{
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.68);
-  }
-  .ff-feature-tile .t{
-    font-size: 16px;
-    color:#fff;
-    margin-top: 8px;
-    margin-bottom: 6px;
+    color: rgba(255,255,255,0.70);
+    margin-bottom: 10px;
     font-weight: 700;
   }
-  .ff-feature-tile .d{
+  .ff-hero-portfolio-grid{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .ff-hero-svc{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.90);
     font-size: 13px;
-    color: rgba(255,255,255,0.78);
+    font-weight: 700;
+    text-decoration:none;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .ff-hero-svc:hover{ opacity: 0.92; color:#fff; text-decoration:none; }
+  .ff-hero-svc .dot{
+    width:6px; height:6px; border-radius: 50%;
+    background: var(--ff-accent);
+    display:inline-block;
+  }
+
+  /* RIGHT PANE: sticky flagship rail */
+  .ff-rail{
+    position: sticky;
+    top: 110px;
+  }
+  .ff-rail-card{
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 18px;
+    backdrop-filter: blur(6px);
+  }
+  .ff-rail-title{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.70);
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .ff-offer{
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.04);
+    border-radius: 14px;
+    padding: 12px;
     margin-bottom: 10px;
   }
-  .ff-feature-tile a{
-    color:#fff;
-    text-decoration:none;
-    font-weight: 600;
+  .ff-offer .k{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    gap: 10px;
+    margin-bottom: 6px;
   }
-  .ff-feature-tile a:hover{ text-decoration: underline; }
+  .ff-offer .name{
+    font-weight: 800;
+    color:#fff;
+    font-size: 14px;
+    line-height: 1.25;
+  }
+  .ff-offer .time{
+    font-size: 11px;
+    border:1px solid rgba(255,255,255,0.20);
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.03);
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  .ff-offer .d{
+    color: rgba(255,255,255,0.80);
+    font-size: 12px;
+    line-height: 1.45;
+    margin-bottom: 8px;
+  }
+  .ff-offer a{
+    color:#fff;
+    font-weight: 700;
+    text-decoration:none;
+  }
+  .ff-offer a:hover{ text-decoration: underline; }
 
+  .ff-rail-actions{
+    margin-top: 12px;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items:center;
+  }
+  .ff-rail-note{
+    margin-top: 12px;
+    color: rgba(255,255,255,0.70);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  /* Sections */
   .ff-section{ padding: 78px 0; background:#fff; }
   .ff-section.bg{ background: var(--ff-bg); }
   .ff-title span{
@@ -174,7 +257,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-size: 36px;
     margin-bottom: 14px;
   }
-  .ff-title p{ color: var(--ff-muted); max-width: 820px; }
+  .ff-title p{ color: var(--ff-muted); max-width: 920px; }
 
   .ff-card{
     background:#fff;
@@ -186,6 +269,56 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .ff-card h3{ font-size: 18px; margin-bottom: 10px; }
   .ff-card p{ color: var(--ff-muted); margin-bottom:0; }
 
+  /* Services compact grid */
+  .ff-services-compact{ padding: 58px 0; background:#fff; }
+  .ff-svc-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .ff-svc-tile{
+    background: #fff;
+    border: 1px solid var(--ff-line);
+    border-radius: 14px;
+    padding: 16px 18px;
+    min-height: 92px;
+    display:flex;
+    align-items:center;
+    position: relative;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .ff-svc-tile:before{
+    content:"";
+    width: 22px;
+    height: 2px;
+    background: var(--ff-accent);
+    position:absolute;
+    left: 18px;
+    top: 18px;
+    opacity: 0.9;
+  }
+  .ff-svc-tile a{
+    color: var(--ff-ink);
+    text-decoration:none;
+    font-weight: 800;
+    line-height: 1.25;
+    display:block;
+    padding-left: 28px;
+    font-size: 15px;
+  }
+  .ff-svc-tile:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(15,42,63,0.06);
+  }
+  .ff-svc-sub{
+    color: var(--ff-muted);
+    font-size: 13px;
+    margin-top: 10px;
+    max-width: 900px;
+  }
+
+  /* Steps */
   .ff-steps{
     display:grid;
     grid-template-columns: repeat(4, 1fr);
@@ -208,10 +341,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     justify-content:center;
     margin-bottom: 10px;
   }
-  .ff-step .h{ font-weight:800; margin-bottom: 6px; }
+  .ff-step .h{ font-weight:800; margin-bottom: 6px; color: var(--ff-ink); }
   .ff-step .m{ color: var(--ff-muted); font-size: 13px; line-height:1.45; }
 
-  /* Toolkit area */
+  /* Toolkit */
   .ff-toolkit-wrap{
     background:#fff;
     border: 1px solid var(--ff-line);
@@ -247,7 +380,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     gap: 12px;
   }
 
-  /* Real looking sample cards */
   .ff-scard{
     border-radius: 14px;
     border:1px solid var(--ff-line);
@@ -321,6 +453,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: var(--ff-ink);
   }
 
+  /* Insights */
   .ff-insight{
     background:#fff;
     border:1px solid var(--ff-line);
@@ -344,6 +477,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .ff-insight p{ color: var(--ff-muted); margin-bottom: 0; }
 
+  /* CTA */
   .ff-cta{
     background: linear-gradient(180deg, var(--ff-ink) 0%, var(--ff-ink2) 100%);
     color:#fff;
@@ -352,128 +486,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .ff-cta h2{ color:#fff; font-size: 34px; margin-bottom: 10px; }
   .ff-cta p{ color: rgba(255,255,255,0.85); max-width: 760px; }
 
-  /* Start here (3 flagships) */
-  .ff-start-here{ padding: 58px 0; background: var(--ff-bg); }
-  .ff-flagship-card{
-    background:#fff;
-    border: 1px solid var(--ff-line);
-    border-radius: 16px;
-    padding: 22px;
-    height:100%;
-    position: relative;
-    overflow:hidden;
-    box-shadow: 0 10px 28px rgba(15,42,63,0.06);
-  }
-  .ff-flagship-card:before{
-    content:"";
-    position:absolute;
-    top:0; left:0; right:0;
-    height: 6px;
-    background: var(--ff-accent);
-    opacity: 0.95;
-  }
-  .ff-flagship-kicker{
-    font-size: 12px;
-    letter-spacing:0.08em;
-    text-transform: uppercase;
-    color: var(--ff-accent);
-    font-weight: 800;
-    margin-bottom: 10px;
-  }
-  .ff-flagship-card h3{
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: var(--ff-ink);
-    font-weight: 800;
-    line-height: 1.25;
-  }
-  .ff-flagship-card p{
-    color: var(--ff-muted);
-    margin-bottom: 14px;
-  }
-  .ff-flagship-meta{
-    display:flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .ff-chip{
-    border:1px solid var(--ff-line);
-    border-radius: 999px;
-    padding: 6px 10px;
-    background:#fff;
-    font-weight: 700;
-    color: var(--ff-ink);
-    font-size: 12px;
-  }
-  .ff-flagship-actions{
-    display:flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items:center;
-  }
-  .ff-link{
-    color: var(--ff-ink);
-    font-weight: 700;
-    text-decoration:none;
-  }
-  .ff-link:hover{ text-decoration: underline; }
-
-  /* Full services grid, compact version */
-  .ff-services-compact{ padding: 58px 0; background:#fff; }
-  .ff-svc-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-top: 20px;
-  }
-  .ff-svc-tile{
-    background: #fff;
-    border: 1px solid var(--ff-line);
-    border-radius: 14px;
-    padding: 16px 18px;
-    min-height: 92px;
-    display:flex;
-    align-items:center;
-    position: relative;
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
-  }
-  .ff-svc-tile:before{
-    content:"";
-    width: 22px;
-    height: 2px;
-    background: var(--ff-accent);
-    position:absolute;
-    left: 18px;
-    top: 18px;
-    opacity: 0.9;
-  }
-  .ff-svc-tile a{
-    color: var(--ff-ink);
-    text-decoration:none;
-    font-weight: 800;
-    line-height: 1.25;
-    display:block;
-    padding-left: 28px;
-    font-size: 15px;
-  }
-  .ff-svc-tile:hover{
-    transform: translateY(-1px);
-    box-shadow: 0 10px 26px rgba(15,42,63,0.06);
-  }
-  .ff-svc-sub{
-    color: var(--ff-muted);
-    font-size: 13px;
-    margin-top: 10px;
-    max-width: 860px;
-  }
-
   @media (max-width: 991px){
     .ff-hero{ padding: 90px 0 60px 0; }
     .ff-hero h1{ font-size: 40px; }
+    .ff-svc-grid{ grid-template-columns: 1fr; }
     .ff-steps{ grid-template-columns: 1fr; }
     .ff-card-grid{ grid-template-columns: 1fr; }
-    .ff-svc-grid{ grid-template-columns: 1fr; }
+    .ff-rail{ position: static; margin-top: 24px; }
   }
 </style>
 </head>
@@ -530,8 +549,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <ul id="navigation">
                       <li><a href="index.html">Home</a></li>
                       <li><a href="#flagship">Flagship offer</a></li>
-                      <li><a href="#start-here">Start here</a></li>
                       <li><a href="#services">Services</a></li>
+                      <li><a href="#deliverables">Deliverables</a></li>
                       <li><a href="#toolkit">Toolkit</a></li>
                       <li><a href="blog.html">Insights</a></li>
                       <li><a href="book.html">Book</a></li>
@@ -556,10 +575,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main>
 
-  <!-- HERO -->
+  <!-- HERO: left content scrolls, right rail sticks -->
   <section class="ff-hero" id="flagship">
     <div class="container">
       <div class="row align-items-start">
+        <!-- LEFT -->
         <div class="col-lg-8">
           <div class="ff-badge"><span class="dot"></span>Flagship program for mid market manufacturers</div>
           <h1>Audit and compliance readiness in 30 days</h1>
@@ -579,27 +599,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="ff-pill">Mock audit walkthrough</div>
             <div class="ff-pill">Recurrence prevention</div>
           </div>
+
+          <div class="ff-hero-portfolio">
+            <div class="label">Full portfolio available</div>
+            <div class="ff-hero-portfolio-grid">
+              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Compliance and audits</a>
+              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Lean and Six Sigma</a>
+              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Operational excellence</a>
+              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Supplier performance</a>
+              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Dashboards and reporting</a>
+              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Risk management</a>
+              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Program management</a>
+              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Balanced scorecard</a>
+              <a class="ff-hero-svc" href="#services"><span class="dot"></span>AI in engineering</a>
+            </div>
+          </div>
         </div>
 
-        <div class="col-lg-4 mt-5 mt-lg-0">
-          <div class="ff-feature-grid">
-            <div class="ff-feature-tile">
-              <div class="k">Program brief</div>
-              <div class="t">What this sprint includes</div>
-              <div class="d">Gap scan, evidence pack, SOP alignment, and mock audit closeout.</div>
-              <a href="#deliverables">See deliverables</a>
-            </div>
-            <div class="ff-feature-tile">
-              <div class="k">Toolkit preview</div>
-              <div class="t">Scenario based workshop cards</div>
-              <div class="d">Used in workshops to pressure test decisions and strengthen controls.</div>
-              <a href="#toolkit">Preview sample cards</a>
-            </div>
-            <div class="ff-feature-tile">
-              <div class="k">Latest insight</div>
-              <div class="t">Audit work should reduce recurrence</div>
-              <div class="d">Shift from paperwork to control strength and proof over time.</div>
-              <a href="blog.html">Read insights</a>
+        <!-- RIGHT STICKY RAIL -->
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="ff-rail">
+            <div class="ff-rail-card">
+              <div class="ff-rail-title">Start here: three simple offers</div>
+
+              <div class="ff-offer">
+                <div class="k">
+                  <div class="name">Audit and compliance readiness sprint</div>
+                  <div class="time">30 days</div>
+                </div>
+                <div class="d">Close gaps, organize evidence, run a mock audit, and leave a sustain cadence.</div>
+                <a href="#deliverables">See deliverables</a>
+              </div>
+
+              <div class="ff-offer">
+                <div class="k">
+                  <div class="name">SOP and training refresh sprint</div>
+                  <div class="time">2 to 4 weeks</div>
+                </div>
+                <div class="d">Refresh key procedures and training records so execution stays consistent.</div>
+                <a href="#services">See how it fits</a>
+              </div>
+
+              <div class="ff-offer" style="margin-bottom:0;">
+                <div class="k">
+                  <div class="name">Quality root cause and CAPA fix sprint</div>
+                  <div class="time">4 to 6 weeks</div>
+                </div>
+                <div class="d">Stop repeat defects with root cause, corrective actions, and proof the fix holds.</div>
+                <a href="#toolkit">Preview workshop toolkit</a>
+              </div>
+
+              <div class="ff-rail-actions">
+                <a href="book.html" class="ff-btn-primary">Book a call</a>
+                <a href="contact.html" class="ff-btn-secondary">Contact</a>
+              </div>
+
+              <div class="ff-rail-note">
+                Full services remain available. The offers above are the simplest starting points for new engagements.
+              </div>
             </div>
           </div>
         </div>
@@ -608,100 +665,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- START HERE (3 SIMPLE FLAGSHIPS) -->
-  <section class="ff-start-here" id="start-here">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
-          <div class="ff-title">
-            <span>Start here</span>
-            <h2>Three simple sprints clients can say yes to</h2>
-            <p>Choose one entry point and keep the full capability set available.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row mt-4">
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="ff-flagship-card">
-            <div class="ff-flagship-kicker">Flagship</div>
-            <h3>Audit and compliance readiness sprint</h3>
-            <p>Close gaps, organize evidence, and run an internal mock audit in 30 days.</p>
-            <div class="ff-flagship-meta">
-              <span class="ff-chip">30 days</span>
-              <span class="ff-chip">Evidence pack</span>
-              <span class="ff-chip">Mock audit</span>
-            </div>
-            <div class="ff-flagship-actions">
-              <a href="book.html" class="ff-btn-primary">Book a call</a>
-              <a href="services.html" class="ff-link">See details</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="ff-flagship-card">
-            <div class="ff-flagship-kicker">Sprint</div>
-            <h3>SOP and training refresh sprint</h3>
-            <p>Update critical procedures and training records so the shop floor runs consistently.</p>
-            <div class="ff-flagship-meta">
-              <span class="ff-chip">2 to 4 weeks</span>
-              <span class="ff-chip">SOP set</span>
-              <span class="ff-chip">Training evidence</span>
-            </div>
-            <div class="ff-flagship-actions">
-              <a href="book.html" class="ff-btn-primary">Book a call</a>
-              <a href="services.html" class="ff-link">See details</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="ff-flagship-card">
-            <div class="ff-flagship-kicker">Sprint</div>
-            <h3>Quality root cause and CAPA fix sprint</h3>
-            <p>Stop repeat defects with root cause, corrective actions, and proof the fix holds.</p>
-            <div class="ff-flagship-meta">
-              <span class="ff-chip">4 to 6 weeks</span>
-              <span class="ff-chip">CAPA log</span>
-              <span class="ff-chip">Effectiveness check</span>
-            </div>
-            <div class="ff-flagship-actions">
-              <a href="book.html" class="ff-btn-primary">Book a call</a>
-              <a href="services.html" class="ff-link">See details</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FULL SERVICES (COMPACT, STILL NEAR TOP) -->
+  <!-- SERVICES (full portfolio as blocks near top) -->
   <section class="ff-services-compact" id="services">
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
           <div class="ff-title">
-            <span>Full services</span>
-            <h2>Core capabilities available</h2>
+            <span>Our services</span>
+            <h2>Full capability set available</h2>
             <p class="ff-svc-sub">
-              These remain available and can be engaged separately. The sprints above are the simplest starting points.
+              These services remain available. The sticky rail highlights three simple starting offers.
             </p>
           </div>
         </div>
       </div>
 
       <div class="ff-svc-grid">
-        <div class="ff-svc-tile"><a href="services.html">Compliance and audits</a></div>
-        <div class="ff-svc-tile"><a href="services.html">Lean and Six Sigma</a></div>
-        <div class="ff-svc-tile"><a href="services.html">Operational excellence</a></div>
+        <div class="ff-svc-tile"><a href="services.html">Compliance certification, auditing, training</a></div>
+        <div class="ff-svc-tile"><a href="services.html">Lean and Six Sigma training and implementation</a></div>
+        <div class="ff-svc-tile"><a href="services.html">Operational excellence and process optimization</a></div>
 
-        <div class="ff-svc-tile"><a href="services.html">Supplier performance</a></div>
-        <div class="ff-svc-tile"><a href="services.html">Dashboards and reporting</a></div>
-        <div class="ff-svc-tile"><a href="services.html">Risk management</a></div>
+        <div class="ff-svc-tile"><a href="services.html">Supplier development and performance management</a></div>
+        <div class="ff-svc-tile"><a href="services.html">Data integration, visualization and reporting</a></div>
+        <div class="ff-svc-tile"><a href="services.html">Enterprise and operational risk management</a></div>
 
         <div class="ff-svc-tile"><a href="services.html">AI in engineering</a></div>
-        <div class="ff-svc-tile"><a href="services.html">Program management</a></div>
+        <div class="ff-svc-tile"><a href="services.html">Program and project management</a></div>
         <div class="ff-svc-tile"><a href="services.html">Balanced scorecard</a></div>
       </div>
     </div>
@@ -711,12 +700,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="ff-section bg">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
           <div class="ff-title">
-            <span>Why this program</span>
+            <span>Why this works</span>
             <h2>Audit readiness fails when evidence and controls do not hold</h2>
             <p>
-              This sprint builds a practical system your team can run. It focuses on ownership, simple routines, and proof that works during real pressure.
+              The flagship sprint focuses on ownership, simple routines, and proof that works during real pressure.
+              It is designed to be maintained by your team after the sprint ends.
             </p>
           </div>
         </div>
@@ -738,7 +728,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="ff-card">
             <h3>Faster response under pressure</h3>
-            <p>Simple routines that work during peak load, audits, and customer scrutiny.</p>
+            <p>Evidence is organized, owned, and available without last minute panic.</p>
           </div>
         </div>
       </div>
@@ -795,8 +785,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="col-lg-9">
           <div class="ff-title">
             <span>What you get</span>
-            <h2>Concrete deliverables that teams can run without consultants</h2>
-            <p>Deliverables are designed for clarity, ownership, and continuity. Not large slide decks.</p>
+            <h2>Concrete deliverables your team can run</h2>
+            <p>Deliverables are designed for clarity, ownership, and continuity.</p>
           </div>
         </div>
       </div>
@@ -851,7 +841,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ff-title">
             <span>Toolkit preview</span>
             <h2>Sample cards used in audit impact and compliance workshops</h2>
-            <p>These are samples to show how the system works. The final deck can be customized to your industry and risk profile.</p>
+            <p>These are samples to show how the system works. The final deck can be customized per client.</p>
           </div>
         </div>
         <div class="col-lg-3 text-lg-right mt-3 mt-lg-0">
