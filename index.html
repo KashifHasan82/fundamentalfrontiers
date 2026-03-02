@@ -51,7 +51,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     --ff-ink:#0b1220;
     --ff-muted:#5b677a;
     --ff-line:#e5e7eb;
-    --ff-bg:#f4f6fb;
+
+    /* slightly less white overall */
+    --ff-bg:#eef2f8;
+    --ff-bg-2:#f6f8fc;
+
     --ff-card:#ffffff;
     --ff-radius:16px;
   }
@@ -60,11 +64,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   html{ scroll-behavior: smooth; }
   body{ background: var(--ff-bg); }
 
+  /* wider content to reduce left right blank space */
   .ff-wrap{
-    max-width: 1140px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .ff-topbar{
@@ -99,19 +104,19 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   /* HERO */
   .ff-hero{
     background:
-      radial-gradient(1000px 520px at 80% 10%, rgba(22,242,210,0.10), transparent 60%),
-      radial-gradient(900px 520px at 20% 15%, rgba(240,78,60,0.09), transparent 65%),
-      linear-gradient(180deg, var(--ff-navy-0) 0%, var(--ff-navy-2) 100%);
+      radial-gradient(1000px 520px at 80% 10%, rgba(22,242,210,0.14), transparent 60%),
+      radial-gradient(900px 520px at 20% 15%, rgba(240,78,60,0.11), transparent 65%),
+      linear-gradient(180deg, #06102a 0%, #081a3a 100%);
     color:#fff;
-    padding: 36px 0 34px 0;
+    padding: 46px 0 40px 0;
     position: relative;
   }
   .ff-hero::after{
     content:"";
     position:absolute;
     left:0; right:0; bottom:-1px;
-    height: 38px;
-    background: linear-gradient(180deg, rgba(244,246,251,0) 0%, rgba(244,246,251,1) 100%);
+    height: 44px;
+    background: linear-gradient(180deg, rgba(238,242,248,0) 0%, rgba(238,242,248,1) 100%);
     pointer-events:none;
   }
 
@@ -122,7 +127,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.10em;
-    color: rgba(255,255,255,0.72);
+    color: rgba(255,255,255,0.74);
     font-weight: 900;
   }
   .ff-badge .dot{
@@ -132,7 +137,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-hero h1{
-    font-size: 42px;
+    font-size: 50px;
     line-height: 1.08;
     margin: 12px 0 10px 0;
     color:#fff;
@@ -140,11 +145,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     letter-spacing: -0.02em;
   }
   .ff-hero p{
-    color: rgba(255,255,255,0.82);
+    color: rgba(255,255,255,0.84);
     font-size: 15px;
     line-height: 1.6;
     margin: 0;
-    max-width: 960px;
+    max-width: 980px;
   }
 
   .ff-hero-actions{
@@ -174,20 +179,20 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .ff-btn-primary:hover{ opacity:0.95; color: var(--ff-navy-0); text-decoration:none; }
   .ff-btn-secondary{
-    background: rgba(255,255,255,0.06);
-    border-color: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.22);
     color:#fff;
   }
   .ff-btn-secondary:hover{ opacity:0.95; color:#fff; text-decoration:none; }
 
-  /* Capability banner (bigger cards, top) */
+  /* Capability banner */
   .ff-cap-wrap{
     margin-top: 18px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.18);
     border-radius: var(--ff-radius);
     padding: 16px;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(7px);
   }
   .ff-cap-head{
     display:flex;
@@ -200,15 +205,15 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.10em;
-    color: rgba(255,255,255,0.74);
+    color: rgba(255,255,255,0.78);
     font-weight: 950;
   }
   .ff-cap-note{
-    color: rgba(255,255,255,0.72);
+    color: rgba(255,255,255,0.76);
     font-size: 13px;
     line-height: 1.55;
     margin: 0;
-    max-width: 840px;
+    max-width: 900px;
   }
 
   .ff-cap-grid{
@@ -219,23 +224,23 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   .ff-cap{
     border-radius: var(--ff-radius);
-    border: 1px solid rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.18);
     background:
-      radial-gradient(680px 240px at 25% 0%, rgba(22,242,210,0.10), transparent 60%),
-      radial-gradient(640px 260px at 90% 20%, rgba(240,78,60,0.09), transparent 60%),
-      rgba(255,255,255,0.05);
+      radial-gradient(680px 240px at 25% 0%, rgba(22,242,210,0.13), transparent 60%),
+      radial-gradient(640px 260px at 90% 20%, rgba(240,78,60,0.11), transparent 60%),
+      rgba(255,255,255,0.07);
     padding: 16px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 18px 38px rgba(0,0,0,0.18);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.16);
   }
   .ff-cap::before{
     content:"";
     position:absolute;
     left:0; top:0; bottom:0;
     width: 4px;
-    background: linear-gradient(180deg, rgba(22,242,210,0.9) 0%, rgba(22,242,210,0.0) 100%);
-    opacity: 0.9;
+    background: linear-gradient(180deg, rgba(22,242,210,0.95) 0%, rgba(22,242,210,0.10) 100%);
+    opacity: 0.95;
   }
   .ff-cap h3{
     font-size: 16px;
@@ -246,7 +251,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .ff-cap p{
     margin: 0;
-    color: rgba(255,255,255,0.78);
+    color: rgba(255,255,255,0.82);
     line-height: 1.55;
     font-size: 13px;
   }
@@ -256,14 +261,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     margin-top: 14px;
     border-radius: var(--ff-radius);
     overflow:hidden;
-    border: 1px solid rgba(255,255,255,0.16);
-    background: rgba(255,255,255,0.07);
-    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.09);
+    backdrop-filter: blur(7px);
   }
   .ff-carousel-track{
     display:flex;
     width: 300%;
-    transition: transform 600ms ease;
+    transition: transform 650ms ease;
   }
   .ff-slide{
     flex: 0 0 100%;
@@ -285,15 +290,15 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.10em;
-    color: rgba(255,255,255,0.74);
+    color: rgba(255,255,255,0.78);
     font-weight: 950;
   }
   .ff-slide-time{
     font-size: 12px;
     padding: 6px 10px;
     border-radius: 999px;
-    background: rgba(22,242,210,0.12);
-    border: 1px solid rgba(22,242,210,0.30);
+    background: rgba(22,242,210,0.14);
+    border: 1px solid rgba(22,242,210,0.34);
     color: rgba(255,255,255,0.92);
     font-weight: 950;
     white-space: nowrap;
@@ -307,11 +312,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     line-height: 1.2;
   }
   .ff-slide-desc{
-    color: rgba(255,255,255,0.84);
+    color: rgba(255,255,255,0.86);
     font-size: 14px;
     line-height: 1.55;
     margin: 0;
-    max-width: 920px;
+    max-width: 980px;
   }
   .ff-slide-cta{
     display:flex;
@@ -326,7 +331,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     justify-content: space-between;
     gap: 12px;
     padding: 10px 12px;
-    border-top: 1px solid rgba(255,255,255,0.12);
+    border-top: 1px solid rgba(255,255,255,0.14);
   }
   .ff-dots{
     display:flex;
@@ -336,8 +341,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-dot{
     width: 8px; height: 8px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.25);
-    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.28);
+    border: 1px solid rgba(255,255,255,0.20);
     cursor:pointer;
   }
   .ff-dot.active{ background: var(--ff-teal); border-color: var(--ff-teal); }
@@ -348,21 +353,32 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-arrow{
     width: 36px; height: 32px;
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.08);
     color:#fff;
     font-weight: 950;
     cursor:pointer;
   }
   .ff-arrow:hover{ opacity:0.95; }
 
-  /* Sections */
-  .ff-section{ padding: 44px 0; background: var(--ff-bg); }
-  .ff-section.white{ background:#fff; }
+  /* Sections with subtle texture */
+  .ff-section{
+    padding: 44px 0;
+    background:
+      radial-gradient(900px 320px at 10% 0%, rgba(22,242,210,0.06), transparent 55%),
+      radial-gradient(900px 320px at 90% 10%, rgba(240,78,60,0.05), transparent 55%),
+      var(--ff-bg);
+  }
+  .ff-section.white{
+    background:
+      radial-gradient(900px 320px at 10% 0%, rgba(22,242,210,0.05), transparent 55%),
+      radial-gradient(900px 320px at 90% 10%, rgba(240,78,60,0.04), transparent 55%),
+      #fff;
+  }
 
   .ff-head{ margin-bottom: 16px; }
   .ff-kicker{
-    color: var(--ff-teal-2);
+    color: #0aaea0;
     font-weight: 950;
     letter-spacing: 0.10em;
     text-transform: uppercase;
@@ -381,10 +397,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     margin: 0;
     line-height: 1.65;
     font-size: 15px;
-    max-width: 920px;
+    max-width: 980px;
   }
 
-  /* Siemens style feature banners (no cards) */
+  /* Siemens style feature bands */
   .ff-bands{
     margin-top: 18px;
     display:grid;
@@ -436,7 +452,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-size: 14px;
   }
 
-  /* Steps (keep, but more compact and less cardy) */
+  /* Steps */
   .ff-steps{
     display:grid;
     grid-template-columns: 1fr;
@@ -464,21 +480,22 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-step .t{ font-weight: 950; color: var(--ff-ink); margin-bottom: 6px; }
   .ff-step .d{ color: var(--ff-muted); font-size: 14px; line-height: 1.55; }
 
-  /* Deliverables: left rail + right detail (Siemens style) */
+  /* Deliverables explorer: fixed alignment + less white */
   .ff-deliv-wrap{
     margin-top: 16px;
     display:grid;
     grid-template-columns: 1fr;
-    gap: 12px;
-    background:#fff;
+    gap: 0;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
     border: 1px solid var(--ff-line);
     border-radius: var(--ff-radius);
     overflow:hidden;
+    box-shadow: 0 12px 28px rgba(11,18,32,0.06);
   }
   .ff-deliv-rail{
-    border-bottom: 1px solid var(--ff-line);
     background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    padding: 10px;
+    padding: 12px;
+    border-bottom: 1px solid var(--ff-line);
   }
   .ff-deliv-btn{
     width: 100%;
@@ -490,22 +507,64 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     color: var(--ff-ink);
     cursor:pointer;
     font-weight: 950;
-    display:flex;
+    display:grid;
+    grid-template-columns: 1fr 140px;
     align-items:center;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
   }
-  .ff-deliv-btn small{
+  .ff-deliv-btn .tt{
+    display:block;
+    line-height: 1.25;
+    font-size: 14px;
+    white-space: normal;
+  }
+  .ff-deliv-btn .ss{
+    display:block;
+    text-align:right;
     color: var(--ff-muted);
-    font-weight: 800;
+    font-weight: 850;
+    font-size: 12px;
+    line-height: 1.25;
   }
   .ff-deliv-btn.active{
     border-color: rgba(22,242,210,0.55);
     box-shadow: 0 10px 22px rgba(22,242,210,0.10);
     background: #fff;
   }
+
+  .ff-deliv-right{
+    padding: 0;
+    background:
+      radial-gradient(700px 240px at 20% 0%, rgba(22,242,210,0.06), transparent 55%),
+      radial-gradient(700px 240px at 85% 10%, rgba(240,78,60,0.05), transparent 55%),
+      #fff;
+  }
+
+  .ff-panel-topbar{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--ff-line);
+    background: #0b1634;
+    color: rgba(255,255,255,0.92);
+  }
+  .ff-panel-topbar .lbl{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    font-weight: 950;
+  }
+  .ff-panel-topbar .hint{
+    font-size: 12px;
+    font-weight: 850;
+    color: rgba(255,255,255,0.80);
+  }
+
   .ff-deliv-panel{
     padding: 16px;
+    min-height: 220px;
   }
   .ff-deliv-panel{ display:none; }
   .ff-deliv-panel.active{ display:block; }
@@ -521,7 +580,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     color: var(--ff-muted);
     line-height: 1.6;
     font-size: 14px;
-    max-width: 920px;
+    max-width: 980px;
   }
   .ff-deliv-bul{
     margin: 0;
@@ -532,12 +591,160 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .ff-deliv-bul li{ margin-bottom: 6px; }
 
-  /* Toolkit preview: less cardy, more deck feel */
+  /* CASE STUDIES (Siemens marketplace style, high quality placeholders with no external images) */
+  .ff-case-head{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 6px;
+  }
+  .ff-case-controls{
+    display:flex;
+    gap: 8px;
+  }
+  .ff-case-arrow{
+    width: 40px;
+    height: 36px;
+    border-radius: 12px;
+    border: 1px solid var(--ff-line);
+    background:#fff;
+    color: var(--ff-ink);
+    font-weight: 950;
+    cursor:pointer;
+  }
+  .ff-case-arrow:hover{ opacity:0.95; }
+
+  .ff-case-scroll{
+    margin-top: 14px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .ff-case-card{
+    border-radius: var(--ff-radius);
+    overflow:hidden;
+    border: 1px solid var(--ff-line);
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    box-shadow: 0 12px 28px rgba(11,18,32,0.06);
+  }
+
+  .ff-case-media{
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #0b1634;
+    overflow:hidden;
+  }
+
+  /* abstract placeholder visuals (no external image, looks premium) */
+  .ff-case-visual{
+    width:100%;
+    height:100%;
+    position:relative;
+    background:
+      radial-gradient(600px 220px at 20% 20%, rgba(22,242,210,0.35), rgba(22,242,210,0.0) 60%),
+      radial-gradient(600px 240px at 80% 20%, rgba(240,78,60,0.22), rgba(240,78,60,0.0) 62%),
+      linear-gradient(135deg, #081a3a 0%, #0b1634 55%, #07122b 100%);
+  }
+  .ff-case-visual::after{
+    content:"";
+    position:absolute;
+    inset:-40px -40px auto auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(22,242,210,0.55), rgba(22,242,210,0.0) 65%);
+    transform: rotate(12deg);
+    opacity: 0.9;
+  }
+  .ff-case-visual::before{
+    content:"";
+    position:absolute;
+    left:-60px;
+    bottom:-60px;
+    width: 260px;
+    height: 260px;
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(240,78,60,0.35), rgba(240,78,60,0.0) 70%);
+    opacity: 0.85;
+  }
+
+  .ff-case-badge{
+    position:absolute;
+    top: 14px;
+    left: 14px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(11,18,32,0.68);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: rgba(255,255,255,0.92);
+    font-size: 12px;
+    font-weight: 950;
+    letter-spacing: 0.02em;
+    z-index: 2;
+  }
+
+  .ff-case-body{
+    padding: 16px;
+  }
+  .ff-case-title{
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 950;
+    letter-spacing: -0.01em;
+    color: var(--ff-ink);
+    line-height: 1.2;
+  }
+  .ff-case-desc{
+    margin: 0 0 12px 0;
+    color: var(--ff-muted);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .ff-case-meta{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    color: var(--ff-muted);
+    font-size: 12px;
+    font-weight: 850;
+    margin-bottom: 14px;
+  }
+  .ff-case-dot{
+    width: 4px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(11,18,32,0.30);
+  }
+  .ff-case-actions{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .ff-case-cta{
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .ff-case-link{
+    color: var(--ff-ink);
+    font-weight: 950;
+    text-decoration:none;
+    font-size: 13px;
+  }
+  .ff-case-link:hover{ text-decoration:none; opacity:0.85; }
+
+  /* Toolkit */
   .ff-toolkit-wrap{
     background:#fff;
     border: 1px solid var(--ff-line);
     border-radius: var(--ff-radius);
     padding: 14px;
+    box-shadow: 0 12px 28px rgba(11,18,32,0.05);
   }
   .ff-tabs{
     display:flex;
@@ -576,7 +783,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     min-height: 150px;
     position: relative;
     overflow:hidden;
-    box-shadow: none;
   }
   .ff-scard::after{
     content:"";
@@ -650,6 +856,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   /* Insights */
+  .ff-grid-3{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
   .ff-insight{
     background:#fff;
     border:1px solid var(--ff-line);
@@ -661,7 +873,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing:0.10em;
-    color: var(--ff-teal-2);
+    color: #0aaea0;
     font-weight: 950;
   }
   .ff-insight .t{
@@ -697,41 +909,50 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     margin: 0 0 16px 0;
     line-height: 1.6;
     font-size: 15px;
-    max-width: 860px;
+    max-width: 900px;
   }
 
-  /* Generic 3 column grid used for Insights only now */
-  .ff-grid-3{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 16px;
-  }
-
-  /* Desktop adjustments */
   @media (min-width: 992px){
-    .ff-hero{ padding: 48px 0 40px 0; }
-    .ff-hero h1{ font-size: 50px; }
-
     .ff-cap-grid{ grid-template-columns: repeat(3, 1fr); }
     .ff-steps{ grid-template-columns: repeat(4, 1fr); }
     .ff-bands{ grid-template-columns: repeat(3, 1fr); }
     .ff-grid-3{ grid-template-columns: repeat(3, 1fr); }
     .ff-card-grid{ grid-template-columns: repeat(3, 1fr); }
 
-    .ff-deliv-wrap{
-      grid-template-columns: 360px 1fr;
-    }
+    .ff-deliv-wrap{ grid-template-columns: 380px 1fr; }
     .ff-deliv-rail{
       border-bottom: none;
       border-right: 1px solid var(--ff-line);
       padding: 14px;
     }
-    .ff-deliv-panel{ padding: 18px; }
+    .ff-deliv-right{ min-height: 280px; }
+
+    .ff-case-scroll{
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .ff-case-controls{ display:none; }
   }
 
-  @media (max-width: 420px){
+  @media (max-width: 520px){
     .ff-hero h1{ font-size: 34px; }
+    .ff-deliv-btn{ grid-template-columns: 1fr; }
+    .ff-deliv-btn .ss{ text-align:left; margin-top: 6px; }
+
+    /* small screens: horizontal scroll case studies like Siemens marketplace feel */
+    .ff-case-scroll{
+      display:flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scroll-snap-type: x mandatory;
+    }
+    .ff-case-scroll::-webkit-scrollbar{ height: 8px; }
+    .ff-case-scroll::-webkit-scrollbar-thumb{ background: rgba(11,18,32,0.14); border-radius: 999px; }
+    .ff-case-card{
+      flex: 0 0 88%;
+      scroll-snap-align: start;
+    }
   }
 </style>
 </head>
@@ -786,6 +1007,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <li><a href="#top">Home</a></li>
                       <li><a href="#services">Services</a></li>
                       <li><a href="#deliverables">Deliverables</a></li>
+                      <li><a href="#case-studies">Case studies</a></li>
                       <li><a href="#toolkit">Toolkit</a></li>
                       <li><a href="#insights">Insights</a></li>
                       <li><a href="book.html">Book</a></li>
@@ -821,7 +1043,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Practical work with clear owners, simple routines, and proof that holds under pressure.
       </p>
 
-      <!-- Capability set (bigger cards, top banner style) -->
       <div class="ff-cap-wrap" aria-label="Full capability set">
         <div class="ff-cap-head">
           <div>
@@ -846,7 +1067,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <!-- Then flagship rotating banner -->
       <div class="ff-carousel" aria-label="Flagship offers carousel">
         <div class="ff-carousel-track" id="ffCarouselTrack">
 
@@ -919,7 +1139,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- WHY (Siemens style bands, no cards) -->
+  <!-- WHY -->
   <section class="ff-section" id="why">
     <div class="ff-wrap">
       <div class="ff-head">
@@ -974,43 +1194,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- DELIVERABLES (left rail + detail panel) -->
+  <!-- DELIVERABLES -->
   <section class="ff-section" id="deliverables">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-kicker">Deliverables</div>
         <div class="ff-h2">Concrete outputs your team can run</div>
-        <div class="ff-p">Focused documents and templates. No heavy decks required.</div>
+        <div class="ff-p">Focused documents and templates. No heavy decks required. Each output is designed to be used, owned, and maintained.</div>
       </div>
 
       <div class="ff-deliv-wrap" aria-label="Deliverables explorer">
         <div class="ff-deliv-rail" role="tablist" aria-label="Deliverables list">
           <button class="ff-deliv-btn active" data-ff-deliv="d1" type="button">
-            <span>Readiness gap map</span><small>Owners and dates</small>
+            <span class="tt">Readiness gap map</span>
+            <span class="ss">Owners and dates</span>
           </button>
           <button class="ff-deliv-btn" data-ff-deliv="d2" type="button">
-            <span>Evidence pack</span><small>Audit response ready</small>
+            <span class="tt">Evidence pack</span>
+            <span class="ss">Audit response ready</span>
           </button>
           <button class="ff-deliv-btn" data-ff-deliv="d3" type="button">
-            <span>SOP and checklist updates</span><small>Traceability</small>
+            <span class="tt">SOP and checklist updates</span>
+            <span class="ss">Traceability</span>
           </button>
           <button class="ff-deliv-btn" data-ff-deliv="d4" type="button">
-            <span>Mock audit report</span><small>Findings log</small>
+            <span class="tt">Mock audit report</span>
+            <span class="ss">Findings log</span>
           </button>
           <button class="ff-deliv-btn" data-ff-deliv="d5" type="button">
-            <span>CAPA log and closure rules</span><small>Proof over time</small>
+            <span class="tt">CAPA log and closure rules</span>
+            <span class="ss">Proof over time</span>
           </button>
           <button class="ff-deliv-btn" data-ff-deliv="d6" type="button">
-            <span>Sustain cadence</span><small>30 60 90</small>
+            <span class="tt">Sustain cadence</span>
+            <span class="ss">30 60 90</span>
           </button>
         </div>
 
-        <div style="padding:0;">
+        <div class="ff-deliv-right">
+          <div class="ff-panel-topbar">
+            <div class="lbl">Output details</div>
+            <div class="hint">Practical, ready to run artifacts</div>
+          </div>
+
           <div class="ff-deliv-panel active" id="ff-deliv-d1">
             <div class="ff-deliv-title">Readiness gap map</div>
-            <p class="ff-deliv-desc">A prioritized gap list with named owners, target dates, and the exact proof needed to close each gap.</p>
+            <p class="ff-deliv-desc">A prioritized gap list with named owners, target dates, and the exact proof needed to close each gap. This becomes the single control board for the sprint.</p>
             <ul class="ff-deliv-bul">
-              <li>Control or requirement mapped to current state</li>
+              <li>Requirement mapped to current state and risk</li>
               <li>Owner, due date, and escalation route</li>
               <li>Single link to the evidence location</li>
             </ul>
@@ -1018,37 +1249,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div class="ff-deliv-panel" id="ff-deliv-d2">
             <div class="ff-deliv-title">Evidence pack</div>
-            <p class="ff-deliv-desc">Organized proof set aligned to controls and audit needs, with a clear file trail and ownership.</p>
+            <p class="ff-deliv-desc">Organized proof set aligned to controls and audit needs, with a clear file trail and ownership. Built for fast retrieval when pressure is high.</p>
             <ul class="ff-deliv-bul">
               <li>Evidence index aligned to controls</li>
               <li>Version and approval trail where needed</li>
-              <li>Fast retrieval under audit pressure</li>
+              <li>Fast retrieval and clear ownership</li>
             </ul>
           </div>
 
           <div class="ff-deliv-panel" id="ff-deliv-d3">
             <div class="ff-deliv-title">SOP and checklist updates</div>
-            <p class="ff-deliv-desc">Top procedures and forms updated for clarity, traceability, and consistent execution.</p>
+            <p class="ff-deliv-desc">Top procedures and forms updated for clarity, traceability, and consistent execution. The goal is fewer exceptions and cleaner proof in daily work.</p>
             <ul class="ff-deliv-bul">
               <li>Critical steps made explicit and testable</li>
               <li>Records designed to produce proof by default</li>
-              <li>Training signoff aligned to real work</li>
+              <li>Training signoff aligned to real execution</li>
             </ul>
           </div>
 
           <div class="ff-deliv-panel" id="ff-deliv-d4">
             <div class="ff-deliv-title">Mock audit report</div>
-            <p class="ff-deliv-desc">A walkthrough output and findings log that shows what holds, what fails, and what must be fixed before the audit.</p>
+            <p class="ff-deliv-desc">A walkthrough output and findings log that shows what holds, what fails, and what must be fixed before the audit. Designed to drive action, not debate.</p>
             <ul class="ff-deliv-bul">
               <li>Findings with severity and owner</li>
               <li>Required evidence per finding</li>
-              <li>Readiness summary and next actions</li>
+              <li>Readiness summary and closeout actions</li>
             </ul>
           </div>
 
           <div class="ff-deliv-panel" id="ff-deliv-d5">
             <div class="ff-deliv-title">CAPA log and closure rules</div>
-            <p class="ff-deliv-desc">Actions close only when effectiveness is verified over time, not when paperwork is completed.</p>
+            <p class="ff-deliv-desc">Actions close only when effectiveness is verified over time. This prevents repeat findings and the cycle of reopening the same issues.</p>
             <ul class="ff-deliv-bul">
               <li>Root cause and corrective actions</li>
               <li>Effectiveness checks defined and dated</li>
@@ -1058,7 +1289,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div class="ff-deliv-panel" id="ff-deliv-d6">
             <div class="ff-deliv-title">Sustain cadence</div>
-            <p class="ff-deliv-desc">A simple routine to prevent drift after the sprint, sized for normal operating constraints.</p>
+            <p class="ff-deliv-desc">A simple routine to prevent drift after the sprint, sized for normal operating constraints. The intent is stability that survives real workloads.</p>
             <ul class="ff-deliv-bul">
               <li>30 day stabilization checks</li>
               <li>60 day effectiveness review</li>
@@ -1068,6 +1299,94 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="ff-section white" id="case-studies">
+    <div class="ff-wrap">
+      <div class="ff-head">
+        <div class="ff-kicker">Case studies</div>
+        <div class="ff-h2">Selected work and outcomes</div>
+        <div class="ff-p">Short examples of problems solved, what was delivered, and what changed. Replace these placeholders with your real cases later.</div>
+      </div>
+
+      <div class="ff-case-head">
+        <a class="ff-btn ff-btn-secondary" href="case-studies.html" style="background:#fff; border-color:var(--ff-line); color:var(--ff-ink);">View all case studies</a>
+
+        <div class="ff-case-controls" aria-label="Case studies controls">
+          <button class="ff-case-arrow" type="button" id="ffCasePrev" aria-label="Previous">‹</button>
+          <button class="ff-case-arrow" type="button" id="ffCaseNext" aria-label="Next">›</button>
+        </div>
+      </div>
+
+      <div class="ff-case-scroll" id="ffCaseScroll" aria-label="Case studies">
+
+        <article class="ff-case-card">
+          <div class="ff-case-media">
+            <span class="ff-case-badge">Compliance</span>
+            <div class="ff-case-visual" aria-hidden="true"></div>
+          </div>
+          <div class="ff-case-body">
+            <h3 class="ff-case-title">Audit readiness sprint for a mid market manufacturer</h3>
+            <p class="ff-case-desc">Evidence pack rebuilt, ownership clarified, and a mock audit completed to remove last minute risk.</p>
+            <div class="ff-case-meta">
+              <span>30 days</span><span class="ff-case-dot"></span><span>Quality and Ops</span>
+            </div>
+            <div class="ff-case-actions">
+              <a class="ff-btn ff-btn-primary ff-case-cta" href="case-studies.html#audit-readiness">Read case</a>
+              <a class="ff-case-link" href="book.html">Book a call</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="ff-case-card">
+          <div class="ff-case-media">
+            <span class="ff-case-badge">Supplier performance</span>
+            <div class="ff-case-visual" aria-hidden="true" style="
+              background:
+                radial-gradient(600px 220px at 20% 20%, rgba(22,242,210,0.32), rgba(22,242,210,0.0) 60%),
+                radial-gradient(600px 240px at 80% 20%, rgba(255,255,255,0.08), rgba(255,255,255,0.0) 62%),
+                linear-gradient(135deg, #07122b 0%, #0a1b3c 55%, #081a3a 100%);
+            "></div>
+          </div>
+          <div class="ff-case-body">
+            <h3 class="ff-case-title">Supplier recovery and escalation routine</h3>
+            <p class="ff-case-desc">Top problem suppliers stabilized using cadence, corrective actions, and measurable closeout.</p>
+            <div class="ff-case-meta">
+              <span>60 to 90 days</span><span class="ff-case-dot"></span><span>Supply chain</span>
+            </div>
+            <div class="ff-case-actions">
+              <a class="ff-btn ff-btn-primary ff-case-cta" href="case-studies.html#supplier-recovery">Read case</a>
+              <a class="ff-case-link" href="book.html">Book a call</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="ff-case-card">
+          <div class="ff-case-media">
+            <span class="ff-case-badge">CAPA and quality</span>
+            <div class="ff-case-visual" aria-hidden="true" style="
+              background:
+                radial-gradient(600px 220px at 20% 20%, rgba(240,78,60,0.26), rgba(240,78,60,0.0) 60%),
+                radial-gradient(600px 240px at 80% 20%, rgba(22,242,210,0.22), rgba(22,242,210,0.0) 62%),
+                linear-gradient(135deg, #081a3a 0%, #0b1634 55%, #07122b 100%);
+            "></div>
+          </div>
+          <div class="ff-case-body">
+            <h3 class="ff-case-title">Repeat defect elimination with proof over time</h3>
+            <p class="ff-case-desc">Root cause closed, closure rules enforced, and effectiveness verified with a sustain routine.</p>
+            <div class="ff-case-meta">
+              <span>4 to 6 weeks</span><span class="ff-case-dot"></span><span>Quality</span>
+            </div>
+            <div class="ff-case-actions">
+              <a class="ff-btn ff-btn-primary ff-case-cta" href="case-studies.html#capa-fix">Read case</a>
+              <a class="ff-case-link" href="book.html">Book a call</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 
@@ -1375,7 +1694,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   })();
 
-  // Deliverables explorer (left rail)
+  // Deliverables explorer
   (function(){
     var buttons = document.querySelectorAll(".ff-deliv-btn");
     var panels = {
@@ -1457,6 +1776,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     render();
     start();
+  })();
+
+  // Case studies: mobile horizontal scroll arrows
+  (function(){
+    var scroller = document.getElementById("ffCaseScroll");
+    var prev = document.getElementById("ffCasePrev");
+    var next = document.getElementById("ffCaseNext");
+    if(!scroller || !prev || !next) return;
+
+    function isMobile(){
+      return window.matchMedia && window.matchMedia("(max-width: 992px)").matches;
+    }
+
+    function scrollByCard(dir){
+      if(!isMobile()) return;
+      var card = scroller.querySelector(".ff-case-card");
+      if(!card) return;
+      var dx = Math.round(card.getBoundingClientRect().width + 14) * dir;
+      scroller.scrollBy({ left: dx, behavior: "smooth" });
+    }
+
+    prev.addEventListener("click", function(){ scrollByCard(-1); });
+    next.addEventListener("click", function(){ scrollByCard(1); });
   })();
 </script>
 
