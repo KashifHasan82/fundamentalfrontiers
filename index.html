@@ -54,12 +54,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background: radial-gradient(1200px 600px at 70% 20%, rgba(240,78,60,0.10), transparent 60%),
                 radial-gradient(900px 500px at 20% 10%, rgba(255,255,255,0.10), transparent 55%),
                 linear-gradient(180deg, var(--ff-ink) 0%, var(--ff-ink2) 100%);
-    padding: 120px 0 80px 0;
+    padding: 105px 0 70px 0;
     color:#fff;
   }
   .ff-hero h1{
-    font-size: 54px;
-    line-height: 1.05;
+    font-size: 52px;
+    line-height: 1.06;
     margin: 12px 0 16px 0;
     color:#fff;
   }
@@ -67,7 +67,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: rgba(255,255,255,0.86);
     font-size: 18px;
     line-height: 1.6;
-    max-width: 740px;
+    max-width: 680px;
   }
   .ff-badge{
     display:inline-flex;
@@ -83,11 +83,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background: var(--ff-accent);
     display:inline-block;
   }
+
   .ff-btn-row{
     display:flex;
     gap: 14px;
     flex-wrap: wrap;
-    margin-top: 26px;
+    margin-top: 22px;
   }
   .ff-btn-primary{
     background: var(--ff-accent);
@@ -113,7 +114,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     display:flex;
     gap: 10px;
     flex-wrap: wrap;
-    margin-top: 22px;
+    margin-top: 18px;
   }
   .ff-pill{
     background: rgba(255,255,255,0.08);
@@ -124,55 +125,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-size: 13px;
   }
 
-  /* HERO: compact full portfolio strip */
-  .ff-hero-portfolio{
+  /* HERO: Services panel (replaces floating portfolio chips) */
+  .ff-hero-services{
     margin-top: 18px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255,255,255,0.14);
+    padding: 16px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(6px);
   }
-  .ff-hero-portfolio .label{
+  .ff-hero-services .label{
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.70);
+    color: rgba(255,255,255,0.75);
+    font-weight: 800;
     margin-bottom: 10px;
-    font-weight: 700;
   }
-  .ff-hero-portfolio-grid{
-    display:flex;
-    flex-wrap: wrap;
+  .ff-hero-services-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
-  .ff-hero-svc{
-    display:inline-flex;
+  .ff-hero-svc-tile{
+    display:flex;
     align-items:center;
     gap:8px;
-    padding: 8px 10px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.90);
-    font-size: 13px;
-    font-weight: 700;
+    padding: 10px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    color: rgba(255,255,255,0.92);
     text-decoration:none;
-    line-height: 1;
-    white-space: nowrap;
+    font-weight: 800;
+    font-size: 13px;
+    line-height: 1.2;
+    min-height: 44px;
   }
-  .ff-hero-svc:hover{ opacity: 0.92; color:#fff; text-decoration:none; }
-  .ff-hero-svc .dot{
-    width:6px; height:6px; border-radius: 50%;
+  .ff-hero-svc-tile:hover{ opacity:0.92; color:#fff; text-decoration:none; }
+  .ff-hero-svc-tile .dot{
+    width:6px; height:6px; border-radius:999px;
     background: var(--ff-accent);
-    display:inline-block;
+    flex: 0 0 6px;
   }
 
-  /* RIGHT PANE: sticky flagship rail */
+  /* RIGHT: Sticky flagship rail */
   .ff-rail{
     position: sticky;
-    top: 110px;
+    top: 100px;
   }
   .ff-rail-card{
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
     border-radius: 16px;
     padding: 18px;
     backdrop-filter: blur(6px);
@@ -181,7 +185,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.70);
+    color: rgba(255,255,255,0.72);
     font-weight: 800;
     margin-bottom: 12px;
   }
@@ -237,7 +241,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .ff-rail-note{
     margin-top: 12px;
-    color: rgba(255,255,255,0.70);
+    color: rgba(255,255,255,0.72);
     font-size: 12px;
     line-height: 1.45;
   }
@@ -269,7 +273,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .ff-card h3{ font-size: 18px; margin-bottom: 10px; }
   .ff-card p{ color: var(--ff-muted); margin-bottom:0; }
 
-  /* Services compact grid */
+  /* Services grid */
   .ff-services-compact{ padding: 58px 0; background:#fff; }
   .ff-svc-grid{
     display:grid;
@@ -487,8 +491,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .ff-cta p{ color: rgba(255,255,255,0.85); max-width: 760px; }
 
   @media (max-width: 991px){
-    .ff-hero{ padding: 90px 0 60px 0; }
-    .ff-hero h1{ font-size: 40px; }
+    .ff-hero{ padding: 85px 0 55px 0; }
+    .ff-hero h1{ font-size: 38px; }
+    .ff-hero-services-grid{ grid-template-columns: 1fr; }
     .ff-svc-grid{ grid-template-columns: 1fr; }
     .ff-steps{ grid-template-columns: 1fr; }
     .ff-card-grid{ grid-template-columns: 1fr; }
@@ -575,12 +580,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main>
 
-  <!-- HERO: left content scrolls, right rail sticks -->
+  <!-- HERO -->
   <section class="ff-hero" id="flagship">
     <div class="container">
       <div class="row align-items-start">
+
         <!-- LEFT -->
-        <div class="col-lg-8">
+        <div class="col-lg-7">
           <div class="ff-badge"><span class="dot"></span>Flagship program for mid market manufacturers</div>
           <h1>Audit and compliance readiness in 30 days</h1>
           <p>
@@ -600,24 +606,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="ff-pill">Recurrence prevention</div>
           </div>
 
-          <div class="ff-hero-portfolio">
-            <div class="label">Full portfolio available</div>
-            <div class="ff-hero-portfolio-grid">
-              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Compliance and audits</a>
-              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Lean and Six Sigma</a>
-              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Operational excellence</a>
-              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Supplier performance</a>
-              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Dashboards and reporting</a>
-              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Risk management</a>
-              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Program management</a>
-              <a class="ff-hero-svc" href="#services"><span class="dot"></span>Balanced scorecard</a>
-              <a class="ff-hero-svc" href="#services"><span class="dot"></span>AI in engineering</a>
+          <!-- Proper services panel on top (pleasing, professional) -->
+          <div class="ff-hero-services">
+            <div class="label">Our services</div>
+            <div class="ff-hero-services-grid">
+              <a class="ff-hero-svc-tile" href="#services"><span class="dot"></span>Compliance and audits</a>
+              <a class="ff-hero-svc-tile" href="#services"><span class="dot"></span>Lean and Six Sigma</a>
+              <a class="ff-hero-svc-tile" href="#services"><span class="dot"></span>Operational excellence</a>
+
+              <a class="ff-hero-svc-tile" href="#services"><span class="dot"></span>Supplier performance</a>
+              <a class="ff-hero-svc-tile" href="#services"><span class="dot"></span>Dashboards and reporting</a>
+              <a class="ff-hero-svc-tile" href="#services"><span class="dot"></span>Risk management</a>
+
+              <a class="ff-hero-svc-tile" href="#services"><span class="dot"></span>AI in engineering</a>
+              <a class="ff-hero-svc-tile" href="#services"><span class="dot"></span>Program management</a>
+              <a class="ff-hero-svc-tile" href="#services"><span class="dot"></span>Balanced scorecard</a>
             </div>
           </div>
         </div>
 
         <!-- RIGHT STICKY RAIL -->
-        <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="col-lg-5 mt-4 mt-lg-0">
           <div class="ff-rail">
             <div class="ff-rail-card">
               <div class="ff-rail-title">Start here: three simple offers</div>
@@ -665,7 +674,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- SERVICES (full portfolio as blocks near top) -->
+  <!-- SERVICES -->
   <section class="ff-services-compact" id="services">
     <div class="container">
       <div class="row">
@@ -696,7 +705,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- WHY PROGRAM -->
+  <!-- WHY -->
   <section class="ff-section bg">
     <div class="container">
       <div class="row">
@@ -735,7 +744,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- HOW -->
   <section class="ff-section">
     <div class="container">
       <div class="row">
@@ -833,7 +842,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- TOOLKIT PREVIEW -->
+  <!-- TOOLKIT -->
   <section class="ff-section" id="toolkit">
     <div class="container">
       <div class="row align-items-end">
@@ -861,29 +870,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <button class="ff-tab-btn" data-ff-tab="outcomes" type="button">Outcomes</button>
             </div>
 
-            <!-- Scenarios -->
             <div class="ff-tab-panel active" id="ff-tab-scenario">
               <div class="ff-card-grid">
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Scenario</div><div class="lvl">Audit week</div>
-                  </div>
+                  <div class="meta"><div class="tag">Scenario</div><div class="lvl">Audit week</div></div>
                   <div class="title">Missing calibration evidence</div>
                   <div class="body">An auditor asks for traceable records. The file trail is incomplete and ownership is unclear.</div>
                   <div class="footer"><span class="chip">Goal: close evidence gap</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Scenario</div><div class="lvl">Recurring</div>
-                  </div>
+                  <div class="meta"><div class="tag">Scenario</div><div class="lvl">Recurring</div></div>
                   <div class="title">Repeat NCR from same process step</div>
                   <div class="body">A finding was closed before. The same failure returns because the control did not hold.</div>
                   <div class="footer"><span class="chip">Goal: stop recurrence</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Scenario</div><div class="lvl">Change</div>
-                  </div>
+                  <div class="meta"><div class="tag">Scenario</div><div class="lvl">Change</div></div>
                   <div class="title">Supplier change without approval trail</div>
                   <div class="body">A material change is introduced. Verification and approval evidence is missing or outdated.</div>
                   <div class="footer"><span class="chip">Goal: enforce change control</span><span>Sample</span></div>
@@ -891,29 +893,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
 
-            <!-- Roles -->
             <div class="ff-tab-panel" id="ff-tab-roles">
               <div class="ff-card-grid">
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Role</div><div class="lvl">Quality</div>
-                  </div>
+                  <div class="meta"><div class="tag">Role</div><div class="lvl">Quality</div></div>
                   <div class="title">Quality lead</div>
                   <div class="body">Owns the evidence pack, control checks, and readiness walkthroughs.</div>
                   <div class="footer"><span class="chip">Accountability</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Role</div><div class="lvl">Ops</div>
-                  </div>
+                  <div class="meta"><div class="tag">Role</div><div class="lvl">Ops</div></div>
                   <div class="title">Production supervisor</div>
                   <div class="body">Ensures procedures are followed, records exist, and escalations happen on time.</div>
                   <div class="footer"><span class="chip">Execution</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Role</div><div class="lvl">Docs</div>
-                  </div>
+                  <div class="meta"><div class="tag">Role</div><div class="lvl">Docs</div></div>
                   <div class="title">Document control owner</div>
                   <div class="body">Maintains version history, approvals, and access to the latest controlled documents.</div>
                   <div class="footer"><span class="chip">Traceability</span><span>Sample</span></div>
@@ -921,29 +916,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
 
-            <!-- Decisions -->
             <div class="ff-tab-panel" id="ff-tab-decisions">
               <div class="ff-card-grid">
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Decision</div><div class="lvl">Today</div>
-                  </div>
+                  <div class="meta"><div class="tag">Decision</div><div class="lvl">Today</div></div>
                   <div class="title">Accept deviation or stop the line</div>
                   <div class="body">Decide the short term action and the evidence needed to prevent repeat exceptions.</div>
                   <div class="footer"><span class="chip">Tradeoff: output</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Decision</div><div class="lvl">This week</div>
-                  </div>
+                  <div class="meta"><div class="tag">Decision</div><div class="lvl">This week</div></div>
                   <div class="title">Approve change or delay shipment</div>
                   <div class="body">Decide whether approval, verification, and records are sufficient to proceed.</div>
                   <div class="footer"><span class="chip">Tradeoff: speed</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Decision</div><div class="lvl">Closeout</div>
-                  </div>
+                  <div class="meta"><div class="tag">Decision</div><div class="lvl">Closeout</div></div>
                   <div class="title">Close finding or verify effectiveness</div>
                   <div class="body">Close only after a stability check, not when paperwork is complete.</div>
                   <div class="footer"><span class="chip">Proof over time</span><span>Sample</span></div>
@@ -951,29 +939,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
 
-            <!-- Controls -->
             <div class="ff-tab-panel" id="ff-tab-controls">
               <div class="ff-card-grid">
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Control</div><div class="lvl">Prevent</div>
-                  </div>
+                  <div class="meta"><div class="tag">Control</div><div class="lvl">Prevent</div></div>
                   <div class="title">Change control gate</div>
                   <div class="body">No changes without approval, qualification evidence, and updated specs.</div>
                   <div class="footer"><span class="chip">Reduces surprises</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Control</div><div class="lvl">Operate</div>
-                  </div>
+                  <div class="meta"><div class="tag">Control</div><div class="lvl">Operate</div></div>
                   <div class="title">Line clearance checklist</div>
                   <div class="body">A specific routine that prevents mix ups and creates a record automatically.</div>
                   <div class="footer"><span class="chip">Simple and repeatable</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Control</div><div class="lvl">Discipline</div>
-                  </div>
+                  <div class="meta"><div class="tag">Control</div><div class="lvl">Discipline</div></div>
                   <div class="title">CAPA closure rule</div>
                   <div class="body">A finding closes only when the metric holds over time, not when a form is filled.</div>
                   <div class="footer"><span class="chip">Stops recurrence</span><span>Sample</span></div>
@@ -981,29 +962,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
 
-            <!-- Evidence -->
             <div class="ff-tab-panel" id="ff-tab-evidence">
               <div class="ff-card-grid">
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Evidence</div><div class="lvl">Audit ready</div>
-                  </div>
+                  <div class="meta"><div class="tag">Evidence</div><div class="lvl">Audit ready</div></div>
                   <div class="title">Action log with owners</div>
                   <div class="body">One page list of actions, dates, owners, status, and linked proof.</div>
                   <div class="footer"><span class="chip">Traceable</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Evidence</div><div class="lvl">Training</div>
-                  </div>
+                  <div class="meta"><div class="tag">Evidence</div><div class="lvl">Training</div></div>
                   <div class="title">Training record and competency signoff</div>
                   <div class="body">Evidence that people were trained and can execute the procedure as intended.</div>
                   <div class="footer"><span class="chip">Maintainable</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Evidence</div><div class="lvl">Version</div>
-                  </div>
+                  <div class="meta"><div class="tag">Evidence</div><div class="lvl">Version</div></div>
                   <div class="title">Approval trail and version history</div>
                   <div class="body">Proof of document control, approvals, and access to the latest version.</div>
                   <div class="footer"><span class="chip">Decision support</span><span>Sample</span></div>
@@ -1011,29 +985,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
 
-            <!-- Outcomes -->
             <div class="ff-tab-panel" id="ff-tab-outcomes">
               <div class="ff-card-grid">
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Outcome</div><div class="lvl">Audit</div>
-                  </div>
+                  <div class="meta"><div class="tag">Outcome</div><div class="lvl">Audit</div></div>
                   <div class="title">Fewer repeat findings</div>
                   <div class="body">If the same gap returns, a control is missing or not operating as designed.</div>
                   <div class="footer"><span class="chip">Recurrence down</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Outcome</div><div class="lvl">Speed</div>
-                  </div>
+                  <div class="meta"><div class="tag">Outcome</div><div class="lvl">Speed</div></div>
                   <div class="title">Faster audit response</div>
                   <div class="body">Evidence is organized, owned, and available without last minute panic.</div>
                   <div class="footer"><span class="chip">Time saved</span><span>Sample</span></div>
                 </div>
                 <div class="ff-scard">
-                  <div class="meta">
-                    <div class="tag">Outcome</div><div class="lvl">Quality</div>
-                  </div>
+                  <div class="meta"><div class="tag">Outcome</div><div class="lvl">Quality</div></div>
                   <div class="title">Lower defect recurrence</div>
                   <div class="body">Problems are closed only after stability is proven in real operation.</div>
                   <div class="footer"><span class="chip">Stability up</span><span>Sample</span></div>
