@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Fundamental Frontiers Consulting</title>
-<meta name="description" content="Manufacturing consulting and execution support. Full services include compliance, Lean Six Sigma, operational excellence, supplier performance, dashboards, and risk management. Flagship sprints rotate: audit readiness, SOP refresh, CAPA fix.">
+<meta name="description" content="Evidence based manufacturing consulting and execution support. Services include compliance and audit readiness, Lean Six Sigma, operational excellence, supplier performance, dashboards, and risk management.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="site.webmanifest">
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -41,7 +41,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
 <style>
   :root{
-    /* Siemens inspired palette (navy + teal) + keep FF logo red */
     --ff-navy-0:#050A1A;
     --ff-navy-1:#07122B;
     --ff-navy-2:#0A1B3C;
@@ -58,9 +57,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   html, body{ overflow-x:hidden; }
+  html{ scroll-behavior: smooth; }
   body{ background: var(--ff-bg); }
 
-  /* Page width */
   .ff-wrap{
     max-width: 1140px;
     margin: 0 auto;
@@ -68,7 +67,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     padding-right: 16px;
   }
 
-  /* Top bar */
   .ff-topbar{
     background: linear-gradient(180deg, var(--ff-navy-0) 0%, var(--ff-navy-1) 100%);
     color: rgba(255,255,255,0.85);
@@ -88,7 +86,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .ff-topbar a:hover{ color:#fff; text-decoration:none; }
 
-  /* Header */
   .header-bottom{
     background:#fff;
     border-bottom: 1px solid var(--ff-line);
@@ -106,7 +103,16 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       radial-gradient(900px 520px at 20% 15%, rgba(240,78,60,0.09), transparent 65%),
       linear-gradient(180deg, var(--ff-navy-0) 0%, var(--ff-navy-2) 100%);
     color:#fff;
-    padding: 34px 0 32px 0;
+    padding: 36px 0 34px 0;
+    position: relative;
+  }
+  .ff-hero::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-1px;
+    height: 38px;
+    background: linear-gradient(180deg, rgba(244,246,251,0) 0%, rgba(244,246,251,1) 100%);
+    pointer-events:none;
   }
 
   .ff-badge{
@@ -126,7 +132,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-hero h1{
-    font-size: 40px;
+    font-size: 42px;
     line-height: 1.08;
     margin: 12px 0 10px 0;
     color:#fff;
@@ -138,7 +144,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-size: 15px;
     line-height: 1.6;
     margin: 0;
-    max-width: 920px;
+    max-width: 960px;
   }
 
   .ff-hero-actions{
@@ -174,71 +180,78 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .ff-btn-secondary:hover{ opacity:0.95; color:#fff; text-decoration:none; }
 
-  /* OUR SERVICES bar (dominant, on top) */
-  .ff-portfolio-bar{
-    margin-top: 16px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.16);
+  /* Capability banner (bigger cards, top) */
+  .ff-cap-wrap{
+    margin-top: 18px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
     border-radius: var(--ff-radius);
-    padding: 14px;
+    padding: 16px;
     backdrop-filter: blur(6px);
   }
-  .ff-portfolio-head{
+  .ff-cap-head{
     display:flex;
-    align-items:center;
+    align-items:flex-end;
     justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 10px;
+    gap: 16px;
+    margin-bottom: 12px;
   }
-  .ff-portfolio-title{
+  .ff-cap-title{
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.10em;
     color: rgba(255,255,255,0.74);
     font-weight: 950;
   }
-  .ff-portfolio-link{
-    color: rgba(255,255,255,0.80);
-    font-weight: 900;
-    text-decoration:none;
+  .ff-cap-note{
+    color: rgba(255,255,255,0.72);
     font-size: 13px;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 840px;
   }
-  .ff-portfolio-link:hover{ color:#fff; text-decoration:none; }
 
-  .ff-portfolio-scroll{
-    display:flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    scroll-snap-type: x mandatory;
+  .ff-cap-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
-  .ff-portfolio-scroll::-webkit-scrollbar{ height: 8px; }
-  .ff-portfolio-scroll::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.14); border-radius: 999px; }
 
-  .ff-pill{
-    scroll-snap-align: start;
-    flex: 0 0 auto;
-    display:inline-flex;
-    align-items:center;
-    gap: 8px;
-    padding: 10px 12px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.05);
+  .ff-cap{
+    border-radius: var(--ff-radius);
     border: 1px solid rgba(255,255,255,0.14);
-    color: rgba(255,255,255,0.94);
+    background:
+      radial-gradient(680px 240px at 25% 0%, rgba(22,242,210,0.10), transparent 60%),
+      radial-gradient(640px 260px at 90% 20%, rgba(240,78,60,0.09), transparent 60%),
+      rgba(255,255,255,0.05);
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 18px 38px rgba(0,0,0,0.18);
+  }
+  .ff-cap::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width: 4px;
+    background: linear-gradient(180deg, rgba(22,242,210,0.9) 0%, rgba(22,242,210,0.0) 100%);
+    opacity: 0.9;
+  }
+  .ff-cap h3{
+    font-size: 16px;
     font-weight: 950;
+    margin: 0 0 8px 0;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+  .ff-cap p{
+    margin: 0;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.55;
     font-size: 13px;
-    text-decoration:none;
-    white-space: nowrap;
   }
-  .ff-pill .dot{
-    width:6px; height:6px; border-radius:999px;
-    background: var(--ff-red);
-    display:inline-block;
-  }
-  .ff-pill:hover{ opacity:0.95; color:#fff; text-decoration:none; }
 
-  /* Flagship carousel (below portfolio bar) */
+  /* Flagship carousel */
   .ff-carousel{
     margin-top: 14px;
     border-radius: var(--ff-radius);
@@ -250,7 +263,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-carousel-track{
     display:flex;
     width: 300%;
-    transition: transform 450ms ease;
+    transition: transform 600ms ease;
   }
   .ff-slide{
     flex: 0 0 100%;
@@ -371,34 +384,59 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     max-width: 920px;
   }
 
-  .ff-grid-3{
+  /* Siemens style feature banners (no cards) */
+  .ff-bands{
+    margin-top: 18px;
     display:grid;
     grid-template-columns: 1fr;
     gap: 12px;
-    margin-top: 16px;
   }
-
-  .ff-card{
-    background: var(--ff-card);
-    border: 1px solid var(--ff-line);
-    border-radius: var(--ff-radius);
+  .ff-band{
+    display:flex;
+    gap: 14px;
+    align-items:flex-start;
     padding: 16px;
-    box-shadow: 0 12px 28px rgba(11,18,32,0.05);
+    border-radius: var(--ff-radius);
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    border: 1px solid var(--ff-line);
+    position: relative;
+    overflow:hidden;
   }
-  .ff-card h3{
+  .ff-band::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width: 5px;
+    background: linear-gradient(180deg, rgba(22,242,210,0.85) 0%, rgba(22,242,210,0.10) 100%);
+  }
+  .ff-band-ico{
+    width: 42px; height: 42px;
+    border-radius: 14px;
+    background: rgba(22,242,210,0.14);
+    border: 1px solid rgba(22,242,210,0.30);
+    color: var(--ff-ink);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex: 0 0 auto;
+    font-weight: 950;
+    font-size: 14px;
+  }
+  .ff-band h3{
     font-size: 16px;
     font-weight: 950;
-    margin: 0 0 8px 0;
+    margin: 0 0 6px 0;
     color: var(--ff-ink);
+    letter-spacing: -0.01em;
   }
-  .ff-card p{
+  .ff-band p{
     margin: 0;
     color: var(--ff-muted);
     line-height: 1.55;
     font-size: 14px;
   }
 
-  /* Steps */
+  /* Steps (keep, but more compact and less cardy) */
   .ff-steps{
     display:grid;
     grid-template-columns: 1fr;
@@ -426,7 +464,75 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-step .t{ font-weight: 950; color: var(--ff-ink); margin-bottom: 6px; }
   .ff-step .d{ color: var(--ff-muted); font-size: 14px; line-height: 1.55; }
 
-  /* Toolkit */
+  /* Deliverables: left rail + right detail (Siemens style) */
+  .ff-deliv-wrap{
+    margin-top: 16px;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    background:#fff;
+    border: 1px solid var(--ff-line);
+    border-radius: var(--ff-radius);
+    overflow:hidden;
+  }
+  .ff-deliv-rail{
+    border-bottom: 1px solid var(--ff-line);
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    padding: 10px;
+  }
+  .ff-deliv-btn{
+    width: 100%;
+    text-align:left;
+    padding: 12px 12px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--ff-ink);
+    cursor:pointer;
+    font-weight: 950;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .ff-deliv-btn small{
+    color: var(--ff-muted);
+    font-weight: 800;
+  }
+  .ff-deliv-btn.active{
+    border-color: rgba(22,242,210,0.55);
+    box-shadow: 0 10px 22px rgba(22,242,210,0.10);
+    background: #fff;
+  }
+  .ff-deliv-panel{
+    padding: 16px;
+  }
+  .ff-deliv-panel{ display:none; }
+  .ff-deliv-panel.active{ display:block; }
+  .ff-deliv-title{
+    font-size: 18px;
+    font-weight: 950;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+    color: var(--ff-ink);
+  }
+  .ff-deliv-desc{
+    margin: 0 0 12px 0;
+    color: var(--ff-muted);
+    line-height: 1.6;
+    font-size: 14px;
+    max-width: 920px;
+  }
+  .ff-deliv-bul{
+    margin: 0;
+    padding-left: 18px;
+    color: var(--ff-muted);
+    line-height: 1.7;
+    font-size: 14px;
+  }
+  .ff-deliv-bul li{ margin-bottom: 6px; }
+
+  /* Toolkit preview: less cardy, more deck feel */
   .ff-toolkit-wrap{
     background:#fff;
     border: 1px solid var(--ff-line);
@@ -467,12 +573,20 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border:1px solid var(--ff-line);
     background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
     padding: 14px;
-    min-height: 160px;
+    min-height: 150px;
     position: relative;
     overflow:hidden;
+    box-shadow: none;
   }
-  /* Removed the top red border to match the new palette */
-  .ff-scard::before{ content:none; }
+  .ff-scard::after{
+    content:"";
+    position:absolute;
+    right:-22px;
+    top:-22px;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle at 30% 30%, rgba(22,242,210,0.18), rgba(22,242,210,0.0) 65%);
+    transform: rotate(12deg);
+  }
 
   .ff-scard .meta{
     display:flex;
@@ -480,6 +594,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     align-items:center;
     gap: 10px;
     margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
   }
   .ff-scard .tag{
     font-size: 11px;
@@ -503,12 +619,16 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     margin-bottom: 8px;
     font-size: 15px;
     line-height: 1.25;
+    position: relative;
+    z-index: 2;
   }
   .ff-scard .body{
     color: var(--ff-muted);
     font-size: 13px;
     line-height: 1.45;
     margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
   }
   .ff-scard .footer{
     display:flex;
@@ -517,6 +637,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     gap: 10px;
     font-size: 12px;
     color: var(--ff-muted);
+    position: relative;
+    z-index: 2;
   }
   .ff-scard .chip{
     border:1px solid var(--ff-line);
@@ -578,20 +700,34 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     max-width: 860px;
   }
 
-  /* Desktop adjustments: stop horizontal scroll for services pills */
+  /* Generic 3 column grid used for Insights only now */
+  .ff-grid-3{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  /* Desktop adjustments */
   @media (min-width: 992px){
-    .ff-hero{ padding: 44px 0 40px 0; }
-    .ff-hero h1{ font-size: 48px; }
-    .ff-portfolio-scroll{
-      overflow-x: hidden;
-      flex-wrap: wrap;
-      padding-bottom: 0;
-      scroll-snap-type: none;
-    }
-    .ff-pill{ white-space: normal; }
-    .ff-grid-3{ grid-template-columns: repeat(3, 1fr); }
+    .ff-hero{ padding: 48px 0 40px 0; }
+    .ff-hero h1{ font-size: 50px; }
+
+    .ff-cap-grid{ grid-template-columns: repeat(3, 1fr); }
     .ff-steps{ grid-template-columns: repeat(4, 1fr); }
+    .ff-bands{ grid-template-columns: repeat(3, 1fr); }
+    .ff-grid-3{ grid-template-columns: repeat(3, 1fr); }
     .ff-card-grid{ grid-template-columns: repeat(3, 1fr); }
+
+    .ff-deliv-wrap{
+      grid-template-columns: 360px 1fr;
+    }
+    .ff-deliv-rail{
+      border-bottom: none;
+      border-right: 1px solid var(--ff-line);
+      padding: 14px;
+    }
+    .ff-deliv-panel{ padding: 18px; }
   }
 
   @media (max-width: 420px){
@@ -675,33 +811,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main id="top">
 
   <!-- HERO -->
-  <section class="ff-hero">
+  <section class="ff-hero" id="services">
     <div class="ff-wrap">
 
-      <div class="ff-badge"><span class="dot"></span>Flagship program for mid market manufacturers</div>
-      <h1>Audit and compliance readiness in 30 days</h1>
+      <div class="ff-badge"><span class="dot"></span>Evidence based delivery for manufacturing teams</div>
+      <h1>Clear decisions, clean proof, stable execution</h1>
       <p>
-        Close gaps, organize evidence, and run an internal mock audit so the system holds under pressure.
-        Practical delivery with clear owners, simple templates, and proof you can maintain.
+        We help mid market manufacturers close gaps that slow delivery and create audit risk.
+        Practical work with clear owners, simple routines, and proof that holds under pressure.
       </p>
 
-      <!-- Services first, dominant -->
-      <div class="ff-portfolio-bar">
-        <div class="ff-portfolio-head">
-          <div class="ff-portfolio-title">Our services</div>
-          <a class="ff-portfolio-link" href="#services">View all</a>
+      <!-- Capability set (bigger cards, top banner style) -->
+      <div class="ff-cap-wrap" aria-label="Full capability set">
+        <div class="ff-cap-head">
+          <div>
+            <div class="ff-cap-title">Full capability set</div>
+            <p class="ff-cap-note">
+              Flagship sprints are starting points. The full portfolio is available for broader programs and longer term work.
+            </p>
+          </div>
+          <a class="ff-btn ff-btn-secondary" href="#deliverables" style="padding:10px 12px; font-size:13px;">See outputs</a>
         </div>
 
-        <div class="ff-portfolio-scroll" aria-label="Portfolio services">
-          <a class="ff-pill" href="#services"><span class="dot"></span>Compliance certification, auditing, training</a>
-          <a class="ff-pill" href="#services"><span class="dot"></span>Lean and Six Sigma training and implementation</a>
-          <a class="ff-pill" href="#services"><span class="dot"></span>Operational excellence and process optimization</a>
-          <a class="ff-pill" href="#services"><span class="dot"></span>Supplier development and performance management</a>
-          <a class="ff-pill" href="#services"><span class="dot"></span>Data integration, visualization and reporting</a>
-          <a class="ff-pill" href="#services"><span class="dot"></span>Enterprise and operational risk management</a>
-          <a class="ff-pill" href="#services"><span class="dot"></span>AI in engineering</a>
-          <a class="ff-pill" href="#services"><span class="dot"></span>Program and project management</a>
-          <a class="ff-pill" href="#services"><span class="dot"></span>Balanced scorecard</a>
+        <div class="ff-cap-grid">
+          <div class="ff-cap"><h3>Compliance certification, auditing, training</h3><p>Audit readiness, evidence discipline, internal audits, training and implementation support.</p></div>
+          <div class="ff-cap"><h3>Lean and Six Sigma</h3><p>Problem solving, stability, waste removal, and practical deployment support.</p></div>
+          <div class="ff-cap"><h3>Operational excellence</h3><p>Execution cadence, daily management, KPI routines, and process optimization.</p></div>
+          <div class="ff-cap"><h3>Supplier performance</h3><p>Supplier development, governance, corrective actions, and escalation routines.</p></div>
+          <div class="ff-cap"><h3>Dashboards and reporting</h3><p>Data integration, visualization, reporting, and decision support for operations.</p></div>
+          <div class="ff-cap"><h3>Risk management</h3><p>Enterprise and operational risk view, control design, monitoring, and reduction.</p></div>
+          <div class="ff-cap"><h3>Program and project management</h3><p>Cadence, action tracking, owners, governance, and delivery structure.</p></div>
+          <div class="ff-cap"><h3>Balanced scorecard</h3><p>Strategy to execution alignment, KPI trees, and performance routines.</p></div>
+          <div class="ff-cap"><h3>AI in engineering</h3><p>Practical AI workflows and implementation support where it creates value.</p></div>
         </div>
       </div>
 
@@ -712,7 +853,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ff-slide">
             <div class="ff-slide-inner">
               <div class="ff-slide-kicker">
-                <div class="ff-slide-tag">Flagship offer</div>
+                <div class="ff-slide-tag">Flagship sprint</div>
                 <div class="ff-slide-time">30 days</div>
               </div>
               <h3 class="ff-slide-title">Audit and compliance readiness sprint</h3>
@@ -727,14 +868,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ff-slide">
             <div class="ff-slide-inner">
               <div class="ff-slide-kicker">
-                <div class="ff-slide-tag">Flagship offer</div>
+                <div class="ff-slide-tag">Flagship sprint</div>
                 <div class="ff-slide-time">2 to 4 weeks</div>
               </div>
               <h3 class="ff-slide-title">SOP and training refresh sprint</h3>
               <p class="ff-slide-desc">Refresh key procedures, checklists, and training records so execution stays consistent and audit ready.</p>
               <div class="ff-slide-cta">
                 <a class="ff-btn ff-btn-primary" href="book.html">Book a call</a>
-                <a class="ff-btn ff-btn-secondary" href="#services">See where it fits</a>
+                <a class="ff-btn ff-btn-secondary" href="#deliverables">See outputs</a>
               </div>
             </div>
           </div>
@@ -742,7 +883,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ff-slide">
             <div class="ff-slide-inner">
               <div class="ff-slide-kicker">
-                <div class="ff-slide-tag">Flagship offer</div>
+                <div class="ff-slide-tag">Flagship sprint</div>
                 <div class="ff-slide-time">4 to 6 weeks</div>
               </div>
               <h3 class="ff-slide-title">Quality root cause and CAPA fix sprint</h3>
@@ -770,7 +911,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <!-- CTAs after, so services and flagship dominate above -->
       <div class="ff-hero-actions">
         <a href="book.html" class="ff-btn ff-btn-primary">Book a readiness call</a>
         <a href="assets/Fundamental Frontiers Profile.pdf" target="_blank" rel="noopener" class="ff-btn ff-btn-secondary">Download profile</a>
@@ -779,48 +919,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="ff-section white" id="services">
-    <div class="ff-wrap">
-      <div class="ff-head">
-        <div class="ff-kicker">Services</div>
-        <div class="ff-h2">Full capability set for manufacturing teams</div>
-        <div class="ff-p">The flagship sprints are starting points. The full portfolio remains available for broader programs and long term work.</div>
-      </div>
-
-      <div class="ff-grid-3">
-        <div class="ff-card"><h3>Compliance certification, auditing, training</h3><p>Audit readiness, evidence discipline, internal audits, training and implementation support.</p></div>
-        <div class="ff-card"><h3>Lean and Six Sigma</h3><p>Problem solving, stability, waste removal, and practical deployment support.</p></div>
-        <div class="ff-card"><h3>Operational excellence</h3><p>Execution cadence, daily management, KPI routines, and process optimization.</p></div>
-        <div class="ff-card"><h3>Supplier performance</h3><p>Supplier development, governance, corrective actions, and escalation routines.</p></div>
-        <div class="ff-card"><h3>Dashboards and reporting</h3><p>Data integration, visualization, reporting, and decision support for operations.</p></div>
-        <div class="ff-card"><h3>Risk management</h3><p>Enterprise and operational risk view, control design, monitoring, and reduction.</p></div>
-        <div class="ff-card"><h3>Program and project management</h3><p>Cadence, action tracking, owners, governance, and delivery structure.</p></div>
-        <div class="ff-card"><h3>Balanced scorecard</h3><p>Strategy to execution alignment, KPI trees, and performance routines.</p></div>
-        <div class="ff-card"><h3>AI in engineering</h3><p>Practical AI workflows and implementation support where it creates value.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY -->
-  <section class="ff-section">
+  <!-- WHY (Siemens style bands, no cards) -->
+  <section class="ff-section" id="why">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-kicker">Why this works</div>
         <div class="ff-h2">Clear ownership and proof beats paperwork</div>
-        <div class="ff-p">A short, controlled sprint with measurable closeout and a sustain routine. The goal is stable execution under real pressure.</div>
+        <div class="ff-p">Short, controlled delivery with measurable closeout and a sustain routine. The goal is stable execution under real pressure.</div>
       </div>
 
-      <div class="ff-grid-3">
-        <div class="ff-card"><h3>Audit readiness and confidence</h3><p>Evidence is organized and owned. The team knows what is controlled and why.</p></div>
-        <div class="ff-card"><h3>Fewer repeat findings</h3><p>CAPA closes only when effectiveness is verified, not when a form is completed.</p></div>
-        <div class="ff-card"><h3>Faster response during peak load</h3><p>Templates and routines reduce last minute rush and reduce escalation noise.</p></div>
+      <div class="ff-bands" aria-label="Why this works">
+        <div class="ff-band">
+          <div class="ff-band-ico">01</div>
+          <div>
+            <h3>Audit readiness and confidence</h3>
+            <p>Evidence is organized and owned. The team knows what is controlled and why.</p>
+          </div>
+        </div>
+
+        <div class="ff-band">
+          <div class="ff-band-ico">02</div>
+          <div>
+            <h3>Fewer repeat findings</h3>
+            <p>CAPA closes only when effectiveness is verified, not when a form is completed.</p>
+          </div>
+        </div>
+
+        <div class="ff-band">
+          <div class="ff-band-ico">03</div>
+          <div>
+            <h3>Faster response during peak load</h3>
+            <p>Templates and routines reduce last minute rush and reduce escalation noise.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- HOW -->
-  <section class="ff-section white">
+  <section class="ff-section white" id="how">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-kicker">How it works</div>
@@ -837,7 +974,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- DELIVERABLES -->
+  <!-- DELIVERABLES (left rail + detail panel) -->
   <section class="ff-section" id="deliverables">
     <div class="ff-wrap">
       <div class="ff-head">
@@ -846,14 +983,91 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ff-p">Focused documents and templates. No heavy decks required.</div>
       </div>
 
-      <div class="ff-grid-3">
-        <div class="ff-card"><h3>Readiness gap map</h3><p>Prioritized gap list with owners, actions, and dates.</p></div>
-        <div class="ff-card"><h3>Evidence pack</h3><p>Organized proof set aligned to controls and audit needs.</p></div>
-        <div class="ff-card"><h3>SOP and checklist updates</h3><p>Top procedures and forms updated for clarity and control.</p></div>
-        <div class="ff-card"><h3>Mock audit report</h3><p>Walkthrough output, findings log, readiness summary.</p></div>
-        <div class="ff-card"><h3>CAPA log and closure rules</h3><p>Actions with effectiveness verification over time.</p></div>
-        <div class="ff-card"><h3>Sustain cadence</h3><p>30 60 90 day routine to prevent recurrence and drift.</p></div>
+      <div class="ff-deliv-wrap" aria-label="Deliverables explorer">
+        <div class="ff-deliv-rail" role="tablist" aria-label="Deliverables list">
+          <button class="ff-deliv-btn active" data-ff-deliv="d1" type="button">
+            <span>Readiness gap map</span><small>Owners and dates</small>
+          </button>
+          <button class="ff-deliv-btn" data-ff-deliv="d2" type="button">
+            <span>Evidence pack</span><small>Audit response ready</small>
+          </button>
+          <button class="ff-deliv-btn" data-ff-deliv="d3" type="button">
+            <span>SOP and checklist updates</span><small>Traceability</small>
+          </button>
+          <button class="ff-deliv-btn" data-ff-deliv="d4" type="button">
+            <span>Mock audit report</span><small>Findings log</small>
+          </button>
+          <button class="ff-deliv-btn" data-ff-deliv="d5" type="button">
+            <span>CAPA log and closure rules</span><small>Proof over time</small>
+          </button>
+          <button class="ff-deliv-btn" data-ff-deliv="d6" type="button">
+            <span>Sustain cadence</span><small>30 60 90</small>
+          </button>
+        </div>
+
+        <div style="padding:0;">
+          <div class="ff-deliv-panel active" id="ff-deliv-d1">
+            <div class="ff-deliv-title">Readiness gap map</div>
+            <p class="ff-deliv-desc">A prioritized gap list with named owners, target dates, and the exact proof needed to close each gap.</p>
+            <ul class="ff-deliv-bul">
+              <li>Control or requirement mapped to current state</li>
+              <li>Owner, due date, and escalation route</li>
+              <li>Single link to the evidence location</li>
+            </ul>
+          </div>
+
+          <div class="ff-deliv-panel" id="ff-deliv-d2">
+            <div class="ff-deliv-title">Evidence pack</div>
+            <p class="ff-deliv-desc">Organized proof set aligned to controls and audit needs, with a clear file trail and ownership.</p>
+            <ul class="ff-deliv-bul">
+              <li>Evidence index aligned to controls</li>
+              <li>Version and approval trail where needed</li>
+              <li>Fast retrieval under audit pressure</li>
+            </ul>
+          </div>
+
+          <div class="ff-deliv-panel" id="ff-deliv-d3">
+            <div class="ff-deliv-title">SOP and checklist updates</div>
+            <p class="ff-deliv-desc">Top procedures and forms updated for clarity, traceability, and consistent execution.</p>
+            <ul class="ff-deliv-bul">
+              <li>Critical steps made explicit and testable</li>
+              <li>Records designed to produce proof by default</li>
+              <li>Training signoff aligned to real work</li>
+            </ul>
+          </div>
+
+          <div class="ff-deliv-panel" id="ff-deliv-d4">
+            <div class="ff-deliv-title">Mock audit report</div>
+            <p class="ff-deliv-desc">A walkthrough output and findings log that shows what holds, what fails, and what must be fixed before the audit.</p>
+            <ul class="ff-deliv-bul">
+              <li>Findings with severity and owner</li>
+              <li>Required evidence per finding</li>
+              <li>Readiness summary and next actions</li>
+            </ul>
+          </div>
+
+          <div class="ff-deliv-panel" id="ff-deliv-d5">
+            <div class="ff-deliv-title">CAPA log and closure rules</div>
+            <p class="ff-deliv-desc">Actions close only when effectiveness is verified over time, not when paperwork is completed.</p>
+            <ul class="ff-deliv-bul">
+              <li>Root cause and corrective actions</li>
+              <li>Effectiveness checks defined and dated</li>
+              <li>Closure rule that prevents recurrence</li>
+            </ul>
+          </div>
+
+          <div class="ff-deliv-panel" id="ff-deliv-d6">
+            <div class="ff-deliv-title">Sustain cadence</div>
+            <p class="ff-deliv-desc">A simple routine to prevent drift after the sprint, sized for normal operating constraints.</p>
+            <ul class="ff-deliv-bul">
+              <li>30 day stabilization checks</li>
+              <li>60 day effectiveness review</li>
+              <li>90 day internal audit and refresh</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -1054,7 +1268,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="ff-cta">
     <div class="ff-wrap">
       <h2>Book a readiness call</h2>
-      <p>Confirm scope, target audit date, top gaps, and the 30 day plan. Full services remain available after the first sprint.</p>
+      <p>Confirm scope, target date, top gaps, and the first sprint plan. Full services remain available after the first sprint.</p>
       <div class="ff-hero-actions">
         <a href="book.html" class="ff-btn ff-btn-primary">Book now</a>
         <a href="contact.html" class="ff-btn ff-btn-secondary">Contact</a>
@@ -1161,7 +1375,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   })();
 
-  // Flagship carousel (auto rotate every 4 seconds)
+  // Deliverables explorer (left rail)
+  (function(){
+    var buttons = document.querySelectorAll(".ff-deliv-btn");
+    var panels = {
+      d1: document.getElementById("ff-deliv-d1"),
+      d2: document.getElementById("ff-deliv-d2"),
+      d3: document.getElementById("ff-deliv-d3"),
+      d4: document.getElementById("ff-deliv-d4"),
+      d5: document.getElementById("ff-deliv-d5"),
+      d6: document.getElementById("ff-deliv-d6")
+    };
+
+    function setActive(key){
+      buttons.forEach(function(b){
+        b.classList.toggle("active", b.getAttribute("data-ff-deliv") === key);
+      });
+      Object.keys(panels).forEach(function(k){
+        panels[k].classList.toggle("active", k === key);
+      });
+    }
+
+    buttons.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        setActive(btn.getAttribute("data-ff-deliv"));
+      });
+    });
+  })();
+
+  // Flagship carousel (auto rotate every 5 seconds)
   (function(){
     var track = document.getElementById("ffCarouselTrack");
     var dotsWrap = document.getElementById("ffDots");
@@ -1182,7 +1424,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     function start(){
       stop();
-      timer = setInterval(next, 4000);
+      timer = setInterval(next, 5000);
     }
     function stop(){
       if(timer){ clearInterval(timer); timer = null; }
