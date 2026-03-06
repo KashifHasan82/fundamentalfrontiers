@@ -26,7 +26,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 <link rel="manifest" href="site.webmanifest">
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-<!-- CSS here -->
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
 <link rel="stylesheet" href="assets/css/slicknav.css">
@@ -41,87 +40,84 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
 <style>
   :root{
-    --ff-navy-0:#050A1A;
-    --ff-navy-1:#07122B;
-    --ff-navy-2:#0A1B3C;
-    --ff-teal:#16F2D2;
-    --ff-teal-2:#0ED8C5;
+    --ff-navy-0:#071229;
+    --ff-navy-1:#0d1d3d;
+    --ff-navy-2:#16305b;
+    --ff-teal:#16f2d2;
+    --ff-teal-2:#0ed8c5;
     --ff-red:#f04e3c;
-
     --ff-ink:#0b1220;
-    --ff-muted:#5b677a;
-    --ff-line:#e5e7eb;
-
-    --ff-bg:#eef2f8;
-    --ff-bg-2:#f6f8fc;
-    --ff-bg-3:#f2f5fb;
-
+    --ff-muted:#5a667a;
+    --ff-line:#e6ebf2;
+    --ff-soft:#edf3fb;
+    --ff-soft-2:#f5f8fc;
     --ff-card:#ffffff;
     --ff-radius:18px;
     --ff-shadow:0 18px 44px rgba(11,18,32,0.08);
   }
 
-  html, body{ overflow-x:hidden; }
-  html{ scroll-behavior: smooth; }
+  html, body{overflow-x:hidden;}
+  html{scroll-behavior:smooth;}
   body{
     background:
-      radial-gradient(1200px 480px at 10% 0%, rgba(22,242,210,0.05), transparent 55%),
-      radial-gradient(1000px 420px at 90% 20%, rgba(240,78,60,0.04), transparent 55%),
-      var(--ff-bg);
+      radial-gradient(1200px 480px at 10% 0%, rgba(22,242,210,0.04), transparent 55%),
+      radial-gradient(1000px 420px at 90% 20%, rgba(240,78,60,0.03), transparent 55%),
+      var(--ff-soft-2);
+    color:var(--ff-ink);
   }
 
   .ff-wrap{
-    max-width: 1360px;
-    margin: 0 auto;
-    padding-left: 24px;
-    padding-right: 24px;
+    max-width:1340px;
+    margin:0 auto;
+    padding-left:24px;
+    padding-right:24px;
   }
 
   .ff-topbar{
-    background: linear-gradient(180deg, var(--ff-navy-0) 0%, var(--ff-navy-1) 100%);
-    color: rgba(255,255,255,0.85);
-    padding: 10px 0;
-    font-size: 13px;
+    background:linear-gradient(180deg, #061025 0%, #0a1733 100%);
+    color:rgba(255,255,255,0.86);
+    padding:10px 0;
+    font-size:13px;
   }
   .ff-topbar .ff-wrap{
     display:flex;
     align-items:center;
-    justify-content: space-between;
-    gap: 12px;
+    justify-content:space-between;
+    gap:12px;
   }
   .ff-topbar a{
-    color: rgba(255,255,255,0.85);
+    color:rgba(255,255,255,0.88);
     text-decoration:none;
     font-weight:800;
   }
-  .ff-topbar a:hover{ color:#fff; text-decoration:none; }
+  .ff-topbar a:hover{color:#fff;text-decoration:none;}
 
   .header-bottom{
-    background: rgba(255,255,255,0.94);
-    border-bottom: 1px solid rgba(229,231,235,0.85);
-    backdrop-filter: blur(10px);
+    background:rgba(255,255,255,0.94);
+    border-bottom:1px solid rgba(230,235,242,0.95);
+    backdrop-filter:blur(10px);
   }
   .main-menu ul li a{
-    font-weight: 800;
-    color: var(--ff-ink);
+    font-weight:800;
+    color:var(--ff-ink);
   }
-  .main-menu ul li a:hover{ color: var(--ff-navy-2); }
+  .main-menu ul li a:hover{color:var(--ff-navy-2);}
 
   .ff-hero{
-    background:
-      radial-gradient(1000px 520px at 80% 10%, rgba(22,242,210,0.14), transparent 60%),
-      radial-gradient(900px 520px at 20% 15%, rgba(240,78,60,0.11), transparent 65%),
-      linear-gradient(180deg, #06102a 0%, #081a3a 70%, #0d2149 100%);
+    position:relative;
+    padding:58px 0 92px 0;
     color:#fff;
-    padding: 54px 0 44px 0;
-    position: relative;
+    background:
+      radial-gradient(920px 460px at 78% 10%, rgba(22,242,210,0.18), transparent 62%),
+      radial-gradient(820px 430px at 12% 10%, rgba(240,78,60,0.10), transparent 65%),
+      linear-gradient(180deg, #0a1735 0%, #122950 60%, #21406f 100%);
   }
   .ff-hero::after{
     content:"";
     position:absolute;
     left:0; right:0; bottom:-1px;
-    height: 60px;
-    background: linear-gradient(180deg, rgba(238,242,248,0) 0%, rgba(238,242,248,1) 100%);
+    height:115px;
+    background:linear-gradient(180deg, rgba(237,243,251,0) 0%, rgba(237,243,251,1) 100%);
     pointer-events:none;
   }
 
@@ -129,40 +125,45 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     display:inline-flex;
     align-items:center;
     gap:10px;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.10em;
-    color: rgba(255,255,255,0.74);
-    font-weight: 900;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.10em;
+    color:rgba(255,255,255,0.76);
+    font-weight:900;
   }
   .ff-badge .dot{
-    width:8px; height:8px; border-radius: 50%;
-    background: var(--ff-teal);
+    width:8px;height:8px;border-radius:50%;
+    background:var(--ff-teal);
     display:inline-block;
   }
 
-  .ff-hero h1{
-    font-size: 54px;
-    line-height: 1.05;
-    margin: 12px 0 12px 0;
+  .ff-hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:26px;
+    align-items:end;
+  }
+  .ff-hero-copy h1{
+    font-size:54px;
+    line-height:1.04;
+    margin:14px 0 14px 0;
     color:#fff;
-    font-weight: 950;
-    letter-spacing: -0.03em;
-    max-width: 900px;
+    font-weight:950;
+    letter-spacing:-0.03em;
+    max-width:820px;
   }
-  .ff-hero p{
-    color: rgba(255,255,255,0.84);
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 0;
-    max-width: 840px;
+  .ff-hero-copy p{
+    color:rgba(255,255,255,0.85);
+    font-size:16px;
+    line-height:1.7;
+    margin:0;
+    max-width:760px;
   }
-
   .ff-hero-actions{
     display:flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 18px;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:20px;
   }
 
   .ff-btn{
@@ -170,991 +171,674 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     align-items:center;
     justify-content:center;
     gap:10px;
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-weight: 950;
+    padding:12px 16px;
+    border-radius:12px;
+    font-weight:950;
     text-decoration:none;
-    border: 1px solid transparent;
-    line-height: 1;
-    white-space: nowrap;
-    transition: all 0.2s ease;
+    border:1px solid transparent;
+    line-height:1;
+    white-space:nowrap;
+    transition:all 0.2s ease;
   }
   .ff-btn-primary{
-    background: var(--ff-teal);
-    border-color: var(--ff-teal);
-    color: var(--ff-navy-0);
+    background:var(--ff-teal);
+    border-color:var(--ff-teal);
+    color:#041022;
   }
   .ff-btn-primary:hover{
-    opacity:0.95;
-    color: var(--ff-navy-0);
+    color:#041022;
     text-decoration:none;
-    transform: translateY(-1px);
+    transform:translateY(-1px);
+    opacity:0.96;
   }
   .ff-btn-secondary{
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.22);
+    background:rgba(255,255,255,0.08);
+    border-color:rgba(255,255,255,0.22);
     color:#fff;
   }
   .ff-btn-secondary:hover{
-    opacity:0.95;
     color:#fff;
     text-decoration:none;
-    transform: translateY(-1px);
+    transform:translateY(-1px);
+    opacity:0.96;
   }
 
-  .ff-cap-wrap{
-    margin-top: 22px;
-    background: rgba(255,255,255,0.09);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: var(--ff-radius);
-    padding: 18px;
-    backdrop-filter: blur(7px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.16);
+  .ff-hero-panel{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.17);
+    border-radius:var(--ff-radius);
+    padding:18px;
+    backdrop-filter:blur(8px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.16);
   }
-  .ff-cap-head{
-    display:flex;
-    align-items:flex-end;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 12px;
+  .ff-mini-label{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.10em;
+    font-weight:950;
+    color:rgba(255,255,255,0.78);
+    margin-bottom:10px;
   }
-  .ff-cap-title{
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.10em;
-    color: rgba(255,255,255,0.78);
-    font-weight: 950;
-  }
-  .ff-cap-note{
-    color: rgba(255,255,255,0.76);
-    font-size: 13px;
-    line-height: 1.55;
-    margin: 0;
-    max-width: 900px;
-  }
-
-  .ff-cap-grid{
+  .ff-proof-list{
     display:grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .ff-proof-item{
+    padding:12px 14px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.07);
+    color:rgba(255,255,255,0.90);
+    font-size:14px;
+    line-height:1.5;
+    font-weight:700;
+  }
+  .ff-proof-item span{
+    display:block;
+    font-size:12px;
+    line-height:1.45;
+    color:rgba(255,255,255,0.72);
+    font-weight:700;
+    margin-top:4px;
   }
 
-  .ff-cap{
-    border-radius: var(--ff-radius);
-    border: 1px solid rgba(255,255,255,0.18);
-    background:
-      radial-gradient(680px 240px at 25% 0%, rgba(22,242,210,0.13), transparent 60%),
-      radial-gradient(640px 260px at 90% 20%, rgba(240,78,60,0.11), transparent 60%),
-      rgba(255,255,255,0.07);
-    padding: 16px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 18px 38px rgba(0,0,0,0.16);
-  }
-  .ff-cap::before{
-    content:"";
-    position:absolute;
-    left:0; top:0; bottom:0;
-    width: 4px;
-    background: linear-gradient(180deg, rgba(22,242,210,0.95) 0%, rgba(22,242,210,0.10) 100%);
-    opacity: 0.95;
-  }
-  .ff-cap h3{
-    font-size: 16px;
-    font-weight: 950;
-    margin: 0 0 8px 0;
-    color: #fff;
-    letter-spacing: -0.01em;
-  }
-  .ff-cap p{
-    margin: 0;
-    color: rgba(255,255,255,0.82);
-    line-height: 1.55;
-    font-size: 13px;
-  }
-
-  .ff-carousel{
-    margin-top: 18px;
-    border-radius: var(--ff-radius);
-    overflow:hidden;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.09);
-    backdrop-filter: blur(7px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-  }
-  .ff-carousel-track{
+  .ff-trust-strip{
+    margin-top:18px;
     display:flex;
-    width: 300%;
-    transition: transform 650ms ease;
+    flex-wrap:wrap;
+    gap:10px;
   }
-  .ff-slide{
-    flex: 0 0 100%;
-    width: 100%;
-    padding: 18px;
-  }
-  .ff-slide-inner{
-    display:flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .ff-slide-kicker{
-    display:flex;
+  .ff-chip{
+    display:inline-flex;
     align-items:center;
-    justify-content: space-between;
-    gap: 12px;
+    gap:8px;
+    padding:9px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    color:rgba(255,255,255,0.90);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:0.02em;
   }
-  .ff-slide-tag{
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.10em;
-    color: rgba(255,255,255,0.78);
-    font-weight: 950;
-  }
-  .ff-slide-time{
-    font-size: 12px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: rgba(22,242,210,0.14);
-    border: 1px solid rgba(22,242,210,0.34);
-    color: rgba(255,255,255,0.92);
-    font-weight: 950;
-    white-space: nowrap;
-  }
-  .ff-slide-title{
-    font-size: 22px;
-    font-weight: 950;
-    color:#fff;
-    margin: 0;
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-  }
-  .ff-slide-desc{
-    color: rgba(255,255,255,0.86);
-    font-size: 15px;
-    line-height: 1.65;
-    margin: 0;
-    max-width: 980px;
-  }
-  .ff-slide-cta{
-    display:flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    align-items:center;
-  }
-
-  .ff-carousel-controls{
-    display:flex;
-    align-items:center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 12px 14px;
-    border-top: 1px solid rgba(255,255,255,0.14);
-  }
-  .ff-dots{
-    display:flex;
-    align-items:center;
-    gap: 8px;
-  }
-  .ff-dot{
-    width: 8px; height: 8px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.28);
-    border: 1px solid rgba(255,255,255,0.20);
-    cursor:pointer;
-  }
-  .ff-dot.active{ background: var(--ff-teal); border-color: var(--ff-teal); }
-  .ff-arrows{
-    display:flex;
-    gap: 8px;
-  }
-  .ff-arrow{
-    width: 36px; height: 32px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.22);
-    background: rgba(255,255,255,0.08);
-    color:#fff;
-    font-weight: 950;
-    cursor:pointer;
-  }
-  .ff-arrow:hover{ opacity:0.95; }
 
   .ff-section{
-    padding: 56px 0;
-    background:
-      radial-gradient(900px 320px at 10% 0%, rgba(22,242,210,0.06), transparent 55%),
-      radial-gradient(900px 320px at 90% 10%, rgba(240,78,60,0.05), transparent 55%),
-      var(--ff-bg);
+    padding:58px 0;
+    background:var(--ff-soft);
   }
   .ff-section.white{
+    background:linear-gradient(180deg, #ffffff 0%, #f9fbfe 100%);
+  }
+  .ff-section.soft{
     background:
       radial-gradient(900px 320px at 10% 0%, rgba(22,242,210,0.05), transparent 55%),
       radial-gradient(900px 320px at 90% 10%, rgba(240,78,60,0.04), transparent 55%),
-      linear-gradient(180deg, #ffffff 0%, #f7f9fd 100%);
+      var(--ff-soft);
   }
 
-  .ff-head{ margin-bottom: 18px; }
+  .ff-head{margin-bottom:20px;}
   .ff-kicker{
-    color: #0aaea0;
-    font-weight: 950;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    font-size: 12px;
-    margin-bottom: 10px;
+    color:#0aaea0;
+    font-weight:950;
+    letter-spacing:0.10em;
+    text-transform:uppercase;
+    font-size:12px;
+    margin-bottom:10px;
   }
   .ff-h2{
-    font-size: 31px;
-    font-weight: 950;
-    letter-spacing: -0.02em;
-    margin: 0 0 10px 0;
-    color: var(--ff-ink);
-    max-width: 900px;
+    font-size:32px;
+    font-weight:950;
+    letter-spacing:-0.02em;
+    margin:0 0 10px 0;
+    color:var(--ff-ink);
+    max-width:860px;
   }
   .ff-p{
-    color: var(--ff-muted);
-    margin: 0;
-    line-height: 1.7;
-    font-size: 15px;
-    max-width: 980px;
+    color:var(--ff-muted);
+    margin:0;
+    line-height:1.7;
+    font-size:15px;
+    max-width:960px;
+  }
+
+  .ff-services-grid,
+  .ff-flagship-grid,
+  .ff-bands,
+  .ff-proof-grid,
+  .ff-contact-grid,
+  .ff-grid-3{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .ff-card{
+    border-radius:var(--ff-radius);
+    border:1px solid var(--ff-line);
+    background:linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    box-shadow:var(--ff-shadow);
+  }
+
+  .ff-service-pillar{
+    padding:22px;
+    position:relative;
+    overflow:hidden;
+  }
+  .ff-service-pillar::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:5px;
+    background:linear-gradient(180deg, rgba(22,242,210,0.88) 0%, rgba(22,242,210,0.12) 100%);
+  }
+  .ff-service-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 10px;
+    border-radius:999px;
+    background:rgba(22,242,210,0.10);
+    border:1px solid rgba(22,242,210,0.24);
+    color:var(--ff-ink);
+    font-size:11px;
+    font-weight:950;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+  }
+  .ff-service-pillar h3{
+    margin:0 0 10px 0;
+    font-size:22px;
+    line-height:1.2;
+    font-weight:950;
+    color:var(--ff-ink);
+    letter-spacing:-0.02em;
+  }
+  .ff-service-pillar p{
+    margin:0 0 14px 0;
+    color:var(--ff-muted);
+    font-size:14px;
+    line-height:1.65;
+  }
+  .ff-service-list{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+  .ff-service-list li{
+    color:var(--ff-ink);
+    font-size:14px;
+    font-weight:800;
+    line-height:1.45;
+    padding-left:16px;
+    position:relative;
+  }
+  .ff-service-list li::before{
+    content:"";
+    position:absolute;
+    left:0; top:9px;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--ff-teal);
+    box-shadow:0 0 0 4px rgba(22,242,210,0.10);
+  }
+
+  .ff-flagship-card{
+    padding:20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .ff-flagship-card::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:5px;
+    background:linear-gradient(180deg, rgba(22,242,210,0.9) 0%, rgba(22,242,210,0.15) 100%);
+  }
+  .ff-time{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 10px;
+    border-radius:999px;
+    background:rgba(22,242,210,0.10);
+    border:1px solid rgba(22,242,210,0.24);
+    color:var(--ff-ink);
+    font-size:11px;
+    font-weight:950;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+  }
+  .ff-flagship-card h3{
+    margin:0 0 8px 0;
+    font-size:20px;
+    line-height:1.2;
+    font-weight:950;
+    color:var(--ff-ink);
+    letter-spacing:-0.02em;
+  }
+  .ff-flagship-card p{
+    margin:0 0 14px 0;
+    color:var(--ff-muted);
+    font-size:14px;
+    line-height:1.65;
+  }
+  .ff-link{
+    color:var(--ff-navy-2);
+    font-weight:950;
+    text-decoration:none;
+  }
+  .ff-link:hover{
+    color:var(--ff-navy-2);
+    text-decoration:none;
+    opacity:0.88;
   }
 
   .ff-bands{
-    margin-top: 18px;
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
+    margin-top:18px;
   }
   .ff-band{
     display:flex;
-    gap: 14px;
+    gap:14px;
     align-items:flex-start;
-    padding: 18px;
-    border-radius: var(--ff-radius);
-    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    border: 1px solid var(--ff-line);
-    position: relative;
+    padding:18px;
+    border-radius:var(--ff-radius);
+    background:linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    border:1px solid var(--ff-line);
+    position:relative;
     overflow:hidden;
-    box-shadow: var(--ff-shadow);
+    box-shadow:var(--ff-shadow);
   }
   .ff-band::before{
     content:"";
     position:absolute;
     left:0; top:0; bottom:0;
-    width: 5px;
-    background: linear-gradient(180deg, rgba(22,242,210,0.85) 0%, rgba(22,242,210,0.10) 100%);
+    width:5px;
+    background:linear-gradient(180deg, rgba(22,242,210,0.85) 0%, rgba(22,242,210,0.10) 100%);
   }
   .ff-band-ico{
-    width: 42px; height: 42px;
-    border-radius: 14px;
-    background: rgba(22,242,210,0.14);
-    border: 1px solid rgba(22,242,210,0.30);
-    color: var(--ff-ink);
+    width:42px; height:42px;
+    border-radius:14px;
+    background:rgba(22,242,210,0.14);
+    border:1px solid rgba(22,242,210,0.30);
+    color:var(--ff-ink);
     display:flex;
     align-items:center;
     justify-content:center;
-    flex: 0 0 auto;
-    font-weight: 950;
-    font-size: 14px;
+    flex:0 0 auto;
+    font-weight:950;
+    font-size:14px;
   }
   .ff-band h3{
-    font-size: 17px;
-    font-weight: 950;
-    margin: 0 0 6px 0;
-    color: var(--ff-ink);
-    letter-spacing: -0.01em;
+    font-size:17px;
+    font-weight:950;
+    margin:0 0 6px 0;
+    color:var(--ff-ink);
+    letter-spacing:-0.01em;
   }
   .ff-band p{
-    margin: 0;
-    color: var(--ff-muted);
-    line-height: 1.6;
-    font-size: 14px;
+    margin:0;
+    color:var(--ff-muted);
+    line-height:1.6;
+    font-size:14px;
   }
 
-  .ff-steps{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin-top: 16px;
-  }
-  .ff-step{
-    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    border: 1px solid var(--ff-line);
-    border-radius: var(--ff-radius);
-    padding: 16px;
-    box-shadow: var(--ff-shadow);
-  }
-  .ff-step .n{
-    width: 36px; height: 36px;
-    border-radius: 12px;
-    background: rgba(22,242,210,0.14);
-    border: 1px solid rgba(22,242,210,0.30);
-    color: var(--ff-ink);
-    font-weight: 950;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom: 12px;
-  }
-  .ff-step .t{
-    font-weight: 950;
-    color: var(--ff-ink);
-    margin-bottom: 6px;
-    font-size: 16px;
-  }
-  .ff-step .d{
-    color: var(--ff-muted);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .ff-deliv-wrap{
-    margin-top: 18px;
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    border: 1px solid var(--ff-line);
-    border-radius: var(--ff-radius);
-    overflow:hidden;
-    box-shadow: var(--ff-shadow);
-  }
-  .ff-deliv-rail{
-    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    padding: 14px;
-    border-bottom: 1px solid var(--ff-line);
-  }
-  .ff-deliv-btn{
-    width: 100%;
-    text-align:left;
-    padding: 12px 12px;
-    border-radius: 12px;
-    border: 1px solid transparent;
-    background: transparent;
-    color: var(--ff-ink);
-    cursor:pointer;
-    font-weight: 950;
-    display:grid;
-    grid-template-columns: 1fr 140px;
-    align-items:center;
-    gap: 12px;
-  }
-  .ff-deliv-btn + .ff-deliv-btn{ margin-top: 8px; }
-  .ff-deliv-btn .tt{
-    display:block;
-    line-height: 1.25;
-    font-size: 14px;
-    white-space: normal;
-  }
-  .ff-deliv-btn .ss{
-    display:block;
-    text-align:right;
-    color: var(--ff-muted);
-    font-weight: 850;
-    font-size: 12px;
-    line-height: 1.25;
-  }
-  .ff-deliv-btn.active{
-    border-color: rgba(22,242,210,0.55);
-    box-shadow: 0 10px 22px rgba(22,242,210,0.10);
-    background: #fff;
-  }
-
-  .ff-deliv-right{
-    padding: 0;
-    background:
-      radial-gradient(700px 240px at 20% 0%, rgba(22,242,210,0.06), transparent 55%),
-      radial-gradient(700px 240px at 85% 10%, rgba(240,78,60,0.05), transparent 55%),
-      #fff;
-  }
-
-  .ff-panel-topbar{
-    display:flex;
-    align-items:center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--ff-line);
-    background: #0b1634;
-    color: rgba(255,255,255,0.92);
-  }
-  .ff-panel-topbar .lbl{
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.10em;
-    font-weight: 950;
-  }
-  .ff-panel-topbar .hint{
-    font-size: 12px;
-    font-weight: 850;
-    color: rgba(255,255,255,0.80);
-  }
-
-  .ff-deliv-panel{
-    padding: 18px;
-    min-height: 240px;
-    display:none;
-  }
-  .ff-deliv-panel.active{ display:block; }
-  .ff-deliv-title{
-    font-size: 19px;
-    font-weight: 950;
-    margin: 0 0 8px 0;
-    letter-spacing: -0.01em;
-    color: var(--ff-ink);
-  }
-  .ff-deliv-desc{
-    margin: 0 0 12px 0;
-    color: var(--ff-muted);
-    line-height: 1.65;
-    font-size: 14px;
-    max-width: 980px;
-  }
-  .ff-deliv-bul{
-    margin: 0;
-    padding-left: 18px;
-    color: var(--ff-muted);
-    line-height: 1.75;
-    font-size: 14px;
-  }
-  .ff-deliv-bul li{ margin-bottom: 6px; }
-
-  .ff-case-head{
-    display:flex;
-    align-items:center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-top: 6px;
-  }
-  .ff-case-controls{
-    display:flex;
-    gap: 8px;
-  }
-  .ff-case-arrow{
-    width: 40px;
-    height: 36px;
-    border-radius: 12px;
-    border: 1px solid var(--ff-line);
-    background:#fff;
-    color: var(--ff-ink);
-    font-weight: 950;
-    cursor:pointer;
-  }
-
-  .ff-case-scroll{
-    margin-top: 16px;
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .ff-case-card{
-    border-radius: var(--ff-radius);
-    overflow:hidden;
-    border: 1px solid var(--ff-line);
-    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    box-shadow: var(--ff-shadow);
-  }
-
-  .ff-case-media{
-    position: relative;
-    aspect-ratio: 16 / 9;
-    background: #0b1634;
+  .ff-proof-card{
     overflow:hidden;
   }
-
-  .ff-case-visual{
+  .ff-proof-media{
+    position:relative;
+    aspect-ratio:16 / 9;
+    background:#0b1634;
+  }
+  .ff-proof-visual{
     width:100%;
     height:100%;
-    position:relative;
     background:
       radial-gradient(600px 220px at 20% 20%, rgba(22,242,210,0.35), rgba(22,242,210,0.0) 60%),
       radial-gradient(600px 240px at 80% 20%, rgba(240,78,60,0.22), rgba(240,78,60,0.0) 62%),
       linear-gradient(135deg, #081a3a 0%, #0b1634 55%, #07122b 100%);
   }
-  .ff-case-visual::after{
-    content:"";
+  .ff-proof-badge{
     position:absolute;
-    inset:-40px -40px auto auto;
-    width: 220px;
-    height: 220px;
-    border-radius: 999px;
+    top:14px;
+    left:14px;
+    padding:6px 10px;
+    border-radius:999px;
+    background:rgba(11,18,32,0.68);
+    border:1px solid rgba(255,255,255,0.22);
+    color:rgba(255,255,255,0.92);
+    font-size:12px;
+    font-weight:950;
+    letter-spacing:0.02em;
+  }
+  .ff-proof-body{
+    padding:18px;
+  }
+  .ff-proof-title{
+    margin:0 0 8px 0;
+    font-size:19px;
+    line-height:1.24;
+    font-weight:950;
+    color:var(--ff-ink);
+    letter-spacing:-0.02em;
+  }
+  .ff-proof-text{
+    margin:0 0 12px 0;
+    color:var(--ff-muted);
+    font-size:14px;
+    line-height:1.62;
+  }
+  .ff-proof-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .ff-proof-meta span{
+    display:inline-flex;
+    align-items:center;
+    padding:6px 10px;
+    border-radius:999px;
+    background:#f4f7fb;
+    border:1px solid var(--ff-line);
+    color:var(--ff-ink);
+    font-size:12px;
+    font-weight:850;
+  }
+
+  .ff-download-bar{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    padding:18px;
+    border-radius:var(--ff-radius);
+    border:1px solid var(--ff-line);
     background:
-      radial-gradient(circle at 30% 30%, rgba(22,242,210,0.55), rgba(22,242,210,0.0) 65%);
-    transform: rotate(12deg);
-    opacity: 0.9;
+      radial-gradient(600px 220px at 10% 0%, rgba(22,242,210,0.10), transparent 60%),
+      radial-gradient(600px 220px at 90% 0%, rgba(240,78,60,0.08), transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    box-shadow:var(--ff-shadow);
   }
-  .ff-case-visual::before{
-    content:"";
-    position:absolute;
-    left:-60px;
-    bottom:-60px;
-    width: 260px;
-    height: 260px;
-    border-radius: 999px;
-    background:
-      radial-gradient(circle at 30% 30%, rgba(240,78,60,0.35), rgba(240,78,60,0.0) 70%);
-    opacity: 0.85;
+  .ff-download-bar h3{
+    margin:0;
+    font-size:20px;
+    line-height:1.25;
+    font-weight:950;
+    color:var(--ff-ink);
+    letter-spacing:-0.02em;
   }
-
-  .ff-case-badge{
-    position:absolute;
-    top: 14px;
-    left: 14px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: rgba(11,18,32,0.68);
-    border: 1px solid rgba(255,255,255,0.22);
-    color: rgba(255,255,255,0.92);
-    font-size: 12px;
-    font-weight: 950;
-    letter-spacing: 0.02em;
-    z-index: 2;
-  }
-
-  .ff-case-body{
-    padding: 18px;
-  }
-  .ff-case-title{
-    margin: 0 0 8px 0;
-    font-size: 18px;
-    font-weight: 950;
-    letter-spacing: -0.01em;
-    color: var(--ff-ink);
-    line-height: 1.2;
-  }
-  .ff-case-desc{
-    margin: 0 0 12px 0;
-    color: var(--ff-muted);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  .ff-case-meta{
-    display:flex;
-    align-items:center;
-    gap: 10px;
-    color: var(--ff-muted);
-    font-size: 12px;
-    font-weight: 850;
-    margin-bottom: 14px;
-    flex-wrap: wrap;
-  }
-  .ff-case-dot{
-    width: 4px;
-    height: 4px;
-    border-radius: 999px;
-    background: rgba(11,18,32,0.30);
-  }
-  .ff-case-actions{
-    display:flex;
-    align-items:center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .ff-case-cta{
-    padding: 10px 12px;
-    font-size: 13px;
-  }
-  .ff-case-link{
-    color: var(--ff-ink);
-    font-weight: 950;
-    text-decoration:none;
-    font-size: 13px;
-  }
-
-  .ff-toolkit-wrap{
-    background:#fff;
-    border: 1px solid var(--ff-line);
-    border-radius: var(--ff-radius);
-    padding: 16px;
-    box-shadow: var(--ff-shadow);
-  }
-  .ff-tabs{
-    display:flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-  .ff-tab-btn{
-    border:1px solid var(--ff-line);
-    background:#fff;
-    padding: 10px 12px;
-    border-radius: 12px;
-    font-size: 13px;
-    cursor:pointer;
-    font-weight: 950;
-    color: var(--ff-ink);
-  }
-  .ff-tab-btn.active{
-    border-color: rgba(22,242,210,0.55);
-    box-shadow: 0 10px 22px rgba(22,242,210,0.10);
-  }
-  .ff-tab-panel{ display:none; }
-  .ff-tab-panel.active{ display:block; }
-
-  .ff-card-grid{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .ff-scard{
-    border-radius: var(--ff-radius);
-    border:1px solid var(--ff-line);
-    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    padding: 16px;
-    min-height: 160px;
-    position: relative;
-    overflow:hidden;
-  }
-  .ff-scard::after{
-    content:"";
-    position:absolute;
-    right:-22px;
-    top:-22px;
-    width: 80px; height: 80px;
-    background: radial-gradient(circle at 30% 30%, rgba(22,242,210,0.18), rgba(22,242,210,0.0) 65%);
-    transform: rotate(12deg);
-  }
-
-  .ff-scard .meta{
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    gap: 10px;
-    margin-bottom: 10px;
-    position: relative;
-    z-index: 2;
-  }
-  .ff-scard .tag{
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing:0.10em;
-    color: var(--ff-muted);
-    font-weight: 950;
-  }
-  .ff-scard .lvl{
-    font-size: 11px;
-    border:1px solid var(--ff-line);
-    padding: 4px 8px;
-    border-radius: 999px;
-    color: var(--ff-ink);
-    background:#fff;
-    font-weight: 950;
-  }
-  .ff-scard .title{
-    font-weight: 950;
-    color: var(--ff-ink);
-    margin-bottom: 8px;
-    font-size: 15px;
-    line-height: 1.25;
-    position: relative;
-    z-index: 2;
-  }
-  .ff-scard .body{
-    color: var(--ff-muted);
-    font-size: 13px;
-    line-height: 1.55;
-    margin-bottom: 12px;
-    position: relative;
-    z-index: 2;
-  }
-  .ff-scard .footer{
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    gap: 10px;
-    font-size: 12px;
-    color: var(--ff-muted);
-    position: relative;
-    z-index: 2;
-    flex-wrap: wrap;
-  }
-  .ff-scard .chip{
-    border:1px solid var(--ff-line);
-    border-radius: 999px;
-    padding: 4px 8px;
-    background:#fff;
-    font-weight: 950;
-    color: var(--ff-ink);
-  }
-
-  .ff-grid-3{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin-top: 16px;
-  }
-  .ff-insight{
-    background:#fff;
-    border:1px solid var(--ff-line);
-    border-radius: var(--ff-radius);
-    padding: 18px;
-    box-shadow: var(--ff-shadow);
-  }
-  .ff-insight .k{
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing:0.10em;
-    color: #0aaea0;
-    font-weight: 950;
-  }
-  .ff-insight .t{
-    font-size: 17px;
-    font-weight: 950;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: var(--ff-ink);
-    line-height: 1.3;
-  }
-  .ff-insight p{
-    color: var(--ff-muted);
-    margin: 0;
-    line-height: 1.6;
-    font-size: 14px;
+  .ff-download-bar p{
+    margin:0;
+    color:var(--ff-muted);
+    font-size:14px;
+    line-height:1.62;
   }
 
   .ff-contact-grid{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    margin-top: 18px;
+    margin-top:18px;
   }
-
   .ff-form-card,
   .ff-book-card{
-    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    border: 1px solid var(--ff-line);
-    border-radius: var(--ff-radius);
-    box-shadow: var(--ff-shadow);
-    overflow: hidden;
+    overflow:hidden;
   }
-
   .ff-card-head{
-    padding: 18px 18px 12px 18px;
-    border-bottom: 1px solid var(--ff-line);
+    padding:18px 18px 12px 18px;
+    border-bottom:1px solid var(--ff-line);
     background:
       radial-gradient(640px 200px at 10% 0%, rgba(22,242,210,0.10), transparent 55%),
       radial-gradient(640px 200px at 90% 0%, rgba(240,78,60,0.08), transparent 55%),
       linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
   }
   .ff-card-head .eyebrow{
-    font-size: 12px;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: #0aaea0;
-    font-weight: 950;
-    margin-bottom: 8px;
+    font-size:12px;
+    letter-spacing:0.10em;
+    text-transform:uppercase;
+    color:#0aaea0;
+    font-weight:950;
+    margin-bottom:8px;
   }
   .ff-card-head h3{
-    margin: 0 0 8px 0;
-    color: var(--ff-ink);
-    font-size: 22px;
-    font-weight: 950;
-    letter-spacing: -0.02em;
+    margin:0 0 8px 0;
+    color:var(--ff-ink);
+    font-size:22px;
+    font-weight:950;
+    letter-spacing:-0.02em;
   }
   .ff-card-head p{
-    margin: 0;
-    color: var(--ff-muted);
-    line-height: 1.65;
-    font-size: 14px;
-    max-width: 700px;
+    margin:0;
+    color:var(--ff-muted);
+    line-height:1.65;
+    font-size:14px;
+    max-width:700px;
   }
 
-  .ff-form-body{
-    padding: 18px;
+  .ff-form-body,
+  .ff-book-body{
+    padding:18px;
   }
 
   .ff-form-grid{
     display:grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
+    grid-template-columns:1fr;
+    gap:14px;
   }
   .ff-field label{
     display:block;
-    font-size: 13px;
-    font-weight: 900;
-    color: var(--ff-ink);
-    margin-bottom: 7px;
+    font-size:13px;
+    font-weight:900;
+    color:var(--ff-ink);
+    margin-bottom:7px;
   }
   .ff-field input,
   .ff-field select,
   .ff-field textarea{
-    width: 100%;
-    border: 1px solid var(--ff-line);
-    background: #fff;
-    border-radius: 12px;
-    padding: 12px 14px;
-    font-size: 14px;
-    color: var(--ff-ink);
-    line-height: 1.4;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width:100%;
+    border:1px solid var(--ff-line);
+    background:#fff;
+    border-radius:12px;
+    padding:12px 14px;
+    font-size:14px;
+    color:var(--ff-ink);
+    line-height:1.4;
+    outline:none;
+    transition:border-color 0.2s ease, box-shadow 0.2s ease;
   }
   .ff-field input:focus,
   .ff-field select:focus,
   .ff-field textarea:focus{
-    border-color: rgba(22,242,210,0.8);
-    box-shadow: 0 0 0 4px rgba(22,242,210,0.12);
+    border-color:rgba(22,242,210,0.8);
+    box-shadow:0 0 0 4px rgba(22,242,210,0.12);
   }
   .ff-field textarea{
-    min-height: 130px;
-    resize: vertical;
+    min-height:130px;
+    resize:vertical;
   }
   .ff-field-note{
-    font-size: 12px;
-    color: var(--ff-muted);
-    margin-top: 10px;
-    line-height: 1.6;
+    font-size:12px;
+    color:var(--ff-muted);
+    margin-top:10px;
+    line-height:1.6;
   }
-
   .ff-form-actions{
     display:flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 6px;
-  }
-
-  .ff-book-body{
-    padding: 18px;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:6px;
   }
 
   .ff-calendly-top{
-    margin-bottom: 14px;
-    padding: 14px 16px;
-    border-radius: 14px;
+    margin-bottom:14px;
+    padding:14px 16px;
+    border-radius:14px;
     background:
       radial-gradient(500px 180px at 10% 0%, rgba(22,242,210,0.12), transparent 55%),
       radial-gradient(500px 180px at 90% 0%, rgba(240,78,60,0.10), transparent 55%),
       linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
-    border: 1px solid var(--ff-line);
+    border:1px solid var(--ff-line);
   }
   .ff-calendly-top .mini{
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.10em;
-    color: #0aaea0;
-    font-weight: 950;
-    margin-bottom: 6px;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.10em;
+    color:#0aaea0;
+    font-weight:950;
+    margin-bottom:6px;
   }
   .ff-calendly-top .title{
-    color: var(--ff-ink);
-    font-size: 18px;
-    font-weight: 950;
-    line-height: 1.3;
-    margin-bottom: 6px;
+    color:var(--ff-ink);
+    font-size:18px;
+    font-weight:950;
+    line-height:1.3;
+    margin-bottom:6px;
   }
   .ff-calendly-top .desc{
-    color: var(--ff-muted);
-    font-size: 14px;
-    line-height: 1.65;
-    margin: 0;
+    color:var(--ff-muted);
+    font-size:14px;
+    line-height:1.65;
+    margin:0;
+  }
+  .ff-calendly-embed{
+    border:1px solid var(--ff-line);
+    border-radius:16px;
+    overflow:hidden;
+    background:#fff;
+    min-height:760px;
   }
 
-  .ff-calendly-embed{
-    border: 1px solid var(--ff-line);
-    border-radius: 16px;
-    overflow: hidden;
-    background: #fff;
-    min-height: 780px;
+  .ff-grid-3{
+    margin-top:16px;
+  }
+  .ff-insight{
+    padding:18px;
+  }
+  .ff-insight .k{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.10em;
+    color:#0aaea0;
+    font-weight:950;
+  }
+  .ff-insight .t{
+    font-size:17px;
+    font-weight:950;
+    margin-top:10px;
+    margin-bottom:10px;
+    color:var(--ff-ink);
+    line-height:1.3;
+  }
+  .ff-insight p{
+    color:var(--ff-muted);
+    margin:0;
+    line-height:1.6;
+    font-size:14px;
   }
 
   .ff-cta{
+    position:relative;
+    padding:52px 0;
+    color:#fff;
     background:
       radial-gradient(900px 340px at 15% 0%, rgba(22,242,210,0.12), transparent 60%),
       radial-gradient(900px 340px at 90% 10%, rgba(240,78,60,0.10), transparent 60%),
       linear-gradient(180deg, var(--ff-navy-0) 0%, var(--ff-navy-2) 100%);
-    color:#fff;
-    padding: 52px 0;
-    position: relative;
   }
-  .ff-cta::after{
+  .ff-cta::before{
     content:"";
     position:absolute;
     left:0; right:0; top:-1px;
-    height: 42px;
-    background: linear-gradient(180deg, rgba(238,242,248,1) 0%, rgba(238,242,248,0) 100%);
+    height:42px;
+    background:linear-gradient(180deg, rgba(245,248,252,1) 0%, rgba(245,248,252,0) 100%);
     pointer-events:none;
   }
   .ff-cta h2{
     color:#fff;
-    font-size: 30px;
-    font-weight: 950;
-    margin: 0 0 10px 0;
-    letter-spacing: -0.02em;
-    position: relative;
-    z-index: 2;
+    font-size:30px;
+    font-weight:950;
+    margin:0 0 10px 0;
+    letter-spacing:-0.02em;
+    position:relative;
+    z-index:2;
   }
   .ff-cta p{
-    color: rgba(255,255,255,0.82);
-    margin: 0 0 16px 0;
-    line-height: 1.7;
-    font-size: 15px;
-    max-width: 900px;
-    position: relative;
-    z-index: 2;
+    color:rgba(255,255,255,0.84);
+    margin:0 0 16px 0;
+    line-height:1.7;
+    font-size:15px;
+    max-width:900px;
+    position:relative;
+    z-index:2;
   }
 
-  @media (min-width: 768px){
+  .ff-sticky-cta{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:99;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .ff-sticky-cta a{
+    box-shadow:0 16px 30px rgba(11,18,32,0.16);
+  }
+
+  @media (min-width:768px){
     .ff-form-grid{
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns:repeat(2, 1fr);
     }
     .ff-field-full{
-      grid-column: 1 / -1;
+      grid-column:1 / -1;
     }
   }
 
-  @media (min-width: 992px){
-    .ff-cap-grid{ grid-template-columns: repeat(3, 1fr); }
-    .ff-steps{ grid-template-columns: repeat(4, 1fr); }
-    .ff-bands{ grid-template-columns: repeat(3, 1fr); }
-    .ff-grid-3{ grid-template-columns: repeat(3, 1fr); }
-    .ff-card-grid{ grid-template-columns: repeat(3, 1fr); }
-    .ff-contact-grid{ grid-template-columns: 0.95fr 1.05fr; }
-
-    .ff-deliv-wrap{ grid-template-columns: 380px 1fr; }
-    .ff-deliv-rail{
-      border-bottom: none;
-      border-right: 1px solid var(--ff-line);
-      padding: 14px;
+  @media (min-width:992px){
+    .ff-hero-grid{
+      grid-template-columns:1.15fr 0.85fr;
+      gap:24px;
     }
-    .ff-deliv-right{ min-height: 300px; }
-
-    .ff-case-scroll{
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+    .ff-services-grid,
+    .ff-flagship-grid,
+    .ff-bands,
+    .ff-proof-grid,
+    .ff-grid-3{
+      grid-template-columns:repeat(3, 1fr);
     }
-    .ff-case-controls{ display:none; }
+    .ff-contact-grid{
+      grid-template-columns:0.9fr 1.1fr;
+    }
   }
 
-  @media (max-width: 767px){
+  @media (max-width:991px){
+    .ff-sticky-cta{
+      right:12px;
+      left:12px;
+      bottom:12px;
+    }
+    .ff-sticky-cta a{
+      justify-content:center;
+    }
+  }
+
+  @media (max-width:767px){
     .ff-wrap{
-      padding-left: 18px;
-      padding-right: 18px;
+      padding-left:18px;
+      padding-right:18px;
     }
-    .ff-hero h1{ font-size: 38px; }
-    .ff-h2{ font-size: 27px; }
     .ff-topbar .ff-wrap{
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction:column;
+      align-items:flex-start;
     }
-  }
-
-  @media (max-width: 520px){
-    .ff-deliv-btn{ grid-template-columns: 1fr; }
-    .ff-deliv-btn .ss{ text-align:left; margin-top: 6px; }
-
-    .ff-case-scroll{
-      display:flex;
-      gap: 14px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      scroll-snap-type: x mandatory;
+    .ff-hero-copy h1{
+      font-size:38px;
     }
-    .ff-case-scroll::-webkit-scrollbar{ height: 8px; }
-    .ff-case-scroll::-webkit-scrollbar-thumb{ background: rgba(11,18,32,0.14); border-radius: 999px; }
-    .ff-case-card{
-      flex: 0 0 88%;
-      scroll-snap-align: start;
+    .ff-h2{
+      font-size:28px;
     }
   }
 </style>
@@ -1166,7 +850,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- Preloader Start -->
 <div id="preloader-active">
   <div class="preloader d-flex align-items-center justify-content-center">
     <div class="preloader-inner position-relative">
@@ -1208,10 +891,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <ul id="navigation">
                       <li><a href="#top">Home</a></li>
                       <li><a href="#services">Services</a></li>
-                      <li><a href="#deliverables">Deliverables</a></li>
-                      <li><a href="#case-studies">Case studies</a></li>
-                      <li><a href="#toolkit">Toolkit</a></li>
-                      <li><a href="#insights">Insights</a></li>
+                      <li><a href="#programs">Programs</a></li>
+                      <li><a href="#proof">Proof</a></li>
                       <li><a href="#contact-book">Contact</a></li>
                     </ul>
                   </nav>
@@ -1222,7 +903,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="col-12">
               <div class="mobile_menu d-block d-lg-none"></div>
             </div>
-
           </div>
         </div>
       </div>
@@ -1232,545 +912,265 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main id="top">
 
-  <section class="ff-hero" id="services">
+  <section class="ff-hero">
     <div class="ff-wrap">
+      <div class="ff-hero-grid">
+        <div class="ff-hero-copy">
+          <div class="ff-badge"><span class="dot"></span>Evidence based delivery for manufacturing teams</div>
+          <h1>Operational clarity, audit proof, and practical execution support</h1>
+          <p>
+            We help manufacturing teams close control gaps, improve execution discipline, and build evidence that holds under pressure.
+            Broad services remain available, while structured programs help teams move quickly on priority issues.
+          </p>
 
-      <div class="ff-badge"><span class="dot"></span>Evidence based delivery for manufacturing teams</div>
-      <h1>Clear decisions, clean proof, stable execution</h1>
-      <p>
-        We help mid market manufacturers close gaps that slow delivery and create audit risk.
-        Practical work with clear owners, simple routines, and proof that holds under pressure.
-      </p>
-
-      <div class="ff-hero-actions">
-        <a href="#contact-book" class="ff-btn ff-btn-primary">Book a readiness call</a>
-        <a href="assets/Fundamental Frontiers Profile.pdf" target="_blank" rel="noopener" class="ff-btn ff-btn-secondary">Download profile</a>
-      </div>
-
-      <div class="ff-cap-wrap" aria-label="Full capability set">
-        <div class="ff-cap-head">
-          <div>
-            <div class="ff-cap-title">Full capability set</div>
-            <p class="ff-cap-note">
-              Flagship sprints are starting points. The full portfolio is available for broader programs and longer term work.
-            </p>
+          <div class="ff-hero-actions">
+            <a href="#contact-book" class="ff-btn ff-btn-primary">Book a readiness call</a>
+            <a href="#services" class="ff-btn ff-btn-secondary">Explore services</a>
           </div>
-          <a class="ff-btn ff-btn-secondary" href="#deliverables" style="padding:10px 12px; font-size:13px;">See outputs</a>
+
+          <div class="ff-trust-strip">
+            <span class="ff-chip">Audit readiness</span>
+            <span class="ff-chip">Operational excellence</span>
+            <span class="ff-chip">Supplier performance</span>
+            <span class="ff-chip">Dashboards and reporting</span>
+            <span class="ff-chip">Risk management</span>
+          </div>
         </div>
 
-        <div class="ff-cap-grid">
-          <div class="ff-cap"><h3>Compliance certification, auditing, training</h3><p>Audit readiness, evidence discipline, internal audits, training and implementation support.</p></div>
-          <div class="ff-cap"><h3>Lean and Six Sigma</h3><p>Problem solving, stability, waste removal, and practical deployment support.</p></div>
-          <div class="ff-cap"><h3>Operational excellence</h3><p>Execution cadence, daily management, KPI routines, and process optimization.</p></div>
-          <div class="ff-cap"><h3>Supplier performance</h3><p>Supplier development, governance, corrective actions, and escalation routines.</p></div>
-          <div class="ff-cap"><h3>Dashboards and reporting</h3><p>Data integration, visualization, reporting, and decision support for operations.</p></div>
-          <div class="ff-cap"><h3>Risk management</h3><p>Enterprise and operational risk view, control design, monitoring, and reduction.</p></div>
-          <div class="ff-cap"><h3>Program and project management</h3><p>Cadence, action tracking, owners, governance, and delivery structure.</p></div>
-          <div class="ff-cap"><h3>Balanced scorecard</h3><p>Strategy to execution alignment, KPI trees, and performance routines.</p></div>
-          <div class="ff-cap"><h3>AI in engineering</h3><p>Practical AI workflows and implementation support where it creates value.</p></div>
-        </div>
-      </div>
-
-      <div class="ff-carousel" aria-label="Flagship offers carousel">
-        <div class="ff-carousel-track" id="ffCarouselTrack">
-
-          <div class="ff-slide">
-            <div class="ff-slide-inner">
-              <div class="ff-slide-kicker">
-                <div class="ff-slide-tag">Flagship sprint</div>
-                <div class="ff-slide-time">30 days</div>
-              </div>
-              <h3 class="ff-slide-title">Audit and compliance readiness sprint</h3>
-              <p class="ff-slide-desc">Close gaps, organize evidence, run a mock audit, and leave a sustain cadence your team can maintain.</p>
-              <div class="ff-slide-cta">
-                <a class="ff-btn ff-btn-primary" href="#contact-book">Book a call</a>
-                <a class="ff-btn ff-btn-secondary" href="#deliverables">See deliverables</a>
-              </div>
+        <div class="ff-hero-panel">
+          <div class="ff-mini-label">What clients usually need first</div>
+          <div class="ff-proof-list">
+            <div class="ff-proof-item">
+              Close urgent audit and evidence gaps
+              <span>Clear owners, traceable proof, faster response under pressure</span>
             </div>
-          </div>
-
-          <div class="ff-slide">
-            <div class="ff-slide-inner">
-              <div class="ff-slide-kicker">
-                <div class="ff-slide-tag">Flagship sprint</div>
-                <div class="ff-slide-time">2 to 4 weeks</div>
-              </div>
-              <h3 class="ff-slide-title">SOP and training refresh sprint</h3>
-              <p class="ff-slide-desc">Refresh key procedures, checklists, and training records so execution stays consistent and audit ready.</p>
-              <div class="ff-slide-cta">
-                <a class="ff-btn ff-btn-primary" href="#contact-book">Book a call</a>
-                <a class="ff-btn ff-btn-secondary" href="#deliverables">See outputs</a>
-              </div>
+            <div class="ff-proof-item">
+              Stabilize recurring execution issues
+              <span>SOP clarity, closure rules, training alignment, follow through</span>
             </div>
-          </div>
-
-          <div class="ff-slide">
-            <div class="ff-slide-inner">
-              <div class="ff-slide-kicker">
-                <div class="ff-slide-tag">Flagship sprint</div>
-                <div class="ff-slide-time">4 to 6 weeks</div>
-              </div>
-              <h3 class="ff-slide-title">Quality root cause and CAPA fix sprint</h3>
-              <p class="ff-slide-desc">Stop repeat defects with root cause, corrective actions, and proof that the fix holds over time.</p>
-              <div class="ff-slide-cta">
-                <a class="ff-btn ff-btn-primary" href="#contact-book">Book a call</a>
-                <a class="ff-btn ff-btn-secondary" href="#toolkit">Preview toolkit</a>
-              </div>
+            <div class="ff-proof-item">
+              Turn broad improvement goals into visible action
+              <span>Focused starting point, practical routines, measurable closeout</span>
             </div>
-          </div>
-
-        </div>
-
-        <div class="ff-carousel-controls">
-          <div class="ff-dots" id="ffDots" aria-label="Carousel pagination">
-            <div class="ff-dot active" data-idx="0" role="button" tabindex="0" aria-label="Slide 1"></div>
-            <div class="ff-dot" data-idx="1" role="button" tabindex="0" aria-label="Slide 2"></div>
-            <div class="ff-dot" data-idx="2" role="button" tabindex="0" aria-label="Slide 3"></div>
-          </div>
-
-          <div class="ff-arrows" aria-label="Carousel controls">
-            <button class="ff-arrow" type="button" id="ffPrev" aria-label="Previous">‹</button>
-            <button class="ff-arrow" type="button" id="ffNext" aria-label="Next">›</button>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <section class="ff-section" id="why">
+  <section class="ff-section soft" id="services">
+    <div class="ff-wrap">
+      <div class="ff-head">
+        <div class="ff-kicker">Core service areas</div>
+        <div class="ff-h2">Broad services presented as clear capability pillars</div>
+        <div class="ff-p">
+          This keeps the full service range visible and dominant, without turning the opening experience into a dense catalog.
+          Most engagements start inside one priority area, then expand only where needed.
+        </div>
+      </div>
+
+      <div class="ff-services-grid">
+        <div class="ff-card ff-service-pillar">
+          <div class="ff-service-tag">Compliance and performance</div>
+          <h3>Readiness, controls, and audit confidence</h3>
+          <p>Support for teams that need stronger evidence discipline, clearer accountability, and cleaner audit response.</p>
+          <ul class="ff-service-list">
+            <li>Compliance certification support</li>
+            <li>Auditing and readiness reviews</li>
+            <li>SOP and training alignment</li>
+            <li>Risk control strengthening</li>
+          </ul>
+        </div>
+
+        <div class="ff-card ff-service-pillar">
+          <div class="ff-service-tag">Operations and improvement</div>
+          <h3>Execution discipline and continuous improvement</h3>
+          <p>Practical delivery for teams that need better routines, stronger ownership, and visible operational follow through.</p>
+          <ul class="ff-service-list">
+            <li>Operational excellence</li>
+            <li>Lean and Six Sigma support</li>
+            <li>Balanced scorecard alignment</li>
+            <li>Program and project management</li>
+          </ul>
+        </div>
+
+        <div class="ff-card ff-service-pillar">
+          <div class="ff-service-tag">Data and transformation</div>
+          <h3>Decision support, reporting, and targeted modernization</h3>
+          <p>Focused work where reporting, supplier governance, or modern digital workflows need to become more useful in practice.</p>
+          <ul class="ff-service-list">
+            <li>Supplier performance support</li>
+            <li>Dashboards and reporting</li>
+            <li>AI in engineering use cases</li>
+            <li>Decision support and visibility</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ff-section white" id="programs">
+    <div class="ff-wrap">
+      <div class="ff-head">
+        <div class="ff-kicker">Common starting programs</div>
+        <div class="ff-h2">Focused entry points inside a broader service portfolio</div>
+        <div class="ff-p">
+          These are not the only services. They are practical starting formats used to create traction quickly where priority issues are already visible.
+        </div>
+      </div>
+
+      <div class="ff-flagship-grid">
+        <div class="ff-card ff-flagship-card">
+          <div class="ff-time">30 days</div>
+          <h3>Audit and compliance readiness sprint</h3>
+          <p>Close gaps, organize evidence, run a mock audit, and leave a sustain cadence the team can keep using.</p>
+          <a class="ff-link" href="#contact-book">Discuss this program</a>
+        </div>
+
+        <div class="ff-card ff-flagship-card">
+          <div class="ff-time">2 to 4 weeks</div>
+          <h3>SOP and training refresh sprint</h3>
+          <p>Refresh key procedures, checklists, and training records so execution stays consistent and audit ready.</p>
+          <a class="ff-link" href="#contact-book">Discuss this program</a>
+        </div>
+
+        <div class="ff-card ff-flagship-card">
+          <div class="ff-time">4 to 6 weeks</div>
+          <h3>Quality root cause and CAPA fix sprint</h3>
+          <p>Stop repeat defects with root cause work, corrective actions, and proof that the fix holds over time.</p>
+          <a class="ff-link" href="#contact-book">Discuss this program</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ff-section soft" id="why">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-kicker">Why this works</div>
-        <div class="ff-h2">Clear ownership and proof beats paperwork</div>
-        <div class="ff-p">Short, controlled delivery with measurable closeout and a sustain routine. The goal is stable execution under real pressure.</div>
+        <div class="ff-h2">Clear ownership and proof matters more than paperwork alone</div>
+        <div class="ff-p">
+          The goal is practical control under real operating pressure. Each engagement is designed to reduce ambiguity, assign ownership, and make the output usable after the sprint is over.
+        </div>
       </div>
 
-      <div class="ff-bands" aria-label="Why this works">
+      <div class="ff-bands">
         <div class="ff-band">
           <div class="ff-band-ico">01</div>
           <div>
-            <h3>Audit readiness and confidence</h3>
-            <p>Evidence is organized and owned. The team knows what is controlled and why.</p>
+            <h3>Audit readiness with less last minute noise</h3>
+            <p>Evidence becomes easier to retrieve, responsibilities become clearer, and teams respond with more confidence.</p>
           </div>
         </div>
 
         <div class="ff-band">
           <div class="ff-band-ico">02</div>
           <div>
-            <h3>Fewer repeat findings</h3>
-            <p>CAPA closes only when effectiveness is verified, not when a form is completed.</p>
+            <h3>Fewer repeat issues</h3>
+            <p>Actions close only when effectiveness is visible in practice, not when a form is completed.</p>
           </div>
         </div>
 
         <div class="ff-band">
           <div class="ff-band-ico">03</div>
           <div>
-            <h3>Faster response during peak load</h3>
-            <p>Templates and routines reduce last minute rush and reduce escalation noise.</p>
+            <h3>Better execution under load</h3>
+            <p>Simple routines, clearer records, and practical ownership reduce friction when teams are already under pressure.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="ff-section white" id="how">
+  <section class="ff-section white" id="proof">
     <div class="ff-wrap">
       <div class="ff-head">
-        <div class="ff-kicker">How it works</div>
-        <div class="ff-h2">A simple 4 step structure</div>
-        <div class="ff-p">Designed for speed, clarity, and control. Each step creates a deliverable the team can keep using.</div>
-      </div>
-
-      <div class="ff-steps">
-        <div class="ff-step"><div class="n">1</div><div class="t">Rapid gap scan</div><div class="d">Current state vs required controls. Prioritize top gaps with owners.</div></div>
-        <div class="ff-step"><div class="n">2</div><div class="t">Evidence and SOP alignment</div><div class="d">Update procedures, checklists, and records for traceability and clarity.</div></div>
-        <div class="ff-step"><div class="n">3</div><div class="t">Fix and verify</div><div class="d">Close gaps, test the control, verify operation in real use.</div></div>
-        <div class="ff-step"><div class="n">4</div><div class="t">Mock audit and closeout</div><div class="d">Walkthrough, findings log, readiness summary, sustain cadence.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="ff-section" id="deliverables">
-    <div class="ff-wrap">
-      <div class="ff-head">
-        <div class="ff-kicker">Deliverables</div>
-        <div class="ff-h2">Concrete outputs your team can run</div>
-        <div class="ff-p">Focused documents and templates. No heavy decks required. Each output is designed to be used, owned, and maintained.</div>
-      </div>
-
-      <div class="ff-deliv-wrap" aria-label="Deliverables explorer">
-        <div class="ff-deliv-rail" role="tablist" aria-label="Deliverables list">
-          <button class="ff-deliv-btn active" data-ff-deliv="d1" type="button">
-            <span class="tt">Readiness gap map</span>
-            <span class="ss">Owners and dates</span>
-          </button>
-          <button class="ff-deliv-btn" data-ff-deliv="d2" type="button">
-            <span class="tt">Evidence pack</span>
-            <span class="ss">Audit response ready</span>
-          </button>
-          <button class="ff-deliv-btn" data-ff-deliv="d3" type="button">
-            <span class="tt">SOP and checklist updates</span>
-            <span class="ss">Traceability</span>
-          </button>
-          <button class="ff-deliv-btn" data-ff-deliv="d4" type="button">
-            <span class="tt">Mock audit report</span>
-            <span class="ss">Findings log</span>
-          </button>
-          <button class="ff-deliv-btn" data-ff-deliv="d5" type="button">
-            <span class="tt">CAPA log and closure rules</span>
-            <span class="ss">Proof over time</span>
-          </button>
-          <button class="ff-deliv-btn" data-ff-deliv="d6" type="button">
-            <span class="tt">Sustain cadence</span>
-            <span class="ss">30 60 90</span>
-          </button>
-        </div>
-
-        <div class="ff-deliv-right">
-          <div class="ff-panel-topbar">
-            <div class="lbl">Output details</div>
-            <div class="hint">Practical, ready to run artifacts</div>
-          </div>
-
-          <div class="ff-deliv-panel active" id="ff-deliv-d1">
-            <div class="ff-deliv-title">Readiness gap map</div>
-            <p class="ff-deliv-desc">A prioritized gap list with named owners, target dates, and the exact proof needed to close each gap. This becomes the single control board for the sprint.</p>
-            <ul class="ff-deliv-bul">
-              <li>Requirement mapped to current state and risk</li>
-              <li>Owner, due date, and escalation route</li>
-              <li>Single link to the evidence location</li>
-            </ul>
-          </div>
-
-          <div class="ff-deliv-panel" id="ff-deliv-d2">
-            <div class="ff-deliv-title">Evidence pack</div>
-            <p class="ff-deliv-desc">Organized proof set aligned to controls and audit needs, with a clear file trail and ownership. Built for fast retrieval when pressure is high.</p>
-            <ul class="ff-deliv-bul">
-              <li>Evidence index aligned to controls</li>
-              <li>Version and approval trail where needed</li>
-              <li>Fast retrieval and clear ownership</li>
-            </ul>
-          </div>
-
-          <div class="ff-deliv-panel" id="ff-deliv-d3">
-            <div class="ff-deliv-title">SOP and checklist updates</div>
-            <p class="ff-deliv-desc">Top procedures and forms updated for clarity, traceability, and consistent execution. The goal is fewer exceptions and cleaner proof in daily work.</p>
-            <ul class="ff-deliv-bul">
-              <li>Critical steps made explicit and testable</li>
-              <li>Records designed to produce proof by default</li>
-              <li>Training signoff aligned to real execution</li>
-            </ul>
-          </div>
-
-          <div class="ff-deliv-panel" id="ff-deliv-d4">
-            <div class="ff-deliv-title">Mock audit report</div>
-            <p class="ff-deliv-desc">A walkthrough output and findings log that shows what holds, what fails, and what must be fixed before the audit. Designed to drive action, not debate.</p>
-            <ul class="ff-deliv-bul">
-              <li>Findings with severity and owner</li>
-              <li>Required evidence per finding</li>
-              <li>Readiness summary and closeout actions</li>
-            </ul>
-          </div>
-
-          <div class="ff-deliv-panel" id="ff-deliv-d5">
-            <div class="ff-deliv-title">CAPA log and closure rules</div>
-            <p class="ff-deliv-desc">Actions close only when effectiveness is verified over time. This prevents repeat findings and the cycle of reopening the same issues.</p>
-            <ul class="ff-deliv-bul">
-              <li>Root cause and corrective actions</li>
-              <li>Effectiveness checks defined and dated</li>
-              <li>Closure rule that prevents recurrence</li>
-            </ul>
-          </div>
-
-          <div class="ff-deliv-panel" id="ff-deliv-d6">
-            <div class="ff-deliv-title">Sustain cadence</div>
-            <p class="ff-deliv-desc">A simple routine to prevent drift after the sprint, sized for normal operating constraints. The intent is stability that survives real workloads.</p>
-            <ul class="ff-deliv-bul">
-              <li>30 day stabilization checks</li>
-              <li>60 day effectiveness review</li>
-              <li>90 day internal audit and refresh</li>
-            </ul>
-          </div>
+        <div class="ff-kicker">Selected proof</div>
+        <div class="ff-h2">Compact proof blocks feel easier to scan and more credible on a front page</div>
+        <div class="ff-p">
+          Instead of long proof sections, keep the homepage focused with short examples, one downloadable sample, and a direct path to conversation.
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <section class="ff-section white" id="case-studies">
-    <div class="ff-wrap">
-      <div class="ff-head">
-        <div class="ff-kicker">Case studies</div>
-        <div class="ff-h2">Selected work and outcomes</div>
-        <div class="ff-p">Short examples of problems solved, what was delivered, and what changed. Replace these placeholders with your real cases later.</div>
-      </div>
-
-      <div class="ff-case-head">
-        <a class="ff-btn ff-btn-secondary" href="#" style="background:#fff; border-color:var(--ff-line); color:var(--ff-ink);">View all case studies</a>
-
-        <div class="ff-case-controls" aria-label="Case studies controls">
-          <button class="ff-case-arrow" type="button" id="ffCasePrev" aria-label="Previous">‹</button>
-          <button class="ff-case-arrow" type="button" id="ffCaseNext" aria-label="Next">›</button>
-        </div>
-      </div>
-
-      <div class="ff-case-scroll" id="ffCaseScroll" aria-label="Case studies">
-
-        <article class="ff-case-card">
-          <div class="ff-case-media">
-            <span class="ff-case-badge">Compliance</span>
-            <div class="ff-case-visual" aria-hidden="true"></div>
+      <div class="ff-proof-grid">
+        <article class="ff-card ff-proof-card">
+          <div class="ff-proof-media">
+            <span class="ff-proof-badge">Case snapshot</span>
+            <div class="ff-proof-visual"></div>
           </div>
-          <div class="ff-case-body">
-            <h3 class="ff-case-title">Audit readiness sprint for a mid market manufacturer</h3>
-            <p class="ff-case-desc">Evidence pack rebuilt, ownership clarified, and a mock audit completed to remove last minute risk.</p>
-            <div class="ff-case-meta">
-              <span>30 days</span><span class="ff-case-dot"></span><span>Quality and Ops</span>
+          <div class="ff-proof-body">
+            <h3 class="ff-proof-title">Audit readiness sprint for a mid market manufacturer</h3>
+            <p class="ff-proof-text">Evidence pack rebuilt, ownership clarified, and a mock audit completed to reduce last minute risk.</p>
+            <div class="ff-proof-meta">
+              <span>30 days</span>
+              <span>Quality and Ops</span>
             </div>
-            <div class="ff-case-actions">
-              <a class="ff-btn ff-btn-primary ff-case-cta" href="#contact-book">Read case</a>
-              <a class="ff-case-link" href="#contact-book">Book a call</a>
-            </div>
+            <a class="ff-link" href="#contact-book">Read more in discussion</a>
           </div>
         </article>
 
-        <article class="ff-case-card">
-          <div class="ff-case-media">
-            <span class="ff-case-badge">Supplier performance</span>
-            <div class="ff-case-visual" aria-hidden="true" style="
-              background:
-                radial-gradient(600px 220px at 20% 20%, rgba(22,242,210,0.32), rgba(22,242,210,0.0) 60%),
-                radial-gradient(600px 240px at 80% 20%, rgba(255,255,255,0.08), rgba(255,255,255,0.0) 62%),
-                linear-gradient(135deg, #07122b 0%, #0a1b3c 55%, #081a3a 100%);
+        <article class="ff-card ff-proof-card">
+          <div class="ff-proof-media">
+            <span class="ff-proof-badge">Case snapshot</span>
+            <div class="ff-proof-visual" style="background:
+              radial-gradient(600px 220px at 20% 20%, rgba(22,242,210,0.32), rgba(22,242,210,0.0) 60%),
+              radial-gradient(600px 240px at 80% 20%, rgba(255,255,255,0.08), rgba(255,255,255,0.0) 62%),
+              linear-gradient(135deg, #07122b 0%, #0a1b3c 55%, #081a3a 100%);
             "></div>
           </div>
-          <div class="ff-case-body">
-            <h3 class="ff-case-title">Supplier recovery and escalation routine</h3>
-            <p class="ff-case-desc">Top problem suppliers stabilized using cadence, corrective actions, and measurable closeout.</p>
-            <div class="ff-case-meta">
-              <span>60 to 90 days</span><span class="ff-case-dot"></span><span>Supply chain</span>
+          <div class="ff-proof-body">
+            <h3 class="ff-proof-title">Supplier recovery and escalation routine</h3>
+            <p class="ff-proof-text">Problem suppliers stabilized using cadence, corrective actions, and visible closeout expectations.</p>
+            <div class="ff-proof-meta">
+              <span>60 to 90 days</span>
+              <span>Supply chain</span>
             </div>
-            <div class="ff-case-actions">
-              <a class="ff-btn ff-btn-primary ff-case-cta" href="#contact-book">Read case</a>
-              <a class="ff-case-link" href="#contact-book">Book a call</a>
-            </div>
+            <a class="ff-link" href="#contact-book">Discuss relevant use cases</a>
           </div>
         </article>
 
-        <article class="ff-case-card">
-          <div class="ff-case-media">
-            <span class="ff-case-badge">CAPA and quality</span>
-            <div class="ff-case-visual" aria-hidden="true" style="
-              background:
-                radial-gradient(600px 220px at 20% 20%, rgba(240,78,60,0.26), rgba(240,78,60,0.0) 60%),
-                radial-gradient(600px 240px at 80% 20%, rgba(22,242,210,0.22), rgba(22,242,210,0.0) 62%),
-                linear-gradient(135deg, #081a3a 0%, #0b1634 55%, #07122b 100%);
-            "></div>
+        <div class="ff-download-bar">
+          <div class="ff-kicker" style="margin:0;">Toolkit sample</div>
+          <h3>Keep toolkit as a teaser on the main page, not a heavy system</h3>
+          <p>
+            A separate toolkit or sample page can carry deeper content later. On the homepage, a compact teaser is enough to signal the differentiator without overloading attention.
+          </p>
+          <div class="ff-hero-actions" style="margin-top:0;">
+            <a href="#" class="ff-btn ff-btn-primary">Download sample pack</a>
+            <a href="#contact-book" class="ff-btn" style="background:#fff;border-color:var(--ff-line);color:var(--ff-ink);">Ask about workshop use</a>
           </div>
-          <div class="ff-case-body">
-            <h3 class="ff-case-title">Repeat defect elimination with proof over time</h3>
-            <p class="ff-case-desc">Root cause closed, closure rules enforced, and effectiveness verified with a sustain routine.</p>
-            <div class="ff-case-meta">
-              <span>4 to 6 weeks</span><span class="ff-case-dot"></span><span>Quality</span>
-            </div>
-            <div class="ff-case-actions">
-              <a class="ff-btn ff-btn-primary ff-case-cta" href="#contact-book">Read case</a>
-              <a class="ff-case-link" href="#contact-book">Book a call</a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="ff-section white" id="toolkit">
-    <div class="ff-wrap">
-      <div class="ff-head">
-        <div class="ff-kicker">Toolkit preview</div>
-        <div class="ff-h2">Scenario cards used in workshops</div>
-        <div class="ff-p">Short, realistic cases to pressure test decisions, controls, evidence, and outcomes.</div>
-      </div>
-
-      <div class="ff-toolkit-wrap">
-        <div class="ff-tabs" role="tablist" aria-label="Toolkit tabs">
-          <button class="ff-tab-btn active" data-ff-tab="scenario" type="button">Scenarios</button>
-          <button class="ff-tab-btn" data-ff-tab="roles" type="button">Roles</button>
-          <button class="ff-tab-btn" data-ff-tab="decisions" type="button">Decisions</button>
-          <button class="ff-tab-btn" data-ff-tab="controls" type="button">Controls</button>
-          <button class="ff-tab-btn" data-ff-tab="evidence" type="button">Evidence</button>
-          <button class="ff-tab-btn" data-ff-tab="outcomes" type="button">Outcomes</button>
-        </div>
-
-        <div class="ff-tab-panel active" id="ff-tab-scenario">
-          <div class="ff-card-grid">
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Scenario</div><div class="lvl">Audit week</div></div>
-              <div class="title">Missing calibration evidence</div>
-              <div class="body">An auditor asks for traceable records. The file trail is incomplete and ownership is unclear.</div>
-              <div class="footer"><span class="chip">Goal: close evidence gap</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Scenario</div><div class="lvl">Recurring</div></div>
-              <div class="title">Repeat NCR from the same step</div>
-              <div class="body">A finding was closed before. The same failure returns because the control did not hold.</div>
-              <div class="footer"><span class="chip">Goal: stop recurrence</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Scenario</div><div class="lvl">Change</div></div>
-              <div class="title">Supplier change without approval trail</div>
-              <div class="body">A material change is introduced. Verification and approval evidence is missing or outdated.</div>
-              <div class="footer"><span class="chip">Goal: enforce change control</span><span>Sample</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ff-tab-panel" id="ff-tab-roles">
-          <div class="ff-card-grid">
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Role</div><div class="lvl">Quality</div></div>
-              <div class="title">Quality lead</div>
-              <div class="body">Owns evidence pack, control checks, and readiness walkthroughs.</div>
-              <div class="footer"><span class="chip">Accountability</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Role</div><div class="lvl">Ops</div></div>
-              <div class="title">Production supervisor</div>
-              <div class="body">Ensures procedures are followed, records exist, escalations happen on time.</div>
-              <div class="footer"><span class="chip">Execution</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Role</div><div class="lvl">Docs</div></div>
-              <div class="title">Document control owner</div>
-              <div class="body">Maintains version history, approvals, and access to current controlled docs.</div>
-              <div class="footer"><span class="chip">Traceability</span><span>Sample</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ff-tab-panel" id="ff-tab-decisions">
-          <div class="ff-card-grid">
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Decision</div><div class="lvl">Today</div></div>
-              <div class="title">Accept deviation or stop the line</div>
-              <div class="body">Decide the short term action and the evidence needed to prevent repeat exceptions.</div>
-              <div class="footer"><span class="chip">Tradeoff: output</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Decision</div><div class="lvl">This week</div></div>
-              <div class="title">Approve change or delay shipment</div>
-              <div class="body">Decide whether approval, verification, and records are sufficient to proceed.</div>
-              <div class="footer"><span class="chip">Tradeoff: speed</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Decision</div><div class="lvl">Closeout</div></div>
-              <div class="title">Close finding or verify effectiveness</div>
-              <div class="body">Close only after stability check, not when paperwork is complete.</div>
-              <div class="footer"><span class="chip">Proof over time</span><span>Sample</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ff-tab-panel" id="ff-tab-controls">
-          <div class="ff-card-grid">
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Control</div><div class="lvl">Prevent</div></div>
-              <div class="title">Change control gate</div>
-              <div class="body">No changes without approval, qualification evidence, updated specs.</div>
-              <div class="footer"><span class="chip">Reduces surprises</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Control</div><div class="lvl">Operate</div></div>
-              <div class="title">Line clearance checklist</div>
-              <div class="body">A routine that prevents mix ups and creates a record automatically.</div>
-              <div class="footer"><span class="chip">Simple routine</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Control</div><div class="lvl">Discipline</div></div>
-              <div class="title">CAPA closure rule</div>
-              <div class="body">A finding closes only when the metric holds over time.</div>
-              <div class="footer"><span class="chip">Stops recurrence</span><span>Sample</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ff-tab-panel" id="ff-tab-evidence">
-          <div class="ff-card-grid">
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Evidence</div><div class="lvl">Audit ready</div></div>
-              <div class="title">Action log with owners</div>
-              <div class="body">One page list of actions, dates, owners, status, and linked proof.</div>
-              <div class="footer"><span class="chip">Traceable</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Evidence</div><div class="lvl">Training</div></div>
-              <div class="title">Training record and competency signoff</div>
-              <div class="body">Evidence people were trained and can execute the procedure as intended.</div>
-              <div class="footer"><span class="chip">Maintainable</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Evidence</div><div class="lvl">Version</div></div>
-              <div class="title">Approval trail and version history</div>
-              <div class="body">Proof of document control, approvals, and access to current version.</div>
-              <div class="footer"><span class="chip">Decision support</span><span>Sample</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ff-tab-panel" id="ff-tab-outcomes">
-          <div class="ff-card-grid">
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Outcome</div><div class="lvl">Audit</div></div>
-              <div class="title">Fewer repeat findings</div>
-              <div class="body">If the same gap returns, a control is missing or not operating as designed.</div>
-              <div class="footer"><span class="chip">Recurrence down</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Outcome</div><div class="lvl">Speed</div></div>
-              <div class="title">Faster audit response</div>
-              <div class="body">Evidence is organized, owned, and available without last minute panic.</div>
-              <div class="footer"><span class="chip">Time saved</span><span>Sample</span></div>
-            </div>
-            <div class="ff-scard">
-              <div class="meta"><div class="tag">Outcome</div><div class="lvl">Quality</div></div>
-              <div class="title">Lower defect recurrence</div>
-              <div class="body">Problems are closed only after stability is proven in real operation.</div>
-              <div class="footer"><span class="chip">Stability up</span><span>Sample</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:12px; color: var(--ff-muted); font-size:12px;">
-          Sample toolkit only. Final content can be tailored per client and kept confidential.
         </div>
       </div>
     </div>
   </section>
 
-  <section class="ff-section" id="insights">
+  <section class="ff-section soft" id="insights">
     <div class="ff-wrap">
       <div class="ff-head">
-        <div class="ff-kicker">Insights</div>
-        <div class="ff-h2">Practical notes from operations and risk work</div>
-        <div class="ff-p">Short content that supports credibility and makes the offer easier to understand.</div>
+        <div class="ff-kicker">Short insights</div>
+        <div class="ff-h2">Keep insight content brief on the homepage</div>
+        <div class="ff-p">
+          Short observations support credibility. A full insight library can sit on a separate page later.
+        </div>
       </div>
 
       <div class="ff-grid-3">
-        <div class="ff-insight">
+        <div class="ff-card ff-insight">
           <div class="k">Featured</div>
-          <div class="t">If an audit never surprises you, it is probably not auditing the real risk</div>
-          <p>Shift from clause checking to controls that stop recurrence and hold over time.</p>
+          <div class="t">If an audit never surprises you, it may not be testing the real risk</div>
+          <p>Move from clause checking to controls that stop recurrence and stay visible in practice.</p>
         </div>
-        <div class="ff-insight">
+
+        <div class="ff-card ff-insight">
           <div class="k">CAPA</div>
           <div class="t">Close findings with proof over time</div>
-          <p>A finding closes only when the fix holds, not when paperwork is complete.</p>
+          <p>A finding closes only when the fix holds, not when paperwork looks complete.</p>
         </div>
-        <div class="ff-insight">
+
+        <div class="ff-card ff-insight">
           <div class="k">Controls</div>
-          <div class="t">Monitoring is not a control</div>
-          <p>A control blocks loss. Monitoring only tells you it happened again.</p>
+          <div class="t">Monitoring is not the same as control</div>
+          <p>Monitoring tells you something went wrong. Control reduces the chance that it happens again.</p>
         </div>
       </div>
     </div>
@@ -1780,16 +1180,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-kicker">Contact and booking</div>
-        <div class="ff-h2">Start with a short enquiry or book a readiness call</div>
-        <div class="ff-p">Use the enquiry form if you want to share context first. Use the calendar if you are ready to discuss scope, timing, and priorities.</div>
+        <div class="ff-h2">Use one main conversion area instead of scattering forms everywhere</div>
+        <div class="ff-p">
+          Visitors who want to share context first can use the enquiry form. Visitors ready to speak can book directly.
+          This keeps the page structured while still offering both paths.
+        </div>
       </div>
 
       <div class="ff-contact-grid">
-        <div class="ff-form-card">
+        <div class="ff-card ff-form-card">
           <div class="ff-card-head">
             <div class="eyebrow">Enquiry form</div>
             <h3>Tell us what you need</h3>
-            <p>Share a few details so we can understand your business context, timing, and the kind of support you are exploring.</p>
+            <p>Share a few details so we can understand your context, timing, and the kind of support you are exploring.</p>
           </div>
 
           <div class="ff-form-body">
@@ -1849,36 +1252,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
               <div class="ff-form-actions">
                 <button type="submit" class="ff-btn ff-btn-primary">Send enquiry</button>
-                <a href="#ffCalendlyWrap" class="ff-btn" style="background:#fff; border-color:var(--ff-line); color:var(--ff-ink);">Or book directly</a>
+                <a href="#ffCalendlyWrap" class="ff-btn" style="background:#fff;border-color:var(--ff-line);color:var(--ff-ink);">Book directly instead</a>
               </div>
 
               <div class="ff-field-note">
-                This draft form is styled and ready. Connect it later to your preferred form backend, CRM, or email workflow.
+                This is the styled draft version. Connect the form to your backend, CRM, or email workflow later.
               </div>
             </form>
           </div>
         </div>
 
-        <div class="ff-book-card" id="ffCalendlyWrap">
+        <div class="ff-card ff-book-card" id="ffCalendlyWrap">
           <div class="ff-card-head">
             <div class="eyebrow">Readiness call</div>
             <h3>Choose a suitable time</h3>
-            <p>A short working session to clarify scope, target timing, current pain points, and the most sensible first sprint.</p>
+            <p>A short working session to clarify scope, target timing, current pain points, and the most sensible starting point.</p>
           </div>
 
           <div class="ff-book-body">
             <div class="ff-calendly-top">
               <div class="mini">Booking</div>
-              <div class="title">Schedule your consultation with a clean, guided booking flow</div>
+              <div class="title">A cleaner booking block that matches the page theme</div>
               <p class="desc">
-                Select a convenient slot and share any important notes before the call. This area is styled to match the site theme and can later be moved to a dedicated booking page.
+                This draft keeps the scheduling experience on page for review. You can move the same embed to a dedicated booking page later if preferred.
               </p>
             </div>
 
             <div class="ff-calendly-embed">
               <div class="calendly-inline-widget"
                 data-url="https://calendly.com/fundamentalfrontiers/readiness-call"
-                style="min-width:320px;height:780px;">
+                style="min-width:320px;height:760px;">
               </div>
             </div>
           </div>
@@ -1889,11 +1292,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <section class="ff-cta">
     <div class="ff-wrap">
-      <h2>Book a readiness call</h2>
-      <p>Confirm scope, target date, top gaps, and the first sprint plan. Full services remain available after the first sprint.</p>
+      <h2>Ready to discuss the right starting point</h2>
+      <p>Use the readiness call to confirm scope, timing, top gaps, and the most practical first step across the broader service portfolio.</p>
       <div class="ff-hero-actions">
         <a href="#contact-book" class="ff-btn ff-btn-primary">Book now</a>
-        <a href="#contact-book" class="ff-btn ff-btn-secondary">Send enquiry</a>
+        <a href="#services" class="ff-btn ff-btn-secondary">Review services again</a>
       </div>
     </div>
   </section>
@@ -1936,7 +1339,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </footer>
@@ -1945,7 +1347,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a title="Go to Top" href="#"><i class="fas fa-level-up-alt"></i></a>
 </div>
 
-<!-- JS here -->
+<div class="ff-sticky-cta">
+  <a href="#contact-book" class="ff-btn ff-btn-primary">Book a call</a>
+  <a href="#contact-book" class="ff-btn" style="background:#fff;border-color:var(--ff-line);color:var(--ff-ink);">Send enquiry</a>
+</div>
+
 <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
 <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="./assets/js/popper.min.js"></script>
@@ -1967,144 +1373,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/main.js"></script>
-
-<!-- Calendly -->
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <script>
-  (function(){
-    var buttons = document.querySelectorAll(".ff-tab-btn");
-    var panels = {
-      scenario: document.getElementById("ff-tab-scenario"),
-      roles: document.getElementById("ff-tab-roles"),
-      decisions: document.getElementById("ff-tab-decisions"),
-      controls: document.getElementById("ff-tab-controls"),
-      evidence: document.getElementById("ff-tab-evidence"),
-      outcomes: document.getElementById("ff-tab-outcomes")
-    };
-
-    function setActive(key){
-      buttons.forEach(function(b){
-        b.classList.toggle("active", b.getAttribute("data-ff-tab") === key);
-      });
-      Object.keys(panels).forEach(function(k){
-        panels[k].classList.toggle("active", k === key);
-      });
-    }
-
-    buttons.forEach(function(btn){
-      btn.addEventListener("click", function(){
-        setActive(btn.getAttribute("data-ff-tab"));
-      });
-    });
-  })();
-
-  (function(){
-    var buttons = document.querySelectorAll(".ff-deliv-btn");
-    var panels = {
-      d1: document.getElementById("ff-deliv-d1"),
-      d2: document.getElementById("ff-deliv-d2"),
-      d3: document.getElementById("ff-deliv-d3"),
-      d4: document.getElementById("ff-deliv-d4"),
-      d5: document.getElementById("ff-deliv-d5"),
-      d6: document.getElementById("ff-deliv-d6")
-    };
-
-    function setActive(key){
-      buttons.forEach(function(b){
-        b.classList.toggle("active", b.getAttribute("data-ff-deliv") === key);
-      });
-      Object.keys(panels).forEach(function(k){
-        panels[k].classList.toggle("active", k === key);
-      });
-    }
-
-    buttons.forEach(function(btn){
-      btn.addEventListener("click", function(){
-        setActive(btn.getAttribute("data-ff-deliv"));
-      });
-    });
-  })();
-
-  (function(){
-    var track = document.getElementById("ffCarouselTrack");
-    var dotsWrap = document.getElementById("ffDots");
-    var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll(".ff-dot"));
-    var btnPrev = document.getElementById("ffPrev");
-    var btnNext = document.getElementById("ffNext");
-    var idx = 0;
-    var total = 3;
-    var timer = null;
-
-    function render(){
-      track.style.transform = "translateX(-" + (idx * 100) + "%)";
-      dots.forEach(function(d, i){ d.classList.toggle("active", i === idx); });
-    }
-
-    function next(){ idx = (idx + 1) % total; render(); }
-    function prev(){ idx = (idx - 1 + total) % total; render(); }
-
-    function start(){
-      stop();
-      timer = setInterval(next, 5000);
-    }
-    function stop(){
-      if(timer){ clearInterval(timer); timer = null; }
-    }
-
-    dots.forEach(function(d){
-      d.addEventListener("click", function(){
-        idx = parseInt(d.getAttribute("data-idx"), 10);
-        render();
-        start();
-      });
-      d.addEventListener("keydown", function(e){
-        if(e.key === "Enter" || e.key === " "){
-          e.preventDefault();
-          idx = parseInt(d.getAttribute("data-idx"), 10);
-          render();
-          start();
-        }
-      });
-    });
-
-    btnNext.addEventListener("click", function(){ next(); start(); });
-    btnPrev.addEventListener("click", function(){ prev(); start(); });
-
-    var carousel = document.querySelector(".ff-carousel");
-    if(carousel){
-      carousel.addEventListener("mouseenter", stop);
-      carousel.addEventListener("mouseleave", start);
-      carousel.addEventListener("touchstart", stop, {passive:true});
-      carousel.addEventListener("touchend", start, {passive:true});
-    }
-
-    render();
-    start();
-  })();
-
-  (function(){
-    var scroller = document.getElementById("ffCaseScroll");
-    var prev = document.getElementById("ffCasePrev");
-    var next = document.getElementById("ffCaseNext");
-    if(!scroller || !prev || !next) return;
-
-    function isMobile(){
-      return window.matchMedia && window.matchMedia("(max-width: 992px)").matches;
-    }
-
-    function scrollByCard(dir){
-      if(!isMobile()) return;
-      var card = scroller.querySelector(".ff-case-card");
-      if(!card) return;
-      var dx = Math.round(card.getBoundingClientRect().width + 14) * dir;
-      scroller.scrollBy({ left: dx, behavior: "smooth" });
-    }
-
-    prev.addEventListener("click", function(){ scrollByCard(-1); });
-    next.addEventListener("click", function(){ scrollByCard(1); });
-  })();
-
   (function(){
     var form = document.getElementById("ffEnquiryForm");
     if(!form) return;
