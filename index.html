@@ -52,24 +52,29 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     --ff-muted:#5b677a;
     --ff-line:#e5e7eb;
 
-    /* slightly less white overall */
     --ff-bg:#eef2f8;
     --ff-bg-2:#f6f8fc;
+    --ff-bg-3:#f2f5fb;
 
     --ff-card:#ffffff;
-    --ff-radius:16px;
+    --ff-radius:18px;
+    --ff-shadow:0 18px 44px rgba(11,18,32,0.08);
   }
 
   html, body{ overflow-x:hidden; }
   html{ scroll-behavior: smooth; }
-  body{ background: var(--ff-bg); }
+  body{
+    background:
+      radial-gradient(1200px 480px at 10% 0%, rgba(22,242,210,0.05), transparent 55%),
+      radial-gradient(1000px 420px at 90% 20%, rgba(240,78,60,0.04), transparent 55%),
+      var(--ff-bg);
+  }
 
-  /* wider content to reduce left right blank space */
   .ff-wrap{
-    max-width: 1280px;
+    max-width: 1360px;
     margin: 0 auto;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   .ff-topbar{
@@ -92,8 +97,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-topbar a:hover{ color:#fff; text-decoration:none; }
 
   .header-bottom{
-    background:#fff;
-    border-bottom: 1px solid var(--ff-line);
+    background: rgba(255,255,255,0.94);
+    border-bottom: 1px solid rgba(229,231,235,0.85);
+    backdrop-filter: blur(10px);
   }
   .main-menu ul li a{
     font-weight: 800;
@@ -101,21 +107,20 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .main-menu ul li a:hover{ color: var(--ff-navy-2); }
 
-  /* HERO */
   .ff-hero{
     background:
       radial-gradient(1000px 520px at 80% 10%, rgba(22,242,210,0.14), transparent 60%),
       radial-gradient(900px 520px at 20% 15%, rgba(240,78,60,0.11), transparent 65%),
-      linear-gradient(180deg, #06102a 0%, #081a3a 100%);
+      linear-gradient(180deg, #06102a 0%, #081a3a 70%, #0d2149 100%);
     color:#fff;
-    padding: 46px 0 40px 0;
+    padding: 54px 0 44px 0;
     position: relative;
   }
   .ff-hero::after{
     content:"";
     position:absolute;
     left:0; right:0; bottom:-1px;
-    height: 44px;
+    height: 60px;
     background: linear-gradient(180deg, rgba(238,242,248,0) 0%, rgba(238,242,248,1) 100%);
     pointer-events:none;
   }
@@ -137,26 +142,27 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-hero h1{
-    font-size: 50px;
-    line-height: 1.08;
-    margin: 12px 0 10px 0;
+    font-size: 54px;
+    line-height: 1.05;
+    margin: 12px 0 12px 0;
     color:#fff;
     font-weight: 950;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    max-width: 900px;
   }
   .ff-hero p{
     color: rgba(255,255,255,0.84);
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.7;
     margin: 0;
-    max-width: 980px;
+    max-width: 840px;
   }
 
   .ff-hero-actions{
     display:flex;
     gap: 12px;
     flex-wrap: wrap;
-    margin-top: 14px;
+    margin-top: 18px;
   }
 
   .ff-btn{
@@ -171,28 +177,39 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border: 1px solid transparent;
     line-height: 1;
     white-space: nowrap;
+    transition: all 0.2s ease;
   }
   .ff-btn-primary{
     background: var(--ff-teal);
     border-color: var(--ff-teal);
     color: var(--ff-navy-0);
   }
-  .ff-btn-primary:hover{ opacity:0.95; color: var(--ff-navy-0); text-decoration:none; }
+  .ff-btn-primary:hover{
+    opacity:0.95;
+    color: var(--ff-navy-0);
+    text-decoration:none;
+    transform: translateY(-1px);
+  }
   .ff-btn-secondary{
     background: rgba(255,255,255,0.08);
     border-color: rgba(255,255,255,0.22);
     color:#fff;
   }
-  .ff-btn-secondary:hover{ opacity:0.95; color:#fff; text-decoration:none; }
+  .ff-btn-secondary:hover{
+    opacity:0.95;
+    color:#fff;
+    text-decoration:none;
+    transform: translateY(-1px);
+  }
 
-  /* Capability banner */
   .ff-cap-wrap{
-    margin-top: 18px;
+    margin-top: 22px;
     background: rgba(255,255,255,0.09);
     border: 1px solid rgba(255,255,255,0.18);
     border-radius: var(--ff-radius);
-    padding: 16px;
+    padding: 18px;
     backdrop-filter: blur(7px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.16);
   }
   .ff-cap-head{
     display:flex;
@@ -256,14 +273,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-size: 13px;
   }
 
-  /* Flagship carousel */
   .ff-carousel{
-    margin-top: 14px;
+    margin-top: 18px;
     border-radius: var(--ff-radius);
     overflow:hidden;
     border: 1px solid rgba(255,255,255,0.18);
     background: rgba(255,255,255,0.09);
     backdrop-filter: blur(7px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
   }
   .ff-carousel-track{
     display:flex;
@@ -273,7 +290,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-slide{
     flex: 0 0 100%;
     width: 100%;
-    padding: 16px;
+    padding: 18px;
   }
   .ff-slide-inner{
     display:flex;
@@ -304,7 +321,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     white-space: nowrap;
   }
   .ff-slide-title{
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 950;
     color:#fff;
     margin: 0;
@@ -313,8 +330,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .ff-slide-desc{
     color: rgba(255,255,255,0.86);
-    font-size: 14px;
-    line-height: 1.55;
+    font-size: 15px;
+    line-height: 1.65;
     margin: 0;
     max-width: 980px;
   }
@@ -330,7 +347,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     align-items:center;
     justify-content: space-between;
     gap: 12px;
-    padding: 10px 12px;
+    padding: 12px 14px;
     border-top: 1px solid rgba(255,255,255,0.14);
   }
   .ff-dots{
@@ -361,9 +378,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .ff-arrow:hover{ opacity:0.95; }
 
-  /* Sections with subtle texture */
   .ff-section{
-    padding: 44px 0;
+    padding: 56px 0;
     background:
       radial-gradient(900px 320px at 10% 0%, rgba(22,242,210,0.06), transparent 55%),
       radial-gradient(900px 320px at 90% 10%, rgba(240,78,60,0.05), transparent 55%),
@@ -373,10 +389,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     background:
       radial-gradient(900px 320px at 10% 0%, rgba(22,242,210,0.05), transparent 55%),
       radial-gradient(900px 320px at 90% 10%, rgba(240,78,60,0.04), transparent 55%),
-      #fff;
+      linear-gradient(180deg, #ffffff 0%, #f7f9fd 100%);
   }
 
-  .ff-head{ margin-bottom: 16px; }
+  .ff-head{ margin-bottom: 18px; }
   .ff-kicker{
     color: #0aaea0;
     font-weight: 950;
@@ -386,37 +402,38 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     margin-bottom: 10px;
   }
   .ff-h2{
-    font-size: 28px;
+    font-size: 31px;
     font-weight: 950;
     letter-spacing: -0.02em;
     margin: 0 0 10px 0;
     color: var(--ff-ink);
+    max-width: 900px;
   }
   .ff-p{
     color: var(--ff-muted);
     margin: 0;
-    line-height: 1.65;
+    line-height: 1.7;
     font-size: 15px;
     max-width: 980px;
   }
 
-  /* Siemens style feature bands */
   .ff-bands{
     margin-top: 18px;
     display:grid;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
   }
   .ff-band{
     display:flex;
     gap: 14px;
     align-items:flex-start;
-    padding: 16px;
+    padding: 18px;
     border-radius: var(--ff-radius);
     background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
     border: 1px solid var(--ff-line);
     position: relative;
     overflow:hidden;
+    box-shadow: var(--ff-shadow);
   }
   .ff-band::before{
     content:"";
@@ -439,7 +456,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-size: 14px;
   }
   .ff-band h3{
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 950;
     margin: 0 0 6px 0;
     color: var(--ff-ink);
@@ -448,25 +465,25 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-band p{
     margin: 0;
     color: var(--ff-muted);
-    line-height: 1.55;
+    line-height: 1.6;
     font-size: 14px;
   }
 
-  /* Steps */
   .ff-steps{
     display:grid;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
     margin-top: 16px;
   }
   .ff-step{
-    background:#fff;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
     border: 1px solid var(--ff-line);
     border-radius: var(--ff-radius);
-    padding: 14px;
+    padding: 16px;
+    box-shadow: var(--ff-shadow);
   }
   .ff-step .n{
-    width: 34px; height: 34px;
+    width: 36px; height: 36px;
     border-radius: 12px;
     background: rgba(22,242,210,0.14);
     border: 1px solid rgba(22,242,210,0.30);
@@ -475,14 +492,22 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     display:flex;
     align-items:center;
     justify-content:center;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
-  .ff-step .t{ font-weight: 950; color: var(--ff-ink); margin-bottom: 6px; }
-  .ff-step .d{ color: var(--ff-muted); font-size: 14px; line-height: 1.55; }
+  .ff-step .t{
+    font-weight: 950;
+    color: var(--ff-ink);
+    margin-bottom: 6px;
+    font-size: 16px;
+  }
+  .ff-step .d{
+    color: var(--ff-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
 
-  /* Deliverables explorer: fixed alignment + less white */
   .ff-deliv-wrap{
-    margin-top: 16px;
+    margin-top: 18px;
     display:grid;
     grid-template-columns: 1fr;
     gap: 0;
@@ -490,11 +515,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border: 1px solid var(--ff-line);
     border-radius: var(--ff-radius);
     overflow:hidden;
-    box-shadow: 0 12px 28px rgba(11,18,32,0.06);
+    box-shadow: var(--ff-shadow);
   }
   .ff-deliv-rail{
     background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    padding: 12px;
+    padding: 14px;
     border-bottom: 1px solid var(--ff-line);
   }
   .ff-deliv-btn{
@@ -512,6 +537,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     align-items:center;
     gap: 12px;
   }
+  .ff-deliv-btn + .ff-deliv-btn{ margin-top: 8px; }
   .ff-deliv-btn .tt{
     display:block;
     line-height: 1.25;
@@ -563,13 +589,13 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-deliv-panel{
-    padding: 16px;
-    min-height: 220px;
+    padding: 18px;
+    min-height: 240px;
+    display:none;
   }
-  .ff-deliv-panel{ display:none; }
   .ff-deliv-panel.active{ display:block; }
   .ff-deliv-title{
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 950;
     margin: 0 0 8px 0;
     letter-spacing: -0.01em;
@@ -578,7 +604,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-deliv-desc{
     margin: 0 0 12px 0;
     color: var(--ff-muted);
-    line-height: 1.6;
+    line-height: 1.65;
     font-size: 14px;
     max-width: 980px;
   }
@@ -586,12 +612,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     margin: 0;
     padding-left: 18px;
     color: var(--ff-muted);
-    line-height: 1.7;
+    line-height: 1.75;
     font-size: 14px;
   }
   .ff-deliv-bul li{ margin-bottom: 6px; }
 
-  /* CASE STUDIES (Siemens marketplace style, high quality placeholders with no external images) */
   .ff-case-head{
     display:flex;
     align-items:center;
@@ -613,13 +638,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-weight: 950;
     cursor:pointer;
   }
-  .ff-case-arrow:hover{ opacity:0.95; }
 
   .ff-case-scroll{
-    margin-top: 14px;
+    margin-top: 16px;
     display:grid;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 16px;
   }
 
   .ff-case-card{
@@ -627,7 +651,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     overflow:hidden;
     border: 1px solid var(--ff-line);
     background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    box-shadow: 0 12px 28px rgba(11,18,32,0.06);
+    box-shadow: var(--ff-shadow);
   }
 
   .ff-case-media{
@@ -637,7 +661,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     overflow:hidden;
   }
 
-  /* abstract placeholder visuals (no external image, looks premium) */
   .ff-case-visual{
     width:100%;
     height:100%;
@@ -688,7 +711,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-case-body{
-    padding: 16px;
+    padding: 18px;
   }
   .ff-case-title{
     margin: 0 0 8px 0;
@@ -702,7 +725,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     margin: 0 0 12px 0;
     color: var(--ff-muted);
     font-size: 14px;
-    line-height: 1.55;
+    line-height: 1.6;
   }
   .ff-case-meta{
     display:flex;
@@ -712,6 +735,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-size: 12px;
     font-weight: 850;
     margin-bottom: 14px;
+    flex-wrap: wrap;
   }
   .ff-case-dot{
     width: 4px;
@@ -736,21 +760,19 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     text-decoration:none;
     font-size: 13px;
   }
-  .ff-case-link:hover{ text-decoration:none; opacity:0.85; }
 
-  /* Toolkit */
   .ff-toolkit-wrap{
     background:#fff;
     border: 1px solid var(--ff-line);
     border-radius: var(--ff-radius);
-    padding: 14px;
-    box-shadow: 0 12px 28px rgba(11,18,32,0.05);
+    padding: 16px;
+    box-shadow: var(--ff-shadow);
   }
   .ff-tabs{
     display:flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
   .ff-tab-btn{
     border:1px solid var(--ff-line);
@@ -772,15 +794,15 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-card-grid{
     display:grid;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
   }
 
   .ff-scard{
     border-radius: var(--ff-radius);
     border:1px solid var(--ff-line);
     background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-    padding: 14px;
-    min-height: 150px;
+    padding: 16px;
+    min-height: 160px;
     position: relative;
     overflow:hidden;
   }
@@ -831,7 +853,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-scard .body{
     color: var(--ff-muted);
     font-size: 13px;
-    line-height: 1.45;
+    line-height: 1.55;
     margin-bottom: 12px;
     position: relative;
     z-index: 2;
@@ -845,6 +867,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     color: var(--ff-muted);
     position: relative;
     z-index: 2;
+    flex-wrap: wrap;
   }
   .ff-scard .chip{
     border:1px solid var(--ff-line);
@@ -855,19 +878,18 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     color: var(--ff-ink);
   }
 
-  /* Insights */
   .ff-grid-3{
     display:grid;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
     margin-top: 16px;
   }
   .ff-insight{
     background:#fff;
     border:1px solid var(--ff-line);
     border-radius: var(--ff-radius);
-    padding: 16px;
-    box-shadow: 0 12px 28px rgba(11,18,32,0.05);
+    padding: 18px;
+    box-shadow: var(--ff-shadow);
   }
   .ff-insight .k{
     font-size: 12px;
@@ -877,39 +899,208 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-weight: 950;
   }
   .ff-insight .t{
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 950;
     margin-top: 10px;
     margin-bottom: 10px;
     color: var(--ff-ink);
-    line-height: 1.25;
+    line-height: 1.3;
   }
   .ff-insight p{
     color: var(--ff-muted);
     margin: 0;
-    line-height: 1.55;
+    line-height: 1.6;
     font-size: 14px;
   }
 
-  /* CTA band */
+  .ff-contact-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 18px;
+  }
+
+  .ff-form-card,
+  .ff-book-card{
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    border: 1px solid var(--ff-line);
+    border-radius: var(--ff-radius);
+    box-shadow: var(--ff-shadow);
+    overflow: hidden;
+  }
+
+  .ff-card-head{
+    padding: 18px 18px 12px 18px;
+    border-bottom: 1px solid var(--ff-line);
+    background:
+      radial-gradient(640px 200px at 10% 0%, rgba(22,242,210,0.10), transparent 55%),
+      radial-gradient(640px 200px at 90% 0%, rgba(240,78,60,0.08), transparent 55%),
+      linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  }
+  .ff-card-head .eyebrow{
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #0aaea0;
+    font-weight: 950;
+    margin-bottom: 8px;
+  }
+  .ff-card-head h3{
+    margin: 0 0 8px 0;
+    color: var(--ff-ink);
+    font-size: 22px;
+    font-weight: 950;
+    letter-spacing: -0.02em;
+  }
+  .ff-card-head p{
+    margin: 0;
+    color: var(--ff-muted);
+    line-height: 1.65;
+    font-size: 14px;
+    max-width: 700px;
+  }
+
+  .ff-form-body{
+    padding: 18px;
+  }
+
+  .ff-form-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .ff-field label{
+    display:block;
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--ff-ink);
+    margin-bottom: 7px;
+  }
+  .ff-field input,
+  .ff-field select,
+  .ff-field textarea{
+    width: 100%;
+    border: 1px solid var(--ff-line);
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--ff-ink);
+    line-height: 1.4;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .ff-field input:focus,
+  .ff-field select:focus,
+  .ff-field textarea:focus{
+    border-color: rgba(22,242,210,0.8);
+    box-shadow: 0 0 0 4px rgba(22,242,210,0.12);
+  }
+  .ff-field textarea{
+    min-height: 130px;
+    resize: vertical;
+  }
+  .ff-field-note{
+    font-size: 12px;
+    color: var(--ff-muted);
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  .ff-form-actions{
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .ff-book-body{
+    padding: 18px;
+  }
+
+  .ff-calendly-top{
+    margin-bottom: 14px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background:
+      radial-gradient(500px 180px at 10% 0%, rgba(22,242,210,0.12), transparent 55%),
+      radial-gradient(500px 180px at 90% 0%, rgba(240,78,60,0.10), transparent 55%),
+      linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    border: 1px solid var(--ff-line);
+  }
+  .ff-calendly-top .mini{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: #0aaea0;
+    font-weight: 950;
+    margin-bottom: 6px;
+  }
+  .ff-calendly-top .title{
+    color: var(--ff-ink);
+    font-size: 18px;
+    font-weight: 950;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .ff-calendly-top .desc{
+    color: var(--ff-muted);
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .ff-calendly-embed{
+    border: 1px solid var(--ff-line);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    min-height: 780px;
+  }
+
   .ff-cta{
-    background: linear-gradient(180deg, var(--ff-navy-0) 0%, var(--ff-navy-2) 100%);
+    background:
+      radial-gradient(900px 340px at 15% 0%, rgba(22,242,210,0.12), transparent 60%),
+      radial-gradient(900px 340px at 90% 10%, rgba(240,78,60,0.10), transparent 60%),
+      linear-gradient(180deg, var(--ff-navy-0) 0%, var(--ff-navy-2) 100%);
     color:#fff;
-    padding: 44px 0;
+    padding: 52px 0;
+    position: relative;
+  }
+  .ff-cta::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; top:-1px;
+    height: 42px;
+    background: linear-gradient(180deg, rgba(238,242,248,1) 0%, rgba(238,242,248,0) 100%);
+    pointer-events:none;
   }
   .ff-cta h2{
     color:#fff;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 950;
     margin: 0 0 10px 0;
     letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
   }
   .ff-cta p{
     color: rgba(255,255,255,0.82);
     margin: 0 0 16px 0;
-    line-height: 1.6;
+    line-height: 1.7;
     font-size: 15px;
     max-width: 900px;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (min-width: 768px){
+    .ff-form-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .ff-field-full{
+      grid-column: 1 / -1;
+    }
   }
 
   @media (min-width: 992px){
@@ -918,6 +1109,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-bands{ grid-template-columns: repeat(3, 1fr); }
     .ff-grid-3{ grid-template-columns: repeat(3, 1fr); }
     .ff-card-grid{ grid-template-columns: repeat(3, 1fr); }
+    .ff-contact-grid{ grid-template-columns: 0.95fr 1.05fr; }
 
     .ff-deliv-wrap{ grid-template-columns: 380px 1fr; }
     .ff-deliv-rail{
@@ -925,7 +1117,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       border-right: 1px solid var(--ff-line);
       padding: 14px;
     }
-    .ff-deliv-right{ min-height: 280px; }
+    .ff-deliv-right{ min-height: 300px; }
 
     .ff-case-scroll{
       grid-template-columns: repeat(3, 1fr);
@@ -934,12 +1126,23 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-case-controls{ display:none; }
   }
 
+  @media (max-width: 767px){
+    .ff-wrap{
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+    .ff-hero h1{ font-size: 38px; }
+    .ff-h2{ font-size: 27px; }
+    .ff-topbar .ff-wrap{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
   @media (max-width: 520px){
-    .ff-hero h1{ font-size: 34px; }
     .ff-deliv-btn{ grid-template-columns: 1fr; }
     .ff-deliv-btn .ss{ text-align:left; margin-top: 6px; }
 
-    /* small screens: horizontal scroll case studies like Siemens marketplace feel */
     .ff-case-scroll{
       display:flex;
       gap: 14px;
@@ -975,7 +1178,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!-- Top bar -->
 <div class="ff-topbar">
   <div class="ff-wrap">
     <div>Manufacturing consulting and execution support</div>
@@ -1010,8 +1212,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <li><a href="#case-studies">Case studies</a></li>
                       <li><a href="#toolkit">Toolkit</a></li>
                       <li><a href="#insights">Insights</a></li>
-                      <li><a href="book.html">Book</a></li>
-                      <li><a href="contact.html">Contact</a></li>
+                      <li><a href="#contact-book">Contact</a></li>
                     </ul>
                   </nav>
                 </div>
@@ -1025,14 +1226,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- HERO -->
   <section class="ff-hero" id="services">
     <div class="ff-wrap">
 
@@ -1042,6 +1241,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         We help mid market manufacturers close gaps that slow delivery and create audit risk.
         Practical work with clear owners, simple routines, and proof that holds under pressure.
       </p>
+
+      <div class="ff-hero-actions">
+        <a href="#contact-book" class="ff-btn ff-btn-primary">Book a readiness call</a>
+        <a href="assets/Fundamental Frontiers Profile.pdf" target="_blank" rel="noopener" class="ff-btn ff-btn-secondary">Download profile</a>
+      </div>
 
       <div class="ff-cap-wrap" aria-label="Full capability set">
         <div class="ff-cap-head">
@@ -1079,7 +1283,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="ff-slide-title">Audit and compliance readiness sprint</h3>
               <p class="ff-slide-desc">Close gaps, organize evidence, run a mock audit, and leave a sustain cadence your team can maintain.</p>
               <div class="ff-slide-cta">
-                <a class="ff-btn ff-btn-primary" href="book.html">Book a call</a>
+                <a class="ff-btn ff-btn-primary" href="#contact-book">Book a call</a>
                 <a class="ff-btn ff-btn-secondary" href="#deliverables">See deliverables</a>
               </div>
             </div>
@@ -1094,7 +1298,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="ff-slide-title">SOP and training refresh sprint</h3>
               <p class="ff-slide-desc">Refresh key procedures, checklists, and training records so execution stays consistent and audit ready.</p>
               <div class="ff-slide-cta">
-                <a class="ff-btn ff-btn-primary" href="book.html">Book a call</a>
+                <a class="ff-btn ff-btn-primary" href="#contact-book">Book a call</a>
                 <a class="ff-btn ff-btn-secondary" href="#deliverables">See outputs</a>
               </div>
             </div>
@@ -1109,7 +1313,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3 class="ff-slide-title">Quality root cause and CAPA fix sprint</h3>
               <p class="ff-slide-desc">Stop repeat defects with root cause, corrective actions, and proof that the fix holds over time.</p>
               <div class="ff-slide-cta">
-                <a class="ff-btn ff-btn-primary" href="book.html">Book a call</a>
+                <a class="ff-btn ff-btn-primary" href="#contact-book">Book a call</a>
                 <a class="ff-btn ff-btn-secondary" href="#toolkit">Preview toolkit</a>
               </div>
             </div>
@@ -1131,15 +1335,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <div class="ff-hero-actions">
-        <a href="book.html" class="ff-btn ff-btn-primary">Book a readiness call</a>
-        <a href="assets/Fundamental Frontiers Profile.pdf" target="_blank" rel="noopener" class="ff-btn ff-btn-secondary">Download profile</a>
-      </div>
-
     </div>
   </section>
 
-  <!-- WHY -->
   <section class="ff-section" id="why">
     <div class="ff-wrap">
       <div class="ff-head">
@@ -1176,7 +1374,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- HOW -->
   <section class="ff-section white" id="how">
     <div class="ff-wrap">
       <div class="ff-head">
@@ -1194,7 +1391,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- DELIVERABLES -->
   <section class="ff-section" id="deliverables">
     <div class="ff-wrap">
       <div class="ff-head">
@@ -1302,7 +1498,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
   <section class="ff-section white" id="case-studies">
     <div class="ff-wrap">
       <div class="ff-head">
@@ -1312,7 +1507,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <div class="ff-case-head">
-        <a class="ff-btn ff-btn-secondary" href="case-studies.html" style="background:#fff; border-color:var(--ff-line); color:var(--ff-ink);">View all case studies</a>
+        <a class="ff-btn ff-btn-secondary" href="#" style="background:#fff; border-color:var(--ff-line); color:var(--ff-ink);">View all case studies</a>
 
         <div class="ff-case-controls" aria-label="Case studies controls">
           <button class="ff-case-arrow" type="button" id="ffCasePrev" aria-label="Previous">‹</button>
@@ -1334,8 +1529,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span>30 days</span><span class="ff-case-dot"></span><span>Quality and Ops</span>
             </div>
             <div class="ff-case-actions">
-              <a class="ff-btn ff-btn-primary ff-case-cta" href="case-studies.html#audit-readiness">Read case</a>
-              <a class="ff-case-link" href="book.html">Book a call</a>
+              <a class="ff-btn ff-btn-primary ff-case-cta" href="#contact-book">Read case</a>
+              <a class="ff-case-link" href="#contact-book">Book a call</a>
             </div>
           </div>
         </article>
@@ -1357,8 +1552,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span>60 to 90 days</span><span class="ff-case-dot"></span><span>Supply chain</span>
             </div>
             <div class="ff-case-actions">
-              <a class="ff-btn ff-btn-primary ff-case-cta" href="case-studies.html#supplier-recovery">Read case</a>
-              <a class="ff-case-link" href="book.html">Book a call</a>
+              <a class="ff-btn ff-btn-primary ff-case-cta" href="#contact-book">Read case</a>
+              <a class="ff-case-link" href="#contact-book">Book a call</a>
             </div>
           </div>
         </article>
@@ -1380,8 +1575,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span>4 to 6 weeks</span><span class="ff-case-dot"></span><span>Quality</span>
             </div>
             <div class="ff-case-actions">
-              <a class="ff-btn ff-btn-primary ff-case-cta" href="case-studies.html#capa-fix">Read case</a>
-              <a class="ff-case-link" href="book.html">Book a call</a>
+              <a class="ff-btn ff-btn-primary ff-case-cta" href="#contact-book">Read case</a>
+              <a class="ff-case-link" href="#contact-book">Book a call</a>
             </div>
           </div>
         </article>
@@ -1390,7 +1585,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- TOOLKIT -->
   <section class="ff-section white" id="toolkit">
     <div class="ff-wrap">
       <div class="ff-head">
@@ -1554,7 +1748,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- INSIGHTS -->
   <section class="ff-section" id="insights">
     <div class="ff-wrap">
       <div class="ff-head">
@@ -1583,14 +1776,124 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- CTA -->
+  <section class="ff-section white" id="contact-book">
+    <div class="ff-wrap">
+      <div class="ff-head">
+        <div class="ff-kicker">Contact and booking</div>
+        <div class="ff-h2">Start with a short enquiry or book a readiness call</div>
+        <div class="ff-p">Use the enquiry form if you want to share context first. Use the calendar if you are ready to discuss scope, timing, and priorities.</div>
+      </div>
+
+      <div class="ff-contact-grid">
+        <div class="ff-form-card">
+          <div class="ff-card-head">
+            <div class="eyebrow">Enquiry form</div>
+            <h3>Tell us what you need</h3>
+            <p>Share a few details so we can understand your business context, timing, and the kind of support you are exploring.</p>
+          </div>
+
+          <div class="ff-form-body">
+            <form id="ffEnquiryForm" action="#" method="post">
+              <div class="ff-form-grid">
+                <div class="ff-field">
+                  <label for="ff-name">Full name</label>
+                  <input type="text" id="ff-name" name="full_name" placeholder="Your name" required>
+                </div>
+
+                <div class="ff-field">
+                  <label for="ff-email">Work email</label>
+                  <input type="email" id="ff-email" name="email" placeholder="name@company.com" required>
+                </div>
+
+                <div class="ff-field">
+                  <label for="ff-company">Company</label>
+                  <input type="text" id="ff-company" name="company" placeholder="Company name">
+                </div>
+
+                <div class="ff-field">
+                  <label for="ff-phone">Phone or WhatsApp</label>
+                  <input type="text" id="ff-phone" name="phone" placeholder="+1 404 ...">
+                </div>
+
+                <div class="ff-field">
+                  <label for="ff-focus">Primary need</label>
+                  <select id="ff-focus" name="primary_need">
+                    <option value="">Select one</option>
+                    <option>Audit and compliance readiness</option>
+                    <option>SOP and training refresh</option>
+                    <option>CAPA and quality improvement</option>
+                    <option>Supplier performance</option>
+                    <option>Operational excellence</option>
+                    <option>Dashboards and reporting</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div class="ff-field">
+                  <label for="ff-timeline">Target timeline</label>
+                  <select id="ff-timeline" name="timeline">
+                    <option value="">Select one</option>
+                    <option>Immediate</option>
+                    <option>Within 30 days</option>
+                    <option>Within 60 days</option>
+                    <option>Within 90 days</option>
+                    <option>Exploring only</option>
+                  </select>
+                </div>
+
+                <div class="ff-field ff-field-full">
+                  <label for="ff-message">Brief summary</label>
+                  <textarea id="ff-message" name="message" placeholder="Tell us about the current challenge, audit pressure, recurring issue, or project context."></textarea>
+                </div>
+              </div>
+
+              <div class="ff-form-actions">
+                <button type="submit" class="ff-btn ff-btn-primary">Send enquiry</button>
+                <a href="#ffCalendlyWrap" class="ff-btn" style="background:#fff; border-color:var(--ff-line); color:var(--ff-ink);">Or book directly</a>
+              </div>
+
+              <div class="ff-field-note">
+                This draft form is styled and ready. Connect it later to your preferred form backend, CRM, or email workflow.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="ff-book-card" id="ffCalendlyWrap">
+          <div class="ff-card-head">
+            <div class="eyebrow">Readiness call</div>
+            <h3>Choose a suitable time</h3>
+            <p>A short working session to clarify scope, target timing, current pain points, and the most sensible first sprint.</p>
+          </div>
+
+          <div class="ff-book-body">
+            <div class="ff-calendly-top">
+              <div class="mini">Booking</div>
+              <div class="title">Schedule your consultation with a clean, guided booking flow</div>
+              <p class="desc">
+                Select a convenient slot and share any important notes before the call. This area is styled to match the site theme and can later be moved to a dedicated booking page.
+              </p>
+            </div>
+
+            <div class="ff-calendly-embed">
+              <div class="calendly-inline-widget"
+                data-url="https://calendly.com/fundamentalfrontiers/readiness-call"
+                style="min-width:320px;height:780px;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="ff-cta">
     <div class="ff-wrap">
       <h2>Book a readiness call</h2>
       <p>Confirm scope, target date, top gaps, and the first sprint plan. Full services remain available after the first sprint.</p>
       <div class="ff-hero-actions">
-        <a href="book.html" class="ff-btn ff-btn-primary">Book now</a>
-        <a href="contact.html" class="ff-btn ff-btn-secondary">Contact</a>
+        <a href="#contact-book" class="ff-btn ff-btn-primary">Book now</a>
+        <a href="#contact-book" class="ff-btn ff-btn-secondary">Send enquiry</a>
       </div>
     </div>
   </section>
@@ -1665,8 +1968,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/main.js"></script>
 
+<!-- Calendly -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
 <script>
-  // Toolkit tabs
   (function(){
     var buttons = document.querySelectorAll(".ff-tab-btn");
     var panels = {
@@ -1694,7 +1999,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   })();
 
-  // Deliverables explorer
   (function(){
     var buttons = document.querySelectorAll(".ff-deliv-btn");
     var panels = {
@@ -1722,7 +2026,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   })();
 
-  // Flagship carousel (auto rotate every 5 seconds)
   (function(){
     var track = document.getElementById("ffCarouselTrack");
     var dotsWrap = document.getElementById("ffDots");
@@ -1769,16 +2072,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     btnPrev.addEventListener("click", function(){ prev(); start(); });
 
     var carousel = document.querySelector(".ff-carousel");
-    carousel.addEventListener("mouseenter", stop);
-    carousel.addEventListener("mouseleave", start);
-    carousel.addEventListener("touchstart", stop, {passive:true});
-    carousel.addEventListener("touchend", start, {passive:true});
+    if(carousel){
+      carousel.addEventListener("mouseenter", stop);
+      carousel.addEventListener("mouseleave", start);
+      carousel.addEventListener("touchstart", stop, {passive:true});
+      carousel.addEventListener("touchend", start, {passive:true});
+    }
 
     render();
     start();
   })();
 
-  // Case studies: mobile horizontal scroll arrows
   (function(){
     var scroller = document.getElementById("ffCaseScroll");
     var prev = document.getElementById("ffCasePrev");
@@ -1799,6 +2103,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     prev.addEventListener("click", function(){ scrollByCard(-1); });
     next.addEventListener("click", function(){ scrollByCard(1); });
+  })();
+
+  (function(){
+    var form = document.getElementById("ffEnquiryForm");
+    if(!form) return;
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("Draft form submitted. Connect this form to your backend, Formspree, Web3Forms, or CRM later.");
+    });
   })();
 </script>
 
