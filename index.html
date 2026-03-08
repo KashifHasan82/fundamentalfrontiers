@@ -84,13 +84,13 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-topbar{
-    background:#03102a;
-    color:rgba(255,255,255,0.88);
+    background:#ffffff;
+    color:var(--ff-muted);
     font-size:13px;
-    border-bottom:1px solid rgba(255,255,255,0.08);
+    border-bottom:1px solid var(--ff-line);
   }
   .ff-topbar .ff-wrap{
-    min-height:52px;
+    min-height:50px;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -104,21 +104,21 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     flex-wrap:wrap;
   }
   .ff-topbar a{
-    color:rgba(255,255,255,0.9);
+    color:var(--ff-ink);
     text-decoration:none;
     font-weight:700;
   }
   .ff-topbar a:hover{
-    color:#fff;
+    color:var(--ff-red-2);
     text-decoration:none;
   }
 
   .ff-mainnav{
-    background:#03102a;
-    color:#fff;
+    background:#ffffff;
+    color:var(--ff-ink);
     position:relative;
     z-index:20;
-    border-bottom:1px solid rgba(255,255,255,0.08);
+    border-bottom:1px solid var(--ff-line);
   }
   .ff-mainnav .ff-wrap{
     min-height:74px;
@@ -133,9 +133,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     height:74px;
     display:flex;
     align-items:center;
-    padding:0 26px 0 20px;
-    margin-left:-28px;
-    border-right:1px solid rgba(16,24,39,0.06);
+    padding:0 26px 0 0;
   }
   .ff-logo a{
     display:inline-flex;
@@ -151,20 +149,18 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     display:flex;
     align-items:center;
     gap:34px;
-    padding-left:28px;
+    padding-left:12px;
   }
   .ff-nav-links a{
-    color:#fff;
+    color:var(--ff-ink);
     text-decoration:none;
     font-size:14px;
     font-weight:700;
     white-space:nowrap;
-    opacity:0.96;
   }
   .ff-nav-links a:hover{
-    color:#fff;
+    color:var(--ff-red-2);
     text-decoration:none;
-    opacity:1;
   }
 
   .ff-nav-actions{
@@ -173,20 +169,19 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     gap:16px;
   }
   .ff-nav-icon-link{
-    color:#fff;
+    color:var(--ff-red-2);
     text-decoration:none;
     font-size:14px;
     font-weight:700;
-    opacity:0.96;
   }
   .ff-nav-icon-link:hover{
-    color:#fff;
+    color:var(--ff-red-2);
     text-decoration:none;
-    opacity:1;
+    opacity:0.86;
   }
 
   .header-sticky.sticky-bar{
-    background:#03102a !important;
+    background:#ffffff !important;
   }
 
   .ff-hero{
@@ -259,6 +254,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     line-height:1;
     transition:all 0.2s ease;
     white-space:nowrap;
+    cursor:pointer;
   }
   .ff-btn-primary{
     background:var(--ff-red);
@@ -805,24 +801,54 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     max-width:320px;
   }
 
-  .ff-note-card{
-    padding:18px;
-    background:#fff;
-    border:1px solid var(--ff-line);
-    box-shadow:var(--ff-shadow);
+  .ff-enquiry-panel{
+    display:none;
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px solid var(--ff-line);
   }
-  .ff-note-card h4{
-    margin:0 0 8px 0;
-    font-size:18px;
-    line-height:1.28;
+  .ff-enquiry-panel.active{
+    display:block;
+  }
+  .ff-form-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .ff-field label{
+    display:block;
+    font-size:13px;
     font-weight:700;
     color:var(--ff-ink);
+    margin-bottom:6px;
   }
-  .ff-note-card p{
-    margin:0;
-    color:var(--ff-muted);
+  .ff-field input,
+  .ff-field select,
+  .ff-field textarea{
+    width:100%;
+    border:1px solid var(--ff-line);
+    background:#fff;
+    padding:11px 12px;
     font-size:14px;
-    line-height:1.62;
+    color:var(--ff-ink);
+    outline:none;
+    line-height:1.4;
+  }
+  .ff-field input:focus,
+  .ff-field select:focus,
+  .ff-field textarea:focus{
+    border-color:rgba(216,67,78,0.75);
+    box-shadow:0 0 0 4px rgba(216,67,78,0.10);
+  }
+  .ff-field textarea{
+    min-height:120px;
+    resize:vertical;
+  }
+  .ff-form-note{
+    margin-top:10px;
+    color:var(--ff-muted);
+    font-size:12px;
+    line-height:1.55;
   }
 
   .ff-cta{
@@ -885,9 +911,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       grid-template-columns:1fr auto;
     }
     .ff-logo-panel{
-      margin-left:-18px;
       height:70px;
-      padding:0 20px 0 18px;
+      padding:0 12px 0 0;
     }
     .ff-nav-links,
     .ff-nav-actions{
@@ -972,7 +997,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <nav class="ff-nav-links">
         <a href="#services">Services</a>
         <a href="#programs">Programs</a>
-        <a href="#proof">Proof</a>
+        <a href="#proof">Selected work</a>
         <a href="#insights">Insights</a>
         <a href="#contact-book">Book</a>
       </nav>
@@ -1023,7 +1048,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="ff-hero-aside">
           <div class="ff-hero-panel">
-            <div class="ff-mini-label">Priority areas</div>
+            <div class="ff-mini-label">Common starting priorities</div>
             <div class="ff-proof-list">
               <div class="ff-proof-item">
                 Audit readiness and evidence cleanup
@@ -1068,7 +1093,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ff-label">Services</div>
         <h2>Support across readiness, execution, supplier performance, and decision support</h2>
         <p>
-          Fundamental Frontiers works across the operational areas where weak ownership, poor visibility, and unstable routines create audit risk or slow execution.
+          Fundamental Frontiers works across the operational areas where weak ownership, low visibility, and unstable routines create audit exposure or slow execution.
         </p>
       </div>
 
@@ -1115,7 +1140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="ff-section ff-section-white">
     <div class="ff-wrap">
       <div class="ff-head">
-        <div class="ff-label">How the work creates value</div>
+        <div class="ff-label">How the work improves performance</div>
         <h2>Clear ownership and usable proof matter more than paperwork alone</h2>
         <p>
           The objective is stable execution under real operating pressure. Each engagement is designed to tighten accountability, improve evidence quality, and leave practical routines behind.
@@ -1179,7 +1204,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="ff-section ff-section-white" id="proof">
     <div class="ff-wrap">
       <div class="ff-head">
-        <div class="ff-label">Proof</div>
+        <div class="ff-label">Selected work</div>
         <h2>Representative work, sample material, and a direct path to discussion</h2>
         <p>
           The front page highlights a few compact examples. Deeper case material and toolkit samples can be shared when a conversation becomes relevant.
@@ -1189,7 +1214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ff-proof-grid">
         <article class="ff-card ff-proof-card">
           <div class="ff-proof-media">
-            <span class="ff-proof-badge">Case snapshot</span>
+            <span class="ff-proof-badge">Audit readiness work</span>
             <div class="ff-proof-visual"></div>
           </div>
           <div class="ff-proof-body">
@@ -1205,7 +1230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <article class="ff-card ff-proof-card">
           <div class="ff-proof-media">
-            <span class="ff-proof-badge">Case snapshot</span>
+            <span class="ff-proof-badge">Supplier performance work</span>
             <div class="ff-proof-visual" style="background:
               radial-gradient(640px 240px at 18% 18%, rgba(216,67,78,0.18), rgba(216,67,78,0) 60%),
               radial-gradient(640px 260px at 80% 20%, rgba(255,255,255,0.05), rgba(255,255,255,0) 62%),
@@ -1224,7 +1249,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </article>
 
         <div class="ff-card ff-toolkit-teaser">
-          <div class="ff-service-tag">Toolkit sample</div>
+          <div class="ff-service-tag">Workshop sample</div>
           <h3>Scenario based workshop tools available where teams need sharper decisions</h3>
           <p>
             Sample cards and workshop material can be shared for relevant engagements covering control choices, evidence quality, escalation, and execution discipline.
@@ -1273,28 +1298,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="ff-section ff-section-white" id="contact-book">
     <div class="ff-wrap">
       <div class="ff-head">
-        <div class="ff-label">Contact and booking</div>
-        <h2>Book the working session first, then use a lighter contact route when needed</h2>
+        <div class="ff-label">Booking</div>
+        <h2>Book directly when timing is clear. Send an enquiry when context comes first.</h2>
         <p>
-          The primary action on this page is to schedule a readiness call. A smaller secondary route remains available for visitors who need to share context before booking.
+          Booking is the main action. Enquiry remains available for cases where a short questionnaire is the better first step.
         </p>
       </div>
 
       <div class="ff-contact-layout">
         <div class="ff-book-card">
           <div class="ff-card-head">
-            <div class="eyebrow">Primary conversion step</div>
+            <div class="eyebrow">Primary step</div>
             <h3>Choose a suitable time for a readiness call</h3>
-            <p>A short working session to clarify scope, urgency, current friction points, and the most sensible place to start.</p>
+            <p>Scope, urgency, current friction points, and the most sensible place to start.</p>
           </div>
 
           <div class="ff-book-body">
             <div class="ff-calendly-top">
-              <div class="mini">Booking</div>
+              <div class="mini">Calendly</div>
               <div class="title">Schedule a consultation aligned to your current operational priority</div>
-              <p class="desc">
-                Use this step when you already know the issue needs discussion and want to move directly into scope, timing, and next actions.
-              </p>
+              <p class="desc">Best when the issue is already clear and the next step is a live discussion.</p>
             </div>
 
             <div class="ff-calendly-embed">
@@ -1309,18 +1332,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ff-side-stack">
           <div class="ff-square-cta">
             <div>
-              <div class="mini">Secondary contact route</div>
-              <h3>Need to share context before you book</h3>
-              <p>Send a short note if you need to outline the situation first, align internally, or ask a question before taking a calendar slot.</p>
+              <div class="mini">Enquiry</div>
+              <h3>Need to outline the situation first</h3>
+              <p>Short questionnaire. Key context. Then response.</p>
             </div>
-            <div class="ff-hero-actions" style="margin-top:0;">
-              <a href="contact.html" class="ff-btn ff-btn-primary">Send an enquiry</a>
-            </div>
-          </div>
 
-          <div class="ff-note-card">
-            <h4>Typical reasons to use the enquiry route</h4>
-            <p>Audit timing is still being confirmed, several stakeholders need alignment, or the issue needs a brief summary before scheduling a direct discussion.</p>
+            <div>
+              <button type="button" class="ff-btn ff-btn-primary" id="ffOpenEnquiry">Open enquiry form</button>
+
+              <div class="ff-enquiry-panel" id="ffEnquiryPanel">
+                <form id="ffEnquiryForm">
+                  <div class="ff-form-grid">
+                    <div class="ff-field">
+                      <label for="ff-name">Full name</label>
+                      <input type="text" id="ff-name" name="full_name" placeholder="Your name" required>
+                    </div>
+
+                    <div class="ff-field">
+                      <label for="ff-email">Work email</label>
+                      <input type="email" id="ff-email" name="email" placeholder="name@company.com" required>
+                    </div>
+
+                    <div class="ff-field">
+                      <label for="ff-company">Company</label>
+                      <input type="text" id="ff-company" name="company" placeholder="Company name">
+                    </div>
+
+                    <div class="ff-field">
+                      <label for="ff-focus">Primary need</label>
+                      <select id="ff-focus" name="primary_need">
+                        <option value="">Select one</option>
+                        <option>Audit and compliance readiness</option>
+                        <option>SOP and training refresh</option>
+                        <option>CAPA and quality improvement</option>
+                        <option>Supplier performance</option>
+                        <option>Operational excellence</option>
+                        <option>Dashboards and reporting</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+
+                    <div class="ff-field">
+                      <label for="ff-message">Brief context</label>
+                      <textarea id="ff-message" name="message" placeholder="Current issue, timing, or question"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="ff-hero-actions" style="margin-top:14px;">
+                    <button type="submit" class="ff-btn ff-btn-primary">Send enquiry</button>
+                  </div>
+
+                  <div class="ff-form-note">
+                    Draft form only. Connect this form to your backend or CRM later.
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1412,6 +1479,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="./assets/js/plugins.js"></script>
 <script src="./assets/js/main.js"></script>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<script>
+  (function(){
+    var openBtn = document.getElementById("ffOpenEnquiry");
+    var panel = document.getElementById("ffEnquiryPanel");
+    var form = document.getElementById("ffEnquiryForm");
+
+    if(openBtn && panel){
+      openBtn.addEventListener("click", function(){
+        panel.classList.toggle("active");
+        openBtn.textContent = panel.classList.contains("active") ? "Hide enquiry form" : "Open enquiry form";
+      });
+    }
+
+    if(form){
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        alert("Draft enquiry submitted. Connect this form to your backend or CRM later.");
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>
