@@ -72,8 +72,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     -moz-osx-font-smoothing:grayscale;
   }
 
-  h1,h2,h3,h4,h5,h6,
-  p,a,span,li,button,input,select,textarea,label{
+  h1,h2,h3,h4,h5,h6,p,a,span,li,button,input,select,textarea,label{
     font-family:var(--ff-font);
   }
 
@@ -91,7 +90,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border-bottom:1px solid rgba(255,255,255,0.08);
   }
   .ff-topbar .ff-wrap{
-    min-height:54px;
+    min-height:52px;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -119,18 +118,24 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     color:#fff;
     position:relative;
     z-index:20;
+    border-bottom:1px solid rgba(255,255,255,0.08);
   }
   .ff-mainnav .ff-wrap{
     min-height:74px;
-    display:flex;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
     align-items:center;
-    justify-content:space-between;
-    gap:24px;
+    gap:0;
   }
-  .ff-logo{
+
+  .ff-logo-panel{
+    background:#ffffff;
+    height:74px;
     display:flex;
     align-items:center;
-    flex:0 0 auto;
+    padding:0 26px 0 20px;
+    margin-left:-28px;
+    border-right:1px solid rgba(16,24,39,0.06);
   }
   .ff-logo a{
     display:inline-flex;
@@ -139,21 +144,20 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-logo img{
     max-height:34px;
     width:auto;
+    display:block;
   }
 
   .ff-nav-links{
     display:flex;
     align-items:center;
     gap:34px;
-    margin-left:10px;
-    flex:1 1 auto;
+    padding-left:28px;
   }
   .ff-nav-links a{
     color:#fff;
     text-decoration:none;
     font-size:14px;
     font-weight:700;
-    letter-spacing:0;
     white-space:nowrap;
     opacity:0.96;
   }
@@ -166,8 +170,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-nav-actions{
     display:flex;
     align-items:center;
-    gap:14px;
-    flex:0 0 auto;
+    gap:16px;
   }
   .ff-nav-icon-link{
     color:#fff;
@@ -280,6 +283,16 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border-color:#fff;
     background:rgba(255,255,255,0.06);
   }
+  .ff-btn-light{
+    background:#fff;
+    border-color:#fff;
+    color:var(--ff-ink);
+  }
+  .ff-btn-light:hover{
+    color:var(--ff-ink);
+    text-decoration:none;
+    opacity:0.94;
+  }
 
   .ff-hero-aside{
     max-width:420px;
@@ -336,6 +349,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     min-width:100%;
     animation:ffMarquee 30s linear infinite;
   }
+  .ff-dynamic-band:hover .ff-dynamic-track{
+    animation-play-state:paused;
+  }
   .ff-dynamic-item{
     display:flex;
     align-items:center;
@@ -346,6 +362,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-weight:700;
     letter-spacing:0.02em;
     white-space:nowrap;
+    text-decoration:none;
+  }
+  .ff-dynamic-item:hover{
+    color:#fff;
+    text-decoration:none;
+    background:rgba(255,255,255,0.04);
   }
   .ff-dynamic-dot{
     width:7px;
@@ -403,7 +425,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-services-grid,
   .ff-program-grid,
   .ff-proof-grid,
-  .ff-insight-grid{
+  .ff-insight-grid,
+  .ff-value-grid{
     display:grid;
     grid-template-columns:1fr;
     gap:16px;
@@ -523,6 +546,35 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     opacity:0.86;
   }
 
+  .ff-value-card{
+    padding:20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .ff-value-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:4px;
+    background:var(--ff-red);
+  }
+  .ff-value-card h3{
+    margin:0 0 8px 0;
+    font-size:20px;
+    line-height:1.22;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    color:var(--ff-ink);
+  }
+  .ff-value-card p{
+    margin:0;
+    color:var(--ff-muted);
+    font-size:14px;
+    line-height:1.62;
+  }
+
   .ff-proof-card{
     overflow:hidden;
   }
@@ -640,7 +692,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     margin-top:18px;
   }
 
-  .ff-contact-support,
   .ff-book-card{
     background:#fff;
     border:1px solid var(--ff-line);
@@ -673,44 +724,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     color:var(--ff-muted);
     font-size:14px;
     line-height:1.62;
-  }
-
-  .ff-support-body{
-    padding:18px;
-  }
-  .ff-support-list{
-    list-style:none;
-    padding:0;
-    margin:0 0 16px 0;
-    display:grid;
-    gap:10px;
-  }
-  .ff-support-list li{
-    padding-left:15px;
-    position:relative;
-    color:var(--ff-ink);
-    font-size:14px;
-    line-height:1.56;
-    font-weight:700;
-  }
-  .ff-support-list li::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:9px;
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    background:var(--ff-red);
-  }
-  .ff-contact-note{
-    margin-top:12px;
-    padding:14px;
-    background:#f7f9fc;
-    border:1px solid var(--ff-line);
-    color:var(--ff-muted);
-    font-size:13px;
-    line-height:1.58;
   }
 
   .ff-book-body{
@@ -748,6 +761,68 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     background:#fff;
     min-height:760px;
     overflow:hidden;
+  }
+
+  .ff-side-stack{
+    display:grid;
+    gap:18px;
+  }
+
+  .ff-square-cta{
+    min-height:280px;
+    padding:22px;
+    background:
+      radial-gradient(620px 220px at 16% 0%, rgba(216,67,78,0.12), transparent 58%),
+      linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    border:1px solid var(--ff-line);
+    box-shadow:var(--ff-shadow);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .ff-square-cta .mini{
+    color:#7b8596;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-weight:800;
+    margin-bottom:8px;
+  }
+  .ff-square-cta h3{
+    margin:0 0 10px 0;
+    font-size:24px;
+    line-height:1.2;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    color:var(--ff-ink);
+    max-width:300px;
+  }
+  .ff-square-cta p{
+    margin:0 0 14px 0;
+    color:var(--ff-muted);
+    font-size:14px;
+    line-height:1.62;
+    max-width:320px;
+  }
+
+  .ff-note-card{
+    padding:18px;
+    background:#fff;
+    border:1px solid var(--ff-line);
+    box-shadow:var(--ff-shadow);
+  }
+  .ff-note-card h4{
+    margin:0 0 8px 0;
+    font-size:18px;
+    line-height:1.28;
+    font-weight:700;
+    color:var(--ff-ink);
+  }
+  .ff-note-card p{
+    margin:0;
+    color:var(--ff-muted);
+    font-size:14px;
+    line-height:1.62;
   }
 
   .ff-cta{
@@ -789,11 +864,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-services-grid,
     .ff-program-grid,
     .ff-proof-grid,
-    .ff-insight-grid{
+    .ff-insight-grid,
+    .ff-value-grid{
       grid-template-columns:repeat(3, 1fr);
     }
     .ff-contact-layout{
-      grid-template-columns:0.42fr 0.58fr;
+      grid-template-columns:0.62fr 0.38fr;
     }
   }
 
@@ -806,6 +882,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   @media (max-width:991px){
     .ff-mainnav .ff-wrap{
       min-height:70px;
+      grid-template-columns:1fr auto;
+    }
+    .ff-logo-panel{
+      margin-left:-18px;
+      height:70px;
+      padding:0 20px 0 18px;
     }
     .ff-nav-links,
     .ff-nav-actions{
@@ -881,8 +963,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header>
   <div class="ff-mainnav">
     <div class="ff-wrap">
-      <div class="ff-logo">
-        <a href="index.html"><img src="assets/img/logo/logo.png" alt="Fundamental Frontiers"></a>
+      <div class="ff-logo-panel">
+        <div class="ff-logo">
+          <a href="index.html"><img src="assets/img/logo/logo.png" alt="Fundamental Frontiers"></a>
+        </div>
       </div>
 
       <nav class="ff-nav-links">
@@ -928,7 +1012,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ff-kicker">Manufacturing performance and audit support</div>
           <h1>Operational clarity, stronger evidence, and practical execution support</h1>
           <p>
-            We support manufacturing teams that need cleaner controls, stronger accountability, and faster movement on priority operational issues.
+            Fundamental Frontiers supports manufacturing teams that need cleaner controls, stronger accountability, and faster movement on priority operational issues.
           </p>
 
           <div class="ff-hero-actions">
@@ -939,7 +1023,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="ff-hero-aside">
           <div class="ff-hero-panel">
-            <div class="ff-mini-label">Where clients often start</div>
+            <div class="ff-mini-label">Priority areas</div>
             <div class="ff-proof-list">
               <div class="ff-proof-item">
                 Audit readiness and evidence cleanup
@@ -960,19 +1044,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="ff-dynamic-band" aria-label="Dynamic capability band">
         <div class="ff-dynamic-track">
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Audit readiness</div>
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Operational excellence</div>
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Supplier performance</div>
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Dashboards and reporting</div>
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Risk management</div>
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Lean and Six Sigma</div>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Audit readiness</a>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Operational excellence</a>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Supplier performance</a>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Dashboards and reporting</a>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Risk management</a>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Lean and Six Sigma</a>
 
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Audit readiness</div>
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Operational excellence</div>
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Supplier performance</div>
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Dashboards and reporting</div>
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Risk management</div>
-          <div class="ff-dynamic-item"><span class="ff-dynamic-dot"></span>Lean and Six Sigma</div>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Audit readiness</a>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Operational excellence</a>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Supplier performance</a>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Dashboards and reporting</a>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Risk management</a>
+          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Lean and Six Sigma</a>
         </div>
       </div>
     </div>
@@ -981,10 +1065,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="ff-section ff-section-darkbreak" id="services">
     <div class="ff-wrap">
       <div class="ff-head">
-        <div class="ff-label">Core service areas</div>
-        <h2>Broad services presented in a cleaner, more premium structure</h2>
+        <div class="ff-label">Services</div>
+        <h2>Support across readiness, execution, supplier performance, and decision support</h2>
         <p>
-          This keeps services visually dominant for the client requirement, while avoiding a cluttered catalog at the top of the page.
+          Fundamental Frontiers works across the operational areas where weak ownership, poor visibility, and unstable routines create audit risk or slow execution.
         </p>
       </div>
 
@@ -992,7 +1076,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ff-card ff-service-pillar">
           <div class="ff-service-tag">Compliance and performance</div>
           <h3>Readiness, controls, and audit confidence</h3>
-          <p>For teams that need stronger evidence discipline, cleaner ownership, and better response under external or internal review pressure.</p>
+          <p>Support for teams that need stronger evidence discipline, cleaner ownership, and more reliable response under internal or external review.</p>
           <ul class="ff-service-list">
             <li>Compliance certification support</li>
             <li>Audit readiness and internal review</li>
@@ -1004,7 +1088,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ff-card ff-service-pillar">
           <div class="ff-service-tag">Operations and improvement</div>
           <h3>Execution discipline and continuous improvement</h3>
-          <p>For teams that want fewer recurring issues, clearer routines, and stronger follow through across day to day operations.</p>
+          <p>Support for teams that want fewer recurring issues, clearer routines, and stronger follow through across day to day operations.</p>
           <ul class="ff-service-list">
             <li>Operational excellence</li>
             <li>Lean and Six Sigma support</li>
@@ -1016,7 +1100,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ff-card ff-service-pillar">
           <div class="ff-service-tag">Data and transformation</div>
           <h3>Reporting, supplier visibility, and targeted modernization</h3>
-          <p>For teams that need better performance visibility, sharper supplier governance, and more useful decision support.</p>
+          <p>Support for teams that need better performance visibility, sharper supplier governance, and more useful decision support.</p>
           <ul class="ff-service-list">
             <li>Supplier performance support</li>
             <li>Dashboards and reporting</li>
@@ -1028,13 +1112,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ff-section ff-section-white" id="programs">
+  <section class="ff-section ff-section-white">
     <div class="ff-wrap">
       <div class="ff-head">
-        <div class="ff-label">Common engagement starts</div>
-        <h2>Focused programs used to create early traction inside the wider service portfolio</h2>
+        <div class="ff-label">How the work creates value</div>
+        <h2>Clear ownership and usable proof matter more than paperwork alone</h2>
         <p>
-          These are not the only offers. They are practical ways to begin where a priority problem is already visible and action needs to start quickly.
+          The objective is stable execution under real operating pressure. Each engagement is designed to tighten accountability, improve evidence quality, and leave practical routines behind.
+        </p>
+      </div>
+
+      <div class="ff-value-grid">
+        <div class="ff-card ff-value-card">
+          <h3>Stronger audit readiness</h3>
+          <p>Records become easier to retrieve, control gaps become more visible, and teams answer with greater confidence when pressure increases.</p>
+        </div>
+
+        <div class="ff-card ff-value-card">
+          <h3>Fewer repeat issues</h3>
+          <p>Corrective actions close only when effectiveness is visible in practice, not simply when a document says the item is finished.</p>
+        </div>
+
+        <div class="ff-card ff-value-card">
+          <h3>Better execution under load</h3>
+          <p>Sharper routines, clearer expectations, and better evidence reduce friction when teams are already carrying a high operational burden.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ff-section ff-section-soft" id="programs">
+    <div class="ff-wrap">
+      <div class="ff-head">
+        <div class="ff-label">Programs</div>
+        <h2>Focused engagement starts for issues that need visible movement</h2>
+        <p>
+          These program formats help teams begin in a disciplined way when the need is already clear and visible traction matters quickly.
         </p>
       </div>
 
@@ -1049,7 +1162,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ff-card ff-program-card">
           <div class="ff-program-time">2 to 4 weeks</div>
           <h3>SOP and training refresh sprint</h3>
-          <p>Refresh procedures, checklists, and role clarity so teams execute more consistently and generate better proof in normal work.</p>
+          <p>Refresh procedures, checklists, and role clarity so teams execute more consistently and produce better proof through normal work.</p>
           <a class="ff-link" href="#contact-book">Discuss this program</a>
         </div>
 
@@ -1063,13 +1176,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ff-section ff-section-soft" id="proof">
+  <section class="ff-section ff-section-white" id="proof">
     <div class="ff-wrap">
       <div class="ff-head">
-        <div class="ff-label">Selected proof</div>
-        <h2>Compact proof blocks keep the front page easier to scan</h2>
+        <div class="ff-label">Proof</div>
+        <h2>Representative work, sample material, and a direct path to discussion</h2>
         <p>
-          Instead of loading the homepage with too many deep sections, proof is kept concise here and can expand further in dedicated pages or client discussions.
+          The front page highlights a few compact examples. Deeper case material and toolkit samples can be shared when a conversation becomes relevant.
         </p>
       </div>
 
@@ -1111,10 +1224,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </article>
 
         <div class="ff-card ff-toolkit-teaser">
-          <div class="ff-service-tag">Toolkit preview</div>
-          <h3>Sample workshop tools should stay a teaser on the homepage</h3>
+          <div class="ff-service-tag">Toolkit sample</div>
+          <h3>Scenario based workshop tools available where teams need sharper decisions</h3>
           <p>
-            The toolkit remains visible as a differentiator, but the deeper material is better placed on a separate sample or download page once the visitor chooses to engage.
+            Sample cards and workshop material can be shared for relevant engagements covering control choices, evidence quality, escalation, and execution discipline.
           </p>
           <div class="ff-hero-actions" style="margin-top:0;">
             <a href="#" class="ff-btn ff-btn-primary">Download sample pack</a>
@@ -1125,21 +1238,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ff-section ff-section-white" id="insights">
+  <section class="ff-section ff-section-soft" id="insights">
     <div class="ff-wrap">
       <div class="ff-head">
-        <div class="ff-label">Short insights</div>
-        <h2>Keep thought content brief on the main page</h2>
+        <div class="ff-label">Insights</div>
+        <h2>Short observations from control, quality, and operational work</h2>
         <p>
-          Short observations support credibility. A larger library can sit elsewhere without competing with service and conversion content.
+          These notes help clarify how the work is approached without turning the main page into a long library of articles.
         </p>
       </div>
 
       <div class="ff-insight-grid">
         <div class="ff-card ff-insight-card">
-          <div class="k">Featured</div>
+          <div class="k">Audit</div>
           <div class="t">If an audit never surprises you, it may not be testing the real risk</div>
-          <p>Real readiness is visible when controls still hold under pressure, not only when documentation looks complete.</p>
+          <p>Real readiness shows when controls still hold under pressure, not only when documentation looks complete in calm conditions.</p>
         </div>
 
         <div class="ff-card ff-insight-card">
@@ -1151,47 +1264,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ff-card ff-insight-card">
           <div class="k">Controls</div>
           <div class="t">Monitoring is not the same as control</div>
-          <p>Monitoring tells you something happened. Control reduces the chance that it keeps happening again.</p>
+          <p>Monitoring tells you something happened. Control reduces the chance that the same failure keeps happening again.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="ff-section ff-section-soft" id="contact-book">
+  <section class="ff-section ff-section-white" id="contact-book">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-label">Contact and booking</div>
-        <h2>Use booking as the main conversion path, with enquiry as a lighter secondary route</h2>
+        <h2>Book the working session first, then use a lighter contact route when needed</h2>
         <p>
-          For this page, the stronger CRO direction is to keep the main action around consultation booking. Enquiry remains available, but does not compete equally with the primary step.
+          The primary action on this page is to schedule a readiness call. A smaller secondary route remains available for visitors who need to share context before booking.
         </p>
       </div>
 
       <div class="ff-contact-layout">
-        <div class="ff-contact-support">
-          <div class="ff-card-head">
-            <div class="eyebrow">Secondary contact path</div>
-            <h3>Need to share context before booking</h3>
-            <p>Use a lighter contact route if you need to explain the situation first or align internally before scheduling a discussion.</p>
-          </div>
-
-          <div class="ff-support-body">
-            <ul class="ff-support-list">
-              <li>Share a short summary of the operational issue</li>
-              <li>Outline audit timing, recurring defects, supplier pain, or reporting gaps</li>
-              <li>Request a response before committing to a meeting slot</li>
-            </ul>
-
-            <div class="ff-hero-actions" style="margin-top:0;">
-              <a href="contact.html" class="ff-btn ff-btn-primary">Send an enquiry</a>
-            </div>
-
-            <div class="ff-contact-note">
-              This keeps the page cleaner than placing a full enquiry form and a full booking embed side by side with equal weight.
-            </div>
-          </div>
-        </div>
-
         <div class="ff-book-card">
           <div class="ff-card-head">
             <div class="eyebrow">Primary conversion step</div>
@@ -1202,9 +1291,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ff-book-body">
             <div class="ff-calendly-top">
               <div class="mini">Booking</div>
-              <div class="title">A cleaner on page scheduling block aligned to the site theme</div>
+              <div class="title">Schedule a consultation aligned to your current operational priority</div>
               <p class="desc">
-                This version keeps booking visible for draft review. The same embed can later be moved to a dedicated booking page if preferred.
+                Use this step when you already know the issue needs discussion and want to move directly into scope, timing, and next actions.
               </p>
             </div>
 
@@ -1216,6 +1305,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
         </div>
+
+        <div class="ff-side-stack">
+          <div class="ff-square-cta">
+            <div>
+              <div class="mini">Secondary contact route</div>
+              <h3>Need to share context before you book</h3>
+              <p>Send a short note if you need to outline the situation first, align internally, or ask a question before taking a calendar slot.</p>
+            </div>
+            <div class="ff-hero-actions" style="margin-top:0;">
+              <a href="contact.html" class="ff-btn ff-btn-primary">Send an enquiry</a>
+            </div>
+          </div>
+
+          <div class="ff-note-card">
+            <h4>Typical reasons to use the enquiry route</h4>
+            <p>Audit timing is still being confirmed, several stakeholders need alignment, or the issue needs a brief summary before scheduling a direct discussion.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1224,7 +1331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ff-wrap">
       <h2>Clarify the right starting point before the issue grows</h2>
       <p>
-        Use the readiness call to align scope, timing, top priorities, and the most practical first move across the broader service portfolio.
+        Use the readiness call to align scope, timing, priorities, and the most practical first move across the wider service portfolio.
       </p>
       <div class="ff-hero-actions">
         <a href="#contact-book" class="ff-btn ff-btn-primary">Book now</a>
