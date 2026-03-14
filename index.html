@@ -56,6 +56,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     --ff-soft-2:#f7f9fc;
     --ff-card:#ffffff;
 
+    --ff-banner-start:#0b2346;
+    --ff-banner-mid:#153b69;
+    --ff-banner-end:#1a536f;
+
     --ff-shadow:0 18px 44px rgba(16,24,39,0.08);
     --ff-shadow-soft:0 12px 28px rgba(16,24,39,0.06);
 
@@ -307,17 +311,30 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     gap:10px;
   }
   .ff-proof-item{
+    display:block;
     padding:13px 14px;
     border:1px solid rgba(255,255,255,0.1);
     background:rgba(255,255,255,0.04);
     color:#fff;
-    font-size:14px;
-    line-height:1.45;
+    text-decoration:none;
+    transition:all 0.2s ease;
+  }
+  .ff-proof-item:hover{
+    color:#fff;
+    text-decoration:none;
+    border-color:rgba(255,255,255,0.18);
+    background:rgba(255,255,255,0.07);
+  }
+  .ff-proof-title{
+    display:block;
+    color:#fff;
+    font-size:17px;
+    line-height:1.34;
     font-weight:700;
   }
   .ff-proof-item span{
     display:block;
-    margin-top:4px;
+    margin-top:5px;
     color:rgba(255,255,255,0.72);
     font-size:12px;
     font-weight:700;
@@ -336,7 +353,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     display:flex;
     width:max-content;
     min-width:100%;
-    animation:ffMarquee 30s linear infinite;
+    animation:ffMarquee 26s linear infinite;
   }
   .ff-dynamic-band:hover .ff-dynamic-track{
     animation-play-state:paused;
@@ -382,10 +399,15 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-section-soft{
     background:var(--ff-soft-2);
   }
+  .ff-programs-section,
+  .ff-proof-section{
+    padding-top:54px;
+    padding-bottom:54px;
+  }
 
   .ff-head{
     max-width:980px;
-    margin:0 auto 28px auto;
+    margin:0 auto 24px auto;
     text-align:center;
   }
   .ff-head .ff-label{
@@ -560,6 +582,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     text-decoration:none;
     font-size:14px;
     font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    margin-top:auto;
   }
   .ff-link:hover{
     color:var(--ff-red-2);
@@ -570,7 +595,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-program-premium-stack,
   .ff-case-premium-stack{
     display:grid;
-    gap:18px;
+    gap:16px;
   }
 
   .ff-program-premium,
@@ -584,13 +609,32 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   .ff-program-premium::before,
   .ff-case-premium::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    width:4px;
-    background:var(--ff-red);
+    display:none;
+  }
+
+  .ff-program-banner,
+  .ff-case-banner{
+    min-height:76px;
+    padding:16px 20px;
+    display:flex;
+    align-items:flex-start;
+    background:
+      radial-gradient(440px 180px at 18% 12%, rgba(154,92,255,0.17), rgba(154,92,255,0) 58%),
+      radial-gradient(560px 220px at 85% 15%, rgba(58,182,170,0.16), rgba(58,182,170,0) 58%),
+      linear-gradient(135deg, var(--ff-banner-start) 0%, var(--ff-banner-mid) 58%, var(--ff-banner-end) 100%);
+  }
+
+  .ff-banner-tag{
+    display:inline-flex;
+    align-items:center;
+    padding:7px 12px;
+    background:#0c1022;
+    border:1px solid rgba(255,255,255,0.12);
+    color:#fff;
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.09em;
   }
 
   .ff-program-inner,
@@ -602,67 +646,77 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   .ff-program-main,
   .ff-case-main{
-    padding:28px 28px 24px 28px;
+    padding:22px 22px 18px 22px;
+    display:flex;
+    flex-direction:column;
   }
 
   .ff-program-side,
   .ff-case-side{
-    padding:22px 22px 22px 0;
+    padding:18px 18px 18px 0;
   }
 
   .ff-program-main .ff-chip,
   .ff-case-main .ff-chip{
-    margin-bottom:14px;
+    margin-bottom:10px;
   }
 
-  .ff-program-main h3,
+  .ff-program-main h3{
+    margin:0 0 10px 0;
+    font-size:27px;
+    line-height:1.16;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    color:var(--ff-ink);
+  }
+
   .ff-case-main h3{
-    margin:0 0 12px 0;
-    font-size:30px;
-    line-height:1.14;
+    margin:0 0 10px 0;
+    font-size:24px;
+    line-height:1.18;
     font-weight:700;
     letter-spacing:-0.02em;
     color:var(--ff-ink);
   }
 
   .ff-program-main p{
-    margin:0 0 16px 0;
+    margin:0 0 12px 0;
     color:var(--ff-muted);
-    font-size:15px;
-    line-height:1.7;
+    font-size:14px;
+    line-height:1.58;
     max-width:760px;
   }
 
   .ff-case-main p{
-    margin:0 0 12px 0;
+    margin:0 0 10px 0;
     color:var(--ff-muted);
     font-size:14px;
-    line-height:1.64;
+    line-height:1.58;
     max-width:760px;
   }
 
   .ff-program-points{
     list-style:none;
     padding:0;
-    margin:0 0 16px 0;
+    margin:0 0 12px 0;
     display:grid;
-    gap:9px;
+    gap:7px;
   }
 
   .ff-program-points li{
     position:relative;
-    padding-left:16px;
+    padding-left:14px;
     color:var(--ff-ink);
-    font-size:14px;
+    font-size:13px;
     font-weight:700;
-    line-height:1.56;
+    line-height:1.48;
   }
 
   .ff-program-points li::before{
     content:"";
     position:absolute;
     left:0;
-    top:9px;
+    top:8px;
     width:6px;
     height:6px;
     border-radius:50%;
@@ -672,16 +726,17 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-program-side-grid,
   .ff-case-side-grid{
     display:grid;
-    gap:12px;
+    gap:10px;
+    height:100%;
   }
 
   .ff-program-side-box,
   .ff-case-side-box{
     background:
-      radial-gradient(540px 180px at 10% 10%, rgba(216,67,78,0.08), rgba(216,67,78,0) 58%),
+      radial-gradient(520px 160px at 10% 10%, rgba(58,182,170,0.06), rgba(58,182,170,0) 58%),
       linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
     border:1px solid var(--ff-line);
-    padding:16px 16px 14px 16px;
+    padding:14px 14px 12px 14px;
   }
 
   .ff-program-side-box .k,
@@ -691,41 +746,41 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     text-transform:uppercase;
     letter-spacing:0.11em;
     font-weight:800;
-    margin-bottom:6px;
+    margin-bottom:5px;
   }
 
   .ff-program-side-box .t,
   .ff-case-side-box .t{
     color:var(--ff-ink);
-    font-size:18px;
-    line-height:1.28;
+    font-size:16px;
+    line-height:1.24;
     font-weight:700;
-    margin-bottom:6px;
+    margin-bottom:5px;
   }
 
   .ff-program-side-box p,
   .ff-case-side-box p{
     margin:0;
     color:var(--ff-muted);
-    font-size:14px;
-    line-height:1.58;
+    font-size:13px;
+    line-height:1.5;
   }
 
   .ff-case-main-top{
     display:flex;
     flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:12px;
+    gap:6px;
+    margin-bottom:10px;
   }
 
   .ff-case-meta{
     display:inline-flex;
     align-items:center;
-    padding:6px 10px;
+    padding:5px 9px;
     background:#f5f7fa;
     border:1px solid var(--ff-line);
     color:#697385;
-    font-size:12px;
+    font-size:11px;
     font-weight:700;
   }
 
@@ -925,7 +980,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   @media (min-width:992px){
     .ff-hero-grid{
-      grid-template-columns:1.1fr 0.9fr;
+      grid-template-columns:1.08fr 0.92fr;
     }
     .ff-services-grid,
     .ff-value-grid,
@@ -935,12 +990,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .ff-program-inner,
     .ff-case-inner{
-      grid-template-columns:1.15fr 0.85fr;
+      grid-template-columns:1.18fr 0.82fr;
       align-items:stretch;
     }
     .ff-program-side,
     .ff-case-side{
-      padding:22px 22px 22px 0;
+      padding:18px 18px 18px 0;
     }
     .ff-contact-layout{
       grid-template-columns:1fr 1fr;
@@ -978,7 +1033,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .ff-program-side,
     .ff-case-side{
-      padding:0 22px 22px 22px;
+      padding:0 18px 18px 18px;
     }
     .ff-sticky-cta{
       right:12px;
@@ -1010,17 +1065,24 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-cta h2{
       font-size:28px;
     }
+    .ff-program-banner,
+    .ff-case-banner{
+      min-height:68px;
+      padding:14px 16px;
+    }
     .ff-program-main,
     .ff-case-main{
-      padding:22px 20px 18px 20px;
+      padding:18px 18px 16px 18px;
     }
     .ff-program-side,
     .ff-case-side{
-      padding:0 20px 20px 20px;
+      padding:0 18px 18px 18px;
     }
-    .ff-program-main h3,
+    .ff-program-main h3{
+      font-size:24px;
+    }
     .ff-case-main h3{
-      font-size:25px;
+      font-size:22px;
     }
   }
 </style>
@@ -1119,40 +1181,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="ff-hero-aside">
           <div class="ff-hero-panel">
-            <div class="ff-mini-label">Common starting priorities</div>
+            <div class="ff-mini-label">Program previews</div>
             <div class="ff-proof-list">
-              <div class="ff-proof-item">
-                Risk, compliance, and audit readiness
-                <span>Clearer controls, stronger evidence, and better response under internal or external review</span>
-              </div>
-              <div class="ff-proof-item">
-                Standard work, SOP alignment, and execution discipline
-                <span>Sharper routines, clearer ownership, and stronger day to day follow through</span>
-              </div>
-              <div class="ff-proof-item">
-                RCA, CAPA, supplier visibility, and reporting improvement
-                <span>Focused action where repeat issues, visibility gaps, and performance friction are already visible</span>
-              </div>
+              <a class="ff-proof-item" href="#programs">
+                <span class="ff-proof-title">Risk management and compliance readiness</span>
+                <span>Control gaps, evidence strength, and accountability aligned into a practical action plan.</span>
+              </a>
+              <a class="ff-proof-item" href="#programs">
+                <span class="ff-proof-title">Kaizen Blitz</span>
+                <span>Visible bottlenecks, team actions, and short cycle gains organized into focused improvement work.</span>
+              </a>
+              <a class="ff-proof-item" href="#programs">
+                <span class="ff-proof-title">Root cause analysis and CAPA</span>
+                <span>Priority issues reviewed with stronger corrective action logic, closure discipline, and follow through.</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="ff-dynamic-band" aria-label="Dynamic capability band">
+      <div class="ff-dynamic-band" aria-label="Program teaser band">
         <div class="ff-dynamic-track">
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Risk management</a>
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Compliance readiness</a>
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Standard work and SOP alignment</a>
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>RCA and CAPA support</a>
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Supplier performance</a>
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Dashboards and reporting</a>
+          <a class="ff-dynamic-item" href="#programs"><span class="ff-dynamic-dot"></span>Risk management and compliance readiness</a>
+          <a class="ff-dynamic-item" href="#programs"><span class="ff-dynamic-dot"></span>Kaizen Blitz</a>
+          <a class="ff-dynamic-item" href="#programs"><span class="ff-dynamic-dot"></span>Root cause analysis and CAPA</a>
 
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Risk management</a>
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Compliance readiness</a>
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Standard work and SOP alignment</a>
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>RCA and CAPA support</a>
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Supplier performance</a>
-          <a class="ff-dynamic-item" href="#services"><span class="ff-dynamic-dot"></span>Dashboards and reporting</a>
+          <a class="ff-dynamic-item" href="#programs"><span class="ff-dynamic-dot"></span>Risk management and compliance readiness</a>
+          <a class="ff-dynamic-item" href="#programs"><span class="ff-dynamic-dot"></span>Kaizen Blitz</a>
+          <a class="ff-dynamic-item" href="#programs"><span class="ff-dynamic-dot"></span>Root cause analysis and CAPA</a>
         </div>
       </div>
     </div>
@@ -1272,7 +1328,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ff-section ff-section-white" id="programs">
+  <section class="ff-section ff-section-white ff-programs-section" id="programs">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-label">Programs</div>
@@ -1285,12 +1341,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ff-program-premium-stack">
 
         <div class="ff-program-premium">
+          <div class="ff-program-banner">
+            <span class="ff-banner-tag">Readiness program</span>
+          </div>
+
           <div class="ff-program-inner">
             <div class="ff-program-main">
               <div class="ff-chip">60 to 90 days</div>
               <h3>Risk management and Compliance Readiness</h3>
               <p>
-                A program dedicated to proactively managing risk while ensuring ongoing regulatory and compliance readiness.
+                A focused program that clarifies risk exposure, strengthens evidence, and builds a steadier response under audit or regulatory review.
               </p>
 
               <ul class="ff-program-points">
@@ -1325,12 +1385,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="ff-program-premium">
+          <div class="ff-program-banner">
+            <span class="ff-banner-tag">Improvement program</span>
+          </div>
+
           <div class="ff-program-inner">
             <div class="ff-program-main">
               <div class="ff-chip">90 to 120 days</div>
               <h3>Kaizen Blitz</h3>
               <p>
-                A focused Kaizen Blitz initiative to quickly resolve issues and deliver measurable process improvements.
+                A focused improvement sprint that targets visible bottlenecks, aligns teams, and drives measurable gains in a short cycle.
               </p>
 
               <ul class="ff-program-points">
@@ -1365,12 +1429,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="ff-program-premium">
+          <div class="ff-program-banner">
+            <span class="ff-banner-tag">CAPA program</span>
+          </div>
+
           <div class="ff-program-inner">
             <div class="ff-program-main">
               <div class="ff-chip">30 to 60 days</div>
               <h3>Root Cause Analysis and Corrective and Preventive Action</h3>
               <p>
-                A structured program designed to identify the root causes of problems, implement corrective actions to resolve existing issues, and establish preventive measures to avoid their recurrence and improve overall quality and performance.
+                A structured program that strengthens root cause thinking, corrective action design, and closure discipline on repeat issues.
               </p>
 
               <ul class="ff-program-points">
@@ -1408,7 +1476,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ff-section ff-section-soft" id="proof">
+  <section class="ff-section ff-section-soft ff-proof-section" id="proof">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-label">Selected work</div>
@@ -1421,6 +1489,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ff-case-premium-stack">
 
         <div class="ff-case-premium">
+          <div class="ff-case-banner">
+            <span class="ff-banner-tag">Execution work</span>
+          </div>
+
           <div class="ff-case-inner">
             <div class="ff-case-main">
               <div class="ff-case-main-top">
@@ -1428,7 +1500,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="ff-case-meta">30 days</span>
                 <span class="ff-case-meta">Quality and operations</span>
               </div>
-              <h3>Implementation of Workplace organization through the application of 5S (lean methodology)</h3>
+              <h3>5S workplace organization improvement</h3>
               <p>
                 A structured 5S initiative was applied to improve workplace organization, visual control, and day to day efficiency.
               </p>
@@ -1458,6 +1530,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="ff-case-premium">
+          <div class="ff-case-banner">
+            <span class="ff-banner-tag">Compliance work</span>
+          </div>
+
           <div class="ff-case-inner">
             <div class="ff-case-main">
               <div class="ff-case-main-top">
@@ -1465,9 +1541,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="ff-case-meta">4 to 6 months</span>
                 <span class="ff-case-meta">Compliance and contracts</span>
               </div>
-              <h3>Improving Efficiency, Compliance, and Risk Control</h3>
+              <h3>Improving efficiency, compliance, and risk control</h3>
               <p>
-                This white paper outlines a structured approach to managing contracts throughout their lifecycle, from creation and negotiation to execution, monitoring, and renewal.
+                This work outlined a structured approach to managing contracts across creation, negotiation, execution, monitoring, and renewal.
               </p>
               <a class="ff-link" href="#contact-book">Explore relevant use cases</a>
             </div>
@@ -1495,6 +1571,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="ff-case-premium">
+          <div class="ff-case-banner">
+            <span class="ff-banner-tag">CAPA work</span>
+          </div>
+
           <div class="ff-case-inner">
             <div class="ff-case-main">
               <div class="ff-case-main-top">
@@ -1502,7 +1582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="ff-case-meta">2 to 3 months</span>
                 <span class="ff-case-meta">Quality and CAPA</span>
               </div>
-              <h3>CAPA Tracking and Closure Improvement</h3>
+              <h3>CAPA tracking and closure improvement</h3>
               <p>
                 A structured CAPA tracking process was introduced to improve issue visibility, action ownership, and closure discipline.
               </p>
@@ -1747,7 +1827,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="./assets/js/jquery.magnific-popup.js"></script>
 <script src="./assets/js/jquery.nice-select.min.js"></script>
 <script src="./assets/js/jquery.sticky.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 <script src="./assets/js/jquery.counterup.min.js"></script>
 <script src="./assets/js/contact.js"></script>
 <script src="./assets/js/jquery.form.js"></script>
