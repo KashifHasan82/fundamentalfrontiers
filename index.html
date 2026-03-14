@@ -567,31 +567,23 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     opacity:0.86;
   }
 
-  .ff-program-stack,
-  .ff-proof-stack{
+  .ff-program-premium-stack,
+  .ff-case-premium-stack{
     display:grid;
     gap:18px;
   }
 
-  .ff-feature-row{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:18px;
-    align-items:stretch;
-  }
-
-  .ff-feature-copy,
-  .ff-feature-visual{
-    background:#fff;
+  .ff-program-premium,
+  .ff-case-premium{
+    background:#ffffff;
     border:1px solid var(--ff-line);
     box-shadow:var(--ff-shadow);
+    position:relative;
+    overflow:hidden;
   }
 
-  .ff-feature-copy{
-    padding:28px 26px;
-    position:relative;
-  }
-  .ff-feature-copy::before{
+  .ff-program-premium::before,
+  .ff-case-premium::before{
     content:"";
     position:absolute;
     left:0;
@@ -600,39 +592,73 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     width:4px;
     background:var(--ff-red);
   }
-  .ff-feature-copy .ff-chip{
+
+  .ff-program-inner,
+  .ff-case-inner{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  .ff-program-main,
+  .ff-case-main{
+    padding:28px 28px 24px 28px;
+  }
+
+  .ff-program-side,
+  .ff-case-side{
+    padding:22px 22px 22px 0;
+  }
+
+  .ff-program-main .ff-chip,
+  .ff-case-main .ff-chip{
     margin-bottom:14px;
   }
-  .ff-feature-copy h3{
-    margin:0 0 10px 0;
-    font-size:28px;
-    line-height:1.16;
+
+  .ff-program-main h3,
+  .ff-case-main h3{
+    margin:0 0 12px 0;
+    font-size:30px;
+    line-height:1.14;
     font-weight:700;
     letter-spacing:-0.02em;
     color:var(--ff-ink);
   }
-  .ff-feature-copy p{
+
+  .ff-program-main p{
     margin:0 0 16px 0;
     color:var(--ff-muted);
     font-size:15px;
-    line-height:1.68;
+    line-height:1.7;
+    max-width:760px;
   }
-  .ff-feature-points{
+
+  .ff-case-main p{
+    margin:0 0 12px 0;
+    color:var(--ff-muted);
+    font-size:14px;
+    line-height:1.64;
+    max-width:760px;
+  }
+
+  .ff-program-points{
+    list-style:none;
+    padding:0;
+    margin:0 0 16px 0;
     display:grid;
     gap:9px;
-    margin:0 0 16px 0;
-    padding:0;
-    list-style:none;
   }
-  .ff-feature-points li{
+
+  .ff-program-points li{
     position:relative;
     padding-left:16px;
     color:var(--ff-ink);
     font-size:14px;
     font-weight:700;
-    line-height:1.55;
+    line-height:1.56;
   }
-  .ff-feature-points li::before{
+
+  .ff-program-points li::before{
     content:"";
     position:absolute;
     left:0;
@@ -643,26 +669,23 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     background:var(--ff-red);
   }
 
-  .ff-feature-visual{
-    min-height:280px;
-    padding:24px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    background:
-      radial-gradient(740px 260px at 15% 15%, rgba(216,67,78,0.10), rgba(216,67,78,0) 60%),
-      radial-gradient(740px 280px at 82% 18%, rgba(9,25,52,0.05), rgba(9,25,52,0) 64%),
-      linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  .ff-program-side-grid,
+  .ff-case-side-grid{
+    display:grid;
+    gap:12px;
   }
-  .ff-feature-box{
+
+  .ff-program-side-box,
+  .ff-case-side-box{
+    background:
+      radial-gradient(540px 180px at 10% 10%, rgba(216,67,78,0.08), rgba(216,67,78,0) 58%),
+      linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
     border:1px solid var(--ff-line);
-    background:#fff;
     padding:16px 16px 14px 16px;
   }
-  .ff-feature-box + .ff-feature-box{
-    margin-top:12px;
-  }
-  .ff-feature-box .k{
+
+  .ff-program-side-box .k,
+  .ff-case-side-box .k{
     color:#7b8596;
     font-size:11px;
     text-transform:uppercase;
@@ -670,129 +693,32 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-weight:800;
     margin-bottom:6px;
   }
-  .ff-feature-box .t{
+
+  .ff-program-side-box .t,
+  .ff-case-side-box .t{
     color:var(--ff-ink);
-    font-size:17px;
+    font-size:18px;
     line-height:1.28;
     font-weight:700;
-    margin-bottom:5px;
+    margin-bottom:6px;
   }
-  .ff-feature-box p{
+
+  .ff-program-side-box p,
+  .ff-case-side-box p{
     margin:0;
     color:var(--ff-muted);
     font-size:14px;
     line-height:1.58;
   }
 
-  .ff-proof-row{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:18px;
-    align-items:stretch;
-  }
-  .ff-proof-media{
-    min-height:300px;
-    background:
-      radial-gradient(640px 240px at 18% 18%, rgba(216,67,78,0.22), rgba(216,67,78,0) 60%),
-      radial-gradient(640px 260px at 80% 20%, rgba(255,255,255,0.06), rgba(255,255,255,0) 62%),
-      linear-gradient(135deg, #091734 0%, #0f2448 55%, #14305f 100%);
-    border:1px solid rgba(255,255,255,0.08);
-    position:relative;
-    overflow:hidden;
-    box-shadow:var(--ff-shadow);
-  }
-  .ff-proof-media.variant-2{
-    background:
-      radial-gradient(640px 240px at 18% 18%, rgba(216,67,78,0.18), rgba(216,67,78,0) 60%),
-      radial-gradient(640px 260px at 80% 20%, rgba(255,255,255,0.05), rgba(255,255,255,0) 62%),
-      linear-gradient(135deg, #07132d 0%, #0d1f40 55%, #16305b 100%);
-  }
-  .ff-proof-media.variant-3{
-    background:
-      radial-gradient(640px 240px at 18% 18%, rgba(216,67,78,0.20), rgba(216,67,78,0) 60%),
-      radial-gradient(640px 260px at 80% 20%, rgba(255,255,255,0.05), rgba(255,255,255,0) 62%),
-      linear-gradient(135deg, #08142f 0%, #102348 55%, #16335f 100%);
-  }
-  .ff-proof-badge{
-    position:absolute;
-    top:16px;
-    left:16px;
-    padding:6px 10px;
-    background:rgba(4,12,29,0.74);
-    border:1px solid rgba(255,255,255,0.18);
-    color:#fff;
-    font-size:12px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-  }
-  .ff-proof-overlay{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    padding:18px;
-    background:linear-gradient(180deg, rgba(5,18,43,0) 0%, rgba(5,18,43,0.72) 78%, rgba(5,18,43,0.86) 100%);
-  }
-  .ff-proof-overlay .mini{
-    color:rgba(255,255,255,0.72);
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.11em;
-    font-weight:800;
-    margin-bottom:6px;
-  }
-  .ff-proof-overlay .title{
-    color:#fff;
-    font-size:21px;
-    line-height:1.24;
-    font-weight:700;
-    margin-bottom:6px;
-  }
-  .ff-proof-overlay p{
-    margin:0;
-    color:rgba(255,255,255,0.82);
-    font-size:14px;
-    line-height:1.58;
-  }
-
-  .ff-proof-copy{
-    background:#fff;
-    border:1px solid var(--ff-line);
-    box-shadow:var(--ff-shadow);
-    padding:26px;
-    position:relative;
-  }
-  .ff-proof-copy::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    width:4px;
-    background:var(--ff-red);
-  }
-  .ff-proof-copy h3{
-    margin:0 0 10px 0;
-    font-size:28px;
-    line-height:1.16;
-    font-weight:700;
-    letter-spacing:-0.02em;
-    color:var(--ff-ink);
-  }
-  .ff-proof-copy p{
-    margin:0 0 14px 0;
-    color:var(--ff-muted);
-    font-size:15px;
-    line-height:1.68;
-  }
-  .ff-proof-meta{
+  .ff-case-main-top{
     display:flex;
     flex-wrap:wrap;
     gap:8px;
-    margin-bottom:14px;
+    margin-bottom:12px;
   }
-  .ff-proof-meta span{
+
+  .ff-case-meta{
     display:inline-flex;
     align-items:center;
     padding:6px 10px;
@@ -1007,23 +933,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-insight-grid{
       grid-template-columns:repeat(3, 1fr);
     }
-    .ff-feature-row{
-      grid-template-columns:1.05fr 0.95fr;
+    .ff-program-inner,
+    .ff-case-inner{
+      grid-template-columns:1.15fr 0.85fr;
+      align-items:stretch;
     }
-    .ff-feature-row.is-reverse .ff-feature-copy{
-      order:2;
-    }
-    .ff-feature-row.is-reverse .ff-feature-visual{
-      order:1;
-    }
-    .ff-proof-row{
-      grid-template-columns:0.95fr 1.05fr;
-    }
-    .ff-proof-row.is-reverse .ff-proof-media{
-      order:2;
-    }
-    .ff-proof-row.is-reverse .ff-proof-copy{
-      order:1;
+    .ff-program-side,
+    .ff-case-side{
+      padding:22px 22px 22px 0;
     }
     .ff-contact-layout{
       grid-template-columns:1fr 1fr;
@@ -1059,6 +976,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       font-size:38px;
       max-width:680px;
     }
+    .ff-program-side,
+    .ff-case-side{
+      padding:0 22px 22px 22px;
+    }
     .ff-sticky-cta{
       right:12px;
       bottom:12px;
@@ -1089,9 +1010,17 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-cta h2{
       font-size:28px;
     }
-    .ff-feature-copy h3,
-    .ff-proof-copy h3{
-      font-size:24px;
+    .ff-program-main,
+    .ff-case-main{
+      padding:22px 20px 18px 20px;
+    }
+    .ff-program-side,
+    .ff-case-side{
+      padding:0 20px 20px 20px;
+    }
+    .ff-program-main h3,
+    .ff-case-main h3{
+      font-size:25px;
     }
   }
 </style>
@@ -1353,84 +1282,128 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </p>
       </div>
 
-      <div class="ff-program-stack">
-        <div class="ff-feature-row">
-          <div class="ff-feature-copy">
-            <div class="ff-chip">60 to 90 days</div>
-            <h3>Risk management and Compliance Readiness</h3>
-            <p>A program dedicated to proactively managing risk while ensuring ongoing regulatory and compliance readiness.</p>
-            <ul class="ff-feature-points">
-              <li>Clarifies risk exposure, ownership, and review priorities</li>
-              <li>Supports stronger controls, evidence, and readiness posture</li>
-              <li>Gives management a practical starting path for structured action</li>
-            </ul>
-            <a class="ff-link" href="#contact-book">Discuss this program</a>
-          </div>
-          <div class="ff-feature-visual">
-            <div class="ff-feature-box">
-              <div class="k">Starting point</div>
-              <div class="t">Risk visibility and compliance readiness</div>
-              <p>Used where the organization needs a clearer view of control gaps, evidence strength, accountability, and readiness under review.</p>
+      <div class="ff-program-premium-stack">
+
+        <div class="ff-program-premium">
+          <div class="ff-program-inner">
+            <div class="ff-program-main">
+              <div class="ff-chip">60 to 90 days</div>
+              <h3>Risk management and Compliance Readiness</h3>
+              <p>
+                A program dedicated to proactively managing risk while ensuring ongoing regulatory and compliance readiness.
+              </p>
+
+              <ul class="ff-program-points">
+                <li>Current state review of risk, controls, and compliance exposure</li>
+                <li>Evidence and accountability mapping across priority focus areas</li>
+                <li>Structured action plan with ownership and review cadence</li>
+              </ul>
+
+              <a class="ff-link" href="#contact-book">Discuss this program</a>
             </div>
-            <div class="ff-feature-box">
-              <div class="k">Typical result area</div>
-              <div class="t">Stronger control and clearer accountability</div>
-              <p>Creates a more disciplined response structure for risk, audit, and ongoing compliance related priorities.</p>
+
+            <div class="ff-program-side">
+              <div class="ff-program-side-grid">
+                <div class="ff-program-side-box">
+                  <div class="k">Why this program</div>
+                  <div class="t">Risk visibility and compliance readiness</div>
+                  <p>
+                    Used where the organization needs a clearer view of control gaps, evidence strength, accountability, and readiness under review.
+                  </p>
+                </div>
+
+                <div class="ff-program-side-box">
+                  <div class="k">Expected result</div>
+                  <div class="t">Stronger control and clearer accountability</div>
+                  <p>
+                    Creates a more disciplined response structure for risk, audit, and ongoing compliance related priorities.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="ff-feature-row is-reverse">
-          <div class="ff-feature-copy">
-            <div class="ff-chip">90 to 120 days</div>
-            <h3>Kaizen Blitz</h3>
-            <p>A focused Kaizen Blitz initiative to quickly resolve issues and deliver measurable process improvements.</p>
-            <ul class="ff-feature-points">
-              <li>Supports fast action on visible process inefficiencies</li>
-              <li>Connects team activity to practical measurable improvement</li>
-              <li>Strengthens operating discipline and day to day follow through</li>
-            </ul>
-            <a class="ff-link" href="#contact-book">Discuss this program</a>
-          </div>
-          <div class="ff-feature-visual">
-            <div class="ff-feature-box">
-              <div class="k">Starting point</div>
-              <div class="t">Focused process improvement</div>
-              <p>Used where management wants a practical initiative that can improve efficiency, discipline, and visible operational performance.</p>
+        <div class="ff-program-premium">
+          <div class="ff-program-inner">
+            <div class="ff-program-main">
+              <div class="ff-chip">90 to 120 days</div>
+              <h3>Kaizen Blitz</h3>
+              <p>
+                A focused Kaizen Blitz initiative to quickly resolve issues and deliver measurable process improvements.
+              </p>
+
+              <ul class="ff-program-points">
+                <li>Rapid review of visible process inefficiencies and bottlenecks</li>
+                <li>Focused team workshops and improvement actions on priority areas</li>
+                <li>Short cycle tracking of actions, gains, and follow through</li>
+              </ul>
+
+              <a class="ff-link" href="#contact-book">Discuss this program</a>
             </div>
-            <div class="ff-feature-box">
-              <div class="k">Typical result area</div>
-              <div class="t">Measurable process movement</div>
-              <p>Creates momentum through structured improvement activity, clearer team alignment, and faster issue resolution.</p>
+
+            <div class="ff-program-side">
+              <div class="ff-program-side-grid">
+                <div class="ff-program-side-box">
+                  <div class="k">Why this program</div>
+                  <div class="t">Focused process improvement</div>
+                  <p>
+                    Used where management wants a practical initiative that can improve efficiency, discipline, and visible operational performance.
+                  </p>
+                </div>
+
+                <div class="ff-program-side-box">
+                  <div class="k">Expected result</div>
+                  <div class="t">Measurable process movement</div>
+                  <p>
+                    Creates momentum through structured improvement activity, clearer team alignment, and faster issue resolution.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="ff-feature-row">
-          <div class="ff-feature-copy">
-            <div class="ff-chip">30 to 60 days</div>
-            <h3>Root Cause Analysis and Corrective and Preventive Action</h3>
-            <p>A structured program designed to identify the root causes of problems, implement corrective actions to resolve existing issues, and establish preventive measures to avoid their recurrence and improve overall quality and performance.</p>
-            <ul class="ff-feature-points">
-              <li>Improves issue visibility, ownership, and closure discipline</li>
-              <li>Supports better RCA quality and stronger CAPA follow through</li>
-              <li>Reduces the likelihood of repeat problems returning</li>
-            </ul>
-            <a class="ff-link" href="#contact-book">Discuss this program</a>
-          </div>
-          <div class="ff-feature-visual">
-            <div class="ff-feature-box">
-              <div class="k">Starting point</div>
-              <div class="t">Repeat issues and weak closure logic</div>
-              <p>Used where organizations need stronger root cause thinking, better corrective action structure, and more reliable preventive logic.</p>
+        <div class="ff-program-premium">
+          <div class="ff-program-inner">
+            <div class="ff-program-main">
+              <div class="ff-chip">30 to 60 days</div>
+              <h3>Root Cause Analysis and Corrective and Preventive Action</h3>
+              <p>
+                A structured program designed to identify the root causes of problems, implement corrective actions to resolve existing issues, and establish preventive measures to avoid their recurrence and improve overall quality and performance.
+              </p>
+
+              <ul class="ff-program-points">
+                <li>Structured issue review and root cause analysis on priority cases</li>
+                <li>Corrective and preventive action design with ownership clarity</li>
+                <li>Follow up tracking to strengthen closure discipline and effectiveness</li>
+              </ul>
+
+              <a class="ff-link" href="#contact-book">Discuss this program</a>
             </div>
-            <div class="ff-feature-box">
-              <div class="k">Typical result area</div>
-              <div class="t">Better quality and stronger closure</div>
-              <p>Creates more disciplined closure expectations and stronger confidence that the fix will hold over time.</p>
+
+            <div class="ff-program-side">
+              <div class="ff-program-side-grid">
+                <div class="ff-program-side-box">
+                  <div class="k">Why this program</div>
+                  <div class="t">Repeat issues and weak closure logic</div>
+                  <p>
+                    Used where organizations need stronger root cause thinking, better corrective action structure, and more reliable preventive logic.
+                  </p>
+                </div>
+
+                <div class="ff-program-side-box">
+                  <div class="k">Expected result</div>
+                  <div class="t">Better quality and stronger closure</div>
+                  <p>
+                    Creates more disciplined closure expectations and stronger confidence that the fix will hold over time.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1445,66 +1418,119 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </p>
       </div>
 
-      <div class="ff-proof-stack">
-        <div class="ff-proof-row">
-          <div class="ff-proof-media">
-            <span class="ff-proof-badge">Lean implementation</span>
-            <div class="ff-proof-overlay">
-              <div class="mini">Selected work</div>
-              <div class="title">5S workplace organization initiative</div>
-              <p>Structured workplace organization to improve visual control, discipline, and day to day efficiency.</p>
+      <div class="ff-case-premium-stack">
+
+        <div class="ff-case-premium">
+          <div class="ff-case-inner">
+            <div class="ff-case-main">
+              <div class="ff-case-main-top">
+                <span class="ff-case-meta">Case study</span>
+                <span class="ff-case-meta">30 days</span>
+                <span class="ff-case-meta">Quality and operations</span>
+              </div>
+              <h3>Implementation of Workplace organization through the application of 5S (lean methodology)</h3>
+              <p>
+                A structured 5S initiative was applied to improve workplace organization, visual control, and day to day efficiency.
+              </p>
+              <a class="ff-link" href="#contact-book">Explore relevant use cases</a>
             </div>
-          </div>
-          <div class="ff-proof-copy">
-            <h3>Implementation of Workplace organization through the application of 5S (lean methodology)</h3>
-            <p>A structured 5S initiative was applied to improve workplace organization, visual control, and day to day efficiency. The work helped create a cleaner, safer, and more disciplined operating environment that supported better performance and sustainment.</p>
-            <div class="ff-proof-meta">
-              <span>30 days</span>
-              <span>Quality and operations</span>
+
+            <div class="ff-case-side">
+              <div class="ff-case-side-grid">
+                <div class="ff-case-side-box">
+                  <div class="k">Focus area</div>
+                  <div class="t">Workplace organization through 5S</div>
+                  <p>
+                    Used to strengthen visual control, improve housekeeping discipline, and support a better organized operating environment.
+                  </p>
+                </div>
+
+                <div class="ff-case-side-box">
+                  <div class="k">Result area</div>
+                  <div class="t">Cleaner, safer, and more disciplined operations</div>
+                  <p>
+                    Helped create a more structured workplace that supported better performance and sustainment.
+                  </p>
+                </div>
+              </div>
             </div>
-            <a class="ff-link" href="#contact-book">Explore relevant use cases</a>
           </div>
         </div>
 
-        <div class="ff-proof-row is-reverse">
-          <div class="ff-proof-media variant-2">
-            <span class="ff-proof-badge">Contract Management</span>
-            <div class="ff-proof-overlay">
-              <div class="mini">Selected work</div>
-              <div class="title">Efficiency, compliance, and risk control</div>
-              <p>Lifecycle contract management with stronger control from creation through renewal.</p>
+        <div class="ff-case-premium">
+          <div class="ff-case-inner">
+            <div class="ff-case-main">
+              <div class="ff-case-main-top">
+                <span class="ff-case-meta">Case study</span>
+                <span class="ff-case-meta">4 to 6 months</span>
+                <span class="ff-case-meta">Compliance and contracts</span>
+              </div>
+              <h3>Improving Efficiency, Compliance, and Risk Control</h3>
+              <p>
+                This white paper outlines a structured approach to managing contracts throughout their lifecycle, from creation and negotiation to execution, monitoring, and renewal.
+              </p>
+              <a class="ff-link" href="#contact-book">Explore relevant use cases</a>
             </div>
-          </div>
-          <div class="ff-proof-copy">
-            <h3>Improving Efficiency, Compliance, and Risk Control</h3>
-            <p>This white paper outlines a structured approach to managing contracts throughout their lifecycle, from creation and negotiation to execution, monitoring, and renewal, with a focus on stronger compliance and risk control.</p>
-            <div class="ff-proof-meta">
-              <span>4 to 6 months</span>
-              <span>Compliance and contracts</span>
+
+            <div class="ff-case-side">
+              <div class="ff-case-side-grid">
+                <div class="ff-case-side-box">
+                  <div class="k">Focus area</div>
+                  <div class="t">Structured contract lifecycle management</div>
+                  <p>
+                    Applied to improve how contracts are managed, monitored, and controlled across key stages of the lifecycle.
+                  </p>
+                </div>
+
+                <div class="ff-case-side-box">
+                  <div class="k">Result area</div>
+                  <div class="t">Better efficiency, compliance, and risk control</div>
+                  <p>
+                    Supported a more disciplined contract management approach with clearer control and review structure.
+                  </p>
+                </div>
+              </div>
             </div>
-            <a class="ff-link" href="#contact-book">Explore relevant use cases</a>
           </div>
         </div>
 
-        <div class="ff-proof-row">
-          <div class="ff-proof-media variant-3">
-            <span class="ff-proof-badge">Quality execution</span>
-            <div class="ff-proof-overlay">
-              <div class="mini">Selected work</div>
-              <div class="title">CAPA tracking and closure discipline</div>
-              <p>Improved action visibility, ownership, and more consistent follow through.</p>
+        <div class="ff-case-premium">
+          <div class="ff-case-inner">
+            <div class="ff-case-main">
+              <div class="ff-case-main-top">
+                <span class="ff-case-meta">Case study</span>
+                <span class="ff-case-meta">2 to 3 months</span>
+                <span class="ff-case-meta">Quality and CAPA</span>
+              </div>
+              <h3>CAPA Tracking and Closure Improvement</h3>
+              <p>
+                A structured CAPA tracking process was introduced to improve issue visibility, action ownership, and closure discipline.
+              </p>
+              <a class="ff-link" href="#contact-book">Explore relevant use cases</a>
             </div>
-          </div>
-          <div class="ff-proof-copy">
-            <h3>CAPA Tracking and Closure Improvement</h3>
-            <p>A structured CAPA tracking process was introduced to improve issue visibility, action ownership, and closure discipline. The work helped teams follow corrective actions more consistently and reduce repeat problems.</p>
-            <div class="ff-proof-meta">
-              <span>2 to 3 months</span>
-              <span>Quality and CAPA</span>
+
+            <div class="ff-case-side">
+              <div class="ff-case-side-grid">
+                <div class="ff-case-side-box">
+                  <div class="k">Focus area</div>
+                  <div class="t">CAPA tracking and action visibility</div>
+                  <p>
+                    Used to strengthen corrective action follow through, improve ownership clarity, and support better tracking discipline.
+                  </p>
+                </div>
+
+                <div class="ff-case-side-box">
+                  <div class="k">Result area</div>
+                  <div class="t">Fewer repeat problems and stronger closure</div>
+                  <p>
+                    Helped teams follow corrective actions more consistently and reduce the risk of recurring issues.
+                  </p>
+                </div>
+              </div>
             </div>
-            <a class="ff-link" href="#contact-book">Explore relevant use cases</a>
           </div>
         </div>
+
       </div>
 
       <div class="ff-resource-band">
