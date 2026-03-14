@@ -56,9 +56,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     --ff-soft-2:#f7f9fc;
     --ff-card:#ffffff;
 
-    --ff-banner-start:#0b2346;
-    --ff-banner-mid:#153b69;
-    --ff-banner-end:#1a536f;
+    --ff-case-start:#0b2143;
+    --ff-case-mid:#163968;
+    --ff-case-end:#1c5f78;
 
     --ff-shadow:0 18px 44px rgba(16,24,39,0.08);
     --ff-shadow-soft:0 12px 28px rgba(16,24,39,0.06);
@@ -399,15 +399,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-section-soft{
     background:var(--ff-soft-2);
   }
-  .ff-programs-section,
-  .ff-proof-section{
-    padding-top:54px;
-    padding-bottom:54px;
-  }
 
   .ff-head{
     max-width:980px;
-    margin:0 auto 24px auto;
+    margin:0 auto 26px auto;
     text-align:center;
   }
   .ff-head .ff-label{
@@ -582,12 +577,21 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     text-decoration:none;
     font-size:14px;
     font-weight:700;
-    display:inline-flex;
-    align-items:center;
-    margin-top:auto;
   }
   .ff-link:hover{
     color:var(--ff-red-2);
+    text-decoration:none;
+    opacity:0.86;
+  }
+
+  .ff-link-light{
+    color:#ffffff;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:700;
+  }
+  .ff-link-light:hover{
+    color:#ffffff;
     text-decoration:none;
     opacity:0.86;
   }
@@ -598,69 +602,34 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     gap:16px;
   }
 
-  .ff-program-premium,
-  .ff-case-premium{
+  .ff-program-premium{
     background:#ffffff;
     border:1px solid var(--ff-line);
     box-shadow:var(--ff-shadow);
     position:relative;
     overflow:hidden;
   }
-
-  .ff-program-premium::before,
-  .ff-case-premium::before{
-    display:none;
+  .ff-program-premium::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:4px;
+    background:var(--ff-red);
   }
 
-  .ff-program-banner,
-  .ff-case-banner{
-    min-height:76px;
-    padding:16px 20px;
-    display:flex;
-    align-items:flex-start;
-    background:
-      radial-gradient(440px 180px at 18% 12%, rgba(154,92,255,0.17), rgba(154,92,255,0) 58%),
-      radial-gradient(560px 220px at 85% 15%, rgba(58,182,170,0.16), rgba(58,182,170,0) 58%),
-      linear-gradient(135deg, var(--ff-banner-start) 0%, var(--ff-banner-mid) 58%, var(--ff-banner-end) 100%);
-  }
-
-  .ff-banner-tag{
-    display:inline-flex;
-    align-items:center;
-    padding:7px 12px;
-    background:#0c1022;
-    border:1px solid rgba(255,255,255,0.12);
-    color:#fff;
-    font-size:11px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:0.09em;
-  }
-
-  .ff-program-inner,
-  .ff-case-inner{
+  .ff-program-inner{
     display:grid;
     grid-template-columns:1fr;
     gap:0;
   }
-
-  .ff-program-main,
-  .ff-case-main{
+  .ff-program-main{
     padding:22px 22px 18px 22px;
-    display:flex;
-    flex-direction:column;
   }
-
-  .ff-program-side,
-  .ff-case-side{
+  .ff-program-side{
     padding:18px 18px 18px 0;
   }
-
-  .ff-program-main .ff-chip,
-  .ff-case-main .ff-chip{
-    margin-bottom:10px;
-  }
-
   .ff-program-main h3{
     margin:0 0 10px 0;
     font-size:27px;
@@ -669,16 +638,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     letter-spacing:-0.02em;
     color:var(--ff-ink);
   }
-
-  .ff-case-main h3{
-    margin:0 0 10px 0;
-    font-size:24px;
-    line-height:1.18;
-    font-weight:700;
-    letter-spacing:-0.02em;
-    color:var(--ff-ink);
-  }
-
   .ff-program-main p{
     margin:0 0 12px 0;
     color:var(--ff-muted);
@@ -686,15 +645,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     line-height:1.58;
     max-width:760px;
   }
-
-  .ff-case-main p{
-    margin:0 0 10px 0;
-    color:var(--ff-muted);
-    font-size:14px;
-    line-height:1.58;
-    max-width:760px;
-  }
-
   .ff-program-points{
     list-style:none;
     padding:0;
@@ -702,7 +652,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     display:grid;
     gap:7px;
   }
-
   .ff-program-points li{
     position:relative;
     padding-left:14px;
@@ -711,7 +660,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-weight:700;
     line-height:1.48;
   }
-
   .ff-program-points li::before{
     content:"";
     position:absolute;
@@ -722,24 +670,124 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border-radius:50%;
     background:var(--ff-red);
   }
+  .ff-program-side-grid{
+    display:grid;
+    gap:10px;
+    height:100%;
+  }
+  .ff-program-side-box{
+    background:
+      radial-gradient(520px 160px at 10% 10%, rgba(58,182,170,0.05), rgba(58,182,170,0) 58%),
+      linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+    border:1px solid var(--ff-line);
+    padding:14px 14px 12px 14px;
+  }
+  .ff-program-side-box .k{
+    color:#7b8596;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.11em;
+    font-weight:800;
+    margin-bottom:5px;
+  }
+  .ff-program-side-box .t{
+    color:var(--ff-ink);
+    font-size:16px;
+    line-height:1.24;
+    font-weight:700;
+    margin-bottom:5px;
+  }
+  .ff-program-side-box p{
+    margin:0;
+    color:var(--ff-muted);
+    font-size:13px;
+    line-height:1.5;
+  }
 
-  .ff-program-side-grid,
+  .ff-case-premium{
+    background:#ffffff;
+    border:1px solid var(--ff-line);
+    box-shadow:var(--ff-shadow);
+    overflow:hidden;
+  }
+  .ff-case-inner{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    align-items:stretch;
+  }
+  .ff-case-main{
+    padding:22px 22px 18px 22px;
+    background:
+      radial-gradient(500px 200px at 18% 10%, rgba(142,96,255,0.18), rgba(142,96,255,0) 58%),
+      radial-gradient(520px 200px at 88% 16%, rgba(61,176,165,0.16), rgba(61,176,165,0) 58%),
+      linear-gradient(135deg, var(--ff-case-start) 0%, var(--ff-case-mid) 56%, var(--ff-case-end) 100%);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+  }
+  .ff-case-work-tag{
+    display:inline-flex;
+    align-items:center;
+    width:max-content;
+    padding:6px 10px;
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.18);
+    color:#fff;
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    margin-bottom:12px;
+  }
+  .ff-case-main-top{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:10px;
+  }
+  .ff-case-meta{
+    display:inline-flex;
+    align-items:center;
+    padding:5px 9px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.18);
+    color:rgba(255,255,255,0.92);
+    font-size:11px;
+    font-weight:700;
+  }
+  .ff-case-main h3{
+    margin:0 0 10px 0;
+    font-size:24px;
+    line-height:1.18;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    color:#fff;
+  }
+  .ff-case-main p{
+    margin:0 0 12px 0;
+    color:rgba(255,255,255,0.86);
+    font-size:14px;
+    line-height:1.58;
+    max-width:760px;
+  }
+  .ff-case-side{
+    padding:18px;
+    background:#ffffff;
+  }
   .ff-case-side-grid{
     display:grid;
     gap:10px;
     height:100%;
   }
-
-  .ff-program-side-box,
   .ff-case-side-box{
     background:
-      radial-gradient(520px 160px at 10% 10%, rgba(58,182,170,0.06), rgba(58,182,170,0) 58%),
+      radial-gradient(520px 160px at 10% 10%, rgba(58,182,170,0.05), rgba(58,182,170,0) 58%),
       linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
     border:1px solid var(--ff-line);
     padding:14px 14px 12px 14px;
   }
-
-  .ff-program-side-box .k,
   .ff-case-side-box .k{
     color:#7b8596;
     font-size:11px;
@@ -748,8 +796,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-weight:800;
     margin-bottom:5px;
   }
-
-  .ff-program-side-box .t,
   .ff-case-side-box .t{
     color:var(--ff-ink);
     font-size:16px;
@@ -757,31 +803,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     font-weight:700;
     margin-bottom:5px;
   }
-
-  .ff-program-side-box p,
   .ff-case-side-box p{
     margin:0;
     color:var(--ff-muted);
     font-size:13px;
     line-height:1.5;
-  }
-
-  .ff-case-main-top{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-    margin-bottom:10px;
-  }
-
-  .ff-case-meta{
-    display:inline-flex;
-    align-items:center;
-    padding:5px 9px;
-    background:#f5f7fa;
-    border:1px solid var(--ff-line);
-    color:#697385;
-    font-size:11px;
-    font-weight:700;
   }
 
   .ff-resource-band{
@@ -988,14 +1014,19 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-insight-grid{
       grid-template-columns:repeat(3, 1fr);
     }
-    .ff-program-inner,
-    .ff-case-inner{
+    .ff-program-inner{
       grid-template-columns:1.18fr 0.82fr;
       align-items:stretch;
     }
-    .ff-program-side,
-    .ff-case-side{
+    .ff-case-inner{
+      grid-template-columns:1.02fr 0.98fr;
+      align-items:stretch;
+    }
+    .ff-program-side{
       padding:18px 18px 18px 0;
+    }
+    .ff-case-side{
+      padding:18px;
     }
     .ff-contact-layout{
       grid-template-columns:1fr 1fr;
@@ -1031,9 +1062,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       font-size:38px;
       max-width:680px;
     }
-    .ff-program-side,
-    .ff-case-side{
+    .ff-program-side{
       padding:0 18px 18px 18px;
+    }
+    .ff-case-side{
+      padding:18px;
     }
     .ff-sticky-cta{
       right:12px;
@@ -1065,18 +1098,15 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-cta h2{
       font-size:28px;
     }
-    .ff-program-banner,
-    .ff-case-banner{
-      min-height:68px;
-      padding:14px 16px;
-    }
     .ff-program-main,
     .ff-case-main{
-      padding:18px 18px 16px 18px;
+      padding:20px 18px 16px 18px;
     }
-    .ff-program-side,
-    .ff-case-side{
+    .ff-program-side{
       padding:0 18px 18px 18px;
+    }
+    .ff-case-side{
+      padding:18px;
     }
     .ff-program-main h3{
       font-size:24px;
@@ -1328,7 +1358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ff-section ff-section-white ff-programs-section" id="programs">
+  <section class="ff-section ff-section-white" id="programs">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-label">Programs</div>
@@ -1341,10 +1371,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ff-program-premium-stack">
 
         <div class="ff-program-premium">
-          <div class="ff-program-banner">
-            <span class="ff-banner-tag">Readiness program</span>
-          </div>
-
           <div class="ff-program-inner">
             <div class="ff-program-main">
               <div class="ff-chip">60 to 90 days</div>
@@ -1385,10 +1411,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="ff-program-premium">
-          <div class="ff-program-banner">
-            <span class="ff-banner-tag">Improvement program</span>
-          </div>
-
           <div class="ff-program-inner">
             <div class="ff-program-main">
               <div class="ff-chip">90 to 120 days</div>
@@ -1429,10 +1451,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="ff-program-premium">
-          <div class="ff-program-banner">
-            <span class="ff-banner-tag">CAPA program</span>
-          </div>
-
           <div class="ff-program-inner">
             <div class="ff-program-main">
               <div class="ff-chip">30 to 60 days</div>
@@ -1476,7 +1494,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ff-section ff-section-soft ff-proof-section" id="proof">
+  <section class="ff-section ff-section-soft" id="proof">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-label">Selected work</div>
@@ -1489,22 +1507,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ff-case-premium-stack">
 
         <div class="ff-case-premium">
-          <div class="ff-case-banner">
-            <span class="ff-banner-tag">Execution work</span>
-          </div>
-
           <div class="ff-case-inner">
             <div class="ff-case-main">
+              <div class="ff-case-work-tag">Execution work</div>
+
               <div class="ff-case-main-top">
                 <span class="ff-case-meta">Case study</span>
                 <span class="ff-case-meta">30 days</span>
                 <span class="ff-case-meta">Quality and operations</span>
               </div>
+
               <h3>5S workplace organization improvement</h3>
               <p>
                 A structured 5S initiative was applied to improve workplace organization, visual control, and day to day efficiency.
               </p>
-              <a class="ff-link" href="#contact-book">Explore relevant use cases</a>
+
+              <a class="ff-link-light" href="#contact-book">Explore relevant use cases</a>
             </div>
 
             <div class="ff-case-side">
@@ -1530,22 +1548,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="ff-case-premium">
-          <div class="ff-case-banner">
-            <span class="ff-banner-tag">Compliance work</span>
-          </div>
-
           <div class="ff-case-inner">
             <div class="ff-case-main">
+              <div class="ff-case-work-tag">Compliance work</div>
+
               <div class="ff-case-main-top">
                 <span class="ff-case-meta">Case study</span>
                 <span class="ff-case-meta">4 to 6 months</span>
                 <span class="ff-case-meta">Compliance and contracts</span>
               </div>
+
               <h3>Improving efficiency, compliance, and risk control</h3>
               <p>
                 This work outlined a structured approach to managing contracts across creation, negotiation, execution, monitoring, and renewal.
               </p>
-              <a class="ff-link" href="#contact-book">Explore relevant use cases</a>
+
+              <a class="ff-link-light" href="#contact-book">Explore relevant use cases</a>
             </div>
 
             <div class="ff-case-side">
@@ -1571,22 +1589,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="ff-case-premium">
-          <div class="ff-case-banner">
-            <span class="ff-banner-tag">CAPA work</span>
-          </div>
-
           <div class="ff-case-inner">
             <div class="ff-case-main">
+              <div class="ff-case-work-tag">CAPA work</div>
+
               <div class="ff-case-main-top">
                 <span class="ff-case-meta">Case study</span>
                 <span class="ff-case-meta">2 to 3 months</span>
                 <span class="ff-case-meta">Quality and CAPA</span>
               </div>
+
               <h3>CAPA tracking and closure improvement</h3>
               <p>
                 A structured CAPA tracking process was introduced to improve issue visibility, action ownership, and closure discipline.
               </p>
-              <a class="ff-link" href="#contact-book">Explore relevant use cases</a>
+
+              <a class="ff-link-light" href="#contact-book">Explore relevant use cases</a>
             </div>
 
             <div class="ff-case-side">
