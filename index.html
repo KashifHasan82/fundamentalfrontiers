@@ -23,7 +23,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Fundamental Frontiers Consulting</title>
-<meta name="description" content="Organizational performance readiness and execution support across risk management, quality management, compliance readiness, supplier performance, reporting, and continuous improvement.">
+<meta name="description" content="Manufacturing consulting and execution support across organizational risk management, quality management, compliance readiness, supplier performance, reporting, and continuous improvement.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="site.webmanifest">
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -157,25 +157,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     text-decoration:none;
   }
 
-  .ff-nav-linkedin{
-    width:34px;
-    height:34px;
-    border-radius:50%;
-    border:1px solid rgba(216,67,78,0.22);
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    color:#ffffff;
-    background:linear-gradient(180deg, #0a66c2 0%, #004182 100%);
-    font-size:15px;
-    box-shadow:0 10px 22px rgba(0,65,130,0.18);
-  }
-  .ff-nav-linkedin:hover{
-    color:#ffffff;
-    opacity:0.95;
-    transform:translateY(-1px);
-  }
-
   .ff-nav-icon-link{
     color:var(--ff-red-2);
     text-decoration:none;
@@ -186,6 +167,100 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     color:var(--ff-red-2);
     text-decoration:none;
     opacity:0.86;
+  }
+
+
+  .ff-linkedin-flat{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:#111111;
+    color:#ffffff;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:800;
+    line-height:1;
+    letter-spacing:-0.03em;
+  }
+  .ff-linkedin-flat:hover{
+    color:#ffffff;
+    text-decoration:none;
+    opacity:0.88;
+  }
+  .ff-linkedin-flat span{
+    transform:translateY(-1px);
+  }
+
+  .ff-menu-toggle{
+    display:none;
+    width:42px;
+    height:42px;
+    padding:0;
+    border:none;
+    background:transparent;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+  }
+  .ff-menu-toggle span{
+    display:block;
+    width:20px;
+    height:2px;
+    border-radius:999px;
+    background:var(--ff-ink);
+  }
+
+  .ff-mobile-drawer{
+    position:fixed;
+    inset:0;
+    background:rgba(7,20,47,0.26);
+    display:none;
+    z-index:40;
+  }
+  .ff-mobile-drawer.is-open{
+    display:block;
+  }
+  .ff-mobile-drawer-panel{
+    width:min(88vw, 340px);
+    height:100%;
+    margin-left:auto;
+    background:#ffffff;
+    padding:20px 20px 24px 20px;
+    box-shadow:-14px 0 30px rgba(16,24,39,0.14);
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .ff-mobile-drawer-head{
+    padding-bottom:12px;
+    border-bottom:1px solid var(--ff-line);
+  }
+  .ff-mobile-drawer-links{
+    display:grid;
+    gap:2px;
+  }
+  .ff-mobile-drawer-links a{
+    color:var(--ff-ink);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:700;
+    padding:12px 0;
+    border-bottom:1px solid #eef2f6;
+  }
+  .ff-mobile-drawer-actions{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:auto;
+    padding-top:8px;
+  }
+  .ff-menu-open{
+    overflow:hidden;
   }
 
   .header-sticky.sticky-bar{
@@ -206,11 +281,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     display:grid;
     grid-template-columns:1fr;
     gap:28px;
-    align-items:end;
+    align-items:center;
   }
 
   .ff-hero-copy{
-    max-width:820px;
+    max-width:920px;
   }
 
   .ff-kicker{
@@ -224,12 +299,12 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   .ff-hero h1{
     margin:0 0 14px 0;
-    font-size:50px;
-    line-height:1.08;
+    font-size:56px;
+    line-height:1.02;
     font-weight:700;
-    letter-spacing:-0.02em;
+    letter-spacing:-0.03em;
     color:#fff;
-    max-width:820px;
+    max-width:920px;
   }
 
   .ff-hero p{
@@ -289,8 +364,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-hero-aside{
-    max-width:600px;
-    justify-self:end;
+    max-width:none;
+    justify-self:stretch;
     width:100%;
   }
 
@@ -299,6 +374,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border:1px solid rgba(255,255,255,0.12);
     padding:22px;
     box-shadow:var(--ff-shadow-soft);
+    height:100%;
   }
   .ff-mini-label{
     font-size:12px;
@@ -310,11 +386,11 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .ff-proof-list{
     display:grid;
-    gap:12px;
+    gap:10px;
   }
   .ff-proof-item{
     display:block;
-    padding:16px 16px;
+    padding:13px 14px;
     border:1px solid rgba(255,255,255,0.1);
     background:rgba(255,255,255,0.04);
     color:#fff;
@@ -330,17 +406,17 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-proof-title{
     display:block;
     color:#fff;
-    font-size:18px;
-    line-height:1.34;
+    font-size:16px;
+    line-height:1.3;
     font-weight:700;
   }
   .ff-proof-item span{
     display:block;
-    margin-top:5px;
-    color:rgba(255,255,255,0.72);
-    font-size:12px;
+    margin-top:6px;
+    color:rgba(255,255,255,0.76);
+    font-size:13px;
     font-weight:700;
-    line-height:1.45;
+    line-height:1.4;
   }
 
   .ff-dynamic-band{
@@ -456,14 +532,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-mobile-swipe-hint{
-    display:none;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    margin-top:14px;
-    color:var(--ff-muted);
-    font-size:13px;
-    font-weight:700;
+    display:none !important;
   }
   .ff-mobile-swipe-hint .ff-hint-arrow{
     display:inline-block;
@@ -617,7 +686,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-link-light{
-    color:var(--ff-red-2);
+    color:var(--ff-red);
     text-decoration:none;
     font-size:14px;
     font-weight:700;
@@ -625,10 +694,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-link-light:hover{
     color:var(--ff-red-2);
     text-decoration:none;
-    opacity:0.86;
-  }
-  .ff-case-link{
-    margin-top:auto;
+    opacity:1;
   }
 
   .ff-program-premium-stack,
@@ -647,9 +713,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     box-shadow:var(--ff-shadow);
     position:relative;
     overflow:visible;
+    height:100%;
     display:flex;
     flex-direction:column;
-    height:100%;
   }
   .ff-program-premium::before{
     content:"";
@@ -718,27 +784,21 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .ff-program-toggle{
     appearance:none;
-    border:1px solid #cfd7e3;
+    border:1px solid #d6dde6;
     background:#ffffff;
-    padding:10px 14px;
+    padding:8px 14px;
     color:var(--ff-ink);
-    font-size:13px;
+    font-size:14px;
     font-weight:700;
     display:inline-flex;
     align-items:center;
     gap:8px;
     cursor:pointer;
-    line-height:1;
-    box-shadow:0 8px 18px rgba(16,24,39,0.05);
-  }
-  .ff-program-toggle:hover{
-    border-color:#b8c5d6;
-    background:#fafbfd;
+    box-shadow:0 6px 14px rgba(16,24,39,0.04);
   }
   .ff-program-toggle .ff-toggle-dot{
     width:18px;
     height:18px;
-    flex:0 0 18px;
     border-radius:50%;
     border:1px solid #cbd4df;
     display:inline-flex;
@@ -746,20 +806,23 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     justify-content:center;
     font-size:11px;
     line-height:1;
+    background:#f7f9fc;
   }
   .ff-program-toggle[aria-expanded="true"] .ff-toggle-dot{
     background:var(--ff-red-soft);
     border-color:#e6bcc1;
   }
   .ff-program-popup{
-    position:absolute;
-    left:16px;
-    right:16px;
-    top:calc(100% - 8px);
-    z-index:20;
-    background:#ffffff;
-    border:1px solid var(--ff-line);
-    box-shadow:0 18px 40px rgba(16,24,39,0.12);
+    position:fixed;
+    left:50%;
+    top:50%;
+    width:min(460px, calc(100vw - 28px));
+    transform:translate(-50%, -50%);
+    z-index:32;
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(214,221,230,0.95);
+    box-shadow:0 20px 46px rgba(16,24,39,0.14);
     padding:14px;
     display:none;
   }
@@ -767,25 +830,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     display:grid;
     gap:10px;
   }
-  .ff-program-close{
-    justify-self:end;
-    align-self:end;
-    appearance:none;
-    border:1px solid #cfd7e3;
-    background:#0b1b37;
-    color:#ffffff;
-    padding:9px 14px;
-    font-size:13px;
-    font-weight:800;
-    letter-spacing:0.01em;
-    line-height:1;
-    cursor:pointer;
-    box-shadow:0 10px 20px rgba(16,24,39,0.10);
-  }
-  .ff-program-close:hover{
-    background:#10254a;
-  }
-
   .ff-program-side-box{
     background:linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
     border:1px solid var(--ff-line);
@@ -818,7 +862,6 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border:1px solid var(--ff-line);
     box-shadow:var(--ff-shadow);
     overflow:hidden;
-    display:flex;
     height:100%;
   }
   .ff-case-premium-stack{
@@ -826,22 +869,20 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
   .ff-case-main{
     padding:22px 22px 20px 22px;
-    background:
-      linear-gradient(180deg, rgba(11,33,67,0.98) 0%, rgba(16,37,74,0.95) 34%, #edf4fb 34%, #f8fbff 100%);
+    background:linear-gradient(180deg, #16355f 0 184px, #f4f7fb 184px 100%);
     color:#fff;
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
     min-height:100%;
-    width:100%;
   }
   .ff-case-work-tag{
     display:inline-flex;
     align-items:center;
     width:max-content;
     padding:6px 10px;
-    background:rgba(255,255,255,0.10);
-    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.16);
     color:#fff;
     font-size:11px;
     font-weight:800;
@@ -854,7 +895,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     flex-wrap:wrap;
     gap:10px;
     margin-bottom:12px;
-    color:rgba(255,255,255,0.80);
+    color:rgba(255,255,255,0.78);
     font-size:12px;
     font-weight:700;
   }
@@ -868,7 +909,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     color:rgba(255,255,255,0.52);
   }
   .ff-case-main h3{
-    margin:0 0 12px 0;
+    margin:0 0 18px 0;
     font-size:24px;
     line-height:1.18;
     font-weight:700;
@@ -1079,10 +1120,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   @media (min-width:992px){
     .ff-hero-grid{
-      grid-template-columns:0.98fr 1.02fr;
-    }
-    .ff-proof-item span:last-child{
-      font-size:12px;
+      grid-template-columns:1.08fr 0.92fr;
     }
     .ff-services-grid,
     .ff-deliverables-grid,
@@ -1109,6 +1147,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   @media (max-width:991px){
+    .header-area{
+      display:none !important;
+    }
+    .ff-mainnav{
+      position:sticky;
+      top:0;
+      z-index:30;
+    }
     .ff-mainnav .ff-wrap{
       min-height:70px;
       grid-template-columns:1fr auto;
@@ -1124,9 +1170,38 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-nav-actions{
       display:none;
     }
+    .ff-menu-toggle{
+      display:inline-flex;
+    }
+    .ff-hero-grid{
+      gap:22px;
+    }
     .ff-hero h1{
-      font-size:40px;
-      max-width:720px;
+      font-size:42px;
+      max-width:100%;
+    }
+    .ff-hero-aside,
+    .ff-hero-panel{
+      max-width:100%;
+    }
+    .ff-service-pillar{
+      padding:18px 18px 16px 18px;
+    }
+    .ff-service-pillar h3{
+      font-size:21px;
+      margin-bottom:8px;
+    }
+    .ff-service-pillar p{
+      margin-bottom:10px;
+      font-size:13px;
+      line-height:1.54;
+    }
+    .ff-service-list{
+      gap:6px;
+    }
+    .ff-service-list li{
+      font-size:13px;
+      line-height:1.42;
     }
     .ff-mobile-carousel{
       display:flex;
@@ -1145,59 +1220,27 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       border-radius:999px;
     }
     .ff-mobile-carousel > *{
-      min-width:86%;
+      min-width:88%;
       scroll-snap-align:start;
     }
     .ff-mobile-swipe-hint{
-      display:none;
-    }
-    .ff-service-pillar{
-      padding:18px 18px 16px 18px;
-    }
-    .ff-service-pillar h3{
-      font-size:21px;
-    }
-    .ff-service-pillar p{
-      margin-bottom:12px;
-      line-height:1.54;
-    }
-    .ff-service-list{
-      gap:6px;
-    }
-    .ff-program-premium,
-    .ff-case-premium{
-      min-height:auto;
-    }
-    .ff-program-top{
-      padding:18px 18px 16px 18px;
-    }
-    .ff-program-top h3{
-      font-size:24px;
-    }
-    .ff-program-top p{
-      line-height:1.52;
-      margin-bottom:10px;
-    }
-    .ff-program-points{
-      gap:6px;
-      margin-bottom:10px;
+      display:flex;
     }
     .ff-program-popup{
       position:fixed;
-      left:12px;
-      right:12px;
-      bottom:12px;
-      top:12px;
-      max-height:none;
+      left:50%;
+      top:50%;
+      bottom:auto;
+      right:auto;
+      width:min(360px, calc(100vw - 24px));
+      max-height:44vh;
       overflow:auto;
-      z-index:120;
+      transform:translate(-50%, -50%);
+      padding:12px;
     }
     .ff-case-main{
-      padding:18px 18px 16px 18px;
-    }
-    .ff-case-main p{
-      font-size:14px;
-      line-height:1.56;
+      min-height:420px;
+      background:linear-gradient(180deg, #16355f 0 170px, #f4f7fb 170px 100%);
     }
     .ff-sticky-cta{
       right:12px;
@@ -1215,15 +1258,10 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .ff-hero h1{
       font-size:34px;
+      line-height:1.06;
     }
     .ff-hero p{
       font-size:17px;
-    }
-    .ff-hero-panel{
-      padding:18px;
-    }
-    .ff-proof-item{
-      padding:14px 14px;
     }
     .ff-head h2{
       font-size:28px;
@@ -1233,13 +1271,16 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
     .ff-program-top,
     .ff-case-main{
-      padding:20px 18px 18px 18px;
+      padding:18px 16px 16px 16px;
     }
     .ff-program-top h3{
-      font-size:24px;
+      font-size:22px;
     }
     .ff-case-main h3{
-      font-size:22px;
+      font-size:21px;
+    }
+    .ff-proof-item{
+      padding:12px 13px;
     }
     .ff-mobile-carousel > *{
       min-width:86%;
@@ -1284,26 +1325,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </nav>
 
       <div class="ff-nav-actions">
-        <a class="ff-nav-plain-link ff-nav-linkedin" href="https://www.linkedin.com/company/fundamental-frontiers" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+        <a class="ff-linkedin-flat" href="https://www.linkedin.com/company/fundamental-frontiers" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <span>in</span>
+        </a>
         <a class="ff-nav-icon-link" href="#contact-book">Book a call</a>
       </div>
-    </div>
-  </div>
 
-  <div class="header-area">
-    <div class="main-header">
-      <div class="header-bottom header-sticky d-lg-none">
-        <div class="ff-wrap">
-          <div class="row align-items-center">
-            <div class="col-8">
-              <div class="logo ff-logo">
-                <a href="index.html"><img src="assets/img/logo/logo.png" alt="Fundamental Frontiers"></a>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="mobile_menu d-block d-lg-none"></div>
-            </div>
+      <button class="ff-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="ff-mobile-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="ff-mobile-drawer" id="ff-mobile-drawer" aria-hidden="true">
+      <div class="ff-mobile-drawer-panel">
+        <div class="ff-mobile-drawer-head">
+          <div class="ff-logo">
+            <a href="index.html"><img src="assets/img/logo/logo.png" alt="Fundamental Frontiers"></a>
           </div>
+        </div>
+        <nav class="ff-mobile-drawer-links">
+          <a href="#services">Services</a>
+          <a href="#deliverables">Deliverables</a>
+          <a href="#programs">Programs</a>
+          <a href="#proof">Selected work</a>
+          <a href="#insights">Insights</a>
+          <a href="#contact-book">Book</a>
+        </nav>
+        <div class="ff-mobile-drawer-actions">
+          <a class="ff-linkedin-flat" href="https://www.linkedin.com/company/fundamental-frontiers" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <span>in</span>
+          </a>
+          <a class="ff-nav-icon-link" href="#contact-book">Book a call</a>
         </div>
       </div>
     </div>
@@ -1429,7 +1481,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <div class="ff-mobile-swipe-hint"><span>Swipe to view more</span><span class="ff-hint-arrow">→</span></div>
+      
     </div>
   </section>
 
@@ -1467,7 +1519,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <div class="ff-mobile-swipe-hint"><span>Swipe to view more</span><span class="ff-hint-arrow">→</span></div>
+      
     </div>
   </section>
 
@@ -1507,7 +1559,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <div class="ff-program-popup">
-            <button class="ff-program-close" type="button">Close ✕</button>
             <div class="ff-program-side-box">
               <div class="k">Why this program</div>
               <div class="t">Risk visibility and compliance readiness</div>
@@ -1549,7 +1600,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <div class="ff-program-popup">
-            <button class="ff-program-close" type="button">Close ✕</button>
             <div class="ff-program-side-box">
               <div class="k">Why this program</div>
               <div class="t">Focused process improvement</div>
@@ -1591,7 +1641,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <div class="ff-program-popup">
-            <button class="ff-program-close" type="button">Close ✕</button>
             <div class="ff-program-side-box">
               <div class="k">Why this program</div>
               <div class="t">Repeat issues and weak closure logic</div>
@@ -1611,7 +1660,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       </div>
 
-      <div class="ff-mobile-swipe-hint"><span>Swipe to view more</span><span class="ff-hint-arrow">→</span></div>
+      
     </div>
   </section>
 
@@ -1642,7 +1691,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               A structured 5S initiative was applied to improve workplace organization, visual control, and day to day efficiency. This work was used to strengthen visual control, improve housekeeping discipline, support a better organized operating environment, and help create a cleaner, safer, and more disciplined workplace.
             </p>
 
-            <a class="ff-link-light ff-case-link" href="#contact-book">Request this case study</a>
+            <a class="ff-link-light" href="#contact-book">Request this case study</a>
           </div>
         </div>
 
@@ -1661,7 +1710,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               This work outlined a structured approach to managing contracts across creation, negotiation, execution, monitoring, and renewal. It was applied to improve how contracts were managed, monitored, and controlled across key stages of the lifecycle, and it supported better efficiency, compliance, and risk control through a clearer review structure.
             </p>
 
-            <a class="ff-link-light ff-case-link" href="#contact-book">Request this case study</a>
+            <a class="ff-link-light" href="#contact-book">Request this case study</a>
           </div>
         </div>
 
@@ -1680,13 +1729,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               A structured CAPA tracking process was introduced to improve issue visibility, action ownership, and closure discipline. This work was used to strengthen corrective action follow through, improve ownership clarity, support better tracking discipline, and help teams reduce repeat problems with stronger closure.
             </p>
 
-            <a class="ff-link-light ff-case-link" href="#contact-book">Request this case study</a>
+            <a class="ff-link-light" href="#contact-book">Request this case study</a>
           </div>
         </div>
 
       </div>
 
-      <div class="ff-mobile-swipe-hint"><span>Swipe to view more</span><span class="ff-hint-arrow">→</span></div>
+      
 
       <div class="ff-resource-band">
         Request a <a class="ff-link" href="#contact-book">white paper</a>, <a class="ff-link" href="#contact-book">sample case study</a>, or <a class="ff-link" href="#contact-book">readiness checklist</a> if you want to review a practical example before the first discussion.
@@ -1927,32 +1976,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <script>
-  document.querySelectorAll('.ff-program-toggle').forEach(function(toggle){
-    toggle.addEventListener('click', function(e){
-      e.preventDefault();
-      var card = toggle.closest('.ff-program-premium');
-      var isOpen = card.classList.contains('is-open');
-      document.querySelectorAll('.ff-program-premium.is-open').forEach(function(openCard){
-        if(openCard !== card){
-          openCard.classList.remove('is-open');
-          var otherToggle = openCard.querySelector('.ff-program-toggle');
-          if(otherToggle){ otherToggle.setAttribute('aria-expanded', 'false'); }
+  (function(){
+    var menuToggle = document.querySelector('.ff-menu-toggle');
+    var drawer = document.querySelector('.ff-mobile-drawer');
+    function closeDrawer(){
+      if(!drawer || !menuToggle) return;
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('ff-menu-open');
+    }
+    function openDrawer(){
+      if(!drawer || !menuToggle) return;
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('ff-menu-open');
+    }
+    if(menuToggle && drawer){
+      menuToggle.addEventListener('click', function(){
+        drawer.classList.contains('is-open') ? closeDrawer() : openDrawer();
+      });
+      drawer.addEventListener('click', function(e){
+        if(e.target === drawer || e.target.closest('.ff-mobile-drawer-links a') || e.target.closest('.ff-mobile-drawer-actions a')){
+          closeDrawer();
         }
       });
-      card.classList.toggle('is-open', !isOpen);
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-    });
-  });
+      window.addEventListener('resize', function(){ if(window.innerWidth > 991){ closeDrawer(); } });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeDrawer(); closeProgramDetails(); } });
+    }
 
-  document.addEventListener('click', function(e){
-    if(!e.target.closest('.ff-program-premium')){
+    var openCard = null;
+    function closeProgramDetails(){
       document.querySelectorAll('.ff-program-premium.is-open').forEach(function(card){
         card.classList.remove('is-open');
         var toggle = card.querySelector('.ff-program-toggle');
         if(toggle){ toggle.setAttribute('aria-expanded', 'false'); }
       });
+      openCard = null;
     }
-  });
+    document.querySelectorAll('.ff-program-toggle').forEach(function(toggle){
+      toggle.addEventListener('click', function(e){
+        e.preventDefault();
+        var card = toggle.closest('.ff-program-premium');
+        var isOpen = card.classList.contains('is-open');
+        closeProgramDetails();
+        if(!isOpen){
+          card.classList.add('is-open');
+          toggle.setAttribute('aria-expanded', 'true');
+          openCard = card;
+        }
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.ff-program-premium')){ closeProgramDetails(); }
+    });
+    document.querySelectorAll('.ff-program-popup').forEach(function(popup){
+      popup.addEventListener('mouseleave', function(){ if(window.innerWidth > 991){ closeProgramDetails(); } });
+      popup.addEventListener('touchstart', function(e){ e.stopPropagation(); }, {passive:true});
+    });
+    document.querySelectorAll('.ff-program-premium').forEach(function(card){
+      card.addEventListener('mouseleave', function(){
+        if(window.innerWidth > 991 && card.classList.contains('is-open')){ closeProgramDetails(); }
+      });
+    });
+    window.addEventListener('scroll', function(){ if(openCard){ closeProgramDetails(); } }, {passive:true});
+  })();
 </script>
 
 </body>
