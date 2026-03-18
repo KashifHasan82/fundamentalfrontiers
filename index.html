@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -60,8 +62,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     --ff-case-mid:#163968;
     --ff-case-end:#1c5f78;
 
-    --ff-shadow:0 18px 44px rgba(16,24,39,0.08);
-    --ff-shadow-soft:0 12px 28px rgba(16,24,39,0.06);
+    --ff-shadow:0 12px 28px rgba(16,24,39,0.06);
+    --ff-shadow-soft:0 10px 22px rgba(16,24,39,0.05);
+    --ff-hover-shadow:0 18px 36px rgba(16,24,39,0.10);
 
     --ff-font: Arial, "Helvetica Neue", Helvetica, sans-serif;
   }
@@ -444,6 +447,22 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     box-shadow:var(--ff-shadow);
   }
 
+  .ff-card,
+  .ff-program-premium,
+  .ff-case-premium{
+    transition:transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  @media (hover:hover) and (pointer:fine){
+    .ff-card:hover,
+    .ff-program-premium:hover,
+    .ff-case-premium:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--ff-hover-shadow);
+      border-color:#d7dde8;
+    }
+  }
+
   .ff-service-pillar{
     position:relative;
     padding:22px 22px 20px 22px;
@@ -599,7 +618,17 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-program-premium-stack,
   .ff-case-premium-stack{
     display:grid;
+    grid-template-columns:1fr;
     gap:16px;
+  }
+
+  .ff-mobile-swipe-note{
+    display:none;
+    margin-top:14px;
+    text-align:center;
+    color:var(--ff-muted);
+    font-size:13px;
+    font-weight:700;
   }
 
   .ff-program-premium{
@@ -676,9 +705,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     height:100%;
   }
   .ff-program-side-box{
-    background:
-      radial-gradient(520px 160px at 10% 10%, rgba(58,182,170,0.05), rgba(58,182,170,0) 58%),
-      linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+    background:#fbfcfd;
     border:1px solid var(--ff-line);
     padding:14px 14px 12px 14px;
   }
@@ -782,9 +809,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     height:100%;
   }
   .ff-case-side-box{
-    background:
-      radial-gradient(520px 160px at 10% 10%, rgba(58,182,170,0.05), rgba(58,182,170,0) 58%),
-      linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+    background:#fbfcfd;
     border:1px solid var(--ff-line);
     padding:14px 14px 12px 14px;
   }
@@ -1011,22 +1036,27 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-services-grid,
     .ff-value-grid,
     .ff-deliverables-grid,
-    .ff-insight-grid{
+    .ff-insight-grid,
+    .ff-program-premium-stack,
+    .ff-case-premium-stack{
       grid-template-columns:repeat(3, 1fr);
     }
-    .ff-program-inner{
-      grid-template-columns:1.18fr 0.82fr;
-      align-items:stretch;
-    }
+    .ff-program-inner,
     .ff-case-inner{
-      grid-template-columns:1.02fr 0.98fr;
+      grid-template-columns:1fr;
       align-items:stretch;
+      height:100%;
     }
-    .ff-program-side{
-      padding:18px 18px 18px 0;
+    .ff-program-premium,
+    .ff-case-premium{
+      height:100%;
     }
-    .ff-case-side{
-      padding:18px;
+    .ff-program-main p,
+    .ff-case-main p{
+      min-height:66px;
+    }
+    .ff-program-points{
+      min-height:98px;
     }
     .ff-contact-layout{
       grid-template-columns:1fr 1fr;
@@ -1061,6 +1091,44 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-hero h1{
       font-size:38px;
       max-width:680px;
+    }
+    .ff-services-grid,
+    .ff-value-grid,
+    .ff-deliverables-grid,
+    .ff-program-premium-stack,
+    .ff-case-premium-stack{
+      display:flex;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      padding-bottom:8px;
+    }
+    .ff-services-grid::-webkit-scrollbar,
+    .ff-value-grid::-webkit-scrollbar,
+    .ff-deliverables-grid::-webkit-scrollbar,
+    .ff-program-premium-stack::-webkit-scrollbar,
+    .ff-case-premium-stack::-webkit-scrollbar{
+      height:8px;
+    }
+    .ff-services-grid::-webkit-scrollbar-thumb,
+    .ff-value-grid::-webkit-scrollbar-thumb,
+    .ff-deliverables-grid::-webkit-scrollbar-thumb,
+    .ff-program-premium-stack::-webkit-scrollbar-thumb,
+    .ff-case-premium-stack::-webkit-scrollbar-thumb{
+      background:#c7ced9;
+      border-radius:999px;
+    }
+    .ff-services-grid > *,
+    .ff-value-grid > *,
+    .ff-deliverables-grid > *,
+    .ff-program-premium-stack > *,
+    .ff-case-premium-stack > *{
+      min-width:100%;
+      scroll-snap-align:start;
+    }
+    .ff-mobile-swipe-note{
+      display:block;
     }
     .ff-program-side{
       padding:0 18px 18px 18px;
@@ -1291,6 +1359,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </ul>
         </div>
       </div>
+
+      <div class="ff-mobile-swipe-note">On mobile, swipe left or right to view the next service.</div>
     </div>
   </section>
 
@@ -1320,6 +1390,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Sharper routines, clearer expectations, and better visibility help management move from issue awareness to stronger execution.</p>
         </div>
       </div>
+
+      <div class="ff-mobile-swipe-note">On mobile, swipe left or right to view the next point.</div>
     </div>
   </section>
 
@@ -1355,10 +1427,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="ff-link" href="#contact-book">Discuss deliverables</a>
         </div>
       </div>
+
+      <div class="ff-mobile-swipe-note">On mobile, swipe left or right to view the next deliverable.</div>
     </div>
   </section>
 
-  <section class="ff-section ff-section-white" id="programs">
+  <section class="ff-section ff-section-darkbreak" id="programs">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-label">Programs</div>
@@ -1491,6 +1565,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
       </div>
+
+      <div class="ff-mobile-swipe-note">On mobile, swipe left or right to view the next program.</div>
     </div>
   </section>
 
@@ -1531,7 +1607,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="k">Focus area</div>
                   <div class="t">Workplace organization through 5S</div>
                   <p>
-                    Used to strengthen visual control, improve housekeeping discipline, and support a better organized operating environment.
+                    This work was used to strengthen visual control, improve housekeeping discipline, and support a better organized operating environment.
                   </p>
                 </div>
 
@@ -1572,7 +1648,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="k">Focus area</div>
                   <div class="t">Structured contract lifecycle management</div>
                   <p>
-                    Applied to improve how contracts are managed, monitored, and controlled across key stages of the lifecycle.
+                    This work was applied to improve how contracts were managed, monitored, and controlled across key stages of the lifecycle.
                   </p>
                 </div>
 
@@ -1613,7 +1689,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="k">Focus area</div>
                   <div class="t">CAPA tracking and action visibility</div>
                   <p>
-                    Used to strengthen corrective action follow through, improve ownership clarity, and support better tracking discipline.
+                    This work was used to strengthen corrective action follow through, improve ownership clarity, and support better tracking discipline.
                   </p>
                 </div>
 
@@ -1630,6 +1706,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
       </div>
+
+      <div class="ff-mobile-swipe-note">On mobile, swipe left or right to view the next case study.</div>
 
       <div class="ff-resource-band">
         Request a <a class="ff-link" href="#contact-book">white paper</a>, <a class="ff-link" href="#contact-book">sample case study</a>, or <a class="ff-link" href="#contact-book">readiness checklist</a> if you want to review a practical example before the first discussion.
