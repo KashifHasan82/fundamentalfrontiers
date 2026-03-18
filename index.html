@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -23,7 +22,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>Fundamental Frontiers Consulting</title>
-<meta name="description" content="Organizational performance, readiness, and execution support across risk management, quality improvement, compliance readiness, supplier performance, reporting, and continuous improvement.">
+<meta name="description" content="Manufacturing consulting and execution support across organizational risk management, quality management, compliance readiness, supplier performance, reporting, and continuous improvement.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="site.webmanifest">
 <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -224,7 +223,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   .ff-hero h1{
     margin:0 0 14px 0;
-    font-size:50px;
+    font-size:46px;
     line-height:1.1;
     font-weight:700;
     letter-spacing:-0.02em;
@@ -289,7 +288,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-hero-aside{
-    max-width:540px;
+    max-width:460px;
     justify-self:end;
     width:100%;
   }
@@ -366,7 +365,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     gap:10px;
     padding:14px 22px;
     color:rgba(255,255,255,0.9);
-    font-size:14px;
+    font-size:13px;
     font-weight:700;
     letter-spacing:0.02em;
     white-space:nowrap;
@@ -1008,14 +1007,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
   @media (min-width:992px){
     .ff-hero-grid{
-      grid-template-columns:1.02fr 0.98fr;
-    }
-    .ff-hero-aside{
-      max-width:540px;
-    }
-    .ff-program-grid,
-    .ff-case-grid{
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:1.08fr 0.92fr;
     }
     .ff-services-grid,
     .ff-value-grid,
@@ -1052,86 +1044,9 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   @media (max-width:991px){
-    .ff-topbar{
-      display:none;
-    }
     .ff-mainnav .ff-wrap{
       min-height:78px;
       grid-template-columns:1fr auto;
-    }
-    .ff-mobile-toggle{
-      display:inline-flex;
-      width:46px;
-      height:46px;
-      border:1px solid var(--ff-line);
-      background:#ffffff;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      gap:5px;
-      padding:0;
-      cursor:pointer;
-    }
-    .ff-mobile-toggle span{
-      width:20px;
-      height:2px;
-      background:var(--ff-ink);
-      display:block;
-    }
-    .ff-mobile-drawer{
-      position:fixed;
-      inset:0;
-      background:rgba(4,11,23,0.42);
-    }
-    .ff-mobile-drawer-panel{
-      width:min(340px, 88vw);
-      height:100%;
-      margin-left:auto;
-      background:#ffffff;
-      padding:18px;
-      box-shadow:-18px 0 42px rgba(16,24,39,0.18);
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
-    .ff-mobile-drawer-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding-bottom:14px;
-      border-bottom:1px solid var(--ff-line);
-    }
-    .ff-mobile-brand img{
-      max-height:42px;
-      width:auto;
-      display:block;
-    }
-    .ff-mobile-close{
-      width:42px;
-      height:42px;
-      border:1px solid var(--ff-line);
-      background:#ffffff;
-      color:var(--ff-ink);
-      font-size:28px;
-      line-height:1;
-      cursor:pointer;
-    }
-    .ff-mobile-links{
-      display:grid;
-      gap:4px;
-    }
-    .ff-mobile-links a{
-      color:var(--ff-ink);
-      text-decoration:none;
-      font-size:16px;
-      font-weight:700;
-      padding:10px 0;
-      border-bottom:1px solid var(--ff-line);
-    }
-    .ff-mobile-book{
-      width:100%;
-      margin-top:auto;
     }
     .ff-logo-panel{
       height:78px;
@@ -1145,8 +1060,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       display:none;
     }
     .ff-hero h1{
-      font-size:40px;
+      font-size:38px;
       max-width:680px;
+    }
+    .ff-program-side{
+      padding:0 18px 18px 18px;
+    }
+    .ff-case-side{
+      padding:18px;
     }
     .ff-sticky-cta{
       right:12px;
@@ -1159,15 +1080,18 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       padding-left:18px;
       padding-right:18px;
     }
+    .ff-topbar .ff-wrap{
+      min-height:auto;
+      padding-top:10px;
+      padding-bottom:10px;
+      flex-direction:column;
+      align-items:flex-start;
+    }
     .ff-hero{
       padding:36px 0 36px 0;
     }
     .ff-hero h1{
-      font-size:34px;
-    }
-    .ff-hero p{
-      font-size:16px;
-      line-height:1.56;
+      font-size:32px;
     }
     .ff-head h2{
       font-size:28px;
@@ -1175,275 +1099,23 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     .ff-cta h2{
       font-size:28px;
     }
-    .ff-dynamic-item{
-      padding:12px 18px;
-      font-size:14px;
+    .ff-program-main,
+    .ff-case-main{
+      padding:20px 18px 16px 18px;
     }
-    .ff-service-pillar{
-      padding:18px 18px 16px 18px;
-    }
-    .ff-service-pillar h3{
-      font-size:21px;
-      line-height:1.16;
-    }
-    .ff-service-pillar p,
-    .ff-deliverable-card p,
-    .ff-case-card-bottom p{
-      font-size:13px;
-      line-height:1.55;
-    }
-    .ff-service-list{
-      gap:7px;
-    }
-    .ff-service-list li,
-    .ff-program-points li{
-      font-size:13px;
-      line-height:1.44;
-    }
-    .ff-program-card-body{
-      padding:18px 18px 10px 18px;
-    }
-    .ff-program-card h3{
-      font-size:24px;
-    }
-    .ff-program-card-actions{
-      padding:12px 18px 16px 18px;
-      align-items:flex-start;
-    }
-    .ff-detail-btn{
-      width:100%;
-    }
-    .ff-case-card-top{
-      padding:18px 18px 10px 18px;
-    }
-    .ff-case-card-bottom{
+    .ff-program-side{
       padding:0 18px 18px 18px;
     }
-    .ff-case-card h3{
-      font-size:22px;
-    }
-    .ff-modal-dialog{
-      width:calc(100vw - 20px);
-      max-height:calc(100vh - 20px);
-      margin:10px auto 0 auto;
+    .ff-case-side{
       padding:18px;
     }
-    .ff-modal-dialog h3{
+    .ff-program-main h3{
       font-size:24px;
     }
-    .ff-modal-close{
-      width:100%;
+    .ff-case-main h3{
+      font-size:22px;
     }
   }
-
-  .ff-social-link{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-  }
-  .ff-social-circle{
-    width:28px;
-    height:28px;
-    border-radius:50%;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    background:#000000;
-    color:#ffffff;
-    border:1px solid rgba(255,255,255,0.12);
-    font-size:14px;
-  }
-
-  .ff-mobile-toggle,
-  .ff-mobile-drawer{
-    display:none;
-  }
-
-  .ff-detail-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:40px;
-    padding:10px 14px;
-    border:1px solid #cfd7e3;
-    background:#ffffff;
-    color:var(--ff-ink);
-    font-size:14px;
-    font-weight:700;
-    line-height:1;
-    cursor:pointer;
-    transition:all 0.2s ease;
-  }
-  .ff-detail-btn:hover{
-    border-color:var(--ff-red);
-    color:var(--ff-red-2);
-    background:#fff8f8;
-  }
-
-  .ff-program-grid,
-  .ff-case-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:16px;
-    align-items:stretch;
-  }
-
-  .ff-program-card{
-    display:flex;
-    flex-direction:column;
-    min-height:100%;
-  }
-  .ff-program-card-body{
-    padding:20px 20px 12px 20px;
-    flex:1 1 auto;
-  }
-  .ff-program-card h3{
-    margin:0 0 10px 0;
-    font-size:27px;
-    line-height:1.16;
-    font-weight:700;
-    letter-spacing:-0.02em;
-    color:var(--ff-ink);
-  }
-  .ff-program-card p{
-    margin:0 0 12px 0;
-    color:var(--ff-muted);
-    font-size:14px;
-    line-height:1.58;
-  }
-  .ff-program-card-actions{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    padding:14px 20px 18px 20px;
-    border-top:1px solid var(--ff-line);
-    margin-top:auto;
-    flex-wrap:wrap;
-  }
-
-  .ff-case-card{
-    display:flex;
-    flex-direction:column;
-    min-height:100%;
-    background:linear-gradient(135deg, var(--ff-case-start) 0%, var(--ff-case-mid) 56%, var(--ff-case-end) 100%);
-    color:#fff;
-    border:1px solid rgba(7,20,47,0.18);
-    box-shadow:var(--ff-shadow);
-    overflow:hidden;
-  }
-  .ff-case-card-top{
-    padding:22px 22px 12px 22px;
-    background:linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-  }
-  .ff-case-card-bottom{
-    padding:0 22px 22px 22px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.10) 100%);
-    flex:1 1 auto;
-    display:flex;
-    flex-direction:column;
-  }
-  .ff-case-card h3{
-    margin:0;
-    font-size:24px;
-    line-height:1.18;
-    font-weight:700;
-    letter-spacing:-0.02em;
-    color:#fff;
-  }
-  .ff-case-card-bottom p{
-    margin:0 0 14px 0;
-    color:rgba(255,255,255,0.88);
-    font-size:14px;
-    line-height:1.58;
-    flex:1 1 auto;
-  }
-
-  .ff-modal{
-    position:fixed;
-    inset:0;
-    z-index:120;
-    display:none;
-  }
-  .ff-modal.is-open{
-    display:block;
-  }
-  .ff-modal-backdrop{
-    position:absolute;
-    inset:0;
-    background:rgba(4,11,23,0.62);
-  }
-  .ff-modal-dialog{
-    position:relative;
-    z-index:1;
-    width:min(720px, calc(100vw - 32px));
-    max-height:min(88vh, 760px);
-    overflow:auto;
-    margin:6vh auto 0 auto;
-    background:#ffffff;
-    border:1px solid var(--ff-line);
-    box-shadow:0 30px 70px rgba(16,24,39,0.28);
-    padding:22px;
-  }
-  .ff-modal-close{
-    margin-left:auto;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:42px;
-    padding:10px 16px;
-    border:1px solid var(--ff-red);
-    background:var(--ff-red);
-    color:#ffffff;
-    font-size:15px;
-    font-weight:800;
-    cursor:pointer;
-  }
-  .ff-modal-chip{
-    display:inline-flex;
-    align-items:center;
-    padding:6px 10px;
-    background:#f1f4f8;
-    border:1px solid var(--ff-line);
-    color:#6d7686;
-    font-size:11px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:0.1em;
-    margin:16px 0 12px 0;
-  }
-  .ff-modal-dialog h3{
-    margin:0 0 10px 0;
-    font-size:28px;
-    line-height:1.16;
-    font-weight:700;
-    color:var(--ff-ink);
-  }
-  .ff-modal-summary,
-  .ff-modal-section p{
-    margin:0;
-    color:var(--ff-muted);
-    font-size:15px;
-    line-height:1.65;
-  }
-  .ff-modal-section{
-    margin-top:16px;
-    padding-top:16px;
-    border-top:1px solid var(--ff-line);
-  }
-  .ff-modal-k{
-    color:#7b8596;
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:0.12em;
-    font-weight:800;
-    margin-bottom:8px;
-  }
-  .ff-modal-cta{
-    margin-top:18px;
-  }
-
-
 </style>
 </head>
 
@@ -1467,10 +1139,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="ff-topbar">
   <div class="ff-wrap">
     <div class="ff-topbar-left">
-      <span>Organizational performance, readiness, and execution support across risk management, quality improvement, compliance readiness, supplier performance, reporting, and continuous improvement</span>
+      <span>Manufacturing consulting and execution support for organizational risk management, quality management, supplier performance, reporting, compliance readiness, and continuous improvement</span>
     </div>
     <div class="ff-topbar-right">
-      <a class="ff-social-link" href="https://www.linkedin.com/company/fundamental-frontiers" target="_blank" rel="noopener" aria-label="LinkedIn"><span class="ff-social-circle"><i class="fab fa-linkedin-in"></i></span><span>LinkedIn</span></a>
+      <a href="https://www.linkedin.com/company/fundamental-frontiers" target="_blank" rel="noopener">LinkedIn</a>
       <a href="#contact-book">Contact</a>
     </div>
   </div>
@@ -1497,33 +1169,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="ff-nav-actions">
         <a class="ff-nav-icon-link" href="#contact-book">Book a call</a>
       </div>
-
-      <button class="ff-mobile-toggle" type="button" aria-expanded="false" aria-controls="ffMobileNav" aria-label="Open navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
   </div>
 
-  <div class="ff-mobile-drawer" id="ffMobileNav" aria-hidden="true">
-    <div class="ff-mobile-drawer-panel">
-      <div class="ff-mobile-drawer-top">
-        <div class="ff-mobile-brand">
-          <img src="assets/img/logo/logo.png" alt="Fundamental Frontiers">
+  <div class="header-area">
+    <div class="main-header">
+      <div class="header-bottom header-sticky d-lg-none">
+        <div class="ff-wrap">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <div class="logo ff-logo">
+                <a href="index.html"><img src="assets/img/logo/logo.png" alt="Fundamental Frontiers"></a>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="mobile_menu d-block d-lg-none"></div>
+            </div>
+          </div>
         </div>
-        <button class="ff-mobile-close" type="button" aria-label="Close navigation">&times;</button>
       </div>
-      <nav class="ff-mobile-links">
-        <a href="#services">Services</a>
-        <a href="#deliverables">Deliverables</a>
-        <a href="#programs">Programs</a>
-        <a href="#proof">Selected work</a>
-        <a href="#insights">Insights</a>
-        <a href="#contact-book">Book</a>
-        <a href="https://www.linkedin.com/company/fundamental-frontiers" target="_blank" rel="noopener">LinkedIn</a>
-      </nav>
-      <a class="ff-btn ff-btn-primary ff-mobile-book" href="#contact-book">Book a call</a>
     </div>
   </div>
 </header>
@@ -1534,8 +1198,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="ff-wrap">
       <div class="ff-hero-grid">
         <div class="ff-hero-copy">
-          <div class="ff-kicker">Organizational performance, readiness, and execution support</div>
-          <h1>Enhanced clarity for organizational KPIs, stronger evidence for gaps, and practical execution support for teams facing operational challenges</h1>
+          <div class="ff-kicker">Manufacturing performance, readiness, and execution support</div>
+          <h1>Enhanced clarity for organizational KPIs, stronger evidence for gaps, & practical execution support for teams facing operational challenges</h1>
           <p>
             Fundamental Frontiers supports organizations that need sharper visibility on operational gaps, stronger evidence for risk and compliance exposure, and practical execution support to improve control, accountability, and measurable operational performance.
           </p>
@@ -1552,15 +1216,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="ff-proof-list">
               <a class="ff-proof-item" href="#programs">
                 <span class="ff-proof-title">Risk management and compliance readiness</span>
-                <span>Control gaps and accountability.</span>
+                <span>Control gaps, evidence strength, and accountability aligned into a practical action plan.</span>
               </a>
               <a class="ff-proof-item" href="#programs">
                 <span class="ff-proof-title">Kaizen Blitz</span>
-                <span>Bottlenecks and focused action.</span>
+                <span>Visible bottlenecks, team actions, and short cycle gains organized into focused improvement work.</span>
               </a>
               <a class="ff-proof-item" href="#programs">
                 <span class="ff-proof-title">Root cause analysis and CAPA</span>
-                <span>Closure discipline and follow through.</span>
+                <span>Priority issues reviewed with stronger corrective action logic, closure discipline, and follow through.</span>
               </a>
             </div>
           </div>
@@ -1695,7 +1359,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-
   <section class="ff-section ff-section-white" id="programs">
     <div class="ff-wrap">
       <div class="ff-head">
@@ -1706,62 +1369,131 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </p>
       </div>
 
-      <div class="ff-program-grid">
-        <article class="ff-program-card ff-card">
-          <div class="ff-program-card-body">
-            <div class="ff-chip">60 to 90 days</div>
-            <h3>Risk management and Compliance Readiness</h3>
-            <p>A focused program that clarifies risk exposure, strengthens evidence, and builds a steadier response under audit or regulatory review.</p>
-            <ul class="ff-program-points">
-              <li>Current state review of risk, controls, and compliance exposure</li>
-              <li>Evidence and accountability mapping across priority focus areas</li>
-              <li>Structured action plan with ownership and review cadence</li>
-            </ul>
-          </div>
-          <div class="ff-program-card-actions">
-            <a class="ff-link" href="#contact-book">Discuss this program</a>
-            <button class="ff-detail-btn" type="button" data-modal-title="Risk management and Compliance Readiness" data-modal-duration="60 to 90 days" data-modal-summary="A focused program that clarifies risk exposure, strengthens evidence, and builds a steadier response under audit or regulatory review." data-modal-why="Used where the organization needs a clearer view of control gaps, evidence strength, accountability, and readiness under review." data-modal-result="Creates a more disciplined response structure for risk, audit, and ongoing compliance related priorities.">View program details</button>
-          </div>
-        </article>
+      <div class="ff-program-premium-stack">
 
-        <article class="ff-program-card ff-card">
-          <div class="ff-program-card-body">
-            <div class="ff-chip">90 to 120 days</div>
-            <h3>Kaizen Blitz</h3>
-            <p>A focused improvement sprint that targets visible bottlenecks, aligns teams, and drives measurable gains in a short cycle.</p>
-            <ul class="ff-program-points">
-              <li>Rapid review of visible process inefficiencies and bottlenecks</li>
-              <li>Focused team workshops and improvement actions on priority areas</li>
-              <li>Short cycle tracking of actions, gains, and follow through</li>
-            </ul>
-          </div>
-          <div class="ff-program-card-actions">
-            <a class="ff-link" href="#contact-book">Discuss this program</a>
-            <button class="ff-detail-btn" type="button" data-modal-title="Kaizen Blitz" data-modal-duration="90 to 120 days" data-modal-summary="A focused improvement sprint that targets visible bottlenecks, aligns teams, and drives measurable gains in a short cycle." data-modal-why="Used where management wants a practical initiative that can improve efficiency, discipline, and visible operational performance." data-modal-result="Creates momentum through structured improvement activity, clearer team alignment, and faster issue resolution.">View program details</button>
-          </div>
-        </article>
+        <div class="ff-program-premium">
+          <div class="ff-program-inner">
+            <div class="ff-program-main">
+              <div class="ff-chip">60 to 90 days</div>
+              <h3>Risk management and Compliance Readiness</h3>
+              <p>
+                A focused program that clarifies risk exposure, strengthens evidence, and builds a steadier response under audit or regulatory review.
+              </p>
 
-        <article class="ff-program-card ff-card">
-          <div class="ff-program-card-body">
-            <div class="ff-chip">30 to 60 days</div>
-            <h3>Root Cause Analysis and Corrective and Preventive Action</h3>
-            <p>A structured program that strengthens root cause thinking, corrective action design, and closure discipline on repeat issues.</p>
-            <ul class="ff-program-points">
-              <li>Structured issue review and root cause analysis on priority cases</li>
-              <li>Corrective and preventive action design with ownership clarity</li>
-              <li>Follow up tracking to strengthen closure discipline and effectiveness</li>
-            </ul>
+              <ul class="ff-program-points">
+                <li>Current state review of risk, controls, and compliance exposure</li>
+                <li>Evidence and accountability mapping across priority focus areas</li>
+                <li>Structured action plan with ownership and review cadence</li>
+              </ul>
+
+              <a class="ff-link" href="#contact-book">Discuss this program</a>
+            </div>
+
+            <div class="ff-program-side">
+              <div class="ff-program-side-grid">
+                <div class="ff-program-side-box">
+                  <div class="k">Why this program</div>
+                  <div class="t">Risk visibility and compliance readiness</div>
+                  <p>
+                    Used where the organization needs a clearer view of control gaps, evidence strength, accountability, and readiness under review.
+                  </p>
+                </div>
+
+                <div class="ff-program-side-box">
+                  <div class="k">Expected result</div>
+                  <div class="t">Stronger control and clearer accountability</div>
+                  <p>
+                    Creates a more disciplined response structure for risk, audit, and ongoing compliance related priorities.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="ff-program-card-actions">
-            <a class="ff-link" href="#contact-book">Discuss this program</a>
-            <button class="ff-detail-btn" type="button" data-modal-title="Root Cause Analysis and Corrective and Preventive Action" data-modal-duration="30 to 60 days" data-modal-summary="A structured program that strengthens root cause thinking, corrective action design, and closure discipline on repeat issues." data-modal-why="Used where organizations need stronger root cause thinking, better corrective action structure, and more reliable preventive logic." data-modal-result="Creates more disciplined closure expectations and stronger confidence that the fix will hold over time.">View program details</button>
+        </div>
+
+        <div class="ff-program-premium">
+          <div class="ff-program-inner">
+            <div class="ff-program-main">
+              <div class="ff-chip">90 to 120 days</div>
+              <h3>Kaizen Blitz</h3>
+              <p>
+                A focused improvement sprint that targets visible bottlenecks, aligns teams, and drives measurable gains in a short cycle.
+              </p>
+
+              <ul class="ff-program-points">
+                <li>Rapid review of visible process inefficiencies and bottlenecks</li>
+                <li>Focused team workshops and improvement actions on priority areas</li>
+                <li>Short cycle tracking of actions, gains, and follow through</li>
+              </ul>
+
+              <a class="ff-link" href="#contact-book">Discuss this program</a>
+            </div>
+
+            <div class="ff-program-side">
+              <div class="ff-program-side-grid">
+                <div class="ff-program-side-box">
+                  <div class="k">Why this program</div>
+                  <div class="t">Focused process improvement</div>
+                  <p>
+                    Used where management wants a practical initiative that can improve efficiency, discipline, and visible operational performance.
+                  </p>
+                </div>
+
+                <div class="ff-program-side-box">
+                  <div class="k">Expected result</div>
+                  <div class="t">Measurable process movement</div>
+                  <p>
+                    Creates momentum through structured improvement activity, clearer team alignment, and faster issue resolution.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        </article>
+        </div>
+
+        <div class="ff-program-premium">
+          <div class="ff-program-inner">
+            <div class="ff-program-main">
+              <div class="ff-chip">30 to 60 days</div>
+              <h3>Root Cause Analysis and Corrective and Preventive Action</h3>
+              <p>
+                A structured program that strengthens root cause thinking, corrective action design, and closure discipline on repeat issues.
+              </p>
+
+              <ul class="ff-program-points">
+                <li>Structured issue review and root cause analysis on priority cases</li>
+                <li>Corrective and preventive action design with ownership clarity</li>
+                <li>Follow up tracking to strengthen closure discipline and effectiveness</li>
+              </ul>
+
+              <a class="ff-link" href="#contact-book">Discuss this program</a>
+            </div>
+
+            <div class="ff-program-side">
+              <div class="ff-program-side-grid">
+                <div class="ff-program-side-box">
+                  <div class="k">Why this program</div>
+                  <div class="t">Repeat issues and weak closure logic</div>
+                  <p>
+                    Used where organizations need stronger root cause thinking, better corrective action structure, and more reliable preventive logic.
+                  </p>
+                </div>
+
+                <div class="ff-program-side-box">
+                  <div class="k">Expected result</div>
+                  <div class="t">Better quality and stronger closure</div>
+                  <p>
+                    Creates more disciplined closure expectations and stronger confidence that the fix will hold over time.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
-
-
 
   <section class="ff-section ff-section-soft" id="proof">
     <div class="ff-wrap">
@@ -1773,60 +1505,131 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </p>
       </div>
 
-      <div class="ff-case-grid">
-        <article class="ff-case-card">
-          <div class="ff-case-card-top">
-            <div class="ff-case-work-tag">Execution work</div>
-            <div class="ff-case-main-top">
-              <span class="ff-case-meta">Case study</span>
-              <span class="ff-case-meta">30 days</span>
-              <span class="ff-case-meta">Quality and operations</span>
-            </div>
-            <h3>5S workplace organization improvement</h3>
-          </div>
-          <div class="ff-case-card-bottom">
-            <p>
-              A structured 5S initiative was applied to improve workplace organization, visual control, and day to day efficiency. This work was used to strengthen visual control, improve housekeeping discipline, support a better organized operating environment, and help create a cleaner, safer, and more disciplined workplace.
-            </p>
-            <a class="ff-link-light" href="#contact-book">Request this case study</a>
-          </div>
-        </article>
+      <div class="ff-case-premium-stack">
 
-        <article class="ff-case-card">
-          <div class="ff-case-card-top">
-            <div class="ff-case-work-tag">Compliance work</div>
-            <div class="ff-case-main-top">
-              <span class="ff-case-meta">Case study</span>
-              <span class="ff-case-meta">4 to 6 months</span>
-              <span class="ff-case-meta">Compliance and contracts</span>
-            </div>
-            <h3>Improving efficiency, compliance, and risk control</h3>
-          </div>
-          <div class="ff-case-card-bottom">
-            <p>
-              This work outlined a structured approach to managing contracts across creation, negotiation, execution, monitoring, and renewal. It was applied to improve how contracts were managed, monitored, and controlled across key stages of the lifecycle, and it supported better efficiency, compliance, and risk control through a clearer review structure.
-            </p>
-            <a class="ff-link-light" href="#contact-book">Request this case study</a>
-          </div>
-        </article>
+        <div class="ff-case-premium">
+          <div class="ff-case-inner">
+            <div class="ff-case-main">
+              <div class="ff-case-work-tag">Execution work</div>
 
-        <article class="ff-case-card">
-          <div class="ff-case-card-top">
-            <div class="ff-case-work-tag">CAPA work</div>
-            <div class="ff-case-main-top">
-              <span class="ff-case-meta">Case study</span>
-              <span class="ff-case-meta">2 to 3 months</span>
-              <span class="ff-case-meta">Quality and CAPA</span>
+              <div class="ff-case-main-top">
+                <span class="ff-case-meta">Case study</span>
+                <span class="ff-case-meta">30 days</span>
+                <span class="ff-case-meta">Quality and operations</span>
+              </div>
+
+              <h3>5S workplace organization improvement</h3>
+              <p>
+                A structured 5S initiative was applied to improve workplace organization, visual control, and day to day efficiency.
+              </p>
+
+              <a class="ff-link-light" href="#contact-book">Explore relevant use cases</a>
             </div>
-            <h3>CAPA tracking and closure improvement</h3>
+
+            <div class="ff-case-side">
+              <div class="ff-case-side-grid">
+                <div class="ff-case-side-box">
+                  <div class="k">Focus area</div>
+                  <div class="t">Workplace organization through 5S</div>
+                  <p>
+                    Used to strengthen visual control, improve housekeeping discipline, and support a better organized operating environment.
+                  </p>
+                </div>
+
+                <div class="ff-case-side-box">
+                  <div class="k">Result area</div>
+                  <div class="t">Cleaner, safer, and more disciplined operations</div>
+                  <p>
+                    Helped create a more structured workplace that supported better performance and sustainment.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="ff-case-card-bottom">
-            <p>
-              A structured CAPA tracking process was introduced to improve issue visibility, action ownership, and closure discipline. This work was used to strengthen corrective action follow through, improve ownership clarity, support better tracking discipline, and help teams reduce repeat problems with stronger closure.
-            </p>
-            <a class="ff-link-light" href="#contact-book">Request this case study</a>
+        </div>
+
+        <div class="ff-case-premium">
+          <div class="ff-case-inner">
+            <div class="ff-case-main">
+              <div class="ff-case-work-tag">Compliance work</div>
+
+              <div class="ff-case-main-top">
+                <span class="ff-case-meta">Case study</span>
+                <span class="ff-case-meta">4 to 6 months</span>
+                <span class="ff-case-meta">Compliance and contracts</span>
+              </div>
+
+              <h3>Improving efficiency, compliance, and risk control</h3>
+              <p>
+                This work outlined a structured approach to managing contracts across creation, negotiation, execution, monitoring, and renewal.
+              </p>
+
+              <a class="ff-link-light" href="#contact-book">Explore relevant use cases</a>
+            </div>
+
+            <div class="ff-case-side">
+              <div class="ff-case-side-grid">
+                <div class="ff-case-side-box">
+                  <div class="k">Focus area</div>
+                  <div class="t">Structured contract lifecycle management</div>
+                  <p>
+                    Applied to improve how contracts are managed, monitored, and controlled across key stages of the lifecycle.
+                  </p>
+                </div>
+
+                <div class="ff-case-side-box">
+                  <div class="k">Result area</div>
+                  <div class="t">Better efficiency, compliance, and risk control</div>
+                  <p>
+                    Supported a more disciplined contract management approach with clearer control and review structure.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        </article>
+        </div>
+
+        <div class="ff-case-premium">
+          <div class="ff-case-inner">
+            <div class="ff-case-main">
+              <div class="ff-case-work-tag">CAPA work</div>
+
+              <div class="ff-case-main-top">
+                <span class="ff-case-meta">Case study</span>
+                <span class="ff-case-meta">2 to 3 months</span>
+                <span class="ff-case-meta">Quality and CAPA</span>
+              </div>
+
+              <h3>CAPA tracking and closure improvement</h3>
+              <p>
+                A structured CAPA tracking process was introduced to improve issue visibility, action ownership, and closure discipline.
+              </p>
+
+              <a class="ff-link-light" href="#contact-book">Explore relevant use cases</a>
+            </div>
+
+            <div class="ff-case-side">
+              <div class="ff-case-side-grid">
+                <div class="ff-case-side-box">
+                  <div class="k">Focus area</div>
+                  <div class="t">CAPA tracking and action visibility</div>
+                  <p>
+                    Used to strengthen corrective action follow through, improve ownership clarity, and support better tracking discipline.
+                  </p>
+                </div>
+
+                <div class="ff-case-side-box">
+                  <div class="k">Result area</div>
+                  <div class="t">Fewer repeat problems and stronger closure</div>
+                  <p>
+                    Helped teams follow corrective actions more consistently and reduce the risk of recurring issues.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div class="ff-resource-band">
@@ -1834,26 +1637,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
   </section>
-
-
-  <div class="ff-modal" id="ffProgramModal" aria-hidden="true">
-    <div class="ff-modal-backdrop"></div>
-    <div class="ff-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="ffModalTitle">
-      <button class="ff-modal-close" type="button" aria-label="Close details">Close</button>
-      <div class="ff-modal-chip" id="ffModalDuration"></div>
-      <h3 id="ffModalTitle"></h3>
-      <p class="ff-modal-summary" id="ffModalSummary"></p>
-      <div class="ff-modal-section">
-        <div class="ff-modal-k">Why this program</div>
-        <p id="ffModalWhy"></p>
-      </div>
-      <div class="ff-modal-section">
-        <div class="ff-modal-k">Expected result</div>
-        <p id="ffModalResult"></p>
-      </div>
-      <a class="ff-btn ff-btn-primary ff-modal-cta" href="#contact-book">Discuss this program</a>
-    </div>
-  </div>
 
   <section class="ff-section ff-section-white" id="insights">
     <div class="ff-wrap">
@@ -2083,99 +1866,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         alert("Draft enquiry submitted. Connect this form to your backend or CRM later.");
       });
     }
-
-    var body = document.body;
-    var mobileToggle = document.querySelector(".ff-mobile-toggle");
-    var mobileDrawer = document.getElementById("ffMobileNav");
-    var mobileClose = document.querySelector(".ff-mobile-close");
-    var mobileLinks = document.querySelectorAll(".ff-mobile-links a");
-
-    function closeDrawer(){
-      if(!mobileDrawer || !mobileToggle){ return; }
-      mobileDrawer.style.display = "none";
-      mobileDrawer.setAttribute("aria-hidden", "true");
-      mobileToggle.setAttribute("aria-expanded", "false");
-      body.style.overflow = "";
-    }
-
-    function openDrawer(){
-      if(!mobileDrawer || !mobileToggle){ return; }
-      mobileDrawer.style.display = "block";
-      mobileDrawer.setAttribute("aria-hidden", "false");
-      mobileToggle.setAttribute("aria-expanded", "true");
-      body.style.overflow = "hidden";
-    }
-
-    if(mobileToggle && mobileDrawer){
-      mobileToggle.addEventListener("click", function(){
-        if(mobileDrawer.style.display === "block"){
-          closeDrawer();
-        } else {
-          openDrawer();
-        }
-      });
-    }
-
-    if(mobileClose){
-      mobileClose.addEventListener("click", closeDrawer);
-    }
-
-    if(mobileDrawer){
-      mobileDrawer.addEventListener("click", function(e){
-        if(e.target === mobileDrawer){
-          closeDrawer();
-        }
-      });
-    }
-
-    mobileLinks.forEach(function(link){
-      link.addEventListener("click", closeDrawer);
-    });
-
-    var modal = document.getElementById("ffProgramModal");
-    var modalTitle = document.getElementById("ffModalTitle");
-    var modalDuration = document.getElementById("ffModalDuration");
-    var modalSummary = document.getElementById("ffModalSummary");
-    var modalWhy = document.getElementById("ffModalWhy");
-    var modalResult = document.getElementById("ffModalResult");
-    var modalClose = document.querySelector(".ff-modal-close");
-    var modalBackdrop = document.querySelector(".ff-modal-backdrop");
-    var detailButtons = document.querySelectorAll(".ff-detail-btn");
-
-    function closeModal(){
-      if(!modal){ return; }
-      modal.classList.remove("is-open");
-      modal.setAttribute("aria-hidden", "true");
-      body.style.overflow = "";
-    }
-
-    if(detailButtons.length && modal){
-      detailButtons.forEach(function(button){
-        button.addEventListener("click", function(){
-          modalTitle.textContent = button.getAttribute("data-modal-title") || "";
-          modalDuration.textContent = button.getAttribute("data-modal-duration") || "";
-          modalSummary.textContent = button.getAttribute("data-modal-summary") || "";
-          modalWhy.textContent = button.getAttribute("data-modal-why") || "";
-          modalResult.textContent = button.getAttribute("data-modal-result") || "";
-          modal.classList.add("is-open");
-          modal.setAttribute("aria-hidden", "false");
-          body.style.overflow = "hidden";
-        });
-      });
-    }
-
-    if(modalClose){
-      modalClose.addEventListener("click", closeModal);
-    }
-    if(modalBackdrop){
-      modalBackdrop.addEventListener("click", closeModal);
-    }
-    document.addEventListener("keydown", function(e){
-      if(e.key === "Escape"){
-        closeModal();
-        closeDrawer();
-      }
-    });
   })();
 </script>
 
