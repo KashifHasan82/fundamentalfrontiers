@@ -1643,6 +1643,191 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     }
   }
 </style>
+
+<style>
+  /* Final refinement: premium services section plus mobile horizontal hero service band */
+  #services{
+    background:linear-gradient(180deg, #f3f5f8 0%, #eef2f6 100%);
+  }
+  #services .ff-head{
+    max-width:980px;
+    margin:0 auto 28px auto;
+  }
+  #services .ff-label{
+    background:#f8fafc;
+    border-color:#dbe2ea;
+    color:#728096;
+    min-width:0;
+    width:min(980px,100%);
+    justify-content:center;
+    border-radius:7px;
+    letter-spacing:0.16em;
+  }
+  #services .ff-head h2{
+    letter-spacing:-0.03em;
+    margin-top:18px;
+    margin-bottom:14px;
+  }
+  #services .ff-head p{
+    max-width:930px;
+    color:#5f6c80;
+    font-size:15px;
+    line-height:1.75;
+  }
+  #services .ff-services-grid{
+    gap:18px;
+  }
+  #services .ff-service-pillar{
+    background:linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+    border:1px solid #d8dfe8;
+    box-shadow:0 14px 30px rgba(16,24,39,0.06);
+    border-radius:18px;
+    padding:24px 22px 22px 22px;
+    overflow:hidden;
+  }
+  #services .ff-service-pillar::before{
+    height:3px;
+    left:18px;
+    right:18px;
+    top:0;
+    border-radius:0 0 12px 12px;
+    background:linear-gradient(90deg, rgba(223,72,88,0.92) 0%, rgba(223,72,88,0.72) 55%, rgba(223,72,88,0.40) 100%);
+  }
+  #services .ff-service-pillar::after{
+    content:"";
+    position:absolute;
+    inset:auto -22% -28% auto;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(13,42,86,0.05) 0%, rgba(13,42,86,0.02) 42%, rgba(13,42,86,0) 70%);
+    pointer-events:none;
+  }
+  #services .ff-service-tag{
+    padding:7px 12px;
+    background:#f8fafc;
+    border:1px solid #d9e0e8;
+    color:#6e7c91;
+    border-radius:7px;
+    margin-bottom:14px;
+  }
+  #services .ff-service-pillar h3{
+    font-size:25px;
+    line-height:1.16;
+    margin:0 0 12px 0;
+  }
+  #services .ff-service-pillar p{
+    color:#5b677a;
+    font-size:15px;
+    line-height:1.72;
+    margin:0 0 16px 0;
+  }
+  #services .ff-service-list{
+    gap:10px;
+  }
+  #services .ff-service-list li{
+    padding-left:16px;
+    font-size:14px;
+    line-height:1.55;
+  }
+  #services .ff-service-list li::before{
+    width:5px;
+    height:5px;
+    top:9px;
+    background:#df4858;
+    box-shadow:0 0 0 4px rgba(223,72,88,0.10);
+  }
+
+  @media (max-width:991px){
+    #services .ff-head{margin-bottom:22px;}
+    #services .ff-service-pillar{padding:22px 20px 20px 20px;}
+    #services .ff-service-pillar h3{font-size:23px;}
+  }
+
+  @media (max-width:767px){
+    .ff-hero-grid{
+      gap:18px;
+    }
+    .ff-hero-aside{
+      order:2;
+      margin-top:2px;
+    }
+    .ff-service-rotator{
+      min-height:auto;
+      justify-content:flex-start;
+    }
+    .ff-service-rotator-stage{
+      max-width:none;
+      width:100%;
+      padding:0;
+    }
+    .ff-service-rotator-stage::before,
+    .ff-service-rotator-stage::after{
+      display:none;
+    }
+    .ff-rotator-track{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:8px;
+      width:100%;
+    }
+    .ff-rotator-item{
+      grid-template-columns:1fr;
+      gap:8px;
+      padding:12px 10px 10px 10px;
+      min-height:88px;
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:12px;
+      background:rgba(255,255,255,0.03);
+      backdrop-filter:blur(4px);
+      transform:none !important;
+    }
+    .ff-rotator-bar{
+      width:42px;
+      height:2px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.18);
+      box-shadow:none;
+    }
+    .ff-rotator-item.is-featured .ff-rotator-bar{
+      width:56px;
+      height:2px;
+      box-shadow:none;
+    }
+    .ff-rotator-title{
+      font-size:17px;
+      line-height:1.18;
+      letter-spacing:-0.03em;
+      text-wrap:pretty;
+    }
+  }
+
+  @media (max-width:640px){
+    #services .ff-label{
+      width:100%;
+    }
+    #services .ff-head h2{
+      font-size:30px;
+    }
+    #services .ff-head p{
+      font-size:14px;
+      line-height:1.7;
+    }
+    .ff-rotator-track{
+      gap:6px;
+    }
+    .ff-rotator-item{
+      padding:10px 9px 10px 9px;
+      min-height:82px;
+      border-radius:10px;
+    }
+    .ff-rotator-title{
+      font-size:15px;
+      line-height:1.16;
+    }
+  }
+</style>
+
 </head>
 
 <body class="body-bg">
