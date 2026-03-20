@@ -337,10 +337,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   }
 
   .ff-hero-aside{
-    max-width:540px;
+    max-width:560px;
     justify-self:end;
     width:100%;
-    padding-top:18px;
+    min-height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding-top:0;
   }
 
   .ff-hero-panel{
@@ -351,12 +355,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     position:relative;
   }
   .ff-mini-label{
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:0.12em;
-    font-weight:800;
-    color:rgba(255,255,255,0.78);
-    margin-bottom:10px;
+    display:none;
   }
   .ff-proof-list{
     display:grid;
@@ -1305,6 +1304,116 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border:1px solid rgba(255,255,255,0.08);
   }
 
+
+  .ff-service-rotator{
+    position:relative;
+    width:100%;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:none;
+    border:none;
+    box-shadow:none;
+    backdrop-filter:none;
+  }
+  .ff-service-rotator-stage{
+    position:relative;
+    width:100%;
+    max-width:520px;
+    height:372px;
+    overflow:hidden;
+    margin:0 auto;
+  }
+  .ff-rotator-track{
+    display:flex;
+    flex-direction:column;
+    will-change:transform;
+    transform:translateY(0);
+  }
+  .ff-rotator-item{
+    display:grid;
+    grid-template-columns:132px minmax(0,1fr);
+    gap:28px;
+    align-items:center;
+    min-height:124px;
+    padding:6px 0;
+    text-decoration:none;
+    color:#fff;
+    transition:opacity .42s linear, transform .42s linear, filter .42s linear;
+    transform-origin:left center;
+  }
+  .ff-rotator-item.is-dim{
+    opacity:.20;
+    transform:scale(.988);
+    filter:blur(.08px);
+  }
+  .ff-rotator-item.is-active{
+    opacity:1;
+    transform:scale(1);
+    filter:none;
+  }
+  .ff-rotator-icon{
+    width:116px;
+    height:116px;
+    display:grid;
+    place-items:center;
+    color:#22d7ff;
+  }
+  .ff-rotator-icon svg{
+    width:110px;
+    height:110px;
+    stroke:currentColor;
+    fill:none;
+    stroke-width:1.65;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    vector-effect:non-scaling-stroke;
+  }
+  .ff-rotator-content{
+    min-width:0;
+  }
+  .ff-rotator-title{
+    display:block;
+    font-size:29px;
+    line-height:1.02;
+    font-weight:700;
+    letter-spacing:-0.038em;
+    color:rgba(255,255,255,0.24);
+    transition:color .42s linear;
+    white-space:nowrap;
+  }
+  .ff-rotator-item.is-active .ff-rotator-title{
+    color:#ffffff;
+  }
+  .ff-rotator-description{
+    display:none;
+  }
+  @media (max-width:1199px){
+    .ff-service-rotator{min-height:392px;}
+    .ff-service-rotator-stage{height:342px;max-width:500px;}
+    .ff-rotator-item{grid-template-columns:116px minmax(0,1fr);gap:24px;min-height:114px;}
+    .ff-rotator-icon{width:98px;height:98px;}
+    .ff-rotator-icon svg{width:94px;height:94px;}
+    .ff-rotator-title{font-size:25px;}
+  }
+  @media (max-width:991px){
+    .ff-service-rotator{min-height:328px;}
+    .ff-service-rotator-stage{height:282px;max-width:none;}
+    .ff-rotator-item{grid-template-columns:88px minmax(0,1fr);gap:18px;min-height:94px;}
+    .ff-rotator-icon{width:74px;height:74px;}
+    .ff-rotator-icon svg{width:72px;height:72px;}
+    .ff-rotator-title{font-size:21px;}
+  }
+  @media (max-width:640px){
+    .ff-service-rotator-stage{height:240px;}
+    .ff-rotator-item{grid-template-columns:70px minmax(0,1fr);gap:14px;min-height:80px;}
+    .ff-rotator-icon{width:58px;height:58px;}
+    .ff-rotator-icon svg{width:56px;height:56px;}
+    .ff-rotator-title{font-size:18px;white-space:normal;}
+  }
+
   /* Deloitte inspired card discipline without changing section concepts */
   .ff-card,
   .ff-program-premium,
@@ -1587,27 +1696,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="ff-hero-aside">
-          <div class="ff-hero-panel">
-            <div class="ff-mini-label">What we support</div>
-            <div class="ff-proof-list">
-              <a class="ff-proof-item ff-hero-service-jump" href="#service-readiness" data-target="service-readiness">
-                <span class="ff-proof-accent" aria-hidden="true"></span>
-                <span class="ff-proof-copy">
-                  <span class="ff-proof-title">Readiness and governance</span>
-                </span>
-              </a>
-              <a class="ff-proof-item ff-hero-service-jump" href="#service-quality" data-target="service-quality">
-                <span class="ff-proof-accent" aria-hidden="true"></span>
-                <span class="ff-proof-copy">
-                  <span class="ff-proof-title">Quality and execution</span>
-                </span>
-              </a>
-              <a class="ff-proof-item ff-hero-service-jump" href="#service-visibility" data-target="service-visibility">
-                <span class="ff-proof-accent" aria-hidden="true"></span>
-                <span class="ff-proof-copy">
-                  <span class="ff-proof-title">Visibility and improvement</span>
-                </span>
-              </a>
+          <div class="ff-service-rotator" aria-label="Core service groups">
+            <div class="ff-service-rotator-stage">
+              <div class="ff-rotator-track" id="ffServiceRotator" aria-label="Core service groups">
+                <a class="ff-rotator-item ff-hero-service-jump is-dim" href="#service-readiness" data-target="service-readiness" data-index="0">
+                  <span class="ff-rotator-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 3.25 5.75 5.9v5.6c0 4.1 2.84 7.62 6.66 8.53 3.82-.91 6.59-4.43 6.59-8.53V5.9L12 3.25Z"></path>
+                      <path d="m9.25 12 1.9 1.9 3.6-4.15"></path>
+                    </svg>
+                  </span>
+                  <span class="ff-rotator-content">
+                    <span class="ff-rotator-title">Readiness and governance</span>
+                  </span>
+                </a>
+                <a class="ff-rotator-item ff-hero-service-jump is-active" href="#service-quality" data-target="service-quality" data-index="1">
+                  <span class="ff-rotator-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.5 3.75h7"></path>
+                      <path d="M9.5 2.75h5a1 1 0 0 1 1 1v1h1.1a1.9 1.9 0 0 1 1.9 1.9v11.6a1.9 1.9 0 0 1-1.9 1.9H7.4a1.9 1.9 0 0 1-1.9-1.9V6.65a1.9 1.9 0 0 1 1.9-1.9h1.1v-1a1 1 0 0 1 1-1Z"></path>
+                      <path d="M8.75 10.25h6.75"></path>
+                      <path d="M8.75 13.25h3.75"></path>
+                      <path d="m13.9 15.2 1.45 1.45 2.65-3.15"></path>
+                    </svg>
+                  </span>
+                  <span class="ff-rotator-content">
+                    <span class="ff-rotator-title">Quality and execution</span>
+                  </span>
+                </a>
+                <a class="ff-rotator-item ff-hero-service-jump is-dim" href="#service-visibility" data-target="service-visibility" data-index="2">
+                  <span class="ff-rotator-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.5 19.25h15"></path>
+                      <path d="M7.25 19.25V11.5"></path>
+                      <path d="M12 19.25V7.75"></path>
+                      <path d="M16.75 19.25v-5.5"></path>
+                      <path d="m7.25 9.1 4.75-3.35 4.75 2.2"></path>
+                      <path d="m15.65 7.25 1.1.7 1.55-2.45"></path>
+                    </svg>
+                  </span>
+                  <span class="ff-rotator-content">
+                    <span class="ff-rotator-title">Visibility and improvement</span>
+                  </span>
+                </a>
+                <a class="ff-rotator-item ff-hero-service-jump is-dim" href="#service-readiness" data-target="service-readiness" data-index="0">
+                  <span class="ff-rotator-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 3.25 5.75 5.9v5.6c0 4.1 2.84 7.62 6.66 8.53 3.82-.91 6.59-4.43 6.59-8.53V5.9L12 3.25Z"></path>
+                      <path d="m9.25 12 1.9 1.9 3.6-4.15"></path>
+                    </svg>
+                  </span>
+                  <span class="ff-rotator-content">
+                    <span class="ff-rotator-title">Readiness and governance</span>
+                  </span>
+                </a>
+                <a class="ff-rotator-item ff-hero-service-jump is-dim" href="#service-quality" data-target="service-quality" data-index="1">
+                  <span class="ff-rotator-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.5 3.75h7"></path>
+                      <path d="M9.5 2.75h5a1 1 0 0 1 1 1v1h1.1a1.9 1.9 0 0 1 1.9 1.9v11.6a1.9 1.9 0 0 1-1.9 1.9H7.4a1.9 1.9 0 0 1-1.9-1.9V6.65a1.9 1.9 0 0 1 1.9-1.9h1.1v-1a1 1 0 0 1 1-1Z"></path>
+                      <path d="M8.75 10.25h6.75"></path>
+                      <path d="M8.75 13.25h3.75"></path>
+                      <path d="m13.9 15.2 1.45 1.45 2.65-3.15"></path>
+                    </svg>
+                  </span>
+                  <span class="ff-rotator-content">
+                    <span class="ff-rotator-title">Quality and execution</span>
+                  </span>
+                </a>
+              </div></div>
             </div>
           </div>
         </div>
@@ -2242,21 +2399,120 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     });
 
-    document.querySelectorAll('.ff-hero-service-jump').forEach(function(link){
-      link.addEventListener('click', function(e){
-        var targetId = link.getAttribute('data-target');
-        var target = targetId ? document.getElementById(targetId) : null;
-        if(!target){ return; }
-        e.preventDefault();
-        target.scrollIntoView({behavior:'smooth', block:'center'});
+    function ffFocusServiceCard(targetId){
+      var target = targetId ? document.getElementById(targetId) : null;
+      if(!target){ return; }
+      target.scrollIntoView({behavior:'smooth', block:'center'});
+      target.classList.remove('ff-service-focus');
+      void target.offsetWidth;
+      target.classList.add('ff-service-focus');
+      setTimeout(function(){
         target.classList.remove('ff-service-focus');
-        void target.offsetWidth;
-        target.classList.add('ff-service-focus');
-        setTimeout(function(){
-          target.classList.remove('ff-service-focus');
-        }, 1600);
+      }, 1000);
+    }
+
+    var ffRotator = document.getElementById('ffServiceRotator');
+    if(ffRotator){
+      var ffRotatorItems = Array.prototype.slice.call(ffRotator.querySelectorAll('.ff-rotator-item'));
+      var ffBaseCount = 3;
+      var ffStage = ffRotator.closest('.ff-service-rotator-stage');
+      var ffCurrentOffset = 0;
+      var ffLastFrame = null;
+      var ffPixelsPerSecond = window.matchMedia('(max-width: 640px)').matches ? 15 : window.matchMedia('(max-width: 991px)').matches ? 18 : 21;
+      var ffRotatorFrame = null;
+      var ffRotatorPaused = false;
+      var ffItemHeight = 0;
+      var ffLoopHeight = 0;
+
+      function ffMeasureRotator(){
+        ffItemHeight = ffRotatorItems[0] ? ffRotatorItems[0].offsetHeight : 0;
+        ffLoopHeight = ffItemHeight * ffBaseCount;
+      }
+
+      function ffRealignRotator(){
+        if(!ffItemHeight){ return; }
+        while(ffCurrentOffset >= ffLoopHeight){
+          ffCurrentOffset -= ffLoopHeight;
+        }
+        ffRotator.style.transform = 'translateY(' + (-ffCurrentOffset) + 'px)';
+      }
+
+      function ffApplyContinuousState(){
+        if(!ffStage || !ffItemHeight){ return; }
+        var stageCenter = ffStage.clientHeight / 2;
+        var activeRealIndex = 0;
+        var bestDistance = Infinity;
+
+        ffRotatorItems.forEach(function(item, idx){
+          var itemCenter = (idx * ffItemHeight) + (ffItemHeight / 2) - ffCurrentOffset;
+          var distance = Math.abs(stageCenter - itemCenter);
+          var closeness = Math.max(0, 1 - (distance / (ffItemHeight * 1.18)));
+          var opacity = 0.18 + (0.82 * closeness);
+          var scale = 0.984 + (0.016 * closeness);
+          item.style.opacity = opacity.toFixed(3);
+          item.style.transform = 'scale(' + scale.toFixed(3) + ')';
+          item.style.filter = closeness > 0.72 ? 'none' : 'blur(0.12px)';
+          if(distance < bestDistance){
+            bestDistance = distance;
+            activeRealIndex = idx % ffBaseCount;
+          }
+        });
+
+        ffRotatorItems.forEach(function(item, idx){
+          var active = (idx % ffBaseCount) === activeRealIndex;
+          item.classList.toggle('is-active', active);
+          item.classList.toggle('is-dim', !active);
+        });
+      }
+
+      function ffTickRotator(timestamp){
+        if(ffLastFrame == null){ ffLastFrame = timestamp; }
+        var delta = (timestamp - ffLastFrame) / 1000;
+        ffLastFrame = timestamp;
+
+        if(!ffRotatorPaused){
+          ffCurrentOffset += ffPixelsPerSecond * delta;
+          if(ffCurrentOffset >= ffLoopHeight){
+            ffCurrentOffset -= ffLoopHeight;
+          }
+          ffRealignRotator();
+          ffApplyContinuousState();
+        }
+        ffRotatorFrame = window.requestAnimationFrame(ffTickRotator);
+      }
+
+      function ffSyncRotatorToIndex(realIndex){
+        ffCurrentOffset = realIndex * ffItemHeight;
+        ffRealignRotator();
+        ffApplyContinuousState();
+      }
+
+      ffMeasureRotator();
+      ffSyncRotatorToIndex(0.92);
+      ffRotatorFrame = window.requestAnimationFrame(ffTickRotator);
+
+      var heroPanel = ffRotator.closest('.ff-service-rotator');
+      if(heroPanel){
+        heroPanel.addEventListener('mouseenter', function(){ ffRotatorPaused = true; });
+        heroPanel.addEventListener('mouseleave', function(){ ffRotatorPaused = false; ffLastFrame = null; });
+      }
+
+      ffRotator.addEventListener('click', function(e){
+        var link = e.target.closest('.ff-hero-service-jump');
+        if(!link){ return; }
+        e.preventDefault();
+        var realIndex = parseInt(link.getAttribute('data-index') || '0', 10);
+        ffSyncRotatorToIndex(realIndex);
+        ffFocusServiceCard(link.getAttribute('data-target'));
       });
-    });
+
+      window.addEventListener('resize', function(){
+        ffPixelsPerSecond = window.matchMedia('(max-width: 640px)').matches ? 15 : window.matchMedia('(max-width: 991px)').matches ? 18 : 21;
+        ffMeasureRotator();
+        ffRealignRotator();
+        ffApplyContinuousState();
+      });
+    }
 
     var menuToggle = document.querySelector('.ff-mobile-menu-toggle');
     var mainnav = document.querySelector('.ff-mainnav');
