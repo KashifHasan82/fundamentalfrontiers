@@ -1,5 +1,7 @@
 
 
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -1449,6 +1451,153 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
       min-height: auto;
     }
   }
+
+
+  /* Anchored shared detail panel for programs */
+  #programs .ff-program-popup{
+    display:none !important;
+  }
+  #programs .ff-program-premium.is-open{
+    position:relative;
+    transform:translateY(-2px);
+    border-color:rgba(199,55,72,0.82) !important;
+    box-shadow:
+      0 20px 38px rgba(16,24,39,0.12),
+      0 0 0 1px rgba(255,255,255,0.72) inset,
+      0 0 0 3px rgba(199,55,72,0.16) !important;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,249,250,0.97)) padding-box,
+      linear-gradient(135deg, rgba(255,255,255,0.95), rgba(232,115,128,0.72), rgba(255,255,255,0.94)) border-box !important;
+  }
+  #programs .ff-program-premium.is-open::after{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:inherit;
+    pointer-events:none;
+    box-shadow:
+      0 0 28px rgba(199,55,72,0.16),
+      0 1px 0 rgba(255,255,255,0.72) inset;
+  }
+  #programs .ff-program-detail-panel{
+    position:relative;
+    margin:0 0 18px;
+    z-index:3;
+  }
+  #programs .ff-program-detail-shell{
+    position:relative;
+    padding:18px 18px 16px;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,0.42);
+    background:rgba(255,255,255,0.46);
+    box-shadow:0 18px 46px rgba(15,23,42,0.10);
+    backdrop-filter:blur(18px) saturate(130%);
+    -webkit-backdrop-filter:blur(18px) saturate(130%);
+    overflow:visible;
+  }
+  #programs .ff-program-detail-shell::before{
+    display:none !important;
+  }
+  #programs .ff-program-detail-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:14px;
+  }
+  #programs .ff-program-detail-label{
+    display:inline-flex;
+    align-items:center;
+    padding:6px 10px;
+    border:1px solid rgba(255,255,255,0.38);
+    background:rgba(255,255,255,0.32);
+    color:#6c7788;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    line-height:1;
+    margin-bottom:10px;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+  }
+  #programs .ff-program-detail-top h3{
+    margin:0;
+    color:#6f7f99;
+    font-size:1.22rem;
+    line-height:1.2;
+    font-weight:700;
+    letter-spacing:-0.02em;
+  }
+  #programs .ff-program-detail-close{
+    flex:0 0 auto;
+    width:40px;
+    height:40px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(208,63,79,0.30);
+    background:rgba(255,255,255,0.48);
+    color:#c74d5d;
+    border-radius:999px;
+    padding:0;
+    font-size:24px;
+    line-height:1;
+    font-weight:500;
+    box-shadow:0 10px 24px rgba(199,77,93,0.14);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+  }
+  #programs .ff-program-detail-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box{
+    margin:0;
+    min-height:100%;
+    background:#fff !important;
+    border:1px solid #d9dee7 !important;
+    border-radius:16px !important;
+    padding:16px !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box .k{
+    color:#c73f4b !important;
+    font-size:0.74rem !important;
+    font-weight:800 !important;
+    letter-spacing:0.16em !important;
+    text-transform:uppercase !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box .t{
+    color:#6f7f99 !important;
+    font-size:1.22rem !important;
+    line-height:1.2 !important;
+    font-weight:700 !important;
+    letter-spacing:-0.02em !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box p{
+    color:#51647f !important;
+    font-size:0.95rem !important;
+    line-height:1.58 !important;
+    font-weight:400 !important;
+    margin:0 !important;
+  }
+  @media (max-width: 991px){
+    #programs .ff-program-detail-shell{
+      padding:16px;
+      border-radius:16px;
+    }
+    #programs .ff-program-detail-shell::before{
+    display:none !important;
+  }
+    #programs .ff-program-detail-top{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    #programs .ff-program-detail-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
 </style>
 
 <style>
@@ -3227,6 +3376,275 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     #programs .ff-program-top::before{top:16px; bottom:16px; width:5px;}
   }
 </style>
+
+<style id="ff-card-typography-standard-split-final">
+  /* Final locked typography rule:
+     Program card headings = heading standard
+     Services card body text = body standard
+     Applied to comparable card sections without changing locked mobile dynamics */
+
+  #deliverables .ff-shutterstock-col h4,
+  #proof .ff-case-editorial-card h3{
+    margin:0 0 12px 0 !important;
+    font-size:1.22rem !important;
+    line-height:1.2 !important;
+    font-weight:700 !important;
+    letter-spacing:-0.02em !important;
+    color:#111827 !important;
+  }
+
+  #deliverables .ff-shutterstock-col p,
+  #programs .ff-program-top p,
+  #proof .ff-case-editorial-card p{
+    margin:0 0 14px 0 !important;
+    font-size:0.95rem !important;
+    line-height:1.58 !important;
+    font-weight:400 !important;
+    color:#4b5563 !important;
+  }
+
+  #proof .ff-case-editorial-card h3{
+    min-height:3.0em !important;
+  }
+
+  #proof .ff-case-editorial-card p{
+    min-height:6.8em !important;
+  }
+
+  @media (max-width: 900px){
+    #proof .ff-case-editorial-card h3,
+    #proof .ff-case-editorial-card p,
+    #deliverables .ff-shutterstock-col h4,
+    #deliverables .ff-shutterstock-col p{
+      min-height:auto !important;
+    }
+  }
+</style>
+
+
+<style id="ff-card-heading-screenshot-standard-final">
+  /* Card heading standard locked to screenshot reference */
+  #services .ff-shutterstock-col h4,
+  #deliverables .ff-shutterstock-col h4,
+  #deliverables .ff-deliverable-card h3,
+  #programs .ff-program-top h3,
+  #proof .ff-case-editorial-card h3{
+    color:#66799a !important;
+    font-size:1.04rem !important;
+    line-height:1.08 !important;
+    font-weight:700 !important;
+    letter-spacing:-0.02em !important;
+  }
+
+  #services .ff-shutterstock-col h4,
+  #deliverables .ff-shutterstock-col h4,
+  #deliverables .ff-deliverable-card h3,
+  #proof .ff-case-editorial-card h3{
+    margin:0 0 6px 0 !important;
+  }
+
+  #programs .ff-program-top h3{
+    margin:0 0 8px 0 !important;
+  }
+
+  @media (max-width: 900px){
+    #services .ff-shutterstock-col h4,
+    #deliverables .ff-shutterstock-col h4,
+    #deliverables .ff-deliverable-card h3,
+    #programs .ff-program-top h3,
+    #proof .ff-case-editorial-card h3{
+      min-height:auto !important;
+    }
+  }
+</style>
+
+
+<style id="ff-card-body-services-standard-pass">
+  /* Card body standard copied from Services cards */
+  #deliverables .ff-deliverable-card p,
+  #programs .ff-program-top p,
+  #proof .ff-case-editorial-card p,
+  #proof .ff-case-editorial-sub{
+    font-size:0.95rem !important;
+    line-height:1.58 !important;
+    color:#4b5563 !important;
+    font-weight:400 !important;
+    letter-spacing:normal !important;
+  }
+
+  #programs .ff-program-points li,
+  #deliverables .ff-deliverable-card ul li,
+  #proof .ff-case-editorial-card ul li{
+    font-size:0.92rem !important;
+    line-height:1.48 !important;
+    color:#111827 !important;
+    font-weight:400 !important;
+    letter-spacing:normal !important;
+  }
+
+  #programs .ff-program-points li::before,
+  #deliverables .ff-deliverable-card ul li::before,
+  #proof .ff-case-editorial-card ul li::before{
+    background:rgba(180, 35, 24, 0.9) !important;
+    width:5px !important;
+    height:5px !important;
+    top:0.72em !important;
+  }
+</style>
+
+<style id="ff-clean-selected-work-unify-final">
+  /* Unify all card sections toward the clean Selected Work editorial system.
+     Keep carousel dynamics and interaction logic untouched. */
+
+  /* Shared shell */
+  #services .ff-shutterstock-col,
+  #deliverables .ff-shutterstock-col,
+  #programs .ff-program-top,
+  #proof .ff-case-editorial-card{
+    background:#ffffff !important;
+    border:1px solid #d9dee7 !important;
+    border-radius:16px !important;
+    box-shadow:0 12px 28px rgba(16,24,39,0.06) !important;
+    overflow:hidden;
+  }
+
+  /* Services stays mostly locked. Only light cleanup toward Selected Work */
+  #services .ff-shutterstock-columns{gap:18px !important;}
+  #services .ff-shutterstock-col{
+    padding:22px 22px 20px !important;
+    background:#ffffff !important;
+  }
+
+  /* Deliverables adopts the same clean card shell */
+  #deliverables .ff-shutterstock-columns{gap:18px !important;}
+  #deliverables .ff-shutterstock-col{
+    padding:22px 22px 20px !important;
+    background:#ffffff !important;
+  }
+  #deliverables .ff-deliverable-link{
+    margin-top:auto !important;
+    padding-top:2px !important;
+  }
+
+  /* Programs simplified to reduce visual noise while preserving behavior */
+  #programs .ff-program-premium{
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    overflow:visible !important;
+  }
+  #programs .ff-program-premium::before,
+  #programs .ff-program-top::before,
+  #programs .ff-program-top::after{
+    display:none !important;
+    content:none !important;
+  }
+  #programs .ff-program-premium-stack{gap:18px !important;}
+  #programs .ff-program-top{
+    padding:22px 22px 18px !important;
+    background:#ffffff !important;
+  }
+  #programs .ff-chip,
+  #proof .ff-case-editorial-type{
+    display:inline-block !important;
+    width:max-content;
+    margin:0 0 14px 0 !important;
+    padding:6px 10px !important;
+    background:#eef2f7 !important;
+    border:1px solid #d7dee8 !important;
+    border-radius:8px !important;
+    color:#6f7f99 !important;
+    font-size:0.74rem !important;
+    font-weight:800 !important;
+    letter-spacing:0.16em !important;
+    text-transform:uppercase !important;
+  }
+  #programs .ff-program-points{
+    gap:10px !important;
+    margin:0 0 16px 0 !important;
+  }
+  #programs .ff-program-points li{
+    padding-left:16px !important;
+    color:#1f2937 !important;
+    font-size:14px !important;
+    line-height:1.58 !important;
+    font-weight:400 !important;
+  }
+  #programs .ff-program-points li::before{
+    width:7px !important;
+    height:7px !important;
+    top:0.62em !important;
+    background:#e04c5d !important;
+    box-shadow:0 0 0 4px rgba(224,76,93,0.12) !important;
+  }
+  #programs .ff-program-actions{
+    margin-top:auto !important;
+    padding-top:14px !important;
+    border-top:1px solid #e9edf3 !important;
+    gap:12px !important;
+  }
+  #programs .ff-program-toggle{
+    border:1px solid #d9dee7 !important;
+    background:#ffffff !important;
+    border-radius:999px !important;
+    box-shadow:none !important;
+    color:#425466 !important;
+  }
+  #programs .ff-program-toggle .ff-toggle-dot{
+    background:#ffffff !important;
+    border-color:#d9dee7 !important;
+  }
+  #programs .ff-program-popup{
+    top:calc(100% - 6px) !important;
+    left:0 !important;
+    right:0 !important;
+    padding:14px !important;
+    border-radius:16px !important;
+    background:rgba(255,255,255,0.94) !important;
+    border:1px solid #d9dee7 !important;
+    box-shadow:0 16px 32px rgba(16,24,39,0.09) !important;
+    backdrop-filter:blur(10px) !important;
+  }
+  #programs .ff-program-side-box{
+    background:#ffffff !important;
+    border:1px solid #d9dee7 !important;
+    border-radius:14px !important;
+    box-shadow:none !important;
+    padding:14px !important;
+  }
+  #programs .ff-program-side-box .k{
+    color:#6f7f99 !important;
+    margin-bottom:8px !important;
+  }
+  #programs .ff-program-side-box .t{
+    margin-bottom:8px !important;
+  }
+
+  /* Selected work stays reference. Only tiny consistency touch */
+  #proof .ff-case-editorial-grid{gap:18px !important;}
+  #proof .ff-case-editorial-card{
+    padding:16px !important;
+  }
+
+  @media (max-width: 900px){
+    #services .ff-shutterstock-col,
+    #deliverables .ff-shutterstock-col,
+    #programs .ff-program-top,
+    #proof .ff-case-editorial-card{
+      border-radius:16px !important;
+    }
+    #services .ff-shutterstock-col,
+    #deliverables .ff-shutterstock-col,
+    #programs .ff-program-top{
+      padding:20px 20px 18px !important;
+    }
+    #programs .ff-program-popup{
+      left:8px !important;
+      right:8px !important;
+    }
+  }
+</style>
+
 </head>
 
 <body class="body-bg">
@@ -3432,6 +3850,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>
           Strategic engagement begins for issues that require demonstrable progress. These flagship programs provide structured starting points for organizations that need visible movement across risk, process improvement, quality performance, and execution discipline.
         </p>
+      </div>
+
+      <div class="ff-program-detail-panel" id="ffProgramDetailPanel" aria-live="polite" hidden>
+        <div class="ff-program-detail-shell">
+          <div class="ff-program-detail-top">
+            <div>
+              <div class="ff-program-detail-label">Program details</div>
+              <h3 id="ffProgramDetailTitle">Program details</h3>
+            </div>
+            <button class="ff-program-detail-close" id="ffProgramDetailClose" type="button" aria-label="Close program details">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="ff-program-detail-grid" id="ffProgramDetailContent"></div>
+        </div>
       </div>
 
       <div class="ff-program-premium-stack ff-mobile-carousel">
@@ -3867,8 +4300,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
   (function(){
-    var isTouch = window.matchMedia('(max-width: 991px)').matches;
-
     function closeCard(card){
       if(!card){ return; }
       card.classList.remove('is-open');
@@ -3876,80 +4307,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if(toggle){ toggle.setAttribute('aria-expanded', 'false'); }
     }
 
+    function closeAllCards(){
+      document.querySelectorAll('.ff-program-premium.is-open').forEach(closeCard);
+    }
+
+    var detailPanel = document.getElementById('ffProgramDetailPanel');
+    var detailTitle = document.getElementById('ffProgramDetailTitle');
+    var detailContent = document.getElementById('ffProgramDetailContent');
+    var detailClose = document.getElementById('ffProgramDetailClose');
+
+
     function openCard(card){
-      if(!card){ return; }
-      document.querySelectorAll('.ff-program-premium.is-open').forEach(function(opened){
-        if(opened !== card){ closeCard(opened); }
-      });
+      if(!card || !detailPanel || !detailTitle || !detailContent){ return; }
+      closeAllCards();
       card.classList.add('is-open');
       var toggle = card.querySelector('.ff-program-toggle');
       if(toggle){ toggle.setAttribute('aria-expanded', 'true'); }
+
+      var title = card.querySelector('.ff-program-top h3');
+      var popup = card.querySelector('.ff-program-popup');
+      detailTitle.textContent = title ? title.textContent.trim() : 'Program details';
+      detailContent.innerHTML = popup ? popup.innerHTML : '';
+
+      detailContent.querySelectorAll('.ff-program-close').forEach(function(btn){
+        btn.remove();
+      });
+
+      detailPanel.hidden = false;
+    }
+
+    if(detailClose){
+      detailClose.addEventListener('click', function(){
+        closeAllCards();
+        if(detailPanel){ detailPanel.hidden = true; }
+      });
     }
 
     document.querySelectorAll('.ff-program-premium').forEach(function(card){
       var toggle = card.querySelector('.ff-program-toggle');
-      var popup = card.querySelector('.ff-program-popup');
-      var closeBtn = card.querySelector('.ff-program-close');
-      var leaveTimer = null;
-
-      function scheduleClose(){
-        clearTimeout(leaveTimer);
-        leaveTimer = setTimeout(function(){ closeCard(card); }, 70);
-      }
-
-      function cancelClose(){
-        clearTimeout(leaveTimer);
-      }
-
       if(toggle){
-        toggle.addEventListener('mouseenter', function(){
-          if(window.matchMedia('(min-width: 992px)').matches){
-            openCard(card);
-          }
-        });
-
         toggle.addEventListener('click', function(e){
           e.preventDefault();
-          if(window.matchMedia('(max-width: 991px)').matches){
-            if(card.classList.contains('is-open')){
-              closeCard(card);
-            } else {
-              openCard(card);
-            }
+          if(card.classList.contains('is-open') && detailPanel && !detailPanel.hidden){
+            closeAllCards();
+            detailPanel.hidden = true;
           } else {
             openCard(card);
           }
         });
       }
-
-      card.addEventListener('mouseenter', function(){
-        if(window.matchMedia('(min-width: 992px)').matches){ cancelClose(); }
-      });
-
-      card.addEventListener('mouseleave', function(){
-        if(window.matchMedia('(min-width: 992px)').matches){ scheduleClose(); }
-      });
-
-      if(popup){
-        popup.addEventListener('mouseenter', function(){
-          if(window.matchMedia('(min-width: 992px)').matches){ cancelClose(); }
-        });
-        popup.addEventListener('mouseleave', function(){
-          if(window.matchMedia('(min-width: 992px)').matches){ scheduleClose(); }
-        });
-      }
-
-      if(closeBtn){
-        closeBtn.addEventListener('click', function(e){
-          e.preventDefault();
-          closeCard(card);
-        });
-      }
     });
 
+
     document.addEventListener('click', function(e){
-      if(!e.target.closest('.ff-program-premium')){
-        document.querySelectorAll('.ff-program-premium.is-open').forEach(closeCard);
+      if(!e.target.closest('.ff-program-premium') && !e.target.closest('#ffProgramDetailPanel')){
+        closeAllCards();
+        if(detailPanel){ detailPanel.hidden = true; }
       }
       if(!e.target.closest('.ff-mainnav')){
         var mainnav = document.querySelector('.ff-mainnav');
