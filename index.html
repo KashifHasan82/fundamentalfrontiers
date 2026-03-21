@@ -2659,6 +2659,38 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 
 </style>
 
+
+<style id="ff-mobile-all-carousel-tint">
+@media (max-width: 900px){
+  .ff-mobile-carousel > *.is-mobile-cutout{
+    background: linear-gradient(180deg, rgba(228, 238, 251, 0.98) 0%, rgba(220, 233, 248, 0.98) 100%) !important;
+    border-color: #c7d7ea !important;
+    box-shadow: none !important;
+  }
+  .ff-mobile-carousel > *.is-mobile-cutout .ff-deliverable-pill,
+  .ff-mobile-carousel > *.is-mobile-cutout .ff-program-badge,
+  .ff-mobile-carousel > *.is-mobile-cutout .ff-case-meta,
+  .ff-mobile-carousel > *.is-mobile-cutout .ff-shutterstock-kicker,
+  .ff-mobile-carousel > *.is-mobile-cutout .ff-service-tag{
+    background: rgba(211, 225, 242, 0.9) !important;
+    border-color: #bfd1e6 !important;
+  }
+  .ff-mobile-carousel > *.is-mobile-cutout h3,
+  .ff-mobile-carousel > *.is-mobile-cutout h4,
+  .ff-mobile-carousel > *.is-mobile-cutout p,
+  .ff-mobile-carousel > *.is-mobile-cutout li,
+  .ff-mobile-carousel > *.is-mobile-cutout .ff-case-summary,
+  .ff-mobile-carousel > *.is-mobile-cutout .ff-case-outcome,
+  .ff-mobile-carousel > *.is-mobile-cutout .ff-program-summary,
+  .ff-mobile-carousel > *.is-mobile-cutout .ff-program-points li{
+    color: #4f6581 !important;
+  }
+  .ff-mobile-carousel > *.is-mobile-active{
+    transform: none !important;
+  }
+}
+</style>
+
 </head>
 
 <body class="body-bg">
@@ -3603,6 +3635,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     });
   })();
+</script>
+
+
+<script id="ff-mobile-all-carousel-tint-script">
+(function(){
+  function setupCarouselStates(){
+    var mobile = window.matchMedia('(max-width: 900px)').matches;
+    var carousels = Array.prototype.slice.call(document.querySelectorAll('.ff-mobile-carousel'));
+    carousels.forEach(function(carousel){
+      var cards = Array.prototype.slice.call(carousel.children);
+      if(!cards.length){ return; }
+      if(carousel._ffObserver){
+        carousel._ffObserver.disconnect();
+        carousel._ffObserver = null;
+      }
+      cards.forEach(function(card){
+        card.classList.remove('is-mobile-active','is-mobile-cutout');
+      });
+      if(!mobile){ return; }
+      function apply(active){
+        cards.forEach(function(card){
+          card.classList.remove('is-mobile-active','is-mobile-cutout');
+          card.classList.add(card === active ? 'is-mobile-active' : 'is-mobile-cutout');
+        });
+      }
+      apply(cards[0]);
+      var ratios = new Map();
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){ ratios.set(entry.target, entry.intersectionRatio); });
+        var best = cards[0], bestRatio = -1;
+        cards.forEach(function(card){
+          var ratio = ratios.has(card) ? ratios.get(card) : 0;
+          if(ratio > bestRatio){ bestRatio = ratio; best = card; }
+        });
+        apply(best);
+      }, {root: carousel, threshold: [0.2,0.4,0.6,0.8,1]});
+      cards.forEach(function(card){ observer.observe(card); });
+      carousel._ffObserver = observer;
+    });
+  }
+  setupCarouselStates();
+  window.addEventListener('resize', setupCarouselStates);
+})();
 </script>
 
 </body>
