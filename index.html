@@ -2630,6 +2630,33 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     #services::after{height:36px;}
     .ff-section{padding:54px 0;}
   }
+
+@media (max-width: 900px){
+  #services .ff-shutterstock-columns.ff-mobile-carousel .ff-shutterstock-col{
+    transition: background 260ms ease, border-color 260ms ease, box-shadow 260ms ease, transform 260ms ease, filter 260ms ease, opacity 260ms ease;
+  }
+  #services .ff-shutterstock-columns.ff-mobile-carousel .ff-shutterstock-col.is-mobile-cutout{
+    background: linear-gradient(180deg, #eaf3ff 0%, #e2edfb 100%) !important;
+    border-color: #bfd1eb !important;
+    box-shadow: 0 12px 28px rgba(39, 76, 130, 0.10) !important;
+  }
+  #services .ff-shutterstock-columns.ff-mobile-carousel .ff-shutterstock-col.is-mobile-cutout .ff-shutterstock-kicker{
+    color:#5f7faa;
+    border-color:#cad8ea;
+    background:#edf4ff;
+  }
+  #services .ff-shutterstock-columns.ff-mobile-carousel .ff-shutterstock-col.is-mobile-cutout h4,
+  #services .ff-shutterstock-columns.ff-mobile-carousel .ff-shutterstock-col.is-mobile-cutout p,
+  #services .ff-shutterstock-columns.ff-mobile-carousel .ff-shutterstock-col.is-mobile-cutout li{
+    color:#28415f;
+  }
+  #services .ff-shutterstock-columns.ff-mobile-carousel .ff-shutterstock-col.is-mobile-active{
+    background:#f7f9fc !important;
+    border-color:#d7dee8 !important;
+    box-shadow:0 16px 34px rgba(15,23,42,0.05) !important;
+  }
+}
+
 </style>
 
 </head>
@@ -3435,6 +3462,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
     }
 
+
+
+    var ffServicesMobileCarousel = document.querySelector('#services .ff-shutterstock-columns.ff-mobile-carousel');
+    if(ffServicesMobileCarousel){
+      var ffServiceMobileCards = Array.prototype.slice.call(ffServicesMobileCarousel.querySelectorAll('.ff-shutterstock-col'));
+      var ffServiceMobileObserver = null;
+
+      function ffApplyMobileServiceStates(activeCard){
+        ffServiceMobileCards.forEach(function(card){
+          card.classList.remove('is-mobile-active', 'is-mobile-cutout');
+          if(card === activeCard){
+            card.classList.add('is-mobile-active');
+          } else {
+            card.classList.add('is-mobile-cutout');
+          }
+        });
+      }
+
+      function ffSetupMobileServiceCards(){
+        var mobile = window.matchMedia('(max-width: 900px)').matches;
+        if(ffServiceMobileObserver){
+          ffServiceMobileObserver.disconnect();
+          ffServiceMobileObserver = null;
+        }
+        if(!mobile){
+          ffServiceMobileCards.forEach(function(card){
+            card.classList.remove('is-mobile-active', 'is-mobile-cutout');
+          });
+          return;
+        }
+
+        ffApplyMobileServiceStates(ffServiceMobileCards[0]);
+        var ratios = new Map();
+        ffServiceMobileObserver = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            ratios.set(entry.target, entry.intersectionRatio);
+          });
+          var bestCard = ffServiceMobileCards[0];
+          var bestRatio = -1;
+          ffServiceMobileCards.forEach(function(card){
+            var ratio = ratios.has(card) ? ratios.get(card) : 0;
+            if(ratio > bestRatio){
+              bestRatio = ratio;
+              bestCard = card;
+            }
+          });
+          ffApplyMobileServiceStates(bestCard);
+        }, {
+          root: ffServicesMobileCarousel,
+          threshold: [0.2, 0.4, 0.6, 0.8, 1]
+        });
+
+        ffServiceMobileCards.forEach(function(card){
+          ffServiceMobileObserver.observe(card);
+        });
+      }
+
+      ffSetupMobileServiceCards();
+      window.addEventListener('resize', ffSetupMobileServiceCards);
+    }
+
     var menuToggle = document.querySelector('.ff-mobile-menu-toggle');
     var mainnav = document.querySelector('.ff-mainnav');
     if(menuToggle && mainnav){
@@ -3448,7 +3536,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     window.addEventListener('resize', function(){
       if(window.matchMedia('(min-width: 992px)').matches){
         var mainnav = document.querySelector('.ff-mainnav');
-        var menuToggle = document.querySelector('.ff-mobile-menu-toggle');
+    
+
+    var ffServicesMobileCarousel = document.querySelector('#services .ff-shutterstock-columns.ff-mobile-carousel');
+    if(ffServicesMobileCarousel){
+      var ffServiceMobileCards = Array.prototype.slice.call(ffServicesMobileCarousel.querySelectorAll('.ff-shutterstock-col'));
+      var ffServiceMobileObserver = null;
+
+      function ffApplyMobileServiceStates(activeCard){
+        ffServiceMobileCards.forEach(function(card){
+          card.classList.remove('is-mobile-active', 'is-mobile-cutout');
+          if(card === activeCard){
+            card.classList.add('is-mobile-active');
+          } else {
+            card.classList.add('is-mobile-cutout');
+          }
+        });
+      }
+
+      function ffSetupMobileServiceCards(){
+        var mobile = window.matchMedia('(max-width: 900px)').matches;
+        if(ffServiceMobileObserver){
+          ffServiceMobileObserver.disconnect();
+          ffServiceMobileObserver = null;
+        }
+        if(!mobile){
+          ffServiceMobileCards.forEach(function(card){
+            card.classList.remove('is-mobile-active', 'is-mobile-cutout');
+          });
+          return;
+        }
+
+        ffApplyMobileServiceStates(ffServiceMobileCards[0]);
+        var ratios = new Map();
+        ffServiceMobileObserver = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            ratios.set(entry.target, entry.intersectionRatio);
+          });
+          var bestCard = ffServiceMobileCards[0];
+          var bestRatio = -1;
+          ffServiceMobileCards.forEach(function(card){
+            var ratio = ratios.has(card) ? ratios.get(card) : 0;
+            if(ratio > bestRatio){
+              bestRatio = ratio;
+              bestCard = card;
+            }
+          });
+          ffApplyMobileServiceStates(bestCard);
+        }, {
+          root: ffServicesMobileCarousel,
+          threshold: [0.2, 0.4, 0.6, 0.8, 1]
+        });
+
+        ffServiceMobileCards.forEach(function(card){
+          ffServiceMobileObserver.observe(card);
+        });
+      }
+
+      ffSetupMobileServiceCards();
+      window.addEventListener('resize', ffSetupMobileServiceCards);
+    }
+
+    var menuToggle = document.querySelector('.ff-mobile-menu-toggle');
         if(mainnav){ mainnav.classList.remove('is-open'); }
         if(menuToggle){ menuToggle.setAttribute('aria-expanded', 'false'); }
       }
