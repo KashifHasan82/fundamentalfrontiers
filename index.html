@@ -1460,14 +1460,14 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   #programs .ff-program-premium.is-open{
     position:relative;
     transform:translateY(-2px);
-    border-color:rgba(199,55,72,0.82) !important;
+    border-color:rgba(199,55,72,0.42) !important;
     box-shadow:
-      0 20px 38px rgba(16,24,39,0.12),
-      0 0 0 1px rgba(255,255,255,0.72) inset,
-      0 0 0 3px rgba(199,55,72,0.16) !important;
+      0 16px 32px rgba(16,24,39,0.09),
+      0 0 0 1px rgba(255,255,255,0.68) inset,
+      0 0 0 2px rgba(199,55,72,0.09) !important;
     background:
-      linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,249,250,0.97)) padding-box,
-      linear-gradient(135deg, rgba(255,255,255,0.95), rgba(232,115,128,0.72), rgba(255,255,255,0.94)) border-box !important;
+      linear-gradient(180deg, rgba(255,255,255,0.97), rgba(252,249,250,0.95)) padding-box,
+      linear-gradient(135deg, rgba(255,255,255,0.92), rgba(232,115,128,0.34), rgba(255,255,255,0.92)) border-box !important;
   }
   #programs .ff-program-premium.is-open::after{
     content:"";
@@ -1476,67 +1476,102 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     border-radius:inherit;
     pointer-events:none;
     box-shadow:
-      0 0 28px rgba(199,55,72,0.16),
-      0 1px 0 rgba(255,255,255,0.72) inset;
+      0 0 18px rgba(199,55,72,0.08),
+      0 1px 0 rgba(255,255,255,0.68) inset;
   }
+  #programs .ff-wrap{position:relative;}
   #programs .ff-program-detail-panel{
-    position:relative;
-    margin:0 0 18px;
-    z-index:3;
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    margin:0;
+    z-index:12;
+    pointer-events:none;
+  }
+  #programs .ff-program-detail-panel .ff-program-detail-shell,
+  #programs .ff-program-detail-panel .ff-program-detail-close,
+  #programs .ff-program-detail-panel .ff-program-detail-grid,
+  #programs .ff-program-detail-panel .ff-program-detail-top{
+    pointer-events:auto;
+  }
+  #programs .ff-program-premium.is-open > *{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+  #programs .ff-program-premium.is-open::before{
+    opacity:0.55;
+  }
+  #programs .ff-program-actions{
+    margin-top:8px !important;
+    padding-top:10px !important;
   }
   #programs .ff-program-detail-shell{
     position:relative;
-    padding:18px 18px 16px;
+    height:100%;
+    padding:18px 18px 14px 18px;
     border-radius:22px;
-    border:1px solid rgba(255,255,255,0.42);
-    background:rgba(255,255,255,0.46);
-    box-shadow:0 18px 46px rgba(15,23,42,0.10);
-    backdrop-filter:blur(18px) saturate(130%);
-    -webkit-backdrop-filter:blur(18px) saturate(130%);
-    overflow:visible;
+    border:1px solid rgba(215,222,232,0.32);
+    background:rgba(247,249,252,0.20);
+    box-shadow:0 10px 22px rgba(15,23,42,0.025);
+    backdrop-filter:blur(14px) saturate(112%);
+    -webkit-backdrop-filter:blur(14px) saturate(112%);
+    overflow:hidden;
+    box-sizing:border-box;
   }
   #programs .ff-program-detail-shell::before{
-    display:none !important;
+    content:"";
+    position:absolute;
+    left:0;
+    top:14px;
+    bottom:14px;
+    width:4px;
+    border-radius:0 8px 8px 0;
+    background:linear-gradient(180deg, rgba(224,76,93,0.52) 0%, rgba(224,76,93,0.30) 100%);
+  }
+  #programs .ff-program-detail-shell::after{
+    content:"";
+    position:absolute;
+    inset:auto -20% -26% auto;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(15,42,86,0.05) 0%, rgba(15,42,86,0.02) 42%, rgba(15,42,86,0) 70%);
+    pointer-events:none;
   }
   #programs .ff-program-detail-top{
+    position:relative;
     display:flex;
     align-items:flex-start;
     justify-content:space-between;
-    gap:16px;
-    margin-bottom:14px;
+    gap:12px;
+    margin-bottom:8px;
   }
   #programs .ff-program-detail-label{
-    display:inline-flex;
-    align-items:center;
-    padding:6px 10px;
-    border:1px solid rgba(255,255,255,0.38);
-    background:rgba(255,255,255,0.32);
-    color:#6c7788;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:700;
-    line-height:1;
-    margin-bottom:10px;
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
+    display:none;
   }
   #programs .ff-program-detail-top h3{
-    margin:0;
-    color:#6f7f99;
-    font-size:1.22rem;
-    line-height:1.2;
+    margin:0 0 8px 0;
+    color:var(--ff-ink);
+    font-size:27px;
+    line-height:1.16;
     font-weight:700;
     letter-spacing:-0.02em;
+    padding-right:52px;
   }
   #programs .ff-program-detail-close{
-    flex:0 0 auto;
-    width:40px;
-    height:40px;
+    position:absolute;
+    top:0;
+    right:0;
+    width:36px;
+    height:36px;
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    border:1px solid rgba(208,63,79,0.30);
-    background:rgba(255,255,255,0.48);
+    border:1px solid rgba(208,63,79,0.26);
+    background:rgba(255,255,255,0.32);
     color:#c74d5d;
     border-radius:999px;
     padding:0;
@@ -1550,15 +1585,19 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   #programs .ff-program-detail-grid{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:14px;
+    gap:8px;
+    align-content:start;
   }
   #programs .ff-program-detail-grid .ff-program-side-box{
     margin:0;
-    min-height:100%;
-    background:#fff !important;
-    border:1px solid #d9dee7 !important;
-    border-radius:16px !important;
-    padding:16px !important;
+    min-height:0;
+    background:rgba(255,255,255,0.10) !important;
+    border:1px solid rgba(184,194,209,0.20) !important;
+    border-radius:14px !important;
+    padding:9px 10px !important;
+    box-shadow:none !important;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
   }
   #programs .ff-program-detail-grid .ff-program-side-box .k{
     color:#c73f4b !important;
@@ -1568,23 +1607,37 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     text-transform:uppercase !important;
   }
   #programs .ff-program-detail-grid .ff-program-side-box .t{
-    color:#6f7f99 !important;
-    font-size:1.22rem !important;
-    line-height:1.2 !important;
+    color:var(--ff-ink) !important;
+    font-size:14px !important;
+    line-height:1.34 !important;
     font-weight:700 !important;
-    letter-spacing:-0.02em !important;
+    letter-spacing:-0.01em !important;
   }
   #programs .ff-program-detail-grid .ff-program-side-box p{
-    color:#51647f !important;
-    font-size:0.95rem !important;
-    line-height:1.58 !important;
+    color:var(--ff-muted) !important;
+    font-size:14px !important;
+    line-height:1.5 !important;
     font-weight:400 !important;
     margin:0 !important;
   }
   @media (max-width: 991px){
+    #programs .ff-program-detail-panel{
+      position:relative;
+      left:auto;
+      right:auto;
+      top:auto !important;
+      margin:0 0 16px;
+      z-index:3;
+      pointer-events:auto;
+    }
     #programs .ff-program-detail-shell{
       padding:16px;
       border-radius:16px;
+    }
+    #programs .ff-program-detail-top h3{
+      font-size:22px;
+      line-height:1.18;
+      padding-right:46px;
     }
     #programs .ff-program-detail-shell::before{
     display:none !important;
@@ -4300,6 +4353,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
   (function(){
+    var detailPanel = document.getElementById('ffProgramDetailPanel');
+    var detailTitle = document.getElementById('ffProgramDetailTitle');
+    var detailContent = document.getElementById('ffProgramDetailContent');
+    var detailClose = document.getElementById('ffProgramDetailClose');
+    var programsSection = document.getElementById('programs');
+    var mobileScrollTicking = false;
+    var programStack = programsSection ? programsSection.querySelector('.ff-program-premium-stack') : null;
+    var detailHomeParent = detailPanel ? detailPanel.parentNode : null;
+    var detailHomeNext = detailPanel ? detailPanel.nextSibling : null;
+
     function closeCard(card){
       if(!card){ return; }
       card.classList.remove('is-open');
@@ -4311,15 +4374,83 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.querySelectorAll('.ff-program-premium.is-open').forEach(closeCard);
     }
 
-    var detailPanel = document.getElementById('ffProgramDetailPanel');
-    var detailTitle = document.getElementById('ffProgramDetailTitle');
-    var detailContent = document.getElementById('ffProgramDetailContent');
-    var detailClose = document.getElementById('ffProgramDetailClose');
+    function restoreDetailPanelHome(){
+      if(!detailPanel || !detailHomeParent){ return; }
+      detailPanel.classList.remove('is-inline-mobile');
+      if(detailPanel.parentNode !== detailHomeParent){
+        if(detailHomeNext && detailHomeNext.parentNode === detailHomeParent){
+          detailHomeParent.insertBefore(detailPanel, detailHomeNext);
+        } else {
+          detailHomeParent.appendChild(detailPanel);
+        }
+      }
+      detailPanel.style.top = '';
+      detailPanel.style.left = '';
+      detailPanel.style.width = '';
+      detailPanel.style.height = '';
+    }
 
+    function closeProgramDetail(){
+      closeAllCards();
+      if(detailPanel){
+        detailPanel.hidden = true;
+        restoreDetailPanelHome();
+      }
+    }
+
+    function isScrollbarGutterClick(e){
+      if(!e || window.innerWidth <= 991){ return false; }
+      var gutter = window.innerWidth - document.documentElement.clientWidth;
+      if(gutter < 8){ return false; }
+      return e.clientX >= (document.documentElement.clientWidth - 2);
+    }
+
+    function getOpenCard(){
+      return document.querySelector('.ff-program-premium.is-open');
+    }
+
+    function positionDetailPanel(){
+      if(!detailPanel || detailPanel.hidden || !programsSection){
+        return;
+      }
+      var openCard = getOpenCard();
+      if(!openCard){ return; }
+      if(window.innerWidth <= 991){
+        detailPanel.classList.add('is-inline-mobile');
+        if(detailPanel.parentNode !== openCard){
+          openCard.appendChild(detailPanel);
+        }
+        return;
+      }
+      detailPanel.classList.remove('is-inline-mobile');
+      if(detailPanel.parentNode !== openCard){
+        openCard.appendChild(detailPanel);
+      }
+    }
+
+    function handleMobileContextClose(){
+      mobileScrollTicking = false;
+      if(window.innerWidth > 900 || !detailPanel || detailPanel.hidden){ return; }
+      var openCard = getOpenCard();
+      if(!openCard){ return; }
+      var panelRect = detailPanel.getBoundingClientRect();
+      var cardRect = openCard.getBoundingClientRect();
+      var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      var sectionStillInView = panelRect.bottom > 88 && cardRect.top < viewportHeight - 88;
+      if(!sectionStillInView){
+        closeProgramDetail();
+      }
+    }
+
+    function onMobileScroll(){
+      if(mobileScrollTicking){ return; }
+      mobileScrollTicking = true;
+      window.requestAnimationFrame(handleMobileContextClose);
+    }
 
     function openCard(card){
       if(!card || !detailPanel || !detailTitle || !detailContent){ return; }
-      closeAllCards();
+      closeProgramDetail();
       card.classList.add('is-open');
       var toggle = card.querySelector('.ff-program-toggle');
       if(toggle){ toggle.setAttribute('aria-expanded', 'true'); }
@@ -4334,12 +4465,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       });
 
       detailPanel.hidden = false;
+      positionDetailPanel();
     }
 
     if(detailClose){
       detailClose.addEventListener('click', function(){
-        closeAllCards();
-        if(detailPanel){ detailPanel.hidden = true; }
+        closeProgramDetail();
       });
     }
 
@@ -4349,8 +4480,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         toggle.addEventListener('click', function(e){
           e.preventDefault();
           if(card.classList.contains('is-open') && detailPanel && !detailPanel.hidden){
-            closeAllCards();
-            detailPanel.hidden = true;
+            closeProgramDetail();
           } else {
             openCard(card);
           }
@@ -4358,11 +4488,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       }
     });
 
+    window.addEventListener('scroll', onMobileScroll, { passive: true });
+    window.addEventListener('resize', function(){ window.requestAnimationFrame(positionDetailPanel); });
+    positionDetailPanel();
+
+    document.addEventListener('pointerdown', function(e){
+      if(!detailPanel || detailPanel.hidden){ return; }
+      if(isScrollbarGutterClick(e)){
+        closeProgramDetail();
+      }
+    }, { passive: true });
 
     document.addEventListener('click', function(e){
       if(!e.target.closest('.ff-program-premium') && !e.target.closest('#ffProgramDetailPanel')){
-        closeAllCards();
-        if(detailPanel){ detailPanel.hidden = true; }
+        closeProgramDetail();
       }
       if(!e.target.closest('.ff-mainnav')){
         var mainnav = document.querySelector('.ff-mainnav');
@@ -4625,6 +4764,517 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
   setupCarouselStates();
   window.addEventListener('resize', setupCarouselStates);
+})();
+</script>
+
+
+<style id="ff-program-height-normalize">
+  #programs .ff-program-premium-stack{
+    align-items:stretch !important;
+  }
+  #programs .ff-program-premium{
+    height:var(--ff-program-card-height, auto) !important;
+    min-height:var(--ff-program-card-height, auto) !important;
+    display:block;
+  }
+  #programs .ff-program-top{
+    height:100% !important;
+    min-height:var(--ff-program-card-height, auto) !important;
+    display:flex !important;
+    flex-direction:column !important;
+  }
+  #programs .ff-program-popup{
+    min-height:var(--ff-program-card-height, auto) !important;
+  }
+  #programs .ff-program-detail-panel,
+  #programs .ff-program-detail-shell{
+    height:100% !important;
+    min-height:var(--ff-program-card-height, auto) !important;
+    max-height:var(--ff-program-card-height, auto) !important;
+  }
+  #programs .ff-program-detail-grid{
+    max-height:calc(var(--ff-program-card-height, 440px) - 88px) !important;
+    overflow:auto !important;
+    padding-right:2px;
+  }
+  #programs .ff-program-detail-grid::-webkit-scrollbar{
+    width:6px;
+  }
+  #programs .ff-program-detail-grid::-webkit-scrollbar-thumb{
+    background:rgba(199,77,93,0.24);
+    border-radius:999px;
+  }
+</style>
+<script id="ff-program-height-normalize-script">
+(function(){
+  var section = document.getElementById('programs');
+  if(!section){ return; }
+  var stack = section.querySelector('.ff-program-premium-stack');
+  if(!stack){ return; }
+
+  function setProgramHeights(){
+    var cards = Array.prototype.slice.call(stack.querySelectorAll('.ff-program-premium'));
+    if(!cards.length){ return; }
+
+    if(window.innerWidth <= 991){
+      stack.style.removeProperty('--ff-program-card-height');
+      return;
+    }
+
+    stack.style.removeProperty('--ff-program-card-height');
+    cards.forEach(function(card){
+      card.style.removeProperty('height');
+      var top = card.querySelector('.ff-program-top');
+      if(top){ top.style.removeProperty('min-height'); }
+    });
+
+    var maxHeight = 0;
+    cards.forEach(function(card){
+      var top = card.querySelector('.ff-program-top');
+      if(top){
+        maxHeight = Math.max(maxHeight, Math.ceil(top.getBoundingClientRect().height));
+      }
+    });
+
+    if(maxHeight){
+      maxHeight = Math.min(maxHeight + 6, 460);
+      stack.style.setProperty('--ff-program-card-height', maxHeight + 'px');
+    }
+  }
+
+  window.addEventListener('load', setProgramHeights);
+  window.addEventListener('resize', function(){ window.requestAnimationFrame(setProgramHeights); });
+  window.requestAnimationFrame(setProgramHeights);
+})();
+</script>
+
+
+<style id="ff-program-final-tune">
+  #programs .ff-wrap{
+    padding-bottom:56px !important;
+  }
+  #programs .ff-chip{
+    background:transparent !important;
+    border:none !important;
+    color:#b42318 !important;
+    border-radius:0 !important;
+    padding:0 !important;
+    margin:0 0 14px 0 !important;
+    font-size:0.76rem !important;
+    font-weight:800 !important;
+    letter-spacing:0.18em !important;
+    text-transform:uppercase !important;
+    box-shadow:none !important;
+  }
+  #programs .ff-program-premium{
+    height:var(--ff-program-card-height, auto) !important;
+    min-height:var(--ff-program-card-height, auto) !important;
+    max-height:var(--ff-program-card-height, auto) !important;
+    overflow:hidden !important;
+  }
+  #programs .ff-program-top{
+    height:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    padding-bottom:16px !important;
+    overflow:hidden !important;
+  }
+  #programs .ff-program-top p{
+    margin-bottom:12px !important;
+  }
+  #programs .ff-program-points{
+    margin:0 0 10px 0 !important;
+    gap:6px !important;
+  }
+  #programs .ff-program-points li{
+    font-size:13px !important;
+    line-height:1.48 !important;
+  }
+  #programs .ff-program-actions{
+    margin-top:auto !important;
+    padding-top:14px !important;
+    flex-shrink:0 !important;
+  }
+  #programs .ff-program-detail-panel,
+  #programs .ff-program-detail-shell{
+    overflow:hidden !important;
+  }
+  #programs .ff-program-detail-shell{
+    height:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
+    padding:14px 14px 12px 14px !important;
+    background:rgba(247,249,252,0.12) !important;
+    border:1px solid rgba(215,222,232,0.24) !important;
+  }
+  #programs .ff-program-detail-shell::before{
+    background:linear-gradient(180deg, rgba(224,76,93,0.22) 0%, rgba(224,76,93,0.10) 100%) !important;
+    width:3px !important;
+    top:12px !important;
+    bottom:12px !important;
+  }
+  #programs .ff-program-detail-top{
+    margin-bottom:8px !important;
+    flex:0 0 auto !important;
+  }
+  #programs .ff-program-detail-top h3{
+    margin:0 !important;
+    font-size:1.22rem !important;
+    line-height:1.2 !important;
+    letter-spacing:-0.02em !important;
+    font-weight:700 !important;
+    padding-right:44px !important;
+  }
+  #programs .ff-program-detail-close{
+    width:34px !important;
+    height:34px !important;
+  }
+  #programs .ff-program-detail-grid{
+    flex:1 1 auto !important;
+    height:auto !important;
+    min-height:0 !important;
+    max-height:none !important;
+    overflow:hidden !important;
+    align-items:stretch !important;
+    gap:8px !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box{
+    height:auto !important;
+    min-height:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+    align-self:stretch !important;
+    padding:10px 11px !important;
+    background:rgba(255,255,255,0.07) !important;
+    border:1px solid rgba(184,194,209,0.14) !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box .t{
+    margin-bottom:8px !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box p{
+    line-height:1.45 !important;
+  }
+  @media (max-width: 991px){
+    #programs .ff-wrap{
+      padding-bottom:0 !important;
+    }
+    #programs .ff-chip{
+      font-size:0.72rem !important;
+    }
+    #programs .ff-program-detail-grid{
+      height:auto !important;
+      overflow:visible !important;
+    }
+    #programs .ff-program-detail-grid .ff-program-side-box{
+      height:auto !important;
+    }
+  }
+</style>
+<script id="ff-program-height-final-tune">
+(function(){
+  var section = document.getElementById('programs');
+  if(!section){ return; }
+  var stack = section.querySelector('.ff-program-premium-stack');
+  if(!stack){ return; }
+  function setProgramHeightsFinal(){
+    var cards = Array.prototype.slice.call(stack.querySelectorAll('.ff-program-premium'));
+    if(!cards.length){ return; }
+    stack.style.removeProperty('--ff-program-card-height');
+    cards.forEach(function(card){
+      card.style.removeProperty('height');
+      var top = card.querySelector('.ff-program-top');
+      if(top){ top.style.removeProperty('min-height'); }
+    });
+    var maxHeight = 0;
+    cards.forEach(function(card){
+      var top = card.querySelector('.ff-program-top');
+      if(top){ maxHeight = Math.max(maxHeight, Math.ceil(top.getBoundingClientRect().height)); }
+    });
+    if(maxHeight){
+      if(window.innerWidth > 991){
+        maxHeight = Math.min(Math.max(maxHeight + 18, 452), 486);
+      }
+      stack.style.setProperty('--ff-program-card-height', maxHeight + 'px');
+    }
+  }
+  window.addEventListener('load', setProgramHeightsFinal);
+  window.addEventListener('resize', function(){ window.requestAnimationFrame(setProgramHeightsFinal); });
+  window.requestAnimationFrame(setProgramHeightsFinal);
+})();
+</script>
+
+
+<style id="ff-program-absolute-overlay-fix">
+  #programs .ff-program-premium-stack{
+    align-items:stretch !important;
+  }
+  #programs .ff-program-premium{
+    display:block !important;
+    position:relative !important;
+    overflow:hidden !important;
+    border-radius:22px !important;
+  }
+  #programs .ff-program-top{
+    height:100% !important;
+    display:grid !important;
+    grid-template-rows:auto auto 1fr auto !important;
+    gap:0 !important;
+    min-height:0 !important;
+  }
+  #programs .ff-program-points{
+    align-content:start !important;
+    overflow:hidden !important;
+  }
+  #programs .ff-program-detail-panel{
+    position:absolute !important;
+    inset:0 !important;
+    width:auto !important;
+    height:auto !important;
+    margin:0 !important;
+    z-index:14 !important;
+    pointer-events:none !important;
+  }
+  #programs .ff-program-detail-panel.is-inline-mobile{
+    position:relative !important;
+    inset:auto !important;
+    width:100% !important;
+    height:auto !important;
+    margin:0 0 16px !important;
+    pointer-events:auto !important;
+  }
+  #programs .ff-program-detail-shell,
+  #programs .ff-program-detail-close,
+  #programs .ff-program-detail-grid,
+  #programs .ff-program-detail-top{
+    pointer-events:auto !important;
+  }
+  #programs .ff-program-detail-shell{
+    position:absolute !important;
+    inset:0 !important;
+    height:auto !important;
+    min-height:0 !important;
+    display:grid !important;
+    grid-template-rows:auto 1fr !important;
+    padding:14px !important;
+    background:rgba(247,249,252,0.10) !important;
+    border:1px solid rgba(215,222,232,0.22) !important;
+    box-sizing:border-box !important;
+  }
+  #programs .ff-program-detail-panel.is-inline-mobile .ff-program-detail-shell{
+    position:relative !important;
+    inset:auto !important;
+    min-height:unset !important;
+  }
+  #programs .ff-program-detail-top{
+    margin-bottom:8px !important;
+  }
+  #programs .ff-program-detail-top h3{
+    font-size:1.22rem !important;
+    line-height:1.2 !important;
+    margin:0 !important;
+  }
+  #programs .ff-program-detail-grid{
+    min-height:0 !important;
+    height:100% !important;
+    max-height:100% !important;
+    overflow:auto !important;
+    align-content:start !important;
+    padding-right:2px !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box{
+    min-height:0 !important;
+    height:auto !important;
+    background:rgba(255,255,255,0.06) !important;
+    border:1px solid rgba(184,194,209,0.12) !important;
+  }
+  @media (max-width: 991px){
+    #programs .ff-wrap{
+      padding-bottom:0 !important;
+    }
+    #programs .ff-program-premium{
+      height:auto !important;
+      min-height:0 !important;
+      max-height:none !important;
+    }
+    #programs .ff-program-top{
+      display:flex !important;
+      height:auto !important;
+    }
+    #programs .ff-program-detail-grid{
+      max-height:none !important;
+      overflow:visible !important;
+    }
+  }
+</style>
+
+
+<style id="ff-program-final-user-fix">
+  #programs .ff-program-premium.is-open > .ff-program-detail-panel{
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+  }
+  #programs .ff-program-premium.is-open > .ff-program-top{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+  }
+  #programs .ff-program-premium.is-open > .ff-program-detail-panel .ff-program-detail-shell,
+  #programs .ff-program-premium.is-open > .ff-program-detail-panel .ff-program-detail-top,
+  #programs .ff-program-premium.is-open > .ff-program-detail-panel .ff-program-detail-grid,
+  #programs .ff-program-premium.is-open > .ff-program-detail-panel .ff-program-side-box,
+  #programs .ff-program-premium.is-open > .ff-program-detail-panel .ff-program-detail-close,
+  #programs .ff-program-premium.is-open > .ff-program-detail-panel h3,
+  #programs .ff-program-premium.is-open > .ff-program-detail-panel p,
+  #programs .ff-program-premium.is-open > .ff-program-detail-panel .k,
+  #programs .ff-program-premium.is-open > .ff-program-detail-panel .t{
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+  #programs .ff-program-premium{
+    height:var(--ff-program-card-height, 418px) !important;
+    min-height:var(--ff-program-card-height, 418px) !important;
+    max-height:var(--ff-program-card-height, 418px) !important;
+  }
+  #programs .ff-program-top{
+    grid-template-rows:auto auto auto auto auto !important;
+    align-content:start !important;
+    padding-bottom:12px !important;
+  }
+  #programs .ff-program-top p{
+    margin-bottom:10px !important;
+  }
+  #programs .ff-program-points{
+    margin:0 0 6px 0 !important;
+    gap:5px !important;
+  }
+  #programs .ff-program-points li{
+    font-size:12.8px !important;
+    line-height:1.44 !important;
+    font-weight:400 !important;
+    color:#374151 !important;
+  }
+  #programs .ff-program-detail-shell{
+    padding:16px 16px 14px 16px !important;
+    background:rgba(247,249,252,0.16) !important;
+    border:1px solid rgba(215,222,232,0.18) !important;
+    box-shadow:0 8px 20px rgba(15,23,42,0.03) !important;
+  }
+  #programs .ff-program-detail-shell::before{
+    background:linear-gradient(180deg, rgba(224,76,93,0.18) 0%, rgba(224,76,93,0.08) 100%) !important;
+    width:3px !important;
+  }
+  #programs .ff-program-detail-top h3{
+    color:#66799a !important;
+    font-size:1.04rem !important;
+    line-height:1.08 !important;
+    font-weight:700 !important;
+    letter-spacing:-0.02em !important;
+    margin:0 0 6px 0 !important;
+    padding-right:42px !important;
+  }
+  #programs .ff-program-detail-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:10px !important;
+    overflow:hidden !important;
+    align-content:start !important;
+    padding-right:0 !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box{
+    padding:12px 12px 10px !important;
+    background:rgba(255,255,255,0.08) !important;
+    border:1px solid rgba(184,194,209,0.14) !important;
+    border-radius:16px !important;
+    box-shadow:none !important;
+    min-height:0 !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box .k{
+    color:#c73f4b !important;
+    font-size:0.74rem !important;
+    font-weight:800 !important;
+    letter-spacing:0.16em !important;
+    text-transform:uppercase !important;
+    margin-bottom:10px !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box .t{
+    color:#66799a !important;
+    font-size:1.04rem !important;
+    line-height:1.08 !important;
+    font-weight:700 !important;
+    letter-spacing:-0.02em !important;
+    margin:0 0 6px 0 !important;
+  }
+  #programs .ff-program-detail-grid .ff-program-side-box p{
+    color:#4b5563 !important;
+    font-size:0.95rem !important;
+    line-height:1.58 !important;
+    font-weight:400 !important;
+    margin:0 !important;
+  }
+  @media (max-width: 991px){
+    #programs .ff-program-premium,
+    #programs .ff-program-detail-panel,
+    #programs .ff-program-detail-shell{
+      height:auto !important;
+      min-height:0 !important;
+      max-height:none !important;
+    }
+    #programs .ff-program-premium.is-open > .ff-program-top{
+      display:none !important;
+    }
+    #programs .ff-program-premium.is-open > .ff-program-detail-panel{
+      position:relative !important;
+      inset:auto !important;
+      width:100% !important;
+      margin:0 !important;
+      opacity:1 !important;
+      visibility:visible !important;
+      pointer-events:auto !important;
+      z-index:2 !important;
+    }
+    #programs .ff-program-premium.is-open > .ff-program-detail-panel .ff-program-detail-shell{
+      position:relative !important;
+      inset:auto !important;
+      border-radius:22px !important;
+    }
+    #programs .ff-program-detail-grid{
+      grid-template-columns:1fr !important;
+      overflow:visible !important;
+    }
+  }
+</style>
+<script id="ff-program-height-user-fix">
+(function(){
+  var section = document.getElementById('programs');
+  if(!section){ return; }
+  var stack = section.querySelector('.ff-program-premium-stack');
+  if(!stack){ return; }
+  function setProgramHeightsUser(){
+    var cards = Array.prototype.slice.call(stack.querySelectorAll('.ff-program-premium'));
+    if(!cards.length){ return; }
+    if(window.innerWidth <= 991){
+      stack.style.removeProperty('--ff-program-card-height');
+      return;
+    }
+    stack.style.removeProperty('--ff-program-card-height');
+    var maxHeight = 0;
+    cards.forEach(function(card){
+      var top = card.querySelector('.ff-program-top');
+      if(top){
+        top.style.removeProperty('min-height');
+        top.style.removeProperty('height');
+        maxHeight = Math.max(maxHeight, Math.ceil(top.getBoundingClientRect().height));
+      }
+    });
+    if(maxHeight){
+      maxHeight = Math.max(Math.ceil(maxHeight + 2), 330);
+      stack.style.setProperty('--ff-program-card-height', maxHeight + 'px');
+    }
+  }
+  window.addEventListener('load', setProgramHeightsUser);
+  window.addEventListener('resize', function(){ window.requestAnimationFrame(setProgramHeightsUser); });
+  window.requestAnimationFrame(setProgramHeightsUser);
 })();
 </script>
 
