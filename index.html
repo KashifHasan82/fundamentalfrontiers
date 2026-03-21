@@ -491,6 +491,39 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   .ff-section-soft{
     background:#f8f5ef;
   }
+  .ff-section-contrast{
+    background:linear-gradient(180deg,#09162f 0%,#0d1f40 100%);
+    position:relative;
+    overflow:hidden;
+  }
+  .ff-section-contrast::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 18% 18%, rgba(255,255,255,0.06), transparent 28%), radial-gradient(circle at 82% 26%, rgba(255,255,255,0.04), transparent 24%);
+    pointer-events:none;
+  }
+  .ff-section-contrast .ff-wrap{
+    position:relative;
+    z-index:1;
+  }
+  .ff-section-contrast .ff-head .ff-label{
+    color:rgba(255,255,255,0.58);
+  }
+  .ff-section-contrast .ff-head h2{
+    color:#f7fbff;
+  }
+  .ff-section-contrast .ff-head p{
+    color:rgba(247,251,255,0.76);
+  }
+  .ff-section-contrast .ff-card,
+  .ff-section-contrast .ff-program-card,
+  .ff-section-contrast .ff-note-card,
+  .ff-section-contrast .ff-book-card,
+  .ff-section-contrast .ff-case-card,
+  .ff-section-contrast .ff-cta-card{
+    box-shadow:0 18px 44px rgba(0,0,0,0.22);
+  }
 
   .ff-head{
     max-width:980px;
@@ -1782,7 +1815,7 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 <style>
   /* Final refinement: premium services section plus mobile horizontal hero service band */
   #services{
-    background:#eef3f8;
+    background:#f3f5f9;
   }
   #services .ff-head{
     max-width:980px;
@@ -1820,41 +1853,41 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     line-height:1.85;
   }
   #services .ff-services-grid{
-    gap:20px;
+    gap:18px;
   }
   #services .ff-service-pillar{
     background:#f7f9fc !important;
-    border:1px solid rgba(215,222,232,0.78) !important;
-    box-shadow:0 12px 24px rgba(15,23,42,0.035), 0 1px 0 rgba(255,255,255,0.72) inset;
-    border-radius:22px;
-    padding:25px 24px 23px;
+    border:1px solid #d7dee8 !important;
+    box-shadow:0 16px 34px rgba(15,23,42,0.05);
+    border-radius:20px;
+    padding:24px 24px 22px;
     overflow:hidden;
   }
   #services .ff-service-pillar::before{
-    height:2px;
-    left:24px;
-    right:24px;
+    height:3px;
+    left:18px;
+    right:18px;
     top:0;
-    border-radius:0 0 10px 10px;
-    background:linear-gradient(90deg, rgba(224,76,93,0.74) 0%, rgba(224,76,93,0.52) 55%, rgba(224,76,93,0.18) 100%);
+    border-radius:0 0 12px 12px;
+    background:linear-gradient(90deg, rgba(224,76,93,0.95) 0%, rgba(224,76,93,0.76) 55%, rgba(224,76,93,0.42) 100%);
   }
   #services .ff-service-pillar::after{
     content:"";
     position:absolute;
-    inset:auto -24% -34% auto;
-    width:170px;
-    height:170px;
+    inset:auto -22% -28% auto;
+    width:180px;
+    height:180px;
     border-radius:50%;
-    background:radial-gradient(circle, rgba(15,42,86,0.032) 0%, rgba(15,42,86,0.012) 42%, rgba(15,42,86,0) 72%);
+    background:radial-gradient(circle, rgba(15,42,86,0.05) 0%, rgba(15,42,86,0.02) 42%, rgba(15,42,86,0) 70%);
     pointer-events:none;
   }
   #services .ff-service-tag{
     padding:7px 12px;
-    background:#f1f5fa !important;
-    border:1px solid rgba(215,222,232,0.76) !important;
-    color:#73819a;
+    background:#eef2f7 !important;
+    border:1px solid #d7dee8 !important;
+    color:#6f7f99;
     border-radius:7px;
-    margin-bottom:15px;
+    margin-bottom:14px;
     font-size:0.74rem;
     font-weight:800;
     letter-spacing:0.16em;
@@ -1871,8 +1904,8 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   #services .ff-service-pillar p{
     margin:0 0 14px 0;
     font-size:0.95rem;
-    line-height:1.6;
-    color:#566273;
+    line-height:1.58;
+    color:#4b5563;
     min-height:6.8em;
   }
   #services .ff-service-list{
@@ -1881,15 +1914,15 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
   #services .ff-service-list li{
     padding-left:16px;
     font-size:14px;
-    line-height:1.56;
-    color:#172032;
+    line-height:1.55;
+    color:#111827;
   }
   #services .ff-service-list li::before{
     width:5px;
     height:5px;
     top:9px;
     background:#df4858;
-    box-shadow:0 0 0 3px rgba(223,72,88,0.08);
+    box-shadow:0 0 0 4px rgba(223,72,88,0.10);
   }
 
   @media (max-width:991px){
@@ -2267,6 +2300,338 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
 }
 </style>
 
+
+<style id="ff-global-theme-pass">
+  /* Global section treatment aligned to services section */
+  #deliverables,
+  #proof,
+  #contact-book{
+    background:#f3f5f9;
+  }
+  #programs,
+  #insights{
+    background:#f8fafd;
+  }
+
+  #deliverables .ff-head,
+  #programs .ff-head,
+  #proof .ff-head,
+  #insights .ff-head,
+  #contact-book .ff-head{
+    max-width:980px;
+    margin:0 auto 46px auto;
+    text-align:center;
+  }
+  #deliverables .ff-label,
+  #programs .ff-label,
+  #proof .ff-label,
+  #insights .ff-label,
+  #contact-book .ff-label{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:0;
+    width:min(980px,100%);
+    margin:0 auto 24px auto;
+    padding:0;
+    height:16px;
+    background:#f7f9fc;
+    border:1px solid #d7deea;
+    border-radius:7px;
+    color:#6f7f99;
+    letter-spacing:0.18em;
+  }
+  #deliverables .ff-head h2,
+  #programs .ff-head h2,
+  #proof .ff-head h2,
+  #insights .ff-head h2,
+  #contact-book .ff-head h2{
+    margin:0 0 14px 0;
+    font-size:34px;
+    line-height:1.18;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    color:#0f172a;
+  }
+  #deliverables .ff-head p,
+  #programs .ff-head p,
+  #proof .ff-head p,
+  #insights .ff-head p,
+  #contact-book .ff-head p{
+    max-width:980px;
+    margin:0 auto;
+    color:#617089;
+    font-size:15px;
+    line-height:1.85;
+  }
+
+  #deliverables .ff-deliverable-card,
+  #programs .ff-program-top,
+  #proof .ff-case-editorial-card,
+  #insights .ff-resource-band,
+  #insights .ff-insight-card,
+  #contact-book .ff-card{
+    background:linear-gradient(180deg, #f9fbfd 0%, #f6f9fc 100%) !important;
+    border:1px solid rgba(219,227,238,0.58) !important;
+    box-shadow:0 16px 34px rgba(15,23,42,0.05);
+    border-radius:22px;
+  }
+
+  #deliverables .ff-deliverable-card,
+  #proof .ff-case-editorial-card,
+  #insights .ff-resource-band,
+  #insights .ff-insight-card,
+  #contact-book .ff-card{
+    overflow:hidden;
+    position:relative;
+  }
+  #deliverables .ff-deliverable-card::before,
+  #proof .ff-case-editorial-card::before,
+  #insights .ff-resource-band::before,
+  #insights .ff-insight-card::before,
+  #contact-book .ff-card::before{
+    content:"";
+    position:absolute;
+    left:22px;
+    right:22px;
+    top:0;
+    height:1px;
+    background:linear-gradient(90deg, rgba(224,76,93,0.40) 0%, rgba(224,76,93,0.18) 56%, rgba(224,76,93,0.03) 100%);
+    pointer-events:none;
+  }
+
+  #deliverables .ff-chip,
+  #programs .ff-chip,
+  #proof .ff-case-editorial-type,
+  #insights .ff-chip,
+  #contact-book .ff-chip{
+    background:transparent !important;
+    border:none !important;
+    color:#7a879d;
+    border-radius:0;
+    padding:6px 0;
+    margin-bottom:16px;
+    font-size:0.73rem;
+    font-weight:800;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+  }
+
+  #deliverables .ff-deliverable-card h3,
+  #programs .ff-program-top h3,
+  #proof .ff-case-editorial-card h3,
+  #insights .ff-insight-card .t,
+  #contact-book .ff-card-head h3{
+    color:#111827;
+  }
+  #deliverables .ff-deliverable-card p,
+  #programs .ff-program-top p,
+  #proof .ff-case-editorial-card p,
+  #insights .ff-insight-card p,
+  #contact-book .ff-card-head p,
+  #contact-book .ff-card p{
+    color:#566273;
+  }
+
+  #programs .ff-program-premium{
+    overflow:visible;
+    border:none;
+    box-shadow:none;
+    background:transparent;
+  }
+  #programs .ff-program-top{
+    padding:28px 26px 24px;
+  }
+  #programs .ff-program-toggle{
+    border-radius:10px;
+    border:1px solid rgba(219,227,238,0.72);
+    background:#fbfcfe;
+  }
+  #programs .ff-program-popup{
+    border-radius:18px;
+    background:rgba(247,250,253,0.96);
+    border:1px solid rgba(219,227,238,0.72);
+    box-shadow:0 18px 34px rgba(15,23,42,0.08);
+    backdrop-filter:blur(10px);
+  }
+  #programs .ff-program-side-box{
+    background:transparent;
+    border:1px solid rgba(219,227,238,0.70);
+    border-radius:16px;
+  }
+
+  #proof .ff-case-editorial-brand{
+    margin-bottom:14px;
+  }
+  #proof .ff-case-editorial-mark{
+    color:#7a879d;
+  }
+  #proof .ff-case-editorial-sub{
+    color:#9aa4b4;
+  }
+  #proof .ff-case-thumb{
+    border-radius:16px;
+    background:#eef3f9;
+  }
+
+  #insights .ff-resource-band{
+    padding:24px 24px 22px;
+  }
+
+  /* Mobile hero strip remove rear frame and keep single front layer only */
+  @media (max-width: 767px){
+    .ff-service-rotator-stage{
+      background:transparent !important;
+      border:none !important;
+      box-shadow:none !important;
+      backdrop-filter:none !important;
+    }
+    .ff-rotator-track{
+      background:transparent !important;
+      border:none !important;
+      box-shadow:none !important;
+    }
+    .ff-rotator-item{
+      min-height:42px;
+      padding:4px 6px 5px;
+      border:none !important;
+      border-radius:12px;
+      background:transparent;
+    }
+    .ff-rotator-item.is-featured{
+      background:rgba(255,255,255,0.06);
+    }
+    .ff-rotator-title{
+      font-size:10px;
+      line-height:1.12;
+      text-align:center;
+      white-space:normal;
+      overflow:hidden;
+    }
+
+    #deliverables .ff-head,
+    #programs .ff-head,
+    #proof .ff-head,
+    #insights .ff-head,
+    #contact-book .ff-head{
+      margin-bottom:30px;
+    }
+    #deliverables .ff-head h2,
+    #programs .ff-head h2,
+    #proof .ff-head h2,
+    #insights .ff-head h2,
+    #contact-book .ff-head h2{
+      font-size:30px;
+    }
+  }
+</style>
+
+
+<style id="ff-premium-rhythm-pass">
+  /* Stronger page rhythm and section identity */
+  .ff-section{position:relative;}
+  .ff-section::before{
+    content:"";
+    position:absolute;
+    left:0; right:0; top:0;
+    height:1px;
+    pointer-events:none;
+    opacity:.9;
+  }
+
+  #services{
+    background:linear-gradient(180deg,#f4f7fb 0%,#eef3f8 100%) !important;
+  }
+  #services::before{
+    background:linear-gradient(90deg,rgba(28,45,84,0.00) 0%, rgba(28,45,84,0.16) 18%, rgba(28,45,84,0.16) 82%, rgba(28,45,84,0.00) 100%);
+  }
+  #services::after{
+    content:"";
+    position:absolute; inset:auto 0 0 0; height:56px;
+    background:linear-gradient(180deg,rgba(244,247,251,0) 0%, rgba(233,239,246,0.92) 100%);
+    pointer-events:none;
+  }
+  #services .ff-wrap{position:relative; z-index:1;}
+  #services .ff-shutterstock-col{
+    background:linear-gradient(180deg,#f9fbfe 0%, #f4f8fc 100%) !important;
+    border:1px solid rgba(206,216,229,0.88) !important;
+    box-shadow:0 16px 34px rgba(15,23,42,0.05), inset 0 1px 0 rgba(255,255,255,0.72);
+  }
+
+  #deliverables{
+    background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%) !important;
+  }
+  #deliverables::before{
+    background:linear-gradient(90deg,rgba(113,129,156,0.00) 0%, rgba(113,129,156,0.14) 18%, rgba(113,129,156,0.14) 82%, rgba(113,129,156,0.00) 100%);
+  }
+  #deliverables .ff-wrap{position:relative; z-index:1;}
+  #deliverables .ff-deliverables-grid{gap:24px;}
+
+  #programs{
+    background:linear-gradient(180deg,#eef3f8 0%, #f7fafc 100%) !important;
+  }
+  #programs::before{
+    background:linear-gradient(90deg,rgba(75,95,128,0.00) 0%, rgba(75,95,128,0.14) 18%, rgba(75,95,128,0.14) 82%, rgba(75,95,128,0.00) 100%);
+  }
+  #programs .ff-program-top,
+  #programs .ff-program-popup,
+  #programs .ff-program-side-box{
+    box-shadow:0 16px 32px rgba(33,56,92,0.08) !important;
+  }
+
+  #proof{
+    background:linear-gradient(180deg,#eef3f8 0%, #f7fafc 100%) !important;
+  }
+  #proof::before{
+    background:linear-gradient(90deg,rgba(75,95,128,0.00) 0%, rgba(75,95,128,0.14) 18%, rgba(75,95,128,0.14) 82%, rgba(75,95,128,0.00) 100%);
+  }
+  #proof .ff-case-editorial-grid{gap:24px;}
+  #proof .ff-case-editorial-card{
+    background:linear-gradient(180deg,#fbfdff 0%,#f6f9fd 100%) !important;
+    border:1px solid rgba(211,221,233,0.80) !important;
+  }
+
+  #insights{
+    background:
+      radial-gradient(circle at 16% 18%, rgba(255,255,255,0.05), transparent 24%),
+      linear-gradient(180deg,#18283e 0%, #22354f 100%) !important;
+  }
+  #insights::before{
+    background:linear-gradient(90deg,rgba(255,255,255,0.00) 0%, rgba(255,255,255,0.11) 18%, rgba(255,255,255,0.11) 82%, rgba(255,255,255,0.00) 100%);
+  }
+  #insights .ff-head .ff-label{color:rgba(255,255,255,0.60) !important;}
+  #insights .ff-head h2{color:#f7fbff !important;}
+  #insights .ff-head p{color:rgba(247,251,255,0.78) !important;}
+  #insights .ff-resource-band,
+  #insights .ff-insight-card{
+    background:linear-gradient(180deg,rgba(250,252,255,0.97) 0%, rgba(244,248,253,0.96) 100%) !important;
+    border:1px solid rgba(216,226,238,0.66) !important;
+  }
+
+  #contact-book{
+    background:linear-gradient(180deg,#fafbfd 0%, #f2f6fb 100%) !important;
+  }
+  #contact-book::before{
+    background:linear-gradient(90deg,rgba(92,108,134,0.00) 0%, rgba(92,108,134,0.13) 18%, rgba(92,108,134,0.13) 82%, rgba(92,108,134,0.00) 100%);
+  }
+
+  .ff-cta{
+    background:linear-gradient(180deg,#0b1832 0%, #102345 100%) !important;
+    position:relative;
+  }
+  .ff-cta::before{
+    content:"";
+    position:absolute; left:0; right:0; top:0; height:1px;
+    background:linear-gradient(90deg,rgba(255,255,255,0.00) 0%, rgba(255,255,255,0.10) 18%, rgba(255,255,255,0.10) 82%, rgba(255,255,255,0.00) 100%);
+    pointer-events:none;
+  }
+
+  @media (max-width: 767px){
+    #services::after{height:36px;}
+    .ff-section{padding:54px 0;}
+  }
+</style>
+
 </head>
 
 <body class="body-bg">
@@ -2428,7 +2793,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ff-section ff-section-soft" id="deliverables">
+  <section class="ff-section ff-section-white" id="deliverables">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-label">Deliverables</div>
@@ -2609,7 +2974,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ff-section ff-section-soft" id="proof">
+  <section class="ff-section ff-section-white" id="proof">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-label">Selected work</div>
@@ -2673,7 +3038,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-<section class="ff-section ff-section-white" id="insights">
+<section class="ff-section ff-section-darkbreak" id="insights">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-label">Insights</div>
@@ -2705,7 +3070,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ff-section ff-section-soft" id="contact-book">
+  <section class="ff-section ff-section-white" id="contact-book">
     <div class="ff-wrap">
       <div class="ff-head">
         <div class="ff-label">Booking and enquiry</div>
