@@ -2156,18 +2156,34 @@ j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
     letter-spacing: 0.10em;
     margin-bottom: 10px;
   }
+
+  html, body{ overflow-x: hidden; }
+  .ff-hero{ overflow: hidden; }
+  .ff-hero-copy,
+  .ff-hero-aside,
+  .ff-hero-grid > *{ min-width: 0; }
   .ff-hero h1{
-    font-size: 34px;
+    font-size: 31px;
     line-height: 1.08;
     letter-spacing: -0.02em;
-    max-width: none;
-    margin-bottom: 12px;
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
   .ff-hero p{
-    font-size: 16px;
-    line-height: 1.6;
-    max-width: none;
+    font-size: 15px;
+    line-height: 1.7;
   }
+  .ff-hero-actions{
+    flex-wrap: wrap;
+  }
+  .ff-btn{
+    min-width: 0;
+    flex: 0 1 auto;
+  }
+  .ff-service-rotator-stage,
+  .ff-rotator-track,
+  .ff-rotator-item,
+  .ff-rotator-content{ min-width: 0; }
   .ff-hero-actions{
     gap: 10px;
     margin-top: 18px;
