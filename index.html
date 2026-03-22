@@ -3053,11 +3053,20 @@
       }
       #proof .case-card.editorial h3,
       #proof .case-copy h3 {
-        font-size: 0.78rem;
-        line-height: 1.1;
+        max-width: none;
+        font-size: 0.96rem;
+        line-height: 1.08;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        display: block;
+        min-height: calc(1.08em * 2);
+      }
+      #service-visibility .meta-label {
         white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 0.64rem;
+        letter-spacing: 0.12em;
+        padding-inline: 10px;
       }
       #proof .case-card.editorial p,
       #proof .case-copy p {
@@ -3184,12 +3193,17 @@
 
     /* Mobile only: booking and enquiry text line control */
     @media (max-width: 680px) {
-      #contact-book .section-head .lede,
+      #contact-book .section-head .lede {
+        max-width: none;
+        text-wrap: pretty;
+      }
       #contact-book .route-top p {
         max-width: none;
-        text-align: justify;
-        text-align-last: left;
+        text-align: left;
+        text-align-last: auto;
         text-wrap: pretty;
+        word-spacing: normal;
+        letter-spacing: normal;
       }
       #contact-book .section-head .lede .mobile-linebreak,
       #contact-book .route-top p .mobile-linebreak {
@@ -3201,12 +3215,16 @@
     /* Selected work polish: hide desktop scrollbar and strengthen the mobile cue */
     @media (min-width: 681px) {
       #proof .proof-scroll {
-        scrollbar-width: none;
+        scrollbar-width: none !important;
         -ms-overflow-style: none;
+        padding-bottom: 0 !important;
+        overflow-y: hidden;
       }
       #proof .proof-scroll::-webkit-scrollbar {
-        display: none;
-        height: 0;
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        background: transparent;
       }
     }
 
@@ -3890,6 +3908,10 @@
       window.addEventListener('resize', maybeResetServicesOnLeave, { passive: true });
 
       const heroLinks = $$('.hero .service-jump');
+      const heroSection = document.getElementById('top');
+      const defaultHeroLink = heroLinks.find(link => link.classList.contains('is-active')) || heroLinks[0] || null;
+      let heroHasBeenOutOfView = false;
+
       function setHeroJumpActive(link) {
         heroLinks.forEach(item => item.classList.toggle('is-active', item === link));
       }
@@ -4155,6 +4177,31 @@
         }, 2000);
       }
 
+      function resetHeroToDefault() {
+        if (!defaultHeroLink) return;
+        activateHeroLink(defaultHeroLink);
+        startHeroCycle();
+      }
+
+      function heroInView() {
+        if (!heroSection) return false;
+        const rect = heroSection.getBoundingClientRect();
+        return rect.bottom > 120 && rect.top < window.innerHeight - 120;
+      }
+
+      function monitorHeroReturn() {
+        if (window.innerWidth > 680 || !heroSection || !defaultHeroLink) return;
+        const inView = heroInView();
+        if (!inView) {
+          heroHasBeenOutOfView = true;
+          return;
+        }
+        if (heroHasBeenOutOfView) {
+          heroHasBeenOutOfView = false;
+          resetHeroToDefault();
+        }
+      }
+
       heroLinks.forEach(link => {
         link.addEventListener('mouseenter', () => activateHeroLink(link));
         link.addEventListener('focus', () => activateHeroLink(link));
@@ -4162,6 +4209,9 @@
       });
 
       startHeroCycle();
+      window.addEventListener('scroll', monitorHeroReturn, { passive: true });
+      window.addEventListener('resize', monitorHeroReturn, { passive: true });
+      monitorHeroReturn();
 
 
       let openProgram = null;
