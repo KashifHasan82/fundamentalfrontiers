@@ -2529,6 +2529,358 @@
       }
     }
 
+
+    @media (max-width: 680px) {
+      .hero-grid {
+        gap: 18px;
+      }
+      .hero-copy {
+        gap: 13px;
+      }
+      .hero-actions {
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .hero .btn {
+        min-width: 140px;
+      }
+      .hero-side {
+        padding-top: 10px;
+      }
+      .service-jumps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+        align-items: start;
+      }
+      .service-jump {
+        justify-items: center;
+        align-content: start;
+        align-items: start;
+        text-align: center;
+        gap: 7px;
+        padding-inline: 1px;
+      }
+      .jump-bar {
+        width: 32px;
+        justify-self: center;
+        margin-inline: auto;
+      }
+      .jump-copy {
+        display: grid;
+        place-items: start center;
+        width: 100%;
+      }
+      .jump-copy strong {
+        max-width: 8.7ch;
+        margin-inline: auto;
+        font-size: clamp(0.6rem, 0.55rem + 0.22vw, 0.68rem);
+        line-height: 0.96;
+        letter-spacing: 0.03em;
+        text-align: center;
+        text-wrap: balance;
+      }
+
+      #services.section.tight {
+        padding-top: 22px;
+      }
+      #services .section-head,
+      #deliverables .section-head {
+        justify-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+      #services .kicker,
+      #deliverables .kicker {
+        width: min(92vw, 100%);
+        justify-content: center;
+        gap: 12px;
+      }
+      #services .kicker::before,
+      #services .kicker::after,
+      #deliverables .kicker::before,
+      #deliverables .kicker::after {
+        display: block;
+        content: "";
+        flex: 1 1 auto;
+        height: 1px;
+        background: rgba(84, 103, 137, 0.22);
+      }
+      #services h2,
+      #services .lede,
+      #deliverables h2,
+      #deliverables .lede {
+        text-align: center;
+        margin-inline: auto;
+      }
+      #services .cards.scroll,
+      #deliverables .cards.scroll {
+        display: flex;
+        overflow-x: auto;
+        gap: 14px;
+        padding: 2px 12px 10px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        scroll-padding-inline: 12px;
+      }
+      #services .cards.scroll > *,
+      #deliverables .cards.scroll > * {
+        flex: 0 0 min(79vw, 306px);
+        min-width: min(79vw, 306px);
+        scroll-snap-align: start;
+      }
+      #services .service-card,
+      #deliverables .deliverable-card {
+        min-height: 0;
+        transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      }
+      #services .service-card {
+        padding: 18px 16px 16px;
+        gap: 9px;
+      }
+      #services .service-card .meta,
+      #deliverables .deliverable-card .meta {
+        margin-bottom: 2px;
+      }
+      #services .service-card .meta-label,
+      #deliverables .deliverable-card .meta-label {
+        padding: 7px 11px;
+        font-size: 0.72rem;
+        letter-spacing: 0.13em;
+      }
+      #services .service-card h3,
+      #deliverables .deliverable-card h3 {
+        max-width: none;
+        font-size: clamp(1.02rem, 0.96rem + 0.48vw, 1.16rem);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+      #services .service-card p,
+      #deliverables .deliverable-card p {
+        font-size: 0.93rem;
+        line-height: 1.42;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      #services .service-list {
+        gap: 7px;
+      }
+      #services .service-list li {
+        font-size: 0.9rem;
+        line-height: 1.3;
+      }
+      #deliverables .deliverable-card {
+        padding: 18px 16px 16px;
+        gap: 9px;
+        align-content: start;
+      }
+      #deliverables .card-actions {
+        padding-top: 2px;
+        margin-top: auto;
+      }
+      #deliverables .btn.text {
+        font-size: 0.92rem;
+      }
+      #services .service-card:not(.is-mobile-active),
+      #deliverables .deliverable-card:not(.is-mobile-active) {
+        background: linear-gradient(180deg, rgba(33,75,141,0.08), rgba(33,75,141,0.04));
+        border-color: rgba(33,75,141,0.14);
+      }
+      #services .service-card.is-mobile-active,
+      #deliverables .deliverable-card.is-mobile-active {
+        background: rgba(255,255,255,0.94);
+        border-color: rgba(19,27,41,0.1);
+      }
+    }
+
+
+    @media (max-width: 680px) {
+      .service-jumps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+        padding-inline: 6px;
+      }
+      .service-jump {
+        justify-items: center;
+        align-content: start;
+        text-align: center;
+        gap: 7px;
+        padding-inline: 0;
+      }
+      .jump-copy {
+        display: grid;
+        place-items: center;
+        width: 100%;
+      }
+      .jump-copy strong {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 2.45em;
+        max-width: 8.35ch;
+        margin-inline: auto;
+        font-size: clamp(0.6rem, 0.55rem + 0.22vw, 0.68rem);
+        line-height: 0.95;
+        letter-spacing: 0.03em;
+        text-align: center;
+        text-wrap: balance;
+      }
+
+      #programs .section-head,
+      #proof .section-head {
+        justify-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+      #programs .kicker,
+      #proof .kicker {
+        width: min(92vw, 100%);
+        justify-content: center;
+        gap: 12px;
+      }
+      #programs .kicker::before,
+      #programs .kicker::after,
+      #proof .kicker::before,
+      #proof .kicker::after {
+        display: block;
+        content: "";
+        flex: 1 1 auto;
+        height: 1px;
+        background: rgba(84, 103, 137, 0.22);
+      }
+      #programs h2,
+      #programs .lede,
+      #proof h2,
+      #proof .lede {
+        text-align: center;
+        margin-inline: auto;
+      }
+
+      #programs .program-grid.scroll,
+      #proof .proof-scroll {
+        display: flex !important;
+        overflow-x: auto;
+        gap: 14px;
+        padding: 2px 12px 10px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        scroll-padding-inline: 12px;
+      }
+      #programs .program-grid.scroll > *,
+      #proof .proof-scroll > * {
+        flex: 0 0 min(79vw, 306px);
+        min-width: min(79vw, 306px);
+        scroll-snap-align: start;
+      }
+      #programs .program-grid.scroll::-webkit-scrollbar,
+      #proof .proof-scroll::-webkit-scrollbar {
+        height: 6px;
+      }
+      #programs .program-grid.scroll::-webkit-scrollbar-thumb,
+      #proof .proof-scroll::-webkit-scrollbar-thumb {
+        background: rgba(19,27,41,0.14);
+        border-radius: 999px;
+      }
+
+      #programs .program-card,
+      #proof .case-card {
+        min-height: 0;
+        transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      }
+      #programs .program-card {
+        min-height: 420px;
+      }
+      #programs .program-base,
+      #programs .program-detail {
+        padding: 18px 16px 16px;
+        gap: 9px;
+      }
+      #programs .program-base h3,
+      #programs .program-detail h3 {
+        max-width: none;
+        font-size: clamp(1.02rem, 0.96rem + 0.48vw, 1.16rem);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+      #programs .program-base p,
+      #programs .program-detail p {
+        font-size: 0.93rem;
+        line-height: 1.42;
+      }
+      #programs .program-base > p {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      #programs .program-base .chip,
+      #programs .program-detail .chip {
+        padding: 7px 11px;
+        font-size: 0.72rem;
+        letter-spacing: 0.13em;
+      }
+      #programs .bullet-list {
+        gap: 7px;
+      }
+      #programs .bullet-list li {
+        font-size: 0.9rem;
+        line-height: 1.3;
+      }
+      #programs .program-card:not(.is-mobile-active):not(.active) {
+        background: linear-gradient(180deg, rgba(33,75,141,0.08), rgba(33,75,141,0.04));
+        border-color: rgba(33,75,141,0.14);
+      }
+      #programs .program-card.is-mobile-active,
+      #programs .program-card.active {
+        background: rgba(255,255,255,0.94);
+        border-color: rgba(19,27,41,0.1);
+      }
+
+      #proof .case-card {
+        grid-template-columns: 1fr;
+      }
+      #proof .case-visual {
+        min-height: 160px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(19,27,41,0.1);
+      }
+      #proof .case-copy {
+        padding: 18px 16px 16px;
+        gap: 9px;
+      }
+      #proof .case-copy h3 {
+        max-width: none;
+        font-size: clamp(1.02rem, 0.96rem + 0.48vw, 1.16rem);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+      #proof .case-copy p {
+        font-size: 0.93rem;
+        line-height: 1.42;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      #proof .case-card:not(.is-mobile-active) {
+        background: linear-gradient(180deg, rgba(33,75,141,0.08), rgba(33,75,141,0.04));
+        border-color: rgba(33,75,141,0.14);
+      }
+      #proof .case-card.is-mobile-active {
+        background: rgba(255,255,255,0.94);
+        border-color: rgba(19,27,41,0.1);
+      }
+    }
+
   </style>
 <script type="application/ld+json">
   {
@@ -3228,6 +3580,172 @@
         }, { passive: true });
         updateMobileServicesActiveCard();
       }
+
+
+      const deliverablesSection = document.getElementById('deliverables');
+      const deliverablesCardsTrack = document.querySelector('#deliverables .cards.scroll');
+      const deliverablesCards = deliverablesCardsTrack ? Array.from(deliverablesCardsTrack.querySelectorAll('.deliverable-card')) : [];
+      let deliverablesResetting = false;
+
+      function updateMobileDeliverablesActiveCard() {
+        if (window.innerWidth > 680 || !deliverablesCardsTrack || !deliverablesCards.length) return;
+        const trackRect = deliverablesCardsTrack.getBoundingClientRect();
+        const targetX = trackRect.left + (trackRect.width * 0.42);
+        let activeCard = deliverablesCards[0];
+        let closest = Infinity;
+        deliverablesCards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const center = rect.left + (rect.width / 2);
+          const delta = Math.abs(center - targetX);
+          if (delta < closest) {
+            closest = delta;
+            activeCard = card;
+          }
+        });
+        deliverablesCards.forEach(card => card.classList.toggle('is-mobile-active', card === activeCard));
+      }
+
+      function resetMobileDeliverablesCarousel(forceInstant = false) {
+        if (window.innerWidth > 680 || !deliverablesCardsTrack || !deliverablesCards.length) return;
+        deliverablesResetting = true;
+        deliverablesCardsTrack.scrollTo({ left: 0, behavior: forceInstant || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        deliverablesCards.forEach((card, index) => card.classList.toggle('is-mobile-active', index === 0));
+        window.setTimeout(() => {
+          deliverablesResetting = false;
+          updateMobileDeliverablesActiveCard();
+        }, 240);
+      }
+
+      function maybeResetDeliverablesOnLeave() {
+        if (window.innerWidth > 680 || !deliverablesSection || !deliverablesCardsTrack || !deliverablesCards.length) return;
+        const rect = deliverablesSection.getBoundingClientRect();
+        if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+          resetMobileDeliverablesCarousel(true);
+        }
+      }
+      window.addEventListener('scroll', maybeResetDeliverablesOnLeave, { passive: true });
+      window.addEventListener('resize', maybeResetDeliverablesOnLeave, { passive: true });
+
+      if (deliverablesCardsTrack && deliverablesCards.length) {
+        deliverablesCardsTrack.addEventListener('scroll', () => {
+          if (!deliverablesResetting) window.requestAnimationFrame(updateMobileDeliverablesActiveCard);
+        }, { passive: true });
+        window.addEventListener('resize', () => {
+          updateMobileDeliverablesActiveCard();
+        }, { passive: true });
+        updateMobileDeliverablesActiveCard();
+      }
+
+
+
+      const programsSection = document.getElementById('programs');
+      const programsCardsTrack = document.querySelector('#programs .program-grid.scroll');
+      const programsCards = programsCardsTrack ? Array.from(programsCardsTrack.querySelectorAll('.program-card')) : [];
+      let programsResetting = false;
+
+      function updateMobileProgramsActiveCard() {
+        if (window.innerWidth > 680 || !programsCardsTrack || !programsCards.length) return;
+        const trackRect = programsCardsTrack.getBoundingClientRect();
+        const targetX = trackRect.left + (trackRect.width * 0.42);
+        let activeCard = programsCards[0];
+        let closest = Infinity;
+        programsCards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const center = rect.left + (rect.width / 2);
+          const delta = Math.abs(center - targetX);
+          if (delta < closest) {
+            closest = delta;
+            activeCard = card;
+          }
+        });
+        programsCards.forEach(card => card.classList.toggle('is-mobile-active', card === activeCard));
+      }
+
+      function resetMobileProgramsCarousel(forceInstant = false) {
+        if (window.innerWidth > 680 || !programsCardsTrack || !programsCards.length) return;
+        programsResetting = true;
+        programsCardsTrack.scrollTo({ left: 0, behavior: forceInstant || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        programsCards.forEach((card, index) => card.classList.toggle('is-mobile-active', index === 0));
+        window.setTimeout(() => {
+          programsResetting = false;
+          updateMobileProgramsActiveCard();
+        }, 240);
+      }
+
+      function maybeResetProgramsOnLeave() {
+        if (window.innerWidth > 680 || !programsSection || !programsCardsTrack || !programsCards.length) return;
+        const rect = programsSection.getBoundingClientRect();
+        if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+          resetMobileProgramsCarousel(true);
+        }
+      }
+      window.addEventListener('scroll', maybeResetProgramsOnLeave, { passive: true });
+      window.addEventListener('resize', maybeResetProgramsOnLeave, { passive: true });
+
+      if (programsCardsTrack && programsCards.length) {
+        programsCardsTrack.addEventListener('scroll', () => {
+          if (!programsResetting) window.requestAnimationFrame(updateMobileProgramsActiveCard);
+        }, { passive: true });
+        window.addEventListener('resize', () => {
+          updateMobileProgramsActiveCard();
+        }, { passive: true });
+        updateMobileProgramsActiveCard();
+      }
+
+      const proofSection = document.getElementById('proof');
+      const proofCardsTrack = document.querySelector('#proof .proof-scroll');
+      const proofCards = proofCardsTrack ? Array.from(proofCardsTrack.querySelectorAll('.case-card')) : [];
+      let proofResetting = false;
+
+      function updateMobileProofActiveCard() {
+        if (window.innerWidth > 680 || !proofCardsTrack || !proofCards.length) return;
+        const trackRect = proofCardsTrack.getBoundingClientRect();
+        const targetX = trackRect.left + (trackRect.width * 0.42);
+        let activeCard = proofCards[0];
+        let closest = Infinity;
+        proofCards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const center = rect.left + (rect.width / 2);
+          const delta = Math.abs(center - targetX);
+          if (delta < closest) {
+            closest = delta;
+            activeCard = card;
+          }
+        });
+        proofCards.forEach(card => card.classList.toggle('is-mobile-active', card === activeCard));
+      }
+
+      function resetMobileProofCarousel(forceInstant = false) {
+        if (window.innerWidth > 680 || !proofCardsTrack || !proofCards.length) return;
+        proofResetting = true;
+        proofCardsTrack.scrollTo({ left: 0, behavior: forceInstant || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        proofCards.forEach((card, index) => card.classList.toggle('is-mobile-active', index === 0));
+        window.setTimeout(() => {
+          proofResetting = false;
+          updateMobileProofActiveCard();
+        }, 240);
+      }
+
+      function maybeResetProofOnLeave() {
+        if (window.innerWidth > 680 || !proofSection || !proofCardsTrack || !proofCards.length) return;
+        const rect = proofSection.getBoundingClientRect();
+        if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+          resetMobileProofCarousel(true);
+        }
+      }
+      window.addEventListener('scroll', maybeResetProofOnLeave, { passive: true });
+      window.addEventListener('resize', maybeResetProofOnLeave, { passive: true });
+
+      if (proofCardsTrack && proofCards.length) {
+        proofCardsTrack.addEventListener('scroll', () => {
+          if (!proofResetting) window.requestAnimationFrame(updateMobileProofActiveCard);
+        }, { passive: true });
+        window.addEventListener('resize', () => {
+          updateMobileProofActiveCard();
+        }, { passive: true });
+        updateMobileProofActiveCard();
+      }
+
       let heroCycleIndex = Math.max(0, heroLinks.findIndex(link => link.classList.contains('is-active')));
       let heroCycleTimer = null;
 
