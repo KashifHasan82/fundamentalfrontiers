@@ -2881,6 +2881,154 @@
       }
     }
 
+  
+
+    /* Mobile-only final polish pass */
+    @media (max-width: 680px) {
+      #services.section.tight {
+        padding-bottom: 18px;
+      }
+      #deliverables.section.tight,
+      #programs.section,
+      #proof.section {
+        padding-top: 18px;
+        padding-bottom: 18px;
+      }
+      #contact-book.section {
+        padding-top: 18px;
+      }
+
+      #proof .section-head {
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+      #proof .proof-scroll {
+        gap: 12px;
+        padding: 2px 14px 8px;
+        scroll-padding-inline: 14px;
+      }
+      #proof .proof-scroll > * {
+        flex: 0 0 min(74vw, 286px);
+        min-width: min(74vw, 286px);
+      }
+      #proof .case-visual {
+        min-height: 124px;
+      }
+      #proof .case-copy {
+        padding: 16px 14px 14px;
+        gap: 8px;
+      }
+      #proof .case-copy h3 {
+        font-size: clamp(0.98rem, 0.92rem + 0.42vw, 1.12rem);
+        line-height: 1.06;
+      }
+      #proof .case-copy p {
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+      }
+      #proof .proof-band {
+        display: none;
+      }
+
+      #insights.section.tight {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      #insights .insights-summary {
+        padding: 16px 18px;
+      }
+      #insights .insights-summary-copy {
+        gap: 4px;
+      }
+      #insights .insights-summary-copy strong {
+        font-size: 1.02rem;
+        line-height: 1.2;
+      }
+      #insights .insights-summary-copy span:last-child,
+      #insights .insights-summary-icon,
+      #insights .insights-accordion-body {
+        display: none !important;
+      }
+
+      #contact-book .section-head {
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+      #contact-book .route-top {
+        gap: 8px;
+      }
+      #contact-book .route-top h3 {
+        line-height: 1.08;
+        text-wrap: balance;
+      }
+      #contact-book .route-top p,
+      #contact-book .route-top p.lede {
+        max-width: none;
+        font-size: 0.97rem;
+        line-height: 1.52;
+        text-wrap: pretty;
+      }
+      #contact-book .simple-route-card {
+        padding: 16px;
+      }
+      #contact-book .form-grid.compact-form {
+        gap: 12px;
+      }
+      #contact-book .enquiry-expanded .form-row {
+        gap: 12px;
+      }
+
+      footer {
+        padding-block: 20px 22px;
+      }
+      .footer-shell {
+        gap: 16px;
+        padding: 18px 18px 16px;
+        border: 1px solid rgba(19,27,41,0.08);
+        border-radius: 24px;
+        background: rgba(255,255,255,0.42);
+      }
+      .footer-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 18px 18px;
+      }
+      .footer-brand-block {
+        grid-column: 1 / -1;
+        max-width: none;
+        gap: 10px;
+        padding-bottom: 4px;
+      }
+      .footer-brand-mark {
+        font-size: clamp(2.15rem, 1.94rem + 0.86vw, 2.7rem);
+      }
+      .footer-lede {
+        max-width: 28ch;
+        font-size: 0.98rem;
+        line-height: 1.5;
+      }
+      .footer-col {
+        padding-top: 0;
+        gap: 10px;
+      }
+      .footer-link-list,
+      .footer-link-list.two-col {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .footer-link-list a {
+        font-size: 0.98rem;
+        line-height: 1.35;
+      }
+      .footer-social-row {
+        justify-content: flex-start;
+        gap: 14px;
+        padding-top: 14px;
+      }
+      .footer-small-print {
+        width: 100%;
+      }
+    }
+
   </style>
 <script type="application/ld+json">
   {
@@ -3903,5 +4051,23 @@
       }
     })();
   </script>
+
+<script>
+(function() {
+  const details = document.querySelector('#insights .insights-accordion');
+  const summary = details ? details.querySelector('.insights-summary') : null;
+  const linkedinUrl = 'https://www.linkedin.com/company/fundamental-frontiers';
+  if (summary && details) {
+    summary.addEventListener('click', function(e) {
+      if (window.innerWidth <= 680) {
+        e.preventDefault();
+        details.open = false;
+        window.open(linkedinUrl, '_blank', 'noopener');
+      }
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
