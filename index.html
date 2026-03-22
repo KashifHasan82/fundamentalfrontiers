@@ -3363,6 +3363,108 @@
       }
     }
 
+
+    /* Final follow up fixes: mobile hero reset, mobile booking copy balance, mobile supplier card fit, and desktop proof track removal */
+    @media (max-width: 680px) {
+      #contact-book .section-head .lede {
+        max-width: none;
+        margin-inline: 0;
+        text-wrap: pretty;
+      }
+      #contact-book .route-top p {
+        max-width: none;
+        font-size: 0.95rem;
+        line-height: 1.42;
+        text-wrap: pretty;
+      }
+      #service-visibility {
+        padding-right: 20px;
+      }
+      #service-visibility .meta {
+        padding-right: 10px;
+      }
+      #service-visibility .meta-label {
+        display: inline-flex;
+        align-items: center;
+        max-width: calc(100% - 10px);
+        overflow: hidden;
+        font-size: 0.5rem;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        padding: 6px 8px;
+        white-space: nowrap;
+        text-overflow: clip;
+      }
+      #service-visibility h3 {
+        font-size: clamp(0.98rem, 0.93rem + 0.34vw, 1.08rem);
+        line-height: 1.02;
+        padding-right: 8px;
+        text-wrap: pretty;
+      }
+      #service-visibility p {
+        padding-right: 10px;
+        -webkit-line-clamp: 5;
+      }
+      #service-visibility .service-list {
+        padding-right: 10px;
+      }
+      #service-visibility .service-list li {
+        font-size: 0.88rem;
+        line-height: 1.28;
+        text-wrap: pretty;
+      }
+    }
+
+    @media (min-width: 681px) {
+      #proof .proof-scroll {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 18px !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: none !important;
+        -webkit-overflow-scrolling: auto !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+      }
+      #proof .proof-scroll > * {
+        min-width: 0 !important;
+        flex: initial !important;
+      }
+      #proof .proof-mobile-cue {
+        display: none !important;
+      }
+      #proof .proof-scroll::-webkit-scrollbar,
+      #proof .proof-scroll::-webkit-scrollbar-thumb,
+      #proof .proof-scroll::-webkit-scrollbar-track {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        background: transparent !important;
+      }
+    }
+
+    /* Desktop only: booking and enquiry text width treatment */
+    @media (min-width: 981px) {
+      #contact-book .section-head {
+        max-width: 86ch;
+      }
+      #contact-book .section-head .lede {
+        max-width: 76ch;
+        text-wrap: pretty;
+      }
+      #contact-book .route-top h3 {
+        max-width: none;
+      }
+      #contact-book .route-top p {
+        max-width: none;
+        text-wrap: pretty;
+      }
+    }
+
+
 </style>
 <script type="application/ld+json">
   {
@@ -3696,7 +3798,7 @@
             Representative work aligned to risk, compliance, improvement, and execution priorities. These examples show how structured work has been used to improve organisation, strengthen control, and support more consistent operational follow through.
           </p>
 </div>
-<div class="proof-scroll cards" style="display:flex;">
+<div class="proof-scroll cards">
 <article class="card case-card editorial">
 <div class="case-labels">
 <div class="case-brandline">Fundamental Frontiers</div>
@@ -4262,6 +4364,7 @@
 
       let heroCycleIndex = Math.max(0, heroLinks.findIndex(link => link.classList.contains('is-active')));
       let heroCycleTimer = null;
+      let heroResetTimer = null;
 
       function activateHeroLink(link) {
         if (!link) return;
@@ -4269,25 +4372,51 @@
         heroCycleIndex = heroLinks.indexOf(link);
       }
 
+      function clearHeroFocusState() {
+        heroLinks.forEach(link => {
+          try { link.blur(); } catch (err) {}
+        });
+      }
+
+      function stopHeroCycle() {
+        if (heroCycleTimer) {
+          clearInterval(heroCycleTimer);
+          heroCycleTimer = null;
+        }
+      }
+
       function startHeroCycle() {
+        stopHeroCycle();
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || heroLinks.length < 2) return;
-        if (heroCycleTimer) clearInterval(heroCycleTimer);
         heroCycleTimer = window.setInterval(() => {
           heroCycleIndex = (heroCycleIndex + 1) % heroLinks.length;
           setHeroJumpActive(heroLinks[heroCycleIndex]);
         }, 2000);
       }
 
-      function resetHeroToDefault() {
+      function resetHeroToDefault(forceBlur = false) {
         if (!defaultHeroLink) return;
+        if (heroResetTimer) {
+          clearTimeout(heroResetTimer);
+          heroResetTimer = null;
+        }
         activateHeroLink(defaultHeroLink);
+        if (forceBlur) clearHeroFocusState();
         startHeroCycle();
+      }
+
+      function scheduleHeroReset(delay = 120, forceBlur = false) {
+        if (window.innerWidth > 680 || !defaultHeroLink) return;
+        if (heroResetTimer) clearTimeout(heroResetTimer);
+        heroResetTimer = window.setTimeout(() => {
+          resetHeroToDefault(forceBlur);
+        }, delay);
       }
 
       function heroInView() {
         if (!heroSection) return false;
         const rect = heroSection.getBoundingClientRect();
-        return rect.bottom > 120 && rect.top < window.innerHeight - 120;
+        return rect.bottom > 48 && rect.top < window.innerHeight - 48;
       }
 
       function monitorHeroReturn() {
@@ -4295,11 +4424,12 @@
         const inView = heroInView();
         if (!inView) {
           heroHasBeenOutOfView = true;
+          resetHeroToDefault(true);
           return;
         }
         if (heroHasBeenOutOfView) {
           heroHasBeenOutOfView = false;
-          resetHeroToDefault();
+          resetHeroToDefault(true);
         }
       }
 
@@ -4309,9 +4439,8 @@
         link.addEventListener('click', () => {
           activateHeroLink(link);
           if (window.innerWidth <= 680) {
-            window.setTimeout(() => {
-              resetHeroToDefault();
-            }, 90);
+            heroHasBeenOutOfView = true;
+            scheduleHeroReset(120, true);
           }
         });
       });
@@ -4319,6 +4448,13 @@
       startHeroCycle();
       window.addEventListener('scroll', monitorHeroReturn, { passive: true });
       window.addEventListener('resize', monitorHeroReturn, { passive: true });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          stopHeroCycle();
+          return;
+        }
+        resetHeroToDefault(true);
+      });
       monitorHeroReturn();
 
 
