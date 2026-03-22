@@ -3465,6 +3465,66 @@
     }
 
 
+
+
+    /* Final mobile only patch: static hero labels, supplier visibility fit, and booking copy line control */
+    .mobile-linebreak-force {
+      display: none;
+      height: 0;
+    }
+
+    @media (max-width: 680px) {
+      .hero .service-jump,
+      .hero .service-jump.is-active,
+      .hero .service-jump:hover,
+      .hero .service-jump:focus-visible {
+        opacity: 1;
+      }
+      .hero .service-jump .jump-copy strong,
+      .hero .service-jump.is-active .jump-copy strong,
+      .hero .service-jump:hover .jump-copy strong,
+      .hero .service-jump:focus-visible .jump-copy strong {
+        color: rgba(255,255,255,0.94);
+      }
+      .hero .service-jump .jump-bar,
+      .hero .service-jump.is-active .jump-bar,
+      .hero .service-jump:hover .jump-bar,
+      .hero .service-jump:focus-visible .jump-bar {
+        background: linear-gradient(180deg, rgba(130, 190, 255, 0.88), rgba(88, 145, 212, 0.48));
+        opacity: 1;
+      }
+
+      #service-visibility .meta-label {
+        font-size: 0.47rem;
+        letter-spacing: 0.07em;
+        padding: 5px 7px;
+        max-width: calc(100% - 16px);
+      }
+      #service-visibility h3 {
+        font-size: 0.94rem;
+        line-height: 1.03;
+        padding-right: 14px;
+      }
+      #service-visibility p {
+        font-size: 0.87rem;
+        line-height: 1.36;
+        padding-right: 14px;
+      }
+      #service-visibility .service-list {
+        padding-right: 14px;
+      }
+      #service-visibility .service-list li {
+        font-size: 0.82rem;
+        line-height: 1.24;
+      }
+
+      #contact-book .route-top p {
+        max-width: none;
+      }
+      #contact-book .route-top p .mobile-linebreak-force {
+        display: block;
+      }
+    }
 </style>
 <script type="application/ld+json">
   {
@@ -3892,7 +3952,7 @@
 <article class="card route-card simple-route-card booking-route-card">
 <div class="route-top">
 <h3>Book&nbsp;a&nbsp;readiness&nbsp;call</h3>
-<p>Go straight to the calendar when the next step is already clear.<span class="mobile-linebreak"></span> A direct conversation can begin now.</p>
+<p>Go straight to the calendar when the next step<span class="mobile-linebreak-force"></span> is already clear.<span class="mobile-linebreak-force"></span> A direct conversation can begin now.</p>
 </div>
 <div class="action-stack">
 <a class="btn primary" href="https://calendly.com/fundamentalfrontiers/readiness-call" rel="noopener" target="_blank">Open calendar</a>
@@ -3901,7 +3961,7 @@
 <article class="card route-card simple-route-card enquiry-route-card" data-enquiry-card="">
 <div class="route-top">
 <h3>Send an enquiry</h3>
-<p>Start with your work email to open a short enquiry.<span class="mobile-linebreak"></span> Additional context appears only when needed.</p>
+<p>Start with your work email to open a short enquiry.<span class="mobile-linebreak-force"></span> Additional context appears only when needed.</p>
 </div>
 <form class="form-grid compact-form enquiry-progressive" id="ffEnquiryForm">
 <div class="enquiry-minimal">
@@ -4115,7 +4175,18 @@
       const defaultHeroLink = heroLinks.find(link => link.classList.contains('is-active')) || heroLinks[0] || null;
       let heroHasBeenOutOfView = false;
 
+      function applyMobileHeroStaticState() {
+        if (window.innerWidth > 680) return;
+        heroLinks.forEach(item => item.classList.remove('is-active'));
+        clearHeroFocusState();
+        stopHeroCycle();
+      }
+
       function setHeroJumpActive(link) {
+        if (window.innerWidth <= 680) {
+          applyMobileHeroStaticState();
+          return;
+        }
         heroLinks.forEach(item => item.classList.toggle('is-active', item === link));
       }
 
@@ -4368,6 +4439,10 @@
 
       function activateHeroLink(link) {
         if (!link) return;
+        if (window.innerWidth <= 680) {
+          applyMobileHeroStaticState();
+          return;
+        }
         setHeroJumpActive(link);
         heroCycleIndex = heroLinks.indexOf(link);
       }
@@ -4387,6 +4462,10 @@
 
       function startHeroCycle() {
         stopHeroCycle();
+        if (window.innerWidth <= 680) {
+          applyMobileHeroStaticState();
+          return;
+        }
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || heroLinks.length < 2) return;
         heroCycleTimer = window.setInterval(() => {
           heroCycleIndex = (heroCycleIndex + 1) % heroLinks.length;
@@ -4400,13 +4479,21 @@
           clearTimeout(heroResetTimer);
           heroResetTimer = null;
         }
+        if (window.innerWidth <= 680) {
+          applyMobileHeroStaticState();
+          return;
+        }
         activateHeroLink(defaultHeroLink);
         if (forceBlur) clearHeroFocusState();
         startHeroCycle();
       }
 
       function scheduleHeroReset(delay = 120, forceBlur = false) {
-        if (window.innerWidth > 680 || !defaultHeroLink) return;
+        if (!defaultHeroLink) return;
+        if (window.innerWidth <= 680) {
+          applyMobileHeroStaticState();
+          return;
+        }
         if (heroResetTimer) clearTimeout(heroResetTimer);
         heroResetTimer = window.setTimeout(() => {
           resetHeroToDefault(forceBlur);
@@ -4420,7 +4507,11 @@
       }
 
       function monitorHeroReturn() {
-        if (window.innerWidth > 680 || !heroSection || !defaultHeroLink) return;
+        if (!heroSection || !defaultHeroLink) return;
+        if (window.innerWidth <= 680) {
+          applyMobileHeroStaticState();
+          return;
+        }
         const inView = heroInView();
         if (!inView) {
           heroHasBeenOutOfView = true;
@@ -4437,17 +4528,28 @@
         link.addEventListener('mouseenter', () => activateHeroLink(link));
         link.addEventListener('focus', () => activateHeroLink(link));
         link.addEventListener('click', () => {
-          activateHeroLink(link);
           if (window.innerWidth <= 680) {
-            heroHasBeenOutOfView = true;
-            scheduleHeroReset(120, true);
+            applyMobileHeroStaticState();
+            return;
           }
+          activateHeroLink(link);
         });
       });
 
-      startHeroCycle();
+      if (window.innerWidth <= 680) {
+        applyMobileHeroStaticState();
+      } else {
+        startHeroCycle();
+      }
       window.addEventListener('scroll', monitorHeroReturn, { passive: true });
       window.addEventListener('resize', monitorHeroReturn, { passive: true });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth <= 680) {
+          applyMobileHeroStaticState();
+          return;
+        }
+        resetHeroToDefault(true);
+      }, { passive: true });
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
           stopHeroCycle();
