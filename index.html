@@ -2883,151 +2883,201 @@
 
   
 
-    /* Mobile-only final polish pass */
+    /* Final polish: booking labels, selected work compression, footer alignment, and mobile LinkedIn */
+    .route-kicker {
+      display: none !important;
+    }
+    #contact-book .route-top h3 {
+      max-width: none;
+      text-wrap: nowrap;
+    }
+    .footer-lede {
+      max-width: 31ch;
+      text-wrap: balance;
+    }
+    .footer-link-list a[href^="mailto:"] {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .footer-nav-col {
+      justify-items: center;
+    }
+    .footer-nav-col h4 {
+      text-align: center;
+      width: 100%;
+    }
+    .footer-nav-col .footer-link-list.two-col {
+      width: min(24rem, 100%);
+      justify-self: center;
+    }
+
     @media (max-width: 680px) {
-      #services.section.tight {
-        padding-bottom: 18px;
-      }
-      #deliverables.section.tight,
-      #programs.section,
-      #proof.section {
-        padding-top: 18px;
-        padding-bottom: 18px;
-      }
-      #contact-book.section {
-        padding-top: 18px;
-      }
-
-      #proof .section-head {
-        gap: 10px;
-        margin-bottom: 16px;
-      }
-      #proof .proof-scroll {
-        gap: 12px;
-        padding: 2px 14px 8px;
-        scroll-padding-inline: 14px;
-      }
-      #proof .proof-scroll > * {
-        flex: 0 0 min(74vw, 286px);
-        min-width: min(74vw, 286px);
-      }
-      #proof .case-visual {
-        min-height: 124px;
-      }
-      #proof .case-copy {
-        padding: 16px 14px 14px;
-        gap: 8px;
-      }
-      #proof .case-copy h3 {
-        font-size: clamp(0.98rem, 0.92rem + 0.42vw, 1.12rem);
-        line-height: 1.06;
-      }
-      #proof .case-copy p {
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-      }
-      #proof .proof-band {
-        display: none;
-      }
-
-      #insights.section.tight {
-        padding-top: 12px;
-        padding-bottom: 12px;
-      }
-      #insights .insights-summary {
-        padding: 16px 18px;
-      }
-      #insights .insights-summary-copy {
-        gap: 4px;
-      }
-      #insights .insights-summary-copy strong {
-        font-size: 1.02rem;
-        line-height: 1.2;
-      }
-      #insights .insights-summary-copy span:last-child,
-      #insights .insights-summary-icon,
-      #insights .insights-accordion-body {
-        display: none !important;
-      }
-
-      #contact-book .section-head {
-        gap: 10px;
-        margin-bottom: 16px;
-      }
-      #contact-book .route-top {
-        gap: 8px;
-      }
       #contact-book .route-top h3 {
+        font-size: clamp(1.08rem, 0.98rem + 0.35vw, 1.22rem);
         line-height: 1.08;
-        text-wrap: balance;
+        white-space: nowrap;
       }
       #contact-book .route-top p,
-      #contact-book .route-top p.lede {
+      #contact-book .section-head .lede {
+        text-wrap: balance;
+      }
+      #insights .insights-summary-copy > span:last-child {
+        display: none;
+      }
+      #insights .insights-accordion-body {
+        padding: 12px 14px 14px;
+      }
+      #insights .linkedin-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      #insights .linkedin-card {
+        padding: 12px 14px;
+        border-radius: 16px;
+        gap: 7px;
+        box-shadow: none;
+      }
+      #insights .linkedin-card .meta {
+        display: none;
+      }
+      #insights .linkedin-card h3 {
         max-width: none;
-        font-size: 0.97rem;
-        line-height: 1.52;
-        text-wrap: pretty;
+        font-size: 0.98rem;
+        line-height: 1.2;
       }
-      #contact-book .simple-route-card {
-        padding: 16px;
+      #insights .linkedin-card p {
+        font-size: 0.88rem;
+        line-height: 1.42;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
-      #contact-book .form-grid.compact-form {
-        gap: 12px;
+      #insights .linkedin-card .card-actions {
+        margin-top: 0;
+        padding-top: 0;
       }
-      #contact-book .enquiry-expanded .form-row {
-        gap: 12px;
+      #insights .linkedin-read {
+        font-size: 0.88rem;
+      }
+
+      #proof.section.tight {
+        padding-top: 22px;
+      }
+      #proof .proof-scroll {
+        gap: 16px;
+        padding: 2px 18px 10px;
+        scroll-padding-inline: 18px;
+      }
+      #proof .proof-scroll > * {
+        flex: 0 0 min(72vw, 276px);
+        min-width: min(72vw, 276px);
+      }
+      #proof .case-card.editorial {
+        padding: 14px;
+        gap: 10px;
+      }
+      #proof .case-labels {
+        gap: 1px;
+      }
+      #proof .case-brandline {
+        font-size: 0.9rem;
+        line-height: 1.12;
+      }
+      #proof .case-subline,
+      #proof .case-type {
+        font-size: 0.8rem;
+      }
+      #proof .case-card.editorial h3,
+      #proof .case-copy h3 {
+        font-size: 0.98rem;
+        line-height: 1.04;
+      }
+      #proof .case-card.editorial p,
+      #proof .case-copy p {
+        font-size: 0.88rem;
+        line-height: 1.34;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      #proof .case-link {
+        font-size: 0.84rem;
+      }
+      #proof .case-visual {
+        min-height: 112px;
       }
 
       footer {
-        padding-block: 20px 22px;
+        padding-block: 26px 34px;
       }
       .footer-shell {
-        gap: 16px;
-        padding: 18px 18px 16px;
-        border: 1px solid rgba(19,27,41,0.08);
+        padding: 22px 18px 18px;
         border-radius: 24px;
-        background: rgba(255,255,255,0.42);
+        background: rgba(255,255,255,0.46);
+        box-shadow: 0 12px 28px rgba(17,24,39,0.06);
       }
       .footer-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 18px 18px;
       }
       .footer-brand-block {
         grid-column: 1 / -1;
+        justify-items: center;
+        text-align: center;
         max-width: none;
-        gap: 10px;
-        padding-bottom: 4px;
+        gap: 12px;
       }
       .footer-brand-mark {
-        font-size: clamp(2.15rem, 1.94rem + 0.86vw, 2.7rem);
+        font-size: clamp(2.1rem, 1.8rem + 2vw, 2.9rem);
       }
       .footer-lede {
         max-width: 28ch;
-        font-size: 0.98rem;
-        line-height: 1.5;
+        margin-inline: auto;
+        text-align: center;
+        font-size: 0.96rem;
+        line-height: 1.58;
       }
       .footer-col {
-        padding-top: 0;
         gap: 10px;
+        padding-top: 0;
+      }
+      .footer-nav-col,
+      .footer-contact-col {
+        justify-items: start;
+      }
+      .footer-nav-col h4,
+      .footer-contact-col h4 {
+        text-align: left;
       }
       .footer-link-list,
       .footer-link-list.two-col {
         grid-template-columns: 1fr;
         gap: 8px;
+        width: 100%;
       }
       .footer-link-list a {
-        font-size: 0.98rem;
+        font-size: 0.96rem;
         line-height: 1.35;
       }
+      .footer-link-list a[href^="mailto:"] {
+        font-size: 0.9rem;
+      }
       .footer-social-row {
-        justify-content: flex-start;
+        justify-content: center;
         gap: 14px;
-        padding-top: 14px;
+      }
+      .footer-social {
+        justify-content: center;
+        width: 100%;
       }
       .footer-small-print {
         width: 100%;
+        text-align: center;
       }
     }
+
 
   </style>
 <script type="application/ld+json">
@@ -3460,8 +3510,7 @@
 <div class="contact-grid">
 <article class="card route-card simple-route-card booking-route-card">
 <div class="route-top">
-<div class="route-kicker">Primary route</div>
-<h3>Book a readiness call</h3>
+<h3>Book&nbsp;a&nbsp;readiness&nbsp;call</h3>
 <p>Go straight to the calendar when the next step is already clear and a direct conversation can begin now.</p>
 </div>
 <div class="action-stack">
@@ -3470,7 +3519,6 @@
 </article>
 <article class="card route-card simple-route-card enquiry-route-card" data-enquiry-card="">
 <div class="route-top">
-<div class="route-kicker">Secondary route</div>
 <h3>Send an enquiry</h3>
 <p>Start with your work email to open a short enquiry. Additional context appears only when needed.</p>
 </div>
@@ -4051,23 +4099,5 @@
       }
     })();
   </script>
-
-<script>
-(function() {
-  const details = document.querySelector('#insights .insights-accordion');
-  const summary = details ? details.querySelector('.insights-summary') : null;
-  const linkedinUrl = 'https://www.linkedin.com/company/fundamental-frontiers';
-  if (summary && details) {
-    summary.addEventListener('click', function(e) {
-      if (window.innerWidth <= 680) {
-        e.preventDefault();
-        details.open = false;
-        window.open(linkedinUrl, '_blank', 'noopener');
-      }
-    });
-  }
-})();
-</script>
-
 </body>
 </html>
