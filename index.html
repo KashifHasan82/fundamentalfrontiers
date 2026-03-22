@@ -2406,79 +2406,126 @@
     @media (max-width: 680px) {
       .service-jumps {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 8px;
+        gap: 6px;
         align-items: start;
+        width: 100%;
       }
       .service-jump {
         justify-items: center;
         text-align: center;
-        gap: 6px;
+        gap: 5px;
+        padding-inline: 2px;
       }
       .jump-bar {
-        width: 34px;
+        width: 28px;
         height: 2px;
         justify-self: center;
         margin-inline: auto;
       }
       .jump-copy {
         justify-items: center;
+        width: 100%;
       }
       .jump-copy strong {
-        max-width: 8.6ch;
-        font-size: clamp(0.68rem, 0.58rem + 0.45vw, 0.78rem);
-        line-height: 0.98;
-        letter-spacing: 0.045em;
+        display: block;
+        max-width: 7.9ch;
+        margin-inline: auto;
+        font-size: clamp(0.63rem, 0.56rem + 0.34vw, 0.72rem);
+        line-height: 0.94;
+        letter-spacing: 0.035em;
         text-align: center;
         text-wrap: balance;
       }
       #services.section.tight {
         padding-top: 14px;
       }
+      #services .section-head {
+        justify-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+      #services .kicker {
+        width: min(92vw, 100%);
+        justify-content: center;
+        gap: 12px;
+      }
+      #services .kicker::before,
+      #services .kicker::after {
+        display: block;
+        content: "";
+        flex: 1 1 auto;
+        height: 1px;
+        background: rgba(84, 103, 137, 0.22);
+      }
+      #services h2,
+      #services .lede {
+        text-align: center;
+        margin-inline: auto;
+      }
       #services .cards.scroll {
         display: flex;
         overflow-x: auto;
-        gap: 16px;
-        padding: 2px 2px 8px;
+        gap: 14px;
+        padding: 2px 10px 8px;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         overscroll-behavior-x: contain;
+        scroll-padding-inline: 10px;
       }
       #services .cards.scroll > * {
-        flex: 0 0 min(84vw, 320px);
-        min-width: min(84vw, 320px);
+        flex: 0 0 min(78vw, 296px);
+        min-width: min(78vw, 296px);
         scroll-snap-align: start;
       }
       #services .cards.scroll::-webkit-scrollbar {
-        height: 8px;
+        height: 6px;
       }
       #services .cards.scroll::-webkit-scrollbar-thumb {
         background: rgba(19,27,41,0.14);
         border-radius: 999px;
       }
       #services .service-card {
-        padding: 20px;
-        gap: 10px;
+        padding: 16px 16px 14px;
+        gap: 8px;
+        min-height: 0;
+        transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      }
+      #services .service-card .meta {
+        margin-bottom: 0;
       }
       #services .service-card .meta-label {
-        padding: 7px 12px;
-        font-size: 0.78rem;
-        letter-spacing: 0.14em;
+        padding: 6px 10px;
+        font-size: 0.72rem;
+        letter-spacing: 0.13em;
       }
       #services .service-card h3 {
-        max-width: 13ch;
-        font-size: clamp(1.08rem, 0.94rem + 0.9vw, 1.42rem);
+        max-width: 10.8ch;
+        font-size: clamp(0.98rem, 0.9rem + 0.62vw, 1.18rem);
         line-height: 1.02;
         text-wrap: balance;
       }
       #services .service-card p {
-        font-size: 0.98rem;
-        line-height: 1.46;
+        font-size: 0.92rem;
+        line-height: 1.38;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
       #services .service-list {
-        gap: 10px;
+        gap: 8px;
       }
       #services .service-list li {
-        line-height: 1.38;
+        font-size: 0.92rem;
+        line-height: 1.3;
+      }
+      #services .service-card:not(.is-mobile-active) {
+        background: linear-gradient(180deg, rgba(33,75,141,0.08), rgba(33,75,141,0.04));
+        border-color: rgba(33,75,141,0.14);
+      }
+      #services .service-card.is-mobile-active {
+        background: rgba(255,255,255,0.94);
+        border-color: rgba(19,27,41,0.1);
       }
     }
 
@@ -3124,9 +3171,62 @@
       window.addEventListener('resize', updateMobileUtilityVisibility, { passive: true });
       updateMobileUtilityVisibility();
 
+      function maybeResetServicesOnLeave() {
+        if (window.innerWidth > 680 || !servicesSection || !servicesCardsTrack || !servicesCards.length) return;
+        const rect = servicesSection.getBoundingClientRect();
+        if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+          resetMobileServicesCarousel(true);
+        }
+      }
+      window.addEventListener('scroll', maybeResetServicesOnLeave, { passive: true });
+      window.addEventListener('resize', maybeResetServicesOnLeave, { passive: true });
+
       const heroLinks = $$('.hero .service-jump');
       function setHeroJumpActive(link) {
         heroLinks.forEach(item => item.classList.toggle('is-active', item === link));
+      }
+
+      const servicesCardsTrack = document.querySelector('#services .cards.scroll');
+      const servicesCards = servicesCardsTrack ? Array.from(servicesCardsTrack.querySelectorAll('.service-card')) : [];
+      let servicesResetting = false;
+
+      function updateMobileServicesActiveCard() {
+        if (window.innerWidth > 680 || !servicesCardsTrack || !servicesCards.length) return;
+        const trackRect = servicesCardsTrack.getBoundingClientRect();
+        const targetX = trackRect.left + (trackRect.width * 0.42);
+        let activeCard = servicesCards[0];
+        let closest = Infinity;
+        servicesCards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          const center = rect.left + (rect.width / 2);
+          const delta = Math.abs(center - targetX);
+          if (delta < closest) {
+            closest = delta;
+            activeCard = card;
+          }
+        });
+        servicesCards.forEach(card => card.classList.toggle('is-mobile-active', card === activeCard));
+      }
+
+      function resetMobileServicesCarousel(forceInstant = false) {
+        if (window.innerWidth > 680 || !servicesCardsTrack || !servicesCards.length) return;
+        servicesResetting = true;
+        servicesCardsTrack.scrollTo({ left: 0, behavior: forceInstant || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        servicesCards.forEach((card, index) => card.classList.toggle('is-mobile-active', index === 0));
+        window.setTimeout(() => {
+          servicesResetting = false;
+          updateMobileServicesActiveCard();
+        }, 240);
+      }
+
+      if (servicesCardsTrack && servicesCards.length) {
+        servicesCardsTrack.addEventListener('scroll', () => {
+          if (!servicesResetting) window.requestAnimationFrame(updateMobileServicesActiveCard);
+        }, { passive: true });
+        window.addEventListener('resize', () => {
+          updateMobileServicesActiveCard();
+        }, { passive: true });
+        updateMobileServicesActiveCard();
       }
       let heroCycleIndex = Math.max(0, heroLinks.findIndex(link => link.classList.contains('is-active')));
       let heroCycleTimer = null;
