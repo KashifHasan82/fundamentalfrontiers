@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   FF BRAND TOKENS — locked to company profile (.pptx)
+   Mirror of /lib/design-tokens.ts. Do not deviate.
+   ============================================================ */
+:root {
+  /* Wine */
+  --ff-wine: #7A1F2B;
+  --ff-wine-dark: #611823;
+  --ff-wine-soft: rgba(122, 31, 43, 0.08);
+  --ff-wine-soft-strong: rgba(122, 31, 43, 0.18);
+
+  /* Creams */
+  --ff-cream: #F6F1ED;
+  --ff-cream-light: #F8F5F2;
+  --ff-cream-dark: #F0EAE0;
+
+  /* Inks (cool tone, not pure black) */
+  --ff-ink: #171B24;
+  --ff-ink-variant: #1E2230;
+  --ff-ink-soft: #343434;
+  --ff-ink-muted: #6C7585;
+
+  /* Lines */
+  --ff-line: rgba(23, 27, 36, 0.10);
+  --ff-line-strong: rgba(23, 27, 36, 0.20);
+
+  /* Neutral */
+  --ff-white: #FFFFFF;
+
+  /* Shadcn passthrough */
+  --background: var(--ff-cream);
+  --foreground: var(--ff-ink);
+  --card: var(--ff-white);
+  --card-foreground: var(--ff-ink);
+  --primary: var(--ff-wine);
+  --primary-foreground: var(--ff-white);
+  --muted: var(--ff-cream-dark);
+  --muted-foreground: var(--ff-ink-muted);
+  --border: var(--ff-line);
+  --ring: var(--ff-wine);
+  --radius: 0.5rem;
+}
+
+/* ============================================================
+   TAILWIND THEME — colors only. Fonts handled separately below
+   to avoid the next/font scope mismatch issue.
+   ============================================================ */
+@theme inline {
+  --color-ff-wine: var(--ff-wine);
+  --color-ff-wine-dark: var(--ff-wine-dark);
+  --color-ff-cream: var(--ff-cream);
+  --color-ff-cream-light: var(--ff-cream-light);
+  --color-ff-cream-dark: var(--ff-cream-dark);
+  --color-ff-ink: var(--ff-ink);
+  --color-ff-ink-variant: var(--ff-ink-variant);
+  --color-ff-ink-soft: var(--ff-ink-soft);
+  --color-ff-ink-muted: var(--ff-ink-muted);
+  --color-ff-white: var(--ff-white);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ============================================================
+   FONT UTILITIES — explicit, scope-agnostic.
+   These reference next/font CSS variables (set on <html>) and
+   resolve correctly because the rules apply where the variables
+   are accessible (descendants of html).
+   ============================================================ */
+.font-sans {
+  font-family: var(--font-barlow), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-barlow-condensed), 'Barlow Condensed', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* mobile: 80px header + 16px breathing */
+  }
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: 7rem; /* desktop: 96px header + 16px breathing */
+    }
+  }
+  body {
+    @apply bg-ff-cream text-ff-ink antialiased;
+    font-family: var(--font-barlow), system-ui, sans-serif;
+  }
+}
