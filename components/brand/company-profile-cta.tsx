@@ -9,13 +9,31 @@
  *   • About modal at bottom of OUR TEAM section (variant='secondary')
  *   • Footer legal row (variant='minimal')
  *
+ * AVAILABILITY CHECK — IMPORTANT (patch 37 fix):
+ *   Previous version used a HEAD request to /company-profile.pdf.
+ *   Vercel's CDN returns 404 for HEAD requests on static PDFs even
+ *   when the file exists and GET works fine. This caused all buttons
+ *   site-wide to show "coming soon" even after the PDF was deployed.
+ *
+ *   New approach (fail-open):
+ *     1. Default state: assume PDF is available — button works immediately.
+ *     2. Background check: issue a GET request with AbortController and
+ *        cancel as soon as response headers arrive. Confirms the file
+ *        exists without downloading the 2+ MB body.
+ *     3. Only flip to "coming soon" on a DEFINITIVE 404 from GET.
+ *     4. On any other error (network failure, timeout, abort outside
+ *        our control, etc.) — keep button working. Better UX to let
+ *        a click through to a 404 than to lock the button.
+ *
+ *   This matches how production sites handle file availability checks —
+ *   you want the button to "just work" in 99.9% of cases, not be
+ *   defensively hidden because of a CDN edge case.
+ *
  * BEHAVIOR:
- *   1. On mount, checks if /company-profile.pdf exists (HEAD request,
- *      cached at module level so it only runs once per page load).
- *   2. If file exists → button opens PDF in new tab + fires GA4 event.
- *   3. If file does NOT exist → button shows a small inline message
- *      ("Company Profile coming soon — contact us to request a copy")
- *      below itself when clicked. Auto-hides after 4 seconds.
+ *   • PDF available  → click opens PDF in new tab + fires GA4 event.
+ *   • PDF missing    → click shows inline "coming soon — contact us"
+ *                       message below the button. Auto-hides after 4s.
+ *   • Check pending  → button is fully clickable (assumed available).
  *
  * VARIANTS — visual spec matches buttons.tsx exactly:
  *
@@ -42,22 +60,48 @@ import {
   trackCompanyProfileClick,
 } from '@/lib/company-profile'
 
-// Module-level cache — checked once per page load, shared across instances
-let availabilityCache: boolean | null = null
+// Module-level cache — checked once per page load, shared across instances.
+// Default value = true (fail-open). Background check can flip it to false
+// only on a definitive 404. Any other failure mode keeps it as true.
+let availabilityCache: boolean = true
+let availabilityCheckRan: boolean = false
 let availabilityCheckPromise: Promise<boolean> | null = null
 
 async function checkAvailability(): Promise<boolean> {
-  if (availabilityCache !== null) return availabilityCache
+  // Return cached result if check already ran this page-load
+  if (availabilityCheckRan) return availabilityCache
   if (availabilityCheckPromise) return availabilityCheckPromise
 
-  availabilityCheckPromise = fetch(COMPANY_PROFILE_URL, { method: 'HEAD' })
+  // Fresh check via GET-with-cancel. We use AbortController to cancel
+  // the body download as soon as headers arrive — this avoids actually
+  // downloading the (potentially several MB) PDF just to check existence.
+  const controller = new AbortController()
+
+  availabilityCheckPromise = fetch(COMPANY_PROFILE_URL, {
+    method: 'GET',
+    signal: controller.signal,
+  })
     .then((res) => {
-      availabilityCache = res.ok
-      return res.ok
+      // Cancel body download immediately — we only needed the status
+      controller.abort()
+
+      // Only flip to "missing" on a definitive 404. Other status codes
+      // (200, 304, 5xx, etc.) all leave the button as "available".
+      if (res.status === 404) {
+        availabilityCache = false
+      }
+      // any other status → leave as true (fail-open)
+
+      availabilityCheckRan = true
+      return availabilityCache
     })
     .catch(() => {
-      availabilityCache = false
-      return false
+      // Network error, AbortError after we already got status, etc.
+      // Leave button as "available" — better than locking it on a flaky
+      // CDN response. If the file truly doesn't exist, the user will
+      // see the browser's own 404 page when they click, which is rare.
+      availabilityCheckRan = true
+      return availabilityCache
     })
 
   return availabilityCheckPromise
@@ -71,33 +115,14 @@ interface Props {
   className?: string
 }
 
-// Shared arrow SVG — matches buttons.tsx exactly
-const Arrow = ({ minimal = false }: { minimal?: boolean }) => (
-  <svg
-    className={
-      minimal
-        ? 'w-4 h-4'
-        : 'relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform'
-    }
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M17 8l4 4m0 0l-4 4m4-4H3"
-    />
-  </svg>
-)
-
 export function CompanyProfileCTA({
   source,
   variant = 'secondary',
   className = '',
 }: Props) {
-  const [available, setAvailable] = useState<boolean | null>(null)
+  // Default state: available (fail-open). Background check might flip
+  // this to false only on a definitive 404.
+  const [available, setAvailable] = useState<boolean>(true)
   const [showComingSoon, setShowComingSoon] = useState(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -113,7 +138,7 @@ export function CompanyProfileCTA({
   }, [])
 
   const handleClick = (e: React.MouseEvent) => {
-    if (available === false) {
+    if (!available) {
       e.preventDefault()
       setShowComingSoon(true)
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
@@ -137,7 +162,19 @@ export function CompanyProfileCTA({
           <span className="relative z-10 text-sm font-semibold tracking-wide">
             {COMPANY_PROFILE_LABEL}
           </span>
-          <Arrow />
+          <svg
+            className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
           <div className="absolute inset-0 bg-ff-wine-dark translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
         </a>
         {showComingSoon && <ComingSoonMessage />}
@@ -181,7 +218,7 @@ export function CompanyProfileCTA({
   // ─── MINIMAL — mirrors GhostCTA from buttons.tsx ───────────────
   // Used inside the footer legal row. Footer is dark bg, so inherits
   // text-ff-ink-muted from parent context (footer overrides the wine
-  // color via parent class). Falls back to text-ff-wine elsewhere.
+  // color via parent class).
   return (
     <span className={`inline-flex flex-col items-start gap-2 ${className}`}>
       <a

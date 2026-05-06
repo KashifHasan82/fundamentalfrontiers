@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import {
   ShieldCheck, BadgeCheck, BarChart3,
   ShieldAlert, Gauge, Search,
-  Wrench, Car, Zap, Package, Plane, Stethoscope, RefreshCw, Home,
+  Wrench, Car, Zap, Package, Stethoscope, RefreshCw, Home,
   Award, Leaf, HardHat, Fingerprint, Rocket, HeartPulse, Cog, Target,
   type LucideIcon,
 } from "lucide-react"
@@ -204,8 +204,8 @@ const industries: Industry[] = [
   { name: "Automotive",             short: "Automotive",   icon: Car,         sector: "SUPPLIER",   desc: "Tiered supplier networks, production part approval, and IATF quality system audits." },
   { name: "Power & Utilities",      short: "Utilities",    icon: Zap,         sector: "POWER",      desc: "Generation, transmission, and distribution under strict safety and compliance regimes." },
   { name: "Supply Chain",           short: "Logistics",    icon: Package,     sector: "SUPPLY",     desc: "Logistics visibility, supplier performance management, and end-to-end governance." },
-  { name: "Aerospace & Defense",    short: "Aerospace",    icon: Plane,       sector: "DEFENCE",    desc: "AS 9100 environments with deep audit trail requirements and programme-level risk." },
-  { name: "Medical Devices",        short: "Medical",      icon: Stethoscope, sector: "DEVICES",    desc: "Regulated change control, CAPA discipline, and clinical-grade documentation." },
+  { name: "Environmental Services", short: "Environmental",icon: Leaf,        sector: "ENVIRONMENT", desc: "ISO 14001 environments with permit-driven compliance and reportable emissions risk." },
+  { name: "Medical Technology",     short: "MedTech",      icon: Stethoscope, sector: "MEDTECH",    desc: "Imaging systems, diagnostic instrumentation, and regulated device integration across clinical environments." },
   { name: "Process Manufacturing",  short: "Process",      icon: RefreshCw,   sector: "MFG",        desc: "Continuous and batch production with integrated quality, safety, and throughput." },
   { name: "Hospitality & Services", short: "Hospitality",  icon: Home,        sector: "SERVICES",   desc: "Service environments where repeatable SOP discipline directly drives outcome quality." },
 ]
@@ -827,7 +827,7 @@ export default function HomePage() {
               { name: "AS 9100",    icon: Rocket,      desc: "Aerospace quality management systems",            sector: "AEROSPACE" },
               { name: "ISO 13485",  icon: HeartPulse,  desc: "Medical device quality management",               sector: "MEDICAL" },
               { name: "IATF 16949", icon: Cog,         desc: "Automotive quality management systems",           sector: "AUTOMOTIVE" },
-              { name: "Lean 6σ",    icon: Target,      desc: "Yellow, Green & Black Belt practitioner level",   sector: "IMPROVEMENT" },
+              { name: "Lean Six Sigma", icon: Target, desc: "Yellow, Green & Black Belt practitioner level", sector: "IMPROVEMENT" },
             ].map((fw, i) => (
               <div key={i} className="text-center">
                 <fw.icon

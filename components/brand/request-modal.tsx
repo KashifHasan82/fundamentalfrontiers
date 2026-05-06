@@ -70,6 +70,8 @@ const COPY = {
 export function RequestModal({ state, onClose }: Props) {
   const [formData, setFormData] = useState(initialForm)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
   const isOpen = state !== null
 
   // Reset state on close (delay so user doesn't see fields blank during fade)
@@ -78,6 +80,8 @@ export function RequestModal({ state, onClose }: Props) {
       const t = setTimeout(() => {
         setFormData(initialForm)
         setSubmitted(false)
+        setSubmitting(false)
+        setSubmitError(false)
       }, 300)
       return () => clearTimeout(t)
     }
@@ -99,16 +103,44 @@ export function RequestModal({ state, onClose }: Props) {
       setFormData((prev) => ({ ...prev, [field]: e.target.value }))
     }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO (next pass): wire backend submission here.
-    //   - For 'case-study': trigger PDF download for the matched paper, update success copy.
-    //   - For 'enquiry':    POST to inbox/CRM endpoint.
-    if (typeof window !== 'undefined') {
-      // eslint-disable-next-line no-console
-      console.log('[RequestModal] submitted:', { state, ...formData })
+
+    // Build the payload for Formspree.
+    //
+    // FORMSPREE INTEGRATION NOTES:
+    //   • Endpoint: https://formspree.io/f/xgopzknd
+    //   • Recipient inbox: hasan.kashif@hotmail.com (configured in Formspree)
+    //   • Same endpoint as the existing HTML site — no new account/setup needed
+    //
+    // Special Formspree-recognized fields:
+    //   _subject  — sets the email subject line for clean inbox triage
+    //   _replyto  — Formspree auto-detects from `email` field, no need to set
+    //
+    // To migrate to a different backend later (Resend, custom API):
+    //   change the fetch URL — payload format is generic enough to work
+    //   with any standard form-handling service or your own endpoint.
+    const isStudyRequest = state?.kind === 'case-study'
+    const subject = isStudyRequest
+      ? `Case study request: ${state.title}`
+      : 'Website enquiry — Fundamental Frontiers'
+
+    const payload = {
+      _subject: subject,
+      submission_type: isStudyRequest ? 'Case Study Request' : 'General Enquiry',
+      ...(isStudyRequest && state.kind === 'case-study'
+        ? { case_study_title: state.title }
+        : {}),
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      job_title: formData.jobTitle,
+      department: formData.department,
+      mobile: formData.mobile,
     }
-    // Fire analytics event — variant-specific event name
+
+    // Fire analytics event before the POST — we want the event recorded
+    // even if the user closes the tab before the POST completes.
     if (state?.kind === 'case-study') {
       trackEvent('case_study_submit', {
         source: 'request_modal',
@@ -117,7 +149,36 @@ export function RequestModal({ state, onClose }: Props) {
     } else if (state?.kind === 'enquiry') {
       trackEvent('enquiry_submit', { source: 'request_modal' })
     }
-    setSubmitted(true)
+
+    setSubmitting(true)
+    setSubmitError(false)
+
+    try {
+      const res = await fetch('https://formspree.io/f/xgopzknd', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        // Formspree returned an error (rate limit, validation, etc.)
+        throw new Error(`Formspree returned ${res.status}`)
+      }
+
+      // Success — show the thank-you message
+      setSubmitted(true)
+    } catch (err) {
+      // Network failure or Formspree error.
+      // Show error state. User can retry, or email directly.
+      // eslint-disable-next-line no-console
+      console.error('[RequestModal] submission failed:', err)
+      setSubmitError(true)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   // Pick variant copy. Default to case-study while exit-animating to avoid flicker.
@@ -233,11 +294,25 @@ export function RequestModal({ state, onClose }: Props) {
                   />
                 </div>
 
+                {submitError && (
+                  <div className="mt-6 p-4 border border-ff-wine/30 bg-ff-wine/5 text-sm text-ff-ink leading-relaxed">
+                    Something went wrong sending your message. Please try again, or email us directly at{' '}
+                    <a
+                      href="mailto:contact@fundamentalfrontiers.com"
+                      className="text-ff-wine font-semibold underline hover:no-underline"
+                    >
+                      contact@fundamentalfrontiers.com
+                    </a>
+                    .
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="mt-10 w-full bg-ff-wine text-ff-white py-4 text-sm font-semibold tracking-[0.2em] hover:bg-ff-ink transition-colors"
+                  disabled={submitting}
+                  className="mt-10 w-full bg-ff-wine text-ff-white py-4 text-sm font-semibold tracking-[0.2em] hover:bg-ff-ink transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {copy.submitLabel}
+                  {submitting ? 'SENDING…' : copy.submitLabel}
                 </button>
               </form>
             ) : (

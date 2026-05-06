@@ -111,7 +111,7 @@ export function SiteFooter() {
                 FRAMEWORKS
               </Eyebrow>
               <div className="flex flex-wrap gap-x-6 gap-y-3">
-                {['ISO 9001', 'AS 9100', 'IATF 16949', 'Lean 6σ'].map((fw) => (
+                {['ISO 9001', 'AS 9100', 'IATF 16949', 'Lean Six Sigma'].map((fw) => (
                   <span key={fw} className="text-sm text-ff-ink-muted leading-relaxed">
                     {fw}
                   </span>
@@ -123,11 +123,14 @@ export function SiteFooter() {
         </div>
 
         {/* ─── ZONE 3 — Legal row ────────────────────────────────────
-            Compact: just copyright + legal links. Hairline above keeps
-            the rhythm consistent. */}
+            Compact: copyright + offices + legal links. Hairline above
+            keeps the rhythm consistent. Location signal sits beside
+            the copyright as a single coherent attribution string. */}
         <div className="py-6 lg:py-8 border-t border-ff-ink-soft flex flex-col lg:flex-row justify-between items-center gap-4">
-          <span className="text-sm text-ff-ink-muted">
-            © 2026 Fundamental Frontiers. All rights reserved.
+          <span className="text-sm text-ff-ink-muted text-center lg:text-left">
+            © 2026 Fundamental Frontiers
+            <span className="mx-2 text-ff-ink-muted/40">·</span>
+            Atlanta · Raleigh · Houston, USA
           </span>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
             <CompanyProfileCTA source="footer" variant="minimal" />
