@@ -105,38 +105,33 @@ export function SiteFooter() {
               </div>
             </div>
 
-            {/* OFFICES — mirrors the Profile PDF cover: small wine pill
-                tag (HQ / REGIONAL) followed by city, state, country.
-                Sits as a third column in Zone 2 on desktop, stacks
-                below CONTACT and FRAMEWORKS on mobile. */}
+            {/* OFFICES — quiet editorial style matching the CONTACT
+                column's voice. City info in the same ink-muted body
+                type as the email/phone above; label inline at small
+                wine tracking, restrained. Pills would have felt
+                e-commerce; this matches the firm's premium voice. */}
             <div>
               <Eyebrow className="mb-3">
                 OFFICES
               </Eyebrow>
-              <div className="space-y-2.5">
-                <div className="flex items-center gap-3">
-                  <span className="inline-block px-2 py-0.5 bg-ff-wine text-ff-white text-[10px] font-semibold tracking-[0.2em] uppercase font-display leading-none">
+              <div className="space-y-2">
+                <div className="text-base text-ff-ink-muted leading-relaxed">
+                  <span className="text-ff-wine text-[11px] font-semibold tracking-[0.2em] uppercase font-display mr-3">
                     HQ
                   </span>
-                  <span className="text-base text-ff-ink-muted leading-relaxed">
-                    Atlanta, GA, USA
-                  </span>
+                  Atlanta, GA, USA
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className="inline-block px-2 py-0.5 bg-ff-wine/90 text-ff-white text-[10px] font-semibold tracking-[0.2em] uppercase font-display leading-none">
-                    REGIONAL
+                <div className="text-base text-ff-ink-muted leading-relaxed">
+                  <span className="text-ff-wine/70 text-[11px] font-semibold tracking-[0.2em] uppercase font-display mr-3">
+                    Regional
                   </span>
-                  <span className="text-base text-ff-ink-muted leading-relaxed">
-                    Raleigh, NC, USA
-                  </span>
+                  Raleigh, NC, USA
                 </div>
-                <div className="flex items-center gap-3">
-                  <span className="inline-block px-2 py-0.5 bg-ff-wine/90 text-ff-white text-[10px] font-semibold tracking-[0.2em] uppercase font-display leading-none">
-                    REGIONAL
+                <div className="text-base text-ff-ink-muted leading-relaxed">
+                  <span className="text-ff-wine/70 text-[11px] font-semibold tracking-[0.2em] uppercase font-display mr-3">
+                    Regional
                   </span>
-                  <span className="text-base text-ff-ink-muted leading-relaxed">
-                    Houston, TX, USA
-                  </span>
+                  Houston, TX, USA
                 </div>
               </div>
             </div>
