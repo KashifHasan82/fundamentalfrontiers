@@ -124,22 +124,6 @@ export function PrinciplesModal() {
                   Book a 30-minute call
                 </PrimaryCTA>
               </motion.div>
-
-              {/* ─── LOCATION SIGNAL — same as HomepageHero ───────── */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="mt-12 lg:mt-16"
-              >
-                <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-ff-ink-muted font-display leading-relaxed">
-                  Atlanta · Raleigh · Houston, USA
-                  <span className="hidden lg:inline mx-3 text-ff-ink-muted/50">|</span>
-                  <span className="block lg:inline mt-1 lg:mt-0 text-ff-ink-muted/80 normal-case tracking-normal text-sm">
-                    Serving North America and beyond
-                  </span>
-                </p>
-              </motion.div>
             </div>
 
             {/* Right: hero image (mirrors HomepageHero) */}

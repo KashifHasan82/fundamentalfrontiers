@@ -73,27 +73,6 @@ export function HomepageHero() {
                 Book a readiness call
               </PrimaryCTA>
             </motion.div>
-
-            {/* ─── LOCATION SIGNAL ──────────────────────────────────
-                Small ink-muted line below the CTA. Establishes US base
-                + service region without adding visual weight. Uses
-                eyebrow-style tracking but ink-muted color so it doesn't
-                compete with the wine eyebrow above. Same component is
-                used in About and Principles modal heroes. */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-12 lg:mt-16"
-            >
-              <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-ff-ink-muted font-display leading-relaxed">
-                Atlanta · Raleigh · Houston, USA
-                <span className="hidden lg:inline mx-3 text-ff-ink-muted/50">|</span>
-                <span className="block lg:inline mt-1 lg:mt-0 text-ff-ink-muted/80 normal-case tracking-normal text-sm">
-                  Serving North America and beyond
-                </span>
-              </p>
-            </motion.div>
           </div>
 
           {/* ─── RIGHT: HERO IMAGE (static) ─────────────────── */}

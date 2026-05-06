@@ -105,6 +105,42 @@ export function SiteFooter() {
               </div>
             </div>
 
+            {/* OFFICES — mirrors the Profile PDF cover: small wine pill
+                tag (HQ / REGIONAL) followed by city, state, country.
+                Sits as a third column in Zone 2 on desktop, stacks
+                below CONTACT and FRAMEWORKS on mobile. */}
+            <div>
+              <Eyebrow className="mb-3">
+                OFFICES
+              </Eyebrow>
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-3">
+                  <span className="inline-block px-2 py-0.5 bg-ff-wine text-ff-white text-[10px] font-semibold tracking-[0.2em] uppercase font-display leading-none">
+                    HQ
+                  </span>
+                  <span className="text-base text-ff-ink-muted leading-relaxed">
+                    Atlanta, GA, USA
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="inline-block px-2 py-0.5 bg-ff-wine/90 text-ff-white text-[10px] font-semibold tracking-[0.2em] uppercase font-display leading-none">
+                    REGIONAL
+                  </span>
+                  <span className="text-base text-ff-ink-muted leading-relaxed">
+                    Raleigh, NC, USA
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="inline-block px-2 py-0.5 bg-ff-wine/90 text-ff-white text-[10px] font-semibold tracking-[0.2em] uppercase font-display leading-none">
+                    REGIONAL
+                  </span>
+                  <span className="text-base text-ff-ink-muted leading-relaxed">
+                    Houston, TX, USA
+                  </span>
+                </div>
+              </div>
+            </div>
+
             {/* FRAMEWORKS */}
             <div>
               <Eyebrow className="mb-3">
@@ -123,14 +159,12 @@ export function SiteFooter() {
         </div>
 
         {/* ─── ZONE 3 — Legal row ────────────────────────────────────
-            Compact: copyright + offices + legal links. Hairline above
-            keeps the rhythm consistent. Location signal sits beside
-            the copyright as a single coherent attribution string. */}
+            Compact: just copyright + legal links. Hairline above keeps
+            the rhythm consistent. Office locations now live prominently
+            in Zone 2 (above) — no need to duplicate them here. */}
         <div className="py-6 lg:py-8 border-t border-ff-ink-soft flex flex-col lg:flex-row justify-between items-center gap-4">
-          <span className="text-sm text-ff-ink-muted text-center lg:text-left">
-            © 2026 Fundamental Frontiers
-            <span className="mx-2 text-ff-ink-muted/40">·</span>
-            Atlanta · Raleigh · Houston, USA
+          <span className="text-sm text-ff-ink-muted">
+            © 2026 Fundamental Frontiers. All rights reserved.
           </span>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
             <CompanyProfileCTA source="footer" variant="minimal" />
