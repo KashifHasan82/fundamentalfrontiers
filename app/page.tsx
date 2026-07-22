@@ -17,6 +17,7 @@ import { MobileCarousel, CarouselCounter } from "@/components/brand/mobile-carou
 import { RequestModal, type RequestModalState } from "@/components/brand/request-modal"
 import { CompanyProfileCTA } from "@/components/brand/company-profile-cta"
 import { Eyebrow } from "@/components/brand/typography"
+import { CommonQuestions } from "@/components/brand/common-questions"
 import { trackEvent } from "@/lib/track"
 
 // ============================================================
@@ -247,8 +248,8 @@ const studies: Study[] = [
 ]
 
 // ─── TAB CONTENT BODIES ────────────────────────────────────────
-// One render per tab. Used in both desktop (AnimatePresence active-only)
-// and mobile (active-only — no content carousel). Inside each body we
+// One render per tab. All panels stay in the HTML for crawlability while
+// only the selected panel is visible to the visitor. Inside each body we
 // branch the side credential panel: cream-light BOX on desktop, slim
 // inline list on mobile (matches Frameworks editorial pattern).
 
@@ -377,6 +378,78 @@ function ProgramsTabBody({ tab }: { tab: Program }) {
 
 // ─── PAGE ──────────────────────────────────────────────────────
 
+const homepageStructuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.fundamentalfrontiers.com/#organization',
+      name: 'Fundamental Frontiers',
+      alternateName: 'Fundamental Frontiers Consulting',
+      url: 'https://www.fundamentalfrontiers.com/',
+      logo: 'https://www.fundamentalfrontiers.com/icon.svg',
+      description:
+        'Senior-led consulting across risk, quality, compliance, operations, and continuous improvement.',
+      email: 'contact@fundamentalfrontiers.com',
+      telephone: '+1-404-779-9001',
+      sameAs: ['https://www.linkedin.com/company/fundamental-frontiers/'],
+      address: [
+        {
+          '@type': 'PostalAddress',
+          addressLocality: 'Atlanta',
+          addressRegion: 'GA',
+          addressCountry: 'US',
+        },
+        {
+          '@type': 'PostalAddress',
+          addressLocality: 'Raleigh',
+          addressRegion: 'NC',
+          addressCountry: 'US',
+        },
+        {
+          '@type': 'PostalAddress',
+          addressLocality: 'Houston',
+          addressRegion: 'TX',
+          addressCountry: 'US',
+        },
+      ],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer enquiries',
+        email: 'contact@fundamentalfrontiers.com',
+        telephone: '+1-404-779-9001',
+      },
+      knowsAbout: [
+        'Risk management',
+        'Quality management systems',
+        'Operational excellence',
+        'ISO standards',
+        'Lean Six Sigma',
+        'Compliance readiness',
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Consulting services',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Readiness and governance consulting' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Quality and execution consulting' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Performance visibility and reporting' } },
+        ],
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://www.fundamentalfrontiers.com/#website',
+      url: 'https://www.fundamentalfrontiers.com/',
+      name: 'Fundamental Frontiers',
+      publisher: {
+        '@id': 'https://www.fundamentalfrontiers.com/#organization',
+      },
+      inLanguage: 'en-US',
+    },
+  ],
+}
+
 export default function HomePage() {
   const [openSection, setOpenSection] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState(0)
@@ -403,6 +476,13 @@ export default function HomePage() {
 
   return (
     <div className="bg-ff-white text-ff-ink antialiased">
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homepageStructuredData).replace(/</g, '\\u003c'),
+        }}
+      />
 
       {/* Header is rendered globally by app/layout.tsx via <SiteHeader />. */}
 
@@ -434,7 +514,10 @@ export default function HomePage() {
       <section id="services" className="border-t border-ff-ink/10">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <button
+            type="button"
             onClick={() => toggleSection("services")}
+            aria-expanded={openSection === "services"}
+            aria-controls="services-content"
             className="w-full py-12 flex items-center justify-between group"
           >
             <div className="flex items-start gap-5 lg:gap-12 text-left">
@@ -466,15 +549,17 @@ export default function HomePage() {
             </div>
           </button>
 
-          <AnimatePresence>
-            {openSection === "services" && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                className="overflow-hidden"
-              >
+          <motion.div
+            id="services-content"
+            initial={false}
+            animate={openSection === "services"
+              ? { height: "auto", opacity: 1 }
+              : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            aria-hidden={openSection !== "services"}
+            inert={openSection !== "services"}
+            className="overflow-hidden"
+          >
                 <div className="pb-16">
                   {/* Tab Navigation — center-snap carousel on mobile,
                       3-up flex grid on desktop. The TabNav itself is the
@@ -485,28 +570,18 @@ export default function HomePage() {
                     onChange={(id) => setActiveTab(id as number)}
                   />
 
-                  {/* Tab content — only the active tab's body renders.
-                      Same on mobile and desktop. Desktop adds AnimatePresence fade. */}
-                  <div className="hidden lg:block">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={activeTab}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <ServicesTabBody tab={services[activeTab]} />
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                  <div className="lg:hidden">
-                    <ServicesTabBody tab={services[activeTab]} />
-                  </div>
+                  {/* All panels remain in the DOM; only the selected panel is visible. */}
+                  {services.map((service, index) => (
+                    <div
+                      key={service.id}
+                      hidden={index !== activeTab}
+                      aria-hidden={index !== activeTab}
+                    >
+                      <ServicesTabBody tab={service} />
+                    </div>
+                  ))}
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
@@ -514,7 +589,10 @@ export default function HomePage() {
       <section id="programs" className="border-t border-ff-ink/10">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <button
+            type="button"
             onClick={() => toggleSection("programs")}
+            aria-expanded={openSection === "programs"}
+            aria-controls="programs-content"
             className="w-full py-12 flex items-center justify-between group"
           >
             <div className="flex items-start gap-5 lg:gap-12 text-left">
@@ -546,15 +624,17 @@ export default function HomePage() {
             </div>
           </button>
 
-          <AnimatePresence>
-            {openSection === "programs" && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                className="overflow-hidden"
-              >
+          <motion.div
+            id="programs-content"
+            initial={false}
+            animate={openSection === "programs"
+              ? { height: "auto", opacity: 1 }
+              : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            aria-hidden={openSection !== "programs"}
+            inert={openSection !== "programs"}
+            className="overflow-hidden"
+          >
                 <div className="pb-16">
                   <TabNav
                     tabs={programs.map((p, i) => ({
@@ -567,27 +647,18 @@ export default function HomePage() {
                     onChange={(id) => setActiveProgramTab(id as number)}
                   />
 
-                  {/* Active tab content only — no content carousel */}
-                  <div className="hidden lg:block">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={activeProgramTab}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <ProgramsTabBody tab={programs[activeProgramTab]} />
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                  <div className="lg:hidden">
-                    <ProgramsTabBody tab={programs[activeProgramTab]} />
-                  </div>
+                  {/* All panels remain in the DOM; only the selected panel is visible. */}
+                  {programs.map((program, index) => (
+                    <div
+                      key={program.title}
+                      hidden={index !== activeProgramTab}
+                      aria-hidden={index !== activeProgramTab}
+                    >
+                      <ProgramsTabBody tab={program} />
+                    </div>
+                  ))}
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
@@ -595,7 +666,10 @@ export default function HomePage() {
       <section id="industries" className="border-t border-ff-ink/10">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
           <button
+            type="button"
             onClick={() => toggleSection("industries")}
+            aria-expanded={openSection === "industries"}
+            aria-controls="industries-content"
             className="w-full py-12 flex items-center justify-between group"
           >
             <div className="flex items-start gap-5 lg:gap-12 text-left">
@@ -627,15 +701,17 @@ export default function HomePage() {
             </div>
           </button>
 
-          <AnimatePresence>
-            {openSection === "industries" && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                className="overflow-hidden"
-              >
+          <motion.div
+            id="industries-content"
+            initial={false}
+            animate={openSection === "industries"
+              ? { height: "auto", opacity: 1 }
+              : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            aria-hidden={openSection !== "industries"}
+            inert={openSection !== "industries"}
+            className="overflow-hidden"
+          >
                 <div className="pb-16">
                   {/* MOBILE: byte-for-byte replica of the Frameworks/Standards
                       cell. Same flex container, same gap-x-10 gap-y-8, same
@@ -683,9 +759,7 @@ export default function HomePage() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
@@ -849,6 +923,9 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* ============ COMMON QUESTIONS — concise, crawlable answers ============ */}
+      <CommonQuestions />
 
       {/* ============ CTA ============ */}
       <CtaStrip

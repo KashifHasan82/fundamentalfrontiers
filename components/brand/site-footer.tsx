@@ -162,6 +162,12 @@ export function SiteFooter() {
             © 2026 Fundamental Frontiers. All rights reserved.
           </span>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2">
+            <Link
+              href="/free-course"
+              className="text-sm text-ff-ink-muted hover:text-ff-white transition-colors"
+            >
+              Free course
+            </Link>
             <CompanyProfileCTA source="footer" variant="minimal" />
             <button
               onClick={() => {

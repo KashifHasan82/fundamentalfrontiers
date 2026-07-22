@@ -7,10 +7,10 @@
  *  - Scroll-triggered background (transparent → cream-light on scroll)
  *  - Sticky position, h-24 (96px)
  *  - Logo (FF) on left + ← Home indicator (visible only when not on homepage)
- *  - Nav items: Services · Programs · Selected work · About · Principles
+ *  - Nav items: Services · Programs · Free course · Selected work · About · Principles
  *  - LinkedIn icon + Book a call CTA on right
  *
- * MOBILE adaptation (< lg):
+ * MOBILE adaptation (< xl):
  *  - h-20 (80px) instead of h-24 — more vertical real estate for content
  *  - Logo on left, hamburger on right (LinkedIn + nav + CTA all collapsed
  *    into the drawer — keeps the bar clean at narrow widths)
@@ -30,10 +30,14 @@ import { useEffect, useState } from 'react'
 import { useNav } from '@/lib/nav-context'
 import { trackEvent } from '@/lib/track'
 
-const NAV_ITEMS: Array<{ label: string; anchor: string }> = [
-  { label: 'Services',      anchor: 'services' },
-  { label: 'Programs',      anchor: 'programs' },
-  { label: 'Selected work', anchor: 'selected-work' },
+const NAV_ITEMS: Array<
+  | { kind: 'anchor'; label: string; anchor: string }
+  | { kind: 'route'; label: string; href: string }
+> = [
+  { kind: 'anchor', label: 'Services',      anchor: 'services' },
+  { kind: 'anchor', label: 'Programs',      anchor: 'programs' },
+  { kind: 'route',  label: 'Free course',   href: '/free-course' },
+  { kind: 'anchor', label: 'Selected work', anchor: 'selected-work' },
 ]
 
 const CALENDLY_URL =
@@ -134,15 +138,26 @@ export function SiteHeader() {
         </div>
 
         {/* ─── CENTER: NAV ITEMS (desktop only) ─── */}
-        <nav className="hidden lg:flex items-center gap-10">
+        <nav className="hidden xl:flex items-center gap-8 2xl:gap-10">
           {NAV_ITEMS.map((item) => (
-            <button
-              key={item.anchor}
-              onClick={() => handleAnchor(item.anchor)}
-              className="text-sm font-medium text-ff-ink hover:text-ff-wine transition-colors"
-            >
-              {item.label}
-            </button>
+            item.kind === 'route' ? (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => trackEvent('free_course_click', { source: 'header_desktop' })}
+                className="text-sm font-medium text-ff-ink hover:text-ff-wine transition-colors"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <button
+                key={item.anchor}
+                onClick={() => handleAnchor(item.anchor)}
+                className="text-sm font-medium text-ff-ink hover:text-ff-wine transition-colors"
+              >
+                {item.label}
+              </button>
+            )
           ))}
 
           <button
@@ -169,7 +184,7 @@ export function SiteHeader() {
         {/* ─── RIGHT: LINKEDIN + CTA (desktop) | HAMBURGER (mobile) ─── */}
         <div className="flex items-center gap-4">
           {/* Desktop right-side cluster */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-4">
             <Link
               href={LINKEDIN_URL}
               target="_blank"
@@ -198,7 +213,7 @@ export function SiteHeader() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
-            className="lg:hidden w-11 h-11 -mr-2 flex items-center justify-center text-ff-ink"
+            className="xl:hidden w-11 h-11 -mr-2 flex items-center justify-center text-ff-ink"
           >
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round">
               {menuOpen ? (
@@ -222,7 +237,7 @@ export function SiteHeader() {
       {/* Slides down beneath the header bar. Full-width cream sheet.
           Closes instantly when any nav action is taken. */}
       <div
-        className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-out border-t border-ff-ink/5 bg-ff-cream/98 backdrop-blur-sm ${
+        className={`xl:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-out border-t border-ff-ink/5 bg-ff-cream/98 backdrop-blur-sm ${
           menuOpen ? 'max-h-[calc(100vh-5rem)] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
         }`}
       >
@@ -230,13 +245,27 @@ export function SiteHeader() {
           {/* Anchor links */}
           <nav className="flex flex-col">
             {NAV_ITEMS.map((item) => (
-              <button
-                key={item.anchor}
-                onClick={() => handleAnchor(item.anchor)}
-                className="py-4 text-left text-2xl font-light text-ff-ink hover:text-ff-wine transition-colors border-b border-ff-ink/10"
-              >
-                {item.label}
-              </button>
+              item.kind === 'route' ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => {
+                    trackEvent('free_course_click', { source: 'header_mobile' })
+                    setMenuOpen(false)
+                  }}
+                  className="py-4 text-left text-2xl font-light text-ff-ink hover:text-ff-wine transition-colors border-b border-ff-ink/10"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <button
+                  key={item.anchor}
+                  onClick={() => handleAnchor(item.anchor)}
+                  className="py-4 text-left text-2xl font-light text-ff-ink hover:text-ff-wine transition-colors border-b border-ff-ink/10"
+                >
+                  {item.label}
+                </button>
+              )
             ))}
             <button
               onClick={() => handleOpenModal('about')}

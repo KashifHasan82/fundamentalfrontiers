@@ -1,0 +1,41 @@
+.course-shell {
+  color-scheme: light;
+  --cream: #F5EFE6;
+  --cream-light: #FAF6EE;
+  --cream-soft: #EEE6D9;
+  --wine: #7A1F2B;
+  --wine-dim: #5C1620;
+  --ink: #171B24;
+  --ink-soft: #2C3240;
+  --ink-mute: #4A5160;
+  --gold: #C9A87C;
+  --done: #4A6B47;
+  --partial: #B8893D;
+  --dormant: #8A8F99;
+  --background: #F5EFE6;
+  --foreground: #171B24;
+  --card: #FAF6EE;
+  --card-foreground: #171B24;
+  --popover: #FAF6EE;
+  --popover-foreground: #171B24;
+  --primary: #7A1F2B;
+  --primary-foreground: #F5EFE6;
+  --secondary: #C9A87C;
+  --secondary-foreground: #171B24;
+  --muted: #EEE6D9;
+  --muted-foreground: #4A5160;
+  --accent: #7A1F2B;
+  --accent-foreground: #F5EFE6;
+  --destructive: #7A1F2B;
+  --border: rgba(23, 27, 36, 0.18);
+  --input: #FAF6EE;
+  --ring: #7A1F2B;
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-barlow), system-ui, sans-serif;
+}
+
+.course-shell .font-condensed {
+  font-family: var(--font-barlow-condensed), 'Barlow Condensed', sans-serif;
+}

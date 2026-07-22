@@ -1,11 +1,7 @@
 import type { Metadata } from 'next'
 import { Barlow, Barlow_Condensed } from 'next/font/google'
 import './globals.css'
-import { NavProvider } from '@/lib/nav-context'
-import { SiteHeader } from '@/components/brand/site-header'
-import { PrinciplesModal } from '@/components/brand/principles-modal'
-import { AboutModal } from '@/components/brand/about-modal'
-import { CookieBanner } from '@/components/brand/cookie-banner'
+import { SiteShell } from '@/components/brand/site-shell'
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -22,9 +18,52 @@ const barlowCondensed = Barlow_Condensed({
 })
 
 export const metadata: Metadata = {
-  title: 'Fundamental Frontiers | Consulting on Risk, Quality, and Operations',
+  metadataBase: new URL('https://www.fundamentalfrontiers.com'),
+  title: {
+    default: 'Risk, Quality & Operations Consulting | Fundamental Frontiers',
+    template: '%s | Fundamental Frontiers',
+  },
   description:
-    'Senior-led consulting on risk, quality, and operations. Named consultants, no subcontracting, structured close.',
+    'Senior-led consulting for risk, quality, compliance, and operations. Named accountability, direct implementation, and structured closure.',
+  applicationName: 'Fundamental Frontiers',
+  authors: [{ name: 'Fundamental Frontiers' }],
+  creator: 'Fundamental Frontiers',
+  publisher: 'Fundamental Frontiers',
+  category: 'Business consulting',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    siteName: 'Fundamental Frontiers',
+    title: 'Risk, Quality & Operations Consulting | Fundamental Frontiers',
+    description:
+      'Senior-led consulting for risk, quality, compliance, and operations. Named accountability, direct implementation, and structured closure.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Risk, Quality & Operations Consulting | Fundamental Frontiers',
+    description:
+      'Senior-led consulting for risk, quality, compliance, and operations.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 }
 
 export const viewport = {
@@ -39,24 +78,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable}`}>
+    <html
+      lang="en"
+      className={`${barlow.variable} ${barlowCondensed.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <body className="font-sans antialiased bg-ff-cream text-ff-ink">
-        <NavProvider>
-          {/* Global header — rendered above everything, including modals */}
-          <SiteHeader />
-
-          {/* Page content (homepage by default) */}
-          {children}
-
-          {/* Modals — global mount points. Each is gated by its modalKey
-              and only renders when the nav context says it should. */}
-          <PrinciplesModal />
-          <AboutModal />
-
-          {/* Cookie banner — bottom-left floating card, persists dismissal
-              in localStorage. Renders on top of everything including modals. */}
-          <CookieBanner />
-        </NavProvider>
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   )
