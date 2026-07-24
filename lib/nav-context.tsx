@@ -18,6 +18,7 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 
 type ModalKey = 'principles' | 'about' | 'services' | 'deliverables' | 'programs' | 'proof' | null
 
@@ -32,6 +33,8 @@ type NavContextValue = {
 const NavContext = createContext<NavContextValue | null>(null)
 
 export function NavProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname()
+  const router = useRouter()
   const [openModal, setOpenModalState] = useState<ModalKey>(null)
   const [savedScroll, setSavedScroll] = useState(0)
 
@@ -60,6 +63,12 @@ export function NavProvider({ children }: { children: ReactNode }) {
 
   const goHome = (anchor?: string) => {
     setOpenModalState(null)
+
+    if (pathname !== '/') {
+      router.push(anchor ? `/#${anchor}` : '/')
+      return
+    }
+
     setTimeout(() => {
       if (anchor) {
         const el = document.getElementById(anchor)

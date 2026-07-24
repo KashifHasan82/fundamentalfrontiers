@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   ShieldCheck, BadgeCheck, BarChart3,
@@ -212,6 +213,7 @@ const industries: Industry[] = [
 ]
 
 type Study = {
+  slug: string
   metric: string
   label: string
   title: string
@@ -222,6 +224,7 @@ type Study = {
 
 const studies: Study[] = [
   {
+    slug: "5s-workplace-organisation",
     metric: "50%",
     label: "Search time reduced",
     title: "5S Workplace Organisation",
@@ -230,6 +233,7 @@ const studies: Study[] = [
     desc: "Fifteen work areas. Twelve weeks. The problem was never effort — it was control. By cycle one: search time halved, audit scores up 60%, 5S now part of the operating discipline.",
   },
   {
+    slug: "wind-turbine-capa-programme",
     metric: "50%",
     label: "Failure rate cut",
     title: "Wind Turbine CAPA Programme",
@@ -238,6 +242,7 @@ const studies: Study[] = [
     desc: "A wind farm was losing 15% of energy output to repeat component failures. The trail led to one supplier — inconsistent materials, missing certifications. New supplier, tighter vetting, scheduled audits. Failure rate halved within the quarter.",
   },
   {
+    slug: "contract-lifecycle-management",
     metric: "67%",
     label: "Contract cycle reduced",
     title: "Contract Lifecycle Management",
@@ -811,17 +816,25 @@ export default function HomePage() {
                     {study.desc}
                   </p>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      trackEvent('case_study_request', { source: 'home_mobile', case_study: study.title })
-                      setModalState({ kind: 'case-study', title: study.title })
-                    }}
-                    className="group inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.3em] text-ff-wine font-display hover:text-ff-ink transition-colors self-start"
-                  >
-                    REQUEST THIS CASE STUDY
-                    <span className="transition-transform group-hover:translate-x-1">→</span>
-                  </button>
+                  <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                    <Link
+                      href={`/case-studies/${study.slug}`}
+                      className="group inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.3em] text-ff-wine font-display hover:text-ff-ink transition-colors"
+                    >
+                      READ CASE STUDY
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        trackEvent('case_study_request', { source: 'home_mobile', case_study: study.title })
+                        setModalState({ kind: 'case-study', title: study.title })
+                      }}
+                      className="text-[11px] font-semibold tracking-[0.3em] text-ff-ink-muted font-display hover:text-ff-ink transition-colors"
+                    >
+                      REQUEST COPY
+                    </button>
+                  </div>
                 </div>
               ))}
             </MobileCarousel>
@@ -863,17 +876,25 @@ export default function HomePage() {
                   {study.desc}
                 </p>
 
-                <button
-                  type="button"
-                  onClick={() => {
-                    trackEvent('case_study_request', { source: 'home_desktop', case_study: study.title })
-                    setModalState({ kind: 'case-study', title: study.title })
-                  }}
-                  className="group inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.3em] text-ff-wine font-display hover:text-ff-ink transition-colors self-start"
-                >
-                  REQUEST THIS CASE STUDY
-                  <span className="transition-transform group-hover:translate-x-1">→</span>
-                </button>
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                  <Link
+                    href={`/case-studies/${study.slug}`}
+                    className="group inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.3em] text-ff-wine font-display hover:text-ff-ink transition-colors"
+                  >
+                    READ CASE STUDY
+                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      trackEvent('case_study_request', { source: 'home_desktop', case_study: study.title })
+                      setModalState({ kind: 'case-study', title: study.title })
+                    }}
+                    className="text-[11px] font-semibold tracking-[0.3em] text-ff-ink-muted font-display hover:text-ff-ink transition-colors"
+                  >
+                    REQUEST COPY
+                  </button>
+                </div>
               </div>
             ))}
           </div>
