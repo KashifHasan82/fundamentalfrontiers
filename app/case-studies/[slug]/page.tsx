@@ -13,6 +13,9 @@ import {
 } from '@/lib/case-studies'
 
 const SITE_URL = 'https://www.fundamentalfrontiers.com'
+const ORGANIZATION_ID = `${SITE_URL}/#organization`
+const WEBSITE_ID = `${SITE_URL}/#website`
+const SOCIAL_IMAGE = `${SITE_URL}/opengraph-image`
 
 const icons = {
   car: Car,
@@ -50,11 +53,24 @@ export async function generateMetadata({
       title: `${study.title} Case Study | Fundamental Frontiers`,
       description: study.metaDescription,
       siteName: 'Fundamental Frontiers',
+      publishedTime: study.datePublished,
+      modifiedTime: study.dateModified,
+      section: study.industry,
+      tags: [study.title, study.industry, study.metricLabel],
+      images: [
+        {
+          url: SOCIAL_IMAGE,
+          width: 1200,
+          height: 630,
+          alt: 'Fundamental Frontiers — Risk, Quality and Operations Consulting',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${study.title} Case Study | Fundamental Frontiers`,
       description: study.metaDescription,
+      images: [SOCIAL_IMAGE],
     },
     robots: {
       index: true,
@@ -81,27 +97,91 @@ export default async function CaseStudyPage({
 function CaseStudyContent({ study }: { study: CaseStudy }) {
   const Icon = icons[study.icon]
   const canonical = `${SITE_URL}/case-studies/${study.slug}`
-  const breadcrumbStructuredData = {
+  const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
+    '@graph': [
       {
-        '@type': 'ListItem',
-        position: 1,
+        '@type': 'Organization',
+        '@id': ORGANIZATION_ID,
         name: 'Fundamental Frontiers',
-        item: `${SITE_URL}/`,
+        alternateName: 'Fundamental Frontiers Consulting',
+        url: `${SITE_URL}/`,
+        logo: `${SITE_URL}/icon.svg`,
       },
       {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Selected work',
-        item: `${SITE_URL}/#selected-work`,
+        '@type': 'WebSite',
+        '@id': WEBSITE_ID,
+        url: `${SITE_URL}/`,
+        name: 'Fundamental Frontiers',
+        publisher: {
+          '@id': ORGANIZATION_ID,
+        },
+        inLanguage: 'en-US',
       },
       {
-        '@type': 'ListItem',
-        position: 3,
-        name: study.title,
-        item: canonical,
+        '@type': 'Article',
+        '@id': `${canonical}#article`,
+        url: canonical,
+        headline: `${study.title} Case Study`,
+        name: `${study.title} Case Study`,
+        description: study.metaDescription,
+        abstract: study.summary,
+        datePublished: study.datePublished,
+        dateModified: study.dateModified,
+        articleSection: study.industry,
+        inLanguage: 'en-US',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonical,
+        },
+        isPartOf: {
+          '@id': WEBSITE_ID,
+        },
+        author: {
+          '@id': ORGANIZATION_ID,
+        },
+        publisher: {
+          '@id': ORGANIZATION_ID,
+        },
+        about: [
+          {
+            '@type': 'Thing',
+            name: study.title,
+          },
+          {
+            '@type': 'Thing',
+            name: study.industry,
+          },
+          {
+            '@type': 'Thing',
+            name: study.metricLabel,
+          },
+        ],
+        keywords: [study.title, study.industry, study.metricLabel].join(', '),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonical}#breadcrumb`,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Fundamental Frontiers',
+            item: `${SITE_URL}/`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Selected work',
+            item: `${SITE_URL}/#selected-work`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: study.title,
+            item: canonical,
+          },
+        ],
       },
     ],
   }
@@ -111,7 +191,7 @@ function CaseStudyContent({ study }: { study: CaseStudy }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbStructuredData).replace(/</g, '\\u003c'),
+          __html: JSON.stringify(structuredData).replace(/</g, '\\u003c'),
         }}
       />
 

@@ -3,13 +3,12 @@ import { caseStudies } from '@/lib/case-studies'
 
 const SITE_URL = 'https://www.fundamentalfrontiers.com'
 const LAST_SIGNIFICANT_UPDATE = new Date('2026-07-22')
-const CASE_STUDY_UPDATE = new Date('2026-07-24')
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
-      lastModified: CASE_STUDY_UPDATE,
+      lastModified: new Date('2026-07-24'),
     },
     {
       url: `${SITE_URL}/free-course`,
@@ -21,9 +20,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  const caseStudyPages: MetadataRoute.Sitemap = caseStudies.map(({ slug }) => ({
+  const caseStudyPages: MetadataRoute.Sitemap = caseStudies.map(({ slug, dateModified }) => ({
     url: `${SITE_URL}/case-studies/${slug}`,
-    lastModified: CASE_STUDY_UPDATE,
+    lastModified: new Date(dateModified),
   }))
 
   return [...staticPages, ...caseStudyPages]

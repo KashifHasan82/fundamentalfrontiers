@@ -12,6 +12,8 @@ export type CaseStudy = {
   slug: string
   title: string
   industry: string
+  datePublished: string
+  dateModified: string
   icon: 'car' | 'zap' | 'package'
   metric: string
   metricLabel: string
@@ -32,6 +34,8 @@ export const caseStudies: CaseStudy[] = [
     slug: '5s-workplace-organisation',
     title: '5S Workplace Organisation',
     industry: 'Automotive',
+    datePublished: '2026-07-24',
+    dateModified: '2026-07-24',
     icon: 'car',
     metric: '50%',
     metricLabel: 'Search time reduced',
@@ -66,6 +70,8 @@ export const caseStudies: CaseStudy[] = [
     slug: 'wind-turbine-capa-programme',
     title: 'Wind Turbine CAPA Programme',
     industry: 'Power & Utilities',
+    datePublished: '2026-07-24',
+    dateModified: '2026-07-24',
     icon: 'zap',
     metric: '50%',
     metricLabel: 'Failure rate cut',
@@ -105,6 +111,8 @@ export const caseStudies: CaseStudy[] = [
     slug: 'contract-lifecycle-management',
     title: 'Contract Lifecycle Management',
     industry: 'Supply Chain',
+    datePublished: '2026-07-24',
+    dateModified: '2026-07-24',
     icon: 'package',
     metric: '67%',
     metricLabel: 'Contract cycle reduced',
