@@ -139,15 +139,15 @@ export function RequestModal({ state, onClose }: Props) {
       mobile: formData.mobile,
     }
 
-    // Fire analytics event before the POST — we want the event recorded
-    // even if the user closes the tab before the POST completes.
+    // Record the attempt separately. Conversion events are fired only after
+    // Formspree confirms success, so failed submissions are not counted.
     if (state?.kind === 'case-study') {
-      trackEvent('case_study_submit', {
+      trackEvent('case_study_attempt', {
         source: 'request_modal',
         case_study: state.title,
       })
     } else if (state?.kind === 'enquiry') {
-      trackEvent('enquiry_submit', { source: 'request_modal' })
+      trackEvent('enquiry_attempt', { source: 'request_modal' })
     }
 
     setSubmitting(true)
@@ -166,6 +166,16 @@ export function RequestModal({ state, onClose }: Props) {
       if (!res.ok) {
         // Formspree returned an error (rate limit, validation, etc.)
         throw new Error(`Formspree returned ${res.status}`)
+      }
+
+      // Confirmed conversion — Formspree accepted the submission.
+      if (state?.kind === 'case-study') {
+        trackEvent('case_study_submit', {
+          source: 'request_modal',
+          case_study: state.title,
+        })
+      } else if (state?.kind === 'enquiry') {
+        trackEvent('enquiry_submit', { source: 'request_modal' })
       }
 
       // Success — show the thank-you message

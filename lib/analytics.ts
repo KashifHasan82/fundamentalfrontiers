@@ -2,22 +2,21 @@
  * FF ANALYTICS LOADER
  *
  * Direct port of the old HTML site's `window.ffLoadAnalytics` function.
- * Loads Google Tag Manager + Google Analytics 4 only when called —
+ * Loads Google Tag Manager only when called —
  * never on page load. Designed to be invoked from the cookie banner's
  * OK button, or auto-invoked on subsequent visits if the user
  * previously accepted.
  *
- * Same IDs as the old HTML site:
- *   GTM:  GTM-KQBRPRDF  (centralized container — handles LinkedIn,
- *                        Meta Pixel, conversion tags, etc. via GTM dashboard)
- *   GA4:  G-DX954J7XDQ  (hardcoded direct tag, fires alongside GTM)
+ * Client-owned GTM container:
+ *   GTM: GTM-P2T39422
+ *
+ * GA4 and LinkedIn are deployed from that container. GA4 is deliberately
+ * not loaded directly here, which prevents duplicate page views.
  *
  * Behavior matches the old site exactly:
  *   - Initializes window.dataLayer if not already present
  *   - Adds <link rel="preconnect"> hint to googletagmanager.com
  *   - Injects GTM container script
- *   - Injects GA4 gtag.js script
- *   - Calls gtag('js', new Date()) + gtag('config', GA_ID)
  *   - Guards against double-loading via window.__ffAnalyticsLoaded flag
  *
  * Why this lives in lib/ and not as a Next <Script> component:
@@ -27,8 +26,7 @@
  */
 
 // IDs — change here if Anthropic IDs ever rotate
-const GTM_ID = 'GTM-KQBRPRDF'
-const GA_ID = 'G-DX954J7XDQ'
+const GTM_ID = 'GTM-P2T39422'
 
 // localStorage key for persisting consent decision across visits
 export const CONSENT_KEY = 'ff_cookie_consent_v1'
@@ -38,14 +36,13 @@ export type ConsentState = 'accepted' | 'rejected'
 declare global {
   interface Window {
     dataLayer: unknown[]
-    gtag: (...args: unknown[]) => void
     __ffAnalyticsLoaded?: boolean
-    FF_ANALYTICS?: { gtmId: string; gaId: string }
+    FF_ANALYTICS?: { gtmId: string }
   }
 }
 
 /**
- * Load GTM + GA4. Idempotent — safe to call multiple times.
+ * Load GTM. Idempotent — safe to call multiple times.
  * Does nothing on the server (SSR safety).
  */
 export function loadAnalytics(): void {
@@ -54,7 +51,7 @@ export function loadAnalytics(): void {
   window.__ffAnalyticsLoaded = true
 
   // Make IDs visible on window for debugging — same as old site
-  window.FF_ANALYTICS = { gtmId: GTM_ID, gaId: GA_ID }
+  window.FF_ANALYTICS = { gtmId: GTM_ID }
 
   // dataLayer — must exist before GTM script runs
   window.dataLayer = window.dataLayer || []
@@ -82,19 +79,6 @@ export function loadAnalytics(): void {
     f.parentNode?.insertBefore(j, f)
   })(window, document, 'script', 'dataLayer', GTM_ID)
 
-  // GA4 (gtag.js) — separate from GTM, fires its own pageview on load
-  const gaScript = document.createElement('script')
-  gaScript.async = true
-  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID
-  document.head.appendChild(gaScript)
-
-  window.gtag =
-    window.gtag ||
-    function (...args: unknown[]) {
-      window.dataLayer.push(args)
-    }
-  window.gtag('js', new Date())
-  window.gtag('config', GA_ID)
 }
 
 /**

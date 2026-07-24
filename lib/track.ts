@@ -1,15 +1,9 @@
 /**
  * UNIFIED EVENT TRACKING
  *
- * One function — trackEvent() — that pushes a structured event to:
- *   1. GA4 (via window.gtag)         — for Google Analytics reports
- *   2. dataLayer (GTM picks this up) — for LinkedIn Insight, Meta Pixel,
- *                                       and any other tag wired through
- *                                       your GTM container
- *
- * Why both? GA4 fires its own events directly via gtag(). GTM-managed
- * tags (LinkedIn, Meta, etc.) listen to the dataLayer. By pushing to
- * both we cover every tracking destination from a single call site.
+ * One function — trackEvent() — that pushes a structured event to the
+ * dataLayer. The client-owned GTM container routes it to GA4 and any
+ * approved advertising destinations.
  *
  * Safe before consent: if analytics isn't loaded yet, both calls are
  * no-ops. So adding trackEvent() to a CTA never creates an error or
@@ -43,7 +37,7 @@ export interface TrackEventParams {
 }
 
 /**
- * Push an event to GA4 + GTM dataLayer.
+ * Push an event to the GTM dataLayer.
  * No-op if analytics is not loaded (user hasn't accepted cookies yet).
  *
  * @param eventName  — snake_case verb_noun, e.g. 'book_call_click'
@@ -52,16 +46,7 @@ export interface TrackEventParams {
 export function trackEvent(eventName: string, params: TrackEventParams): void {
   if (typeof window === 'undefined') return
 
-  // Push to GA4 (gtag is set by lib/analytics.ts after consent)
-  if (typeof window.gtag === 'function') {
-    try {
-      window.gtag('event', eventName, params)
-    } catch {
-      // never let analytics break UX
-    }
-  }
-
-  // Push to dataLayer (GTM listens here — LinkedIn, Meta Pixel, etc.)
+  // GTM listens here and routes approved events to GA4/advertising tags.
   if (Array.isArray(window.dataLayer)) {
     try {
       window.dataLayer.push({
